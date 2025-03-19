@@ -10,7 +10,10 @@ export default function Hero(): JSX.Element {
             <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
             <a href="#" class="text-gray-600 hover:text-gray-900">Bookshelf</a>
             <a href="#" class="text-gray-600 hover:text-gray-900">Academy</a>
-            <button class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800">
+            <button
+              type="button"
+              class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"
+            >
               Let's Talk!
             </button>
           </div>
@@ -31,7 +34,10 @@ export default function Hero(): JSX.Element {
               Secure and reliable • Result-driven approach • Fast-paced
               development • Professional
             </p>
-            <button class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors">
+            <button
+              type="button"
+              class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
+            >
               Book a Call
             </button>
           </div>
