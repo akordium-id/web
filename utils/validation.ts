@@ -11,7 +11,7 @@ export type ContactFormData = z.infer<typeof ContactFormSchema>;
 export const validateContactForm = async (
   data: unknown,
 ): Promise<ContactFormData> => {
-  return ContactFormSchema.parseAsync(data);
+  return await ContactFormSchema.parseAsync(data);
 };
 
 export const UserSchema = z.object({
@@ -28,5 +28,5 @@ export const UserSchema = z.object({
 export type UserData = z.infer<typeof UserSchema>;
 
 export const validateUser = async (data: unknown): Promise<UserData> => {
-  return UserSchema.parseAsync(data);
+  return await UserSchema.parseAsync(data);
 };
