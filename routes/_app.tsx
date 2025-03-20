@@ -1,12 +1,22 @@
 import { type PageProps } from "$fresh/server.ts";
+import { defaultSEO, generateMetaTags } from "../utils/seo.ts";
+
 export default function App({ Component }: PageProps) {
+  const metaTags = generateMetaTags();
+
   return (
-    <html>
+    <html lang="id">
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>akordium-id</title>
-        
+        <title>{defaultSEO.title}</title>
+        {metaTags.map((tag) => (
+          <meta
+            {...tag}
+            key={tag.name || tag.property}
+          />
+        ))}
+        <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
         <Component />
