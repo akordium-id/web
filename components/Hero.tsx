@@ -10,8 +10,8 @@ export default function Hero(): JSX.Element {
           <div class="text-xl font-bold">Akordium</div>
           <div class="flex gap-8 items-center">
             <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900">Bookshelf</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900">Academy</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900">Shop</a>
+            <a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a>
             <LanguageDropdown />
             <button
               type="button"
@@ -26,20 +26,7 @@ export default function Hero(): JSX.Element {
       <div class="max-w-screen-xl mx-auto pt-24 px-4">
         <div class="flex flex-col md:flex-row items-center justify-between gap-8 py-12">
           <div class="flex-1 text-left">
-            <div class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mb-6">
-              Software Company
-            </div>
             <HeroContent />
-            <p class="text-gray-600 text-lg mb-8">
-              Secure and reliable • Result-driven approach • Fast-paced
-              development • Professional
-            </p>
-            <button
-              type="button"
-              class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-            >
-              Book a Call
-            </button>
           </div>
           <div class="flex-1">
             <img
