@@ -1,5 +1,5 @@
 import { useSignal } from "@preact/signals";
-import { languageSignal } from "../utils/languageState.ts";
+import { languageSignal, setLanguage } from "../utils/languageState.ts";
 
 export default function LanguageDropdown() {
   const isOpen = useSignal(false);
@@ -15,7 +15,7 @@ export default function LanguageDropdown() {
   };
   
   const selectLanguage = (lang: "en" | "id" | "jv") => {
-    languageSignal.value = lang;
+    setLanguage(lang); // Use the new function that also saves to localStorage
     isOpen.value = false;
   };
   
