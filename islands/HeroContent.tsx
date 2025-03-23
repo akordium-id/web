@@ -16,6 +16,7 @@ export default function HeroContent() {
       </h1>
       <div class="flex gap-4 mb-6">
         <button
+          type="button"
           onClick={() => language.value = "en"}
           class={`px-3 py-1 rounded ${
             language.value === "en" ? "bg-black text-white" : "bg-gray-200"
@@ -24,6 +25,7 @@ export default function HeroContent() {
           English
         </button>
         <button
+          type="button"
           onClick={() => language.value = "id"}
           class={`px-3 py-1 rounded ${
             language.value === "id" ? "bg-black text-white" : "bg-gray-200"
@@ -32,6 +34,7 @@ export default function HeroContent() {
           Indonesian
         </button>
         <button
+          type="button"
           onClick={() => language.value = "jv"}
           class={`px-3 py-1 rounded ${
             language.value === "jv" ? "bg-black text-white" : "bg-gray-200"
