@@ -1,45 +1,14 @@
 import { JSX } from "preact";
+import HeroContent from "../islands/HeroContent.tsx";
+import LanguageDropdown from "../islands/LanguageDropdown.tsx";
 
 export default function Hero(): JSX.Element {
   return (
     <div class="bg-white">
-      <nav class="fixed top-0 left-0 right-0 bg-white z-50">
-        <div class="max-w-screen-xl mx-auto py-4 px-4 flex justify-between items-center">
-          <div class="text-xl font-bold">Akordium</div>
-          <div class="flex gap-8 items-center">
-            <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900">Bookshelf</a>
-            <a href="#" class="text-gray-600 hover:text-gray-900">Academy</a>
-            <button
-              type="button"
-              class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"
-            >
-              Let's Talk!
-            </button>
-          </div>
-        </div>
-      </nav>
-
       <div class="max-w-screen-xl mx-auto pt-24 px-4">
         <div class="flex flex-col md:flex-row items-center justify-between gap-8 py-12">
           <div class="flex-1 text-left">
-            <div class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mb-6">
-              Software Company
-            </div>
-            <h1 class="text-4xl md:text-6xl font-bold text-black mb-6">
-              Digital Transformation
-              <span class="block">with AI Landscape</span>
-            </h1>
-            <p class="text-gray-600 text-lg mb-8">
-              Secure and reliable • Result-driven approach • Fast-paced
-              development • Professional
-            </p>
-            <button
-              type="button"
-              class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-            >
-              Book a Call
-            </button>
+            <HeroContent />
           </div>
           <div class="flex-1">
             <img
