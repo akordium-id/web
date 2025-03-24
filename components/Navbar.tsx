@@ -1,24 +1,32 @@
 import { JSX } from "preact";
-import LanguageDropdown from "../islands/LanguageDropdown.tsx";
+import NavbarMenu from "../islands/NavbarMenu.tsx";
 
 export default function Navbar(): JSX.Element {
+  const menuItems = [
+    { label: "Services", href: "#" },
+    { label: "Work", href: "#" },
+    { label: "About", href: "#" },
+    { label: "Blog", href: "#" },
+    { label: "Shop", href: "#" },
+    { label: "Contact Us", href: "#" },
+  ];
+
   return (
-    <nav class="fixed top-0 left-0 right-0 bg-white z-50 shadow-sm">
-      <div class="max-w-screen-xl mx-auto py-4 px-4 flex justify-between items-center">
-        <div class="text-xl font-bold">Akordium</div>
-        <div class="flex gap-8 items-center">
-          <a href="#" class="text-gray-600 hover:text-gray-900">About</a>
-          <a href="#" class="text-gray-600 hover:text-gray-900">Shop</a>
-          <a href="#" class="text-gray-600 hover:text-gray-900">Contact Us</a>
-          <LanguageDropdown />
-          <button
-            type="button"
-            class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"
-          >
-            Let's Talk!
-          </button>
-        </div>
+    //* Header *//
+    <header class="bg-primary sticky top-0 z-50">
+      <div class="container mx-auto px-4 py-3 flex items-center justify-between">
+        <a href="/" class="text-white font-bold text-xl py-1">
+          <span className="flex items-center gap-1">
+            <span className="text-secondary text-2xl">●</span> Akordium
+          </span>
+        </a>
+
+        <nav class="hidden md:flex items-center space-x-8">
+          <div class="max-w-screen-xl mx-auto py-4 px-4 flex justify-between items-center">
+            <NavbarMenu menuItems={menuItems} />
+          </div>
+        </nav>
       </div>
-    </nav>
+    </header>
   );
 }

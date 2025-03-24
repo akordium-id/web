@@ -16,6 +16,7 @@ export default function App({ Component }: PageProps) {
             key={tag.name || tag.property}
           />
         ))}
+        <link rel="stylesheet" href="/styles.css" />
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

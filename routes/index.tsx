@@ -5,7 +5,7 @@ import ValueProposition from "../islands/ValueProposition.tsx";
 
 export default function Home() {
   return (
-    <main class="bg-[#0f1419]">
+    <main class="bg-[#0f1419] flex flex-col min-h-screen font-sans">
       <Navbar />
       <Hero />
       <ValueProposition />
