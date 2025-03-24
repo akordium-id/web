@@ -60,7 +60,7 @@ export default function NavbarMenu(
         <LanguageDropdown />
         <button
           type="button"
-          class="bg-[#F05D23] text-white px-5 py-2 rounded-full hover:bg-[#d85420] font-medium"
+          class="bg-[#F05D23] text-sm text-white px-5 py-2 rounded-full hover:bg-[#d85420] font-medium"
         >
           Let's Talk
         </button>
