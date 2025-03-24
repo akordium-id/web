@@ -24,7 +24,7 @@ export default function LanguageDropdown() {
       <button
         type="button"
         onClick={toggleDropdown}
-        class="flex items-center gap-1 text-sm text-white hover:text-secondary px-3 py-1"
+        class="flex items-center gap-1 text-sm text-primary hover:text-secondary px-3 py-1"
       >
         {languages[languageSignal.value]}
         <svg
@@ -49,7 +49,7 @@ export default function LanguageDropdown() {
               type="button"
               key={code}
               onClick={() => selectLanguage(code as "en" | "id" | "jv")}
-              class={`block text-sm w-full text-left px-4 py-2 hover:bg-gray-100 ${
+              class={`block text-primary text-sm w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-secondary ${
                 languageSignal.value === code ? "bg-gray-50 font-medium" : ""
               }`}
             >

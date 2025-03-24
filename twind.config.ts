@@ -41,6 +41,12 @@ export default {
             light: "#e77d7d", // Lighter coral for hover states
             dark: "#a73d3d", // Darker coral for dark mode
           },
+          tertiary: {
+            DEFAULT: "#F05D23", // Orange
+            foreground: "#ffffff",
+            light: "#F27D4D", // Lighter orange for hover states
+            dark: "#C74D23", // Darker orange for dark mode
+          },
           accent: {
             DEFAULT: "hsl(var(--accent))",
             foreground: "hsl(var(--accent-foreground))",

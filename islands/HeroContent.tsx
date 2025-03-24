@@ -5,42 +5,57 @@ export default function HeroContent() {
     en: {
       tagline: "Software Company",
       heading: "Your Digital Partner for Growth",
-      subheading: "Secure and reliable • Result-driven approach • Fast-paced development • Professional",
-      cta: "Book a Call"
+      subheading:
+        "Secure and reliable • Result-driven approach • Fast-paced development • Professional",
+      cta: "Book a Call",
+      work: "See Our Work",
     },
     id: {
       tagline: "Perusahaan Software",
       heading: "Mitra Digital untuk Pertumbuhan Bisnis Anda",
-      subheading: "Aman dan terpercaya • Berorientasi hasil • Pengembangan cepat • Profesional",
-      cta: "Jadwalkan Konsultasi"
+      subheading:
+        "Aman dan terpercaya • Berorientasi hasil • Pengembangan cepat • Profesional",
+      cta: "Jadwalkan Konsultasi",
+      work: "Lihat Hasil Kami",
     },
     jv: {
       tagline: "Perusahaan Software",
       heading: "Mitra seng peduli karo njenengan",
-      subheading: "Aman lan terpercaya • Fokus ing hasil • Pengembangan cepet • Profesional",
-      cta: "Hubungi Kita"
-    }
+      subheading:
+        "Aman lan terpercaya • Fokus ing hasil • Pengembangan cepet • Profesional",
+      cta: "Hubungi Kita",
+      work: "Lihat Hasil Kami",
+    },
   };
 
   const currentContent = content[languageSignal.value];
 
   return (
     <>
-      <div class="inline-block bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm mb-6">
-        {currentContent.tagline}
+      <div class="container mx-auto px-4 grid gap-8 md:gap-12 items-center relative z-10">
+        <div class="space-y-4 md:space-y-6 text-center md:text-left">
+          <h1 class="text-3xl md:text-4xl lg:text-5xl font-bold text-primary leading-tight">
+            {currentContent.heading}
+          </h1>
+          <p class="text-gray-700 text-base md:text-lg">
+            {currentContent.subheading}
+          </p>
+          <div class="flex flex-wrap gap-4 justify-center md:justify-start">
+            <a
+              href="#"
+              class="bg-tertiary hover:bg-secondary-light text-white rounded-full px-3 py-2 md:px-5 md:py-3 text-base md:text-lg"
+            >
+              {currentContent.cta}
+            </a>
+            <a
+              href="#"
+              class="border-white text-primary-dark bg-gray-300 hover:bg-secondary-light rounded-full px-3 py-2 md:px-5 md:py-3 text-base md:text-lg font-medium shadow-sm"
+            >
+              {currentContent.work}
+            </a>
+          </div>
+        </div>
       </div>
-      <h1 class="text-4xl md:text-6xl font-bold text-black mb-6">
-        {currentContent.heading}
-      </h1>
-      <p class="text-gray-600 text-lg mb-8">
-        {currentContent.subheading}
-      </p>
-      <button
-        type="button"
-        class="bg-black text-white px-8 py-3 rounded-lg hover:bg-gray-800 transition-colors"
-      >
-        {currentContent.cta}
-      </button>
     </>
   );
 }

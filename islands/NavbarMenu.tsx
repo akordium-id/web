@@ -52,7 +52,7 @@ export default function NavbarMenu(
         {menuItems.map((item) => (
           <a
             href={item.href}
-            class="text-white text-sm hover:text-secondary transition-colors"
+            class="text-primary text-sm hover:text-secondary transition-colors"
           >
             {item.label}
           </a>
@@ -60,7 +60,7 @@ export default function NavbarMenu(
         <LanguageDropdown />
         <button
           type="button"
-          class="bg-[#F05D23] text-sm text-white px-5 py-2 rounded-full hover:bg-[#d85420]"
+          class="bg-tertiary text-sm text-white px-5 py-2 rounded-full hover:bg-tertiary-light"
         >
           Let's Talk
         </button>
@@ -68,7 +68,7 @@ export default function NavbarMenu(
 
       {/* Mobile menu dropdown */}
       {isMenuOpen.value && (
-        <div class="md:hidden px-4 py-2 bg-white shadow-md absolute top-full left-0 right-0">
+        <div class="md:hidden px-4 py-2 bg-primary shadow-md absolute top-full left-0 right-0">
           {menuItems.map((item) => (
             <a
               href={item.href}
@@ -84,7 +84,7 @@ export default function NavbarMenu(
           <div class="py-3">
             <button
               type="button"
-              class="w-full bg-[#F05D23] text-sm text-white px-4 py-2 rounded-full hover:bg-[#d85420]"
+              class="w-full bg-tertiary text-sm text-white px-4 py-2 rounded-full hover:bg-tertiary-light"
               onClick={() => isMenuOpen.value = false}
             >
               Let's Talk
