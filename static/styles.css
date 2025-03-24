@@ -1,0 +1,121 @@
+/* At the top of your CSS file */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+/* ... rest of your CSS */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 240 10% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 240 10% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 240 10% 3.9%;
+    --primary: 258 45% 34%;
+    --primary-foreground: 0 0% 98%;
+    --primary-dark: 258 45% 20%;
+    --secondary: 0 40% 57%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 326 37% 36%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: 258 45% 34%;
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Mobile touch targets */
+@media (max-width: 768px) {
+  button,
+  a {
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  input,
+  select,
+  textarea {
+    font-size: 16px;
+  }
+}
+
+/* Improved text legibility */
+.text-white {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* White button text enhancement */
+.btn-white-outline {
+  @apply bg-white text-primary-dark border-white font-medium shadow-md;
+  text-shadow: none;
+}
+
+/* Responsive typography */
+h1 {
+  @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+}
+
+h2 {
+  @apply text-2xl md:text-3xl font-bold;
+}
+
+h3 {
+  @apply text-xl md:text-2xl font-bold;
+}
+
+p {
+  @apply text-base md:text-lg;
+}
+
+/* Custom scrollbar for better mobile experience */
+@media (max-width: 768px) {
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: rgba(58, 47, 125, 0.3);
+    border-radius: 9999px;
+  }
+}
+
+/* Improved navigation */
+.nav-link {
+  @apply text-white font-medium hover:text-secondary transition-colors;
+  letter-spacing: 0.01em;
+}
+
+/* Mobile menu button */
+.mobile-menu-button {
+  @apply flex items-center justify-center;
+  height: 40px;
+  width: 40px;
+  border-radius: 8px;
+}
+
+/* Mobile menu fixes */
+[data-radix-popper-content-wrapper] {
+  z-index: 9999 !important;
+}
+
+.sheet-content {
+  z-index: 9999 !important;
+}
