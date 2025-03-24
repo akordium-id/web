@@ -24,7 +24,7 @@ export default function LanguageDropdown() {
       <button
         type="button"
         onClick={toggleDropdown}
-        class="flex items-center gap-1 text-sm text-primary hover:text-secondary px-3 py-1"
+        class="flex items-center gap-1 text-sm text-primary hover:text-secondary px-1 py-1"
       >
         {languages[languageSignal.value]}
         <svg

@@ -16,7 +16,7 @@ export default function Hero(): JSX.Element {
             patternUnits="userSpaceOnUse"
             patternContentUnits="userSpaceOnUse"
           >
-            <circle id="pattern-circle" cx="10" cy="10" r="5" fill="#000">
+            <circle id="pattern-circle" cx="10" cy="10" r="5" fill="#F05D23">
             </circle>
           </pattern>
           <rect

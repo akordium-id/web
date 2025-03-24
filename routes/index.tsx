@@ -2,6 +2,7 @@ import Hero from "../components/Hero.tsx";
 import ContentGrid from "../components/ContentGrid.tsx";
 import Header from "../components/Header.tsx";
 import ValueProposition from "../islands/ValueProposition.tsx";
+import StatsSection from "../components/StatsSection.tsx";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Header />
       <Hero />
       <ValueProposition />
+      <StatsSection />
       <ContentGrid />
     </main>
   );
