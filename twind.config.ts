@@ -1,10 +1,15 @@
 import { defineConfig, Preset } from "@twind/core";
 import presetTailwind from "@twind/preset-tailwind";
 import presetAutoprefix from "@twind/preset-autoprefix";
+import presetTypography from "@twind/preset-typography";
 
 export default {
   ...defineConfig({
-    presets: [presetTailwind() as Preset, presetAutoprefix() as Preset],
+    presets: [
+      presetTailwind() as Preset,
+      presetAutoprefix() as Preset,
+      presetTypography() as Preset
+    ],
     theme: {
       container: {
         center: true,
@@ -13,6 +18,10 @@ export default {
           "2xl": "1400px",
         },
       },
+      rules: [
+        ['animate-accordion-down', { animation: 'accordion-down 0.2s ease-out' }],
+        ['animate-accordion-up', { animation: 'accordion-up 0.2s ease-out' }],
+      ],
       extend: {
         colors: {
           border: "hsl(var(--border))",
