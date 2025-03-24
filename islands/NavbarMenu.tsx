@@ -47,19 +47,22 @@ export default function NavbarMenu(
         </svg>
       </button>
 
-      {/* Desktop menu */}
-      <div class="hidden md:flex gap-8 items-center">
+      {/* Desktop menu - moved to the right side */}
+      <div class="hidden md:flex items-center gap-6">
         {menuItems.map((item) => (
-          <a href={item.href} class="text-gray-600 hover:text-gray-900">
+          <a
+            href={item.href}
+            class="text-white text-sm font-medium hover:text-secondary transition-colors"
+          >
             {item.label}
           </a>
         ))}
         <LanguageDropdown />
         <button
           type="button"
-          class="bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"
+          class="bg-[#F05D23] text-white px-5 py-2 rounded-full hover:bg-[#d85420] font-medium"
         >
-          Let's Talk!
+          Let's Talk
         </button>
       </div>
 
@@ -81,10 +84,10 @@ export default function NavbarMenu(
           <div class="py-3">
             <button
               type="button"
-              class="w-full bg-black text-white px-4 py-2 rounded-lg hover:bg-gray-800"
+              class="w-full bg-[#F05D23] text-white px-4 py-2 rounded-full hover:bg-[#d85420]"
               onClick={() => isMenuOpen.value = false}
             >
-              Let's Talk!
+              Let's Talk
             </button>
           </div>
         </div>
