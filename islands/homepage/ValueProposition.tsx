@@ -57,7 +57,7 @@ export default function ValueProposition() {
   return (
     <>
       {/* Description Section */}
-      <section class="py-12 bg-gradient-to-br from-base to-secondary/5">
+      <section class="py-12 bg-base from-base to-secondary/5">
         <div class="container mx-auto px-4">
           <p class="text-primary/90 max-w-4xl mx-auto text-center text-lg">
             {shortContent.intro}
