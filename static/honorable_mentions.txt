@@ -1,0 +1,23 @@
+Team & Contributors
+==================
+
+Core Team:
+- Allah SWT
+- Faiq Najib - Founder & Lead Developer
+- Istiqom Shinta Hardiyanti (my lovely wife <3)
+
+Contributors:
+- b_eyes
+
+Technologies
+===========
+Akordium would not be possible without these amazing projects:
+
+- Deno Fresh - The next-gen web framework for Deno
+- PostgreSQL - The world's most advanced open source database
+- Tailwind CSS - A utility-first CSS framework
+- Twind CSS - The smallest, fastest, most feature complete Tailwind-in-JS solution
+- Laravel - The PHP framework for web artisans
+- React - A JavaScript library for building user interfaces
+- Go - A statically typed, compiled programming language
+- UiPath - A leading enterprise automation software platform (NOT OSS - Open Source Software)

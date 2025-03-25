@@ -60,7 +60,9 @@ export default function Footer() {
                 <a href="#" class="hover:text-gray-300">Contact</a>
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300">Honorable Mentions</a>
+                <a href="/honorable_mentions.txt" class="hover:text-gray-300">
+                  Honorable Mentions
+                </a>
               </li>
             </ul>
           </div>
