@@ -28,10 +28,27 @@ export default function App({ Component }: PageProps) {
           href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
           rel="stylesheet"
         />
+        <script src="https://identity.netlify.com/v1/netlify-identity-widget.js">
+        </script>
       </head>
       <body>
         <Component />
       </body>
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `
+          if (window.netlifyIdentity) {
+            window.netlifyIdentity.on("init", user => {
+              if (!user) {
+                window.netlifyIdentity.on("login", () => {
+                  document.location.href = "/admin/";
+                });
+              }
+            });
+          }
+        `,
+        }}
+      />
     </html>
   );
 }
