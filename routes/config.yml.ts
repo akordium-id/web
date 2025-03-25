@@ -1,4 +1,5 @@
 import { Handlers } from "$fresh/server.ts";
+import { serveFile } from "$std/http/file_server.ts";
 
 export const handler: Handlers = {
   GET(req) {
@@ -6,7 +7,7 @@ export const handler: Handlers = {
     return new Response(null, {
       status: 307,
       headers: {
-        Location: "/admin/config.yml",
+        Location: "../static/admin/config.yml",
       },
     });
   },

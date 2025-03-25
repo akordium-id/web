@@ -6,13 +6,11 @@
     <title>Akordium Content Manager</title>
     <!-- Include the Decap CMS script -->
     <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-    <!-- Add Netlify Identity Widget -->
-    <script
-      src="https://identity.netlify.com/v1/netlify-identity-widget.js"
-    ></script>
   </head>
 
   <body>
+    <!-- Tambahkan elemen root untuk Decap CMS -->
+    <div id="nc-root"></div>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script>
       if (window.netlifyIdentity) {

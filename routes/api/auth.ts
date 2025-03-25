@@ -1,59 +1,87 @@
-import { FreshContext } from "$fresh/server.ts";
+import { Handlers } from "$fresh/server.ts";
 
-export async function handler(req: Request, ctx: FreshContext) {
-  const clientId = Deno.env.get("GITHUB_CLIENT_ID");
-  const clientSecret = Deno.env.get("GITHUB_CLIENT_SECRET");
 
-  console.log("Auth endpoint accessed");
-  console.log("Client ID exists:", !!clientId);
-  console.log("Client Secret exists:", !!clientSecret);
+export const handler: Handlers = {
+  GET(req) {
+    // Redirect ke admin dengan token dari GitHub
+    const url = new URL(req.url);
+    const code = url.searchParams.get("code");
 
-  if (!clientId || !clientSecret) {
-    console.error("Missing OAuth credentials");
-    return new Response("GitHub OAuth credentials not configured", { status: 500 });
-  }
-
-  const url = new URL(req.url);
-  const code = url.searchParams.get("code");
-  console.log("Received code:", code);
-
-  if (!code) {
-    return new Response("No code provided", { status: 400 });
-  }
-
-  try {
-    console.log("Requesting access token from GitHub...");
-    const tokenResponse = await fetch("https://github.com/login/oauth/access_token", {
-      method: "POST",
-      headers: {
-        "Accept": "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        client_id: clientId,
-        client_secret: clientSecret,
-        code: code,
-      }),
-    });
-
-    console.log("Token response status:", tokenResponse.status);
-    const responseText = await tokenResponse.text();
-    console.log("Token response body:", responseText);
-
-    if (!tokenResponse.ok) {
-      return new Response("Failed to get access token: " + responseText, { status: 500 });
+    if (code) {
+      return new Response(null, {
+        status: 302,
+        headers: {
+          "Location": `/admin/#auth-callback=${code}`
+        }
+      });
     }
 
-    const data = JSON.parse(responseText);
-    console.log("Access token received:", !!data.access_token);
+    return new Response("No code provided", { status: 400 });
+  },
 
-    // Redirect back to admin with the token
-    const redirectUrl = `/admin/#access_token=${data.access_token}`;
-    console.log("Redirecting to:", redirectUrl);
+  async POST(req) {
+    // Implementasi untuk exchange code dengan token
+    // const data = await req.json();
+    // const code = data.code;
 
-    return Response.redirect(`https://akordium.id${redirectUrl}`);
-  } catch (error) {
-    console.error("Detailed auth error:", error);
-    return new Response(`Authentication failed: ${error instanceof Error ? error.message : 'Unknown error'}`, { status: 500 });
+    const clientId = Deno.env.get("GITHUB_CLIENT_ID");
+    const clientSecret = Deno.env.get("GITHUB_CLIENT_SECRET");
+
+    console.log("Auth endpoint accessed");
+    console.log("Client ID exists:", !!clientId);
+    console.log("Client Secret exists:", !!clientSecret);
+
+    if (!clientId || !clientSecret) {
+      console.error("Missing OAuth credentials");
+      return new Response("GitHub OAuth credentials not configured", { status: 500 });
+    }
+
+    const url = new URL(req.url);
+    const code = url.searchParams.get("code");
+    console.log("Received code:", code);
+
+    if (!code) {
+      return new Response("No code provided", { status: 400 });
+    }
+
+    try {
+      console.log("Requesting access token from GitHub...");
+      const tokenResponse = await fetch("https://github.com/login/oauth/access_token", {
+        method: "POST",
+        headers: {
+          "Accept": "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          client_id: clientId,
+          client_secret: clientSecret,
+          code: code,
+        }),
+      });
+
+      console.log("Token response status:", tokenResponse.status);
+      const responseText = await tokenResponse.text();
+      console.log("Token response body:", responseText);
+
+      if (!tokenResponse.ok) {
+        return new Response("Failed to get access token: " + responseText, { status: 500 });
+      }
+
+      const data = JSON.parse(responseText);
+      console.log("Access token received:", !!data.access_token);
+
+      // Redirect back to admin with the token
+      const redirectUrl = `/admin/#access_token=${data.access_token}`;
+      console.log("Redirecting to:", redirectUrl);
+
+      return Response.redirect(`https://akordium.id${redirectUrl}`);
+    } catch (error) {
+      console.error("Detailed auth error:", error);
+      return new Response(`Authentication failed: ${error instanceof Error ? error.message : 'Unknown error'}`, { status: 500 });
+    }
+
+    // return new Response(JSON.stringify({ access_token: "token_dari_github" }), {
+    //   headers: { "Content-Type": "application/json" }
+    // });
   }
 }
