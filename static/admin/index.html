@@ -13,14 +13,40 @@
     <div id="nc-root"></div>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script>
-      if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", (user) => {
-          if (!user) {
-            window.netlifyIdentity.on("login", () => {
-              document.location.href = "/admin/";
+      // Tambahkan ini sebelum script Decap CMS
+      // Tangani callback autentikasi secara manual untuk menghindari masalah quota
+      if (window.location.hash.includes("auth-callback")) {
+        // Ekstrak kode dari hash
+        const code = window.location.hash.split("=")[1];
+
+        // Simpan kode dalam sessionStorage dengan ukuran yang lebih kecil
+        // atau kirim langsung ke backend untuk exchange
+        if (code) {
+          // Opsi 1: Simpan kode saja, bukan seluruh token
+          sessionStorage.setItem("auth-code", code);
+
+          // Opsi 2: Kirim ke backend untuk exchange
+          fetch("/api/auth", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ code }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              // Simpan token yang diperlukan saja
+              if (data.access_token) {
+                sessionStorage.setItem(
+                  "github-token",
+                  data.access_token,
+                );
+              }
+              // Bersihkan hash dari URL
+              window.location.hash = "";
+            })
+            .catch((error) => {
+              console.error("Auth error:", error);
             });
-          }
-        });
+        }
       }
     </script>
   </body>
