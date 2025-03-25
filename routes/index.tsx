@@ -6,6 +6,7 @@ import RecentWork from "../islands/homepage/RecentWork.tsx";
 import ClientTestimonials from "../islands/homepage/ClientTestimonials.tsx";
 import Services from "../islands/homepage/Services.tsx";
 import CallToAction from "../islands/homepage/CallToAction.tsx";
+import Footer from "../components/homepage/Footer.tsx";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
       <RecentWork />
       <ClientTestimonials />
       <CallToAction />
+      <Footer />
     </main>
   );
 }
