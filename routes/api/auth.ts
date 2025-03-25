@@ -2,21 +2,41 @@ import { Handlers } from "$fresh/server.ts";
 
 export const handler: Handlers = {
   async GET(req) {
-    // Handle GitHub OAuth redirect
+    // Handle GitHub OAuth redirect and initial auth request
     const url = new URL(req.url);
-    const code = url.searchParams.get("code");
 
-    if (code) {
-      // Redirect to admin with the code in the hash
+    // Check if this is a provider request from Decap CMS
+    if (url.searchParams.has("provider") && url.searchParams.get("provider") === "github") {
+      // This is the initial auth request from Decap CMS
+      const clientId = "Ov23liJSf1T2kc8slkHe"; // Your GitHub OAuth App client ID
+      const redirectUri = "https://akordium.id/api/auth/callback";
+      const scope = "repo";
+
+      // Redirect to GitHub OAuth
       return new Response(null, {
         status: 302,
         headers: {
-          "Location": `/admin#auth-callback=${code}`
+          "Location": `https://github.com/login/oauth/authorize?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scope}`
         }
       });
     }
 
-    return await new Response("No code provided", { status: 400 });
+    // Check if this is a callback from GitHub OAuth
+    if (url.pathname.endsWith("/callback")) {
+      const code = url.searchParams.get("code");
+
+      if (code) {
+        // Redirect to admin with the code in the hash
+        return new Response(null, {
+          status: 302,
+          headers: {
+            "Location": `/admin#auth-callback=${code}`
+          }
+        });
+      }
+    }
+
+    return new Response("No code provided", { status: 400 });
   },
 
   async POST(req) {
@@ -33,7 +53,7 @@ export const handler: Handlers = {
       }
 
       // GitHub OAuth configuration
-      const clientId = "Ov23liJSf1T2kc8slkHe"; // Replace with your actual client ID
+      const clientId = "Ov23liJSf1T2kc8slkHe"; // Your GitHub OAuth App client ID
       const clientSecret = Deno.env.get("GITHUB_CLIENT_SECRET") || ""; // Get from environment variable
 
       // Exchange code for token with GitHub

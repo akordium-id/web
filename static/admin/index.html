@@ -41,9 +41,12 @@
               if (data.access_token) {
                 // Simpan token dengan format yang lebih sederhana
                 const minimalUserData = {
-                  token: { access_token: data.access_token }
+                  token: { access_token: data.access_token },
                 };
-                localStorage.setItem("netlify-cms-user", JSON.stringify(minimalUserData));
+                localStorage.setItem(
+                  "netlify-cms-user",
+                  JSON.stringify(minimalUserData),
+                );
                 console.log("Authentication successful");
               }
               // Bersihkan hash dan reload
@@ -71,7 +74,9 @@
             name: "github",
             repo: "akordium-id/your-repo", // Ganti dengan repo Anda
             base_url: "https://akordium.id",
-            auth_endpoint: "api/auth",
+            auth_endpoint: "/api/auth", // Tambahkan slash di depan
+            auth_type: "implicit", // Pastikan menggunakan implicit flow
+            app_id: "Ov23liJSf1T2kc8slkHe", // Tambahkan client ID GitHub Anda
           },
           load_config_file: false,
           media_folder: "static/images",
@@ -85,8 +90,17 @@
               slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
               fields: [
                 { label: "Title", name: "title", widget: "string" },
-                { label: "Publish Date", name: "date", widget: "datetime" },
-                { label: "Featured Image", name: "thumbnail", widget: "image", required: false },
+                {
+                  label: "Publish Date",
+                  name: "date",
+                  widget: "datetime",
+                },
+                {
+                  label: "Featured Image",
+                  name: "thumbnail",
+                  widget: "image",
+                  required: false,
+                },
                 { label: "Body", name: "body", widget: "markdown" },
               ],
             },
@@ -94,8 +108,8 @@
         };
 
         // Tunggu sampai DOM dan CMS benar-benar dimuat
-        window.addEventListener("load", function() {
-          setTimeout(function() {
+        window.addEventListener("load", function () {
+          setTimeout(function () {
             try {
               if (window.CMS) {
                 window.CMS.init({ config });
