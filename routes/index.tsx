@@ -1,8 +1,8 @@
 import Hero from "../components/Hero.tsx";
-import ContentGrid from "../components/ContentGrid.tsx";
 import Header from "../components/Header.tsx";
 import ValueProposition from "../islands/ValueProposition.tsx";
 import StatsSection from "../components/StatsSection.tsx";
+import RecentWork from "../islands/RecentWork.tsx";
 
 export default function Home() {
   return (
@@ -11,7 +11,7 @@ export default function Home() {
       <Hero />
       <ValueProposition />
       <StatsSection />
-      <ContentGrid />
+      <RecentWork />
     </main>
   );
 }
