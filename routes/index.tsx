@@ -3,6 +3,7 @@ import Header from "../components/homepage/Header.tsx";
 import ValueProposition from "../islands/homepage/ValueProposition.tsx";
 import StatsSection from "../components/homepage/StatsSection.tsx";
 import RecentWork from "../islands/homepage/RecentWork.tsx";
+import ClientTestimonials from "../islands/homepage/ClientTestimonials.tsx";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <ValueProposition />
       <StatsSection />
       <RecentWork />
+      <ClientTestimonials />
     </main>
   );
 }

@@ -7,12 +7,13 @@ import * as $_app from "./routes/_app.tsx";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
-import * as $HeroContent from "./islands/homepage/HeroContent.tsx";
-import * as $LanguageDropdown from "./islands/homepage/LanguageDropdown.tsx";
-import * as $NavbarMenu from "./islands/homepage/NavbarMenu.tsx";
-import * as $RecentWork from "./islands/homepage/RecentWork.tsx";
-import * as $StatsCount from "./islands/homepage/StatsCount.tsx";
-import * as $ValueProposition from "./islands/homepage/ValueProposition.tsx";
+import * as $homepage_ClientTestimonials from "./islands/homepage/ClientTestimonials.tsx";
+import * as $homepage_HeroContent from "./islands/homepage/HeroContent.tsx";
+import * as $homepage_LanguageDropdown from "./islands/homepage/LanguageDropdown.tsx";
+import * as $homepage_NavbarMenu from "./islands/homepage/NavbarMenu.tsx";
+import * as $homepage_RecentWork from "./islands/homepage/RecentWork.tsx";
+import * as $homepage_StatsCount from "./islands/homepage/StatsCount.tsx";
+import * as $homepage_ValueProposition from "./islands/homepage/ValueProposition.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
@@ -24,12 +25,13 @@ const manifest = {
     "./routes/index.tsx": $index,
   },
   islands: {
-    "./islands/HeroContent.tsx": $HeroContent,
-    "./islands/LanguageDropdown.tsx": $LanguageDropdown,
-    "./islands/NavbarMenu.tsx": $NavbarMenu,
-    "./islands/RecentWork.tsx": $RecentWork,
-    "./islands/StatsCount.tsx": $StatsCount,
-    "./islands/ValueProposition.tsx": $ValueProposition,
+    "./islands/homepage/ClientTestimonials.tsx": $homepage_ClientTestimonials,
+    "./islands/homepage/HeroContent.tsx": $homepage_HeroContent,
+    "./islands/homepage/LanguageDropdown.tsx": $homepage_LanguageDropdown,
+    "./islands/homepage/NavbarMenu.tsx": $homepage_NavbarMenu,
+    "./islands/homepage/RecentWork.tsx": $homepage_RecentWork,
+    "./islands/homepage/StatsCount.tsx": $homepage_StatsCount,
+    "./islands/homepage/ValueProposition.tsx": $homepage_ValueProposition,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;
