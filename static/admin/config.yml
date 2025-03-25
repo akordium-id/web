@@ -1,0 +1,30 @@
+backend:
+  name: github
+  repo: your-github-username/akordium
+  branch: main
+  base_url: https://your-deno-deploy-url.deno.dev
+  auth_endpoint: api/auth
+
+# Publish mode for editorial workflow
+publish_mode: editorial_workflow
+
+# Media folder where uploaded images will be stored
+media_folder: "static/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "blog" # Used in routes, e.g., /admin/collections/blog
+    label: "Blog" # Used in the UI
+    folder: "content/blog" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}" # Filename template
+    fields: # The fields for each document
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - {
+          label: "Featured Image",
+          name: "thumbnail",
+          widget: "image",
+          required: false,
+        }
+      - { label: "Body", name: "body", widget: "markdown" }

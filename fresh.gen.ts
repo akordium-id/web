@@ -5,7 +5,10 @@
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_rateLimiter from "./routes/_rateLimiter.ts";
+import * as $api_auth from "./routes/api/auth.ts";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $blog_slug_ from "./routes/blog/[slug].tsx";
+import * as $blog_index from "./routes/blog/index.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $homepage_CallToAction from "./islands/homepage/CallToAction.tsx";
@@ -24,7 +27,10 @@ const manifest = {
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,
     "./routes/_rateLimiter.ts": $_rateLimiter,
+    "./routes/api/auth.ts": $api_auth,
     "./routes/api/joke.ts": $api_joke,
+    "./routes/blog/[slug].tsx": $blog_slug_,
+    "./routes/blog/index.tsx": $blog_index,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
   },
