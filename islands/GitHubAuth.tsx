@@ -7,7 +7,7 @@ export default function GitHubAuth() {
   const handleAuth = () => {
     const clientId = "Ov23liJSf1T2kc8slkHe";
     // Update this to match your GitHub OAuth App settings
-    const redirectUri = "https://www.akordium.id/api/auth";
+    const redirectUri = "https://akordium.id/api/auth";
     const scope = "user";
 
     // Redirect to GitHub OAuth
