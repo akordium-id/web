@@ -52,39 +52,41 @@ export default function ValueProposition() {
     },
   };
 
+  const shortContent = content[languageSignal.value];
+
   return (
     <>
       {/* Description Section */}
-      <section class="py-12 bg-white">
+      <section class="py-12 bg-gradient-to-br from-base to-secondary/5">
         <div class="container mx-auto px-4">
-          <p class="text-gray-600 max-w-4xl mx-auto text-center text-lg">
-            {content[languageSignal.value].intro}
-            <span class="font-semibold">
-              {content[languageSignal.value].firstValue}
-            </span>,
-            <span class="font-semibold">
-              {content[languageSignal.value].secondValue}
-            </span>,
-            <span class="font-semibold">
-              {content[languageSignal.value].thirdValue}
+          <p class="text-primary/90 max-w-4xl mx-auto text-center text-lg">
+            {shortContent.intro}
+            <span class="font-semibold text-secondary">
+              {shortContent.firstValue}
             </span>
-            {content[languageSignal.value].divider}
-            <span class="text-primary font-semibold">
-              {content[languageSignal.value].fourthValue}
+            <span class="font-semibold text-secondary">
+              {shortContent.secondValue}
             </span>
-            {content[languageSignal.value].closure}
+            <span class="font-semibold text-secondary">
+              {shortContent.thirdValue}
+            </span>
+            {shortContent.divider}
+            <span class="text-tertiary font-semibold">
+              {shortContent.fourthValue}
+            </span>
+            {shortContent.closure}
           </p>
           <div class="mt-8 text-center">
-            <p class="text-gray-600">
-              {content[languageSignal.value].team}{" "}
-              <span class="font-semibold">
-                {content[languageSignal.value].trait}
+            <p class="text-primary/80">
+              {shortContent.team}{" "}
+              <span class="font-semibold text-accent">
+                {shortContent.trait}
               </span>{" "}
-              {content[languageSignal.value].has}
-              <span class="text-primary font-semibold">
-                {content[languageSignal.value].experience}
+              {shortContent.has}
+              <span class="text-tertiary font-semibold">
+                {shortContent.experience}
               </span>{" "}
-              {content[languageSignal.value].fields}
+              {shortContent.fields}
             </p>
           </div>
         </div>

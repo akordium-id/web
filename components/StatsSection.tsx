@@ -11,11 +11,12 @@ export default function StatsSection(): JSX.Element {
             id="pattern-triangles"
             x="0"
             y="0"
-            width="60"
-            height="60"
+            width="65"
+            height="65"
             patternUnits="userSpaceOnUse"
           >
-            <path d="M0,0 L30,52 L60,0 Z" fill="#3a2f7d"></path>
+            <path d="M0,0 L30,52 L60,0 L60,0 Z" fill="#3a2f7d" stroke="none">
+            </path>
           </pattern>
           <rect
             x="0"
@@ -23,8 +24,7 @@ export default function StatsSection(): JSX.Element {
             width="100%"
             height="100%"
             fill="url(#pattern-triangles)"
-          >
-          </rect>
+          />
         </svg>
       </div>
 
