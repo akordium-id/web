@@ -4,55 +4,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Akordium Content Manager</title>
-    <!-- Include the Decap CMS script -->
-    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
   </head>
 
   <body>
     <!-- Tambahkan elemen root untuk Decap CMS -->
     <div id="nc-root"></div>
 
-    <!-- Include the script that builds the page and powers Decap CMS -->
+    <!-- Handle auth callback first, before loading CMS script -->
     <script>
-      // Configure Decap CMS to use GitHub authentication
-      window.CMS_MANUAL_INIT = true;
-
-      window.decapCmsConfig = {
-        backend: {
-          name: "github",
-          repo: "akordium-id/web", // Replace with your actual repo
-          auth_endpoint: "api/auth",
-          base_url: "https://akordium.id",
-          auth_type: "implicit",
-        },
-        media_folder: "static/images",
-        public_folder: "/images",
-        collections: [
-          {
-            name: "blog",
-            label: "Blog",
-            folder: "content/blog",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            fields: [
-              { label: "Title", name: "title", widget: "string" },
-              {
-                label: "Publish Date",
-                name: "date",
-                widget: "datetime",
-              },
-              {
-                label: "Featured Image",
-                name: "thumbnail",
-                widget: "image",
-                required: false,
-              },
-              { label: "Body", name: "body", widget: "markdown" },
-            ],
-          },
-        ],
-      };
-
       // Handle auth callback
       if (window.location.hash.includes("auth-callback")) {
         // Extract code from hash
@@ -71,25 +30,80 @@
             .then((response) => response.json())
             .then((data) => {
               if (data.access_token) {
-                sessionStorage.setItem(
-                  "github-token",
-                  data.access_token,
+                // Store token in localStorage for Decap CMS to use
+                localStorage.setItem(
+                  "netlify-cms-user",
+                  JSON.stringify({
+                    token: {
+                      access_token: data.access_token,
+                    },
+                  }),
                 );
                 console.log("Authentication successful");
               }
-              // Clean hash from URL
-              window.location.hash = "";
-              // Reload the page to initialize CMS with the token
-              window.location.reload();
+              // Clean hash from URL and reload
+              window.location.href = "/admin/";
             })
             .catch((error) => {
               console.error("Auth error:", error);
             });
         }
-      } else {
-        // Initialize CMS when not in auth callback flow
-        window.addEventListener("load", function () {
-          window.CMS.init({ config: window.decapCmsConfig });
+      }
+    </script>
+
+    <!-- Include the Decap CMS script after auth handling -->
+    <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+
+    <!-- Initialize CMS with configuration -->
+    <script>
+      // Only initialize if not in auth callback flow
+      if (!window.location.hash.includes("auth-callback")) {
+        // Configure Decap CMS
+        window.CMS_MANUAL_INIT = true;
+
+        const config = {
+          backend: {
+            name: "github",
+            repo: "akordium-id/your-repo", // Replace with your actual repo
+            base_url: "https://akordium.id",
+            auth_endpoint: "api/auth",
+          },
+          media_folder: "static/images",
+          public_folder: "/images",
+          collections: [
+            {
+              name: "blog",
+              label: "Blog",
+              folder: "content/blog",
+              create: true,
+              slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+              fields: [
+                { label: "Title", name: "title", widget: "string" },
+                {
+                  label: "Publish Date",
+                  name: "date",
+                  widget: "datetime",
+                },
+                {
+                  label: "Featured Image",
+                  name: "thumbnail",
+                  widget: "image",
+                  required: false,
+                },
+                { label: "Body", name: "body", widget: "markdown" },
+              ],
+            },
+          ],
+        };
+
+        // Wait for DOM to be fully loaded before initializing CMS
+        document.addEventListener("DOMContentLoaded", function () {
+          // Make sure CMS is available
+          if (window.CMS) {
+            window.CMS.init({ config });
+          } else {
+            console.error("CMS not loaded properly");
+          }
         });
       }
     </script>
