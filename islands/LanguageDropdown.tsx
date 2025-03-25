@@ -7,7 +7,7 @@ export default function LanguageDropdown() {
   const languages = {
     en: "EN",
     id: "ID",
-    jv: "JV",
+    jv: "JW",
   };
 
   const toggleDropdown = () => {

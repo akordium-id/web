@@ -12,10 +12,8 @@ export default function Navbar(): JSX.Element {
   ];
 
   return (
-    <nav class="hidden md:flex items-center space-x-8">
-      <div class="max-w-screen-xl mx-auto py-4 px-4 flex justify-between items-center">
-        <NavbarMenu menuItems={menuItems} />
-      </div>
+    <nav class="flex items-center">
+      <NavbarMenu menuItems={menuItems} />
     </nav>
   );
 }

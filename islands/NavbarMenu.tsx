@@ -25,13 +25,13 @@ export default function NavbarMenu(
       {/* Mobile menu button */}
       <button
         type="button"
-        class="md:hidden flex items-center"
+        class="flex items-center p-2 rounded-lg hover:bg-gray-100 md:hidden"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
-          class="h-6 w-6"
+          class="h-6 w-6 text-primary"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -47,12 +47,12 @@ export default function NavbarMenu(
         </svg>
       </button>
 
-      {/* Desktop menu - moved to the right side */}
+      {/* Desktop menu */}
       <div class="hidden md:flex items-center gap-6">
         {menuItems.map((item) => (
           <a
             href={item.href}
-            class="text-primary text-sm hover:text-secondary transition-colors"
+            class="text-primary text-sm font-medium hover:text-secondary transition-colors"
           >
             {item.label}
           </a>
@@ -60,38 +60,64 @@ export default function NavbarMenu(
         <LanguageDropdown />
         <button
           type="button"
-          class="bg-tertiary text-sm text-white px-5 py-2 rounded-full hover:bg-tertiary-light"
+          class="bg-tertiary text-sm font-medium text-white px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
         >
           Let's Talk
         </button>
       </div>
 
       {/* Mobile menu dropdown */}
-      {isMenuOpen.value && (
-        <div class="md:hidden px-4 py-2 bg-primary shadow-md absolute top-full left-0 right-0">
+      <div
+        class={`fixed inset-0 z-50 md:hidden bg-white transform ${
+          isMenuOpen.value ? "translate-x-0" : "translate-x-full"
+        } transition-transform duration-200 ease-in-out`}
+      >
+        <div class="flex items-center justify-between p-4 border-b">
+          <span class="text-lg font-semibold text-primary">Menu</span>
+          <button
+            type="button"
+            class="p-2 rounded-lg hover:bg-gray-100"
+            onClick={toggleMenu}
+            aria-label="Close menu"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6 text-primary"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div class="p-4 space-y-4">
           {menuItems.map((item) => (
             <a
               href={item.href}
-              class="block py-2 text-gray-600 hover:text-gray-900 border-b border-gray-100"
-              onClick={() => isMenuOpen.value = false}
+              class="block py-2 text-primary hover:text-secondary transition-colors text-lg"
+              onClick={toggleMenu}
             >
               {item.label}
             </a>
           ))}
-          <div class="py-2">
+          <div class="py-2 border-t">
             <LanguageDropdown />
           </div>
-          <div class="py-3">
-            <button
-              type="button"
-              class="w-full bg-tertiary text-sm text-white px-4 py-2 rounded-full hover:bg-tertiary-light"
-              onClick={() => isMenuOpen.value = false}
-            >
-              Let's Talk
-            </button>
-          </div>
+          <button
+            type="button"
+            class="w-full bg-tertiary text-white px-4 py-3 rounded-full hover:bg-tertiary-light transition-colors text-lg font-medium"
+            onClick={toggleMenu}
+          >
+            Let's Talk
+          </button>
         </div>
-      )}
+      </div>
     </>
   );
 }
