@@ -15,59 +15,6 @@
   <body>
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script>
-      // Configure Decap CMS to use GitHub authentication
-      window.CMS_MANUAL_INIT = true;
-
-      window.decapCmsConfig = {
-        backend: {
-          name: "github",
-          repo: "akordium-id/your-repo", // Replace with your GitHub username/repo
-          auth_endpoint: "api/auth", // This should match your OAuth callback URL
-          base_url: "https://akordium.id",
-          auth_type: "implicit",
-        },
-        media_folder: "static/images",
-        public_folder: "/images",
-        collections: [
-          {
-            name: "blog",
-            label: "Blog",
-            folder: "content/blog",
-            create: true,
-            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
-            preview_path: "blog/{{slug}}",
-            fields: [
-              {
-                label: "Title",
-                name: "title",
-                widget: "string",
-              },
-              {
-                label: "Publish Date",
-                name: "date",
-                widget: "datetime",
-              },
-              {
-                label: "Featured Image",
-                name: "thumbnail",
-                widget: "image",
-                required: false,
-              },
-              {
-                label: "Body",
-                name: "body",
-                widget: "markdown",
-              },
-            ],
-          },
-        ],
-      };
-
-      // Initialize the CMS
-      window.addEventListener("load", function () {
-        window.CMS.init({ config: window.decapCmsConfig });
-      });
-
       if (window.netlifyIdentity) {
         window.netlifyIdentity.on("init", (user) => {
           if (!user) {
