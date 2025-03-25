@@ -25,7 +25,7 @@ export default function NavbarMenu(
       {/* Mobile menu button */}
       <button
         type="button"
-        class="flex items-center p-2 rounded-lg hover:bg-gray-100 md:hidden"
+        class="flex items-center p-2 rounded-lg hover:bg-base/80 md:hidden"
         onClick={toggleMenu}
         aria-label="Toggle menu"
       >
@@ -48,6 +48,7 @@ export default function NavbarMenu(
       </button>
 
       {/* Desktop menu */}
+      {/* Desktop menu */}
       <div class="hidden md:flex items-center gap-6">
         {menuItems.map((item) => (
           <a
@@ -60,7 +61,7 @@ export default function NavbarMenu(
         <LanguageDropdown />
         <button
           type="button"
-          class="bg-tertiary text-sm font-medium text-white px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
+          class="bg-tertiary text-base text-sm font-medium px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
         >
           Let's Talk
         </button>
@@ -68,32 +69,19 @@ export default function NavbarMenu(
 
       {/* Mobile menu dropdown */}
       <div
-        class={`fixed inset-0 z-50 md:hidden bg-white transform ${
+        class={`fixed inset-0 z-50 md:hidden bg-base transform ${
           isMenuOpen.value ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-200 ease-in-out`}
       >
-        <div class="flex items-center justify-between p-4 border-b">
+        <div class="flex items-center justify-between p-4 border-b border-secondary/20">
           <span class="text-lg font-semibold text-primary">Menu</span>
           <button
             type="button"
-            class="p-2 rounded-lg hover:bg-gray-100"
+            class="p-2 rounded-lg hover:bg-base/80"
             onClick={toggleMenu}
             aria-label="Close menu"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6 text-primary"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            // ... existing SVG code ...
           </button>
         </div>
         <div class="p-4 space-y-4">
@@ -106,12 +94,12 @@ export default function NavbarMenu(
               {item.label}
             </a>
           ))}
-          <div class="py-2 border-t">
+          <div class="py-2 border-t border-secondary/20">
             <LanguageDropdown />
           </div>
           <button
             type="button"
-            class="w-full bg-tertiary text-white px-4 py-3 rounded-full hover:bg-tertiary-light transition-colors text-lg font-medium"
+            class="w-full bg-tertiary text-base px-4 py-3 rounded-full hover:bg-tertiary-light transition-colors text-lg font-medium"
             onClick={toggleMenu}
           >
             Let's Talk

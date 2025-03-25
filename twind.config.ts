@@ -29,27 +29,34 @@ export default {
           ring: "hsl(var(--ring))",
           background: "hsl(var(--background))",
           foreground: "hsl(var(--foreground))",
+          // Base colors
+          base: {
+            DEFAULT: "#fcfcfc", // Off-white background
+            foreground: "#3b2e83", // Primary text color
+          },
           primary: {
-            DEFAULT: "#3a2f7d", // Deep purple
+            DEFAULT: "#3b2e83", // Dark Blue-Purple
             foreground: "#ffffff",
-            light: "#5a4a9d", // Lighter purple for hover states
-            dark: "#2a1f5d", // Darker purple for dark mode
+            light: "#4d3ea5", // Lighter version for hover
+            dark: "#2a2161", // Darker version
           },
           secondary: {
-            DEFAULT: "#c75d5d", // Coral/salmon
+            DEFAULT: "#673b75", // Medium Purple
             foreground: "#ffffff",
-            light: "#e77d7d", // Lighter coral for hover states
-            dark: "#a73d3d", // Darker coral for dark mode
+            light: "#7a4889", // Lighter version for hover
+            dark: "#542e61", // Darker version
           },
           tertiary: {
-            DEFAULT: "#F05D23", // Orange
+            DEFAULT: "#c1565b", // Brick Red
             foreground: "#ffffff",
-            light: "#F27D4D", // Lighter orange for hover states
-            dark: "#C74D23", // Darker orange for dark mode
+            light: "#d4686d", // Lighter version for hover
+            dark: "#a44549", // Darker version
           },
           accent: {
-            DEFAULT: "hsl(var(--accent))",
-            foreground: "hsl(var(--accent-foreground))",
+            DEFAULT: "#944868", // Purple-Pink
+            foreground: "#ffffff",
+            light: "#a85a7a", // Lighter version for hover
+            dark: "#803656", // Darker version
           },
           destructive: {
             DEFAULT: "hsl(var(--destructive))",

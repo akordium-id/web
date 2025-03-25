@@ -3,7 +3,7 @@ import StatsCount from "../islands/StatsCount.tsx";
 
 export default function StatsSection(): JSX.Element {
   return (
-    <section class="py-12 border-gray-200 relative overflow-hidden dark:bg-gray-900">
+    <section class="py-12 border-gray-200 relative overflow-hidden">
       {/* Geometric Pattern Background */}
       <div class="absolute inset-0 opacity-5">
         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">

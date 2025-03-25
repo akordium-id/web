@@ -55,9 +55,9 @@ export default function ValueProposition() {
   return (
     <>
       {/* Description Section */}
-      <section class="py-12 bg-white dark:bg-gray-900">
+      <section class="py-12 bg-white">
         <div class="container mx-auto px-4">
-          <p class="text-gray-600 max-w-4xl mx-auto text-center text-lg dark:text-gray-300">
+          <p class="text-gray-600 max-w-4xl mx-auto text-center text-lg">
             {content[languageSignal.value].intro}
             <span class="font-semibold">
               {content[languageSignal.value].firstValue}
@@ -69,19 +69,19 @@ export default function ValueProposition() {
               {content[languageSignal.value].thirdValue}
             </span>
             {content[languageSignal.value].divider}
-            <span class="text-primary font-semibold dark:text-secondary">
+            <span class="text-primary font-semibold">
               {content[languageSignal.value].fourthValue}
             </span>
             {content[languageSignal.value].closure}
           </p>
           <div class="mt-8 text-center">
-            <p class="text-gray-600 dark:text-gray-300">
+            <p class="text-gray-600">
               {content[languageSignal.value].team}{" "}
               <span class="font-semibold">
                 {content[languageSignal.value].trait}
               </span>{" "}
               {content[languageSignal.value].has}
-              <span class="text-primary font-semibold dark:text-secondary">
+              <span class="text-primary font-semibold">
                 {content[languageSignal.value].experience}
               </span>{" "}
               {content[languageSignal.value].fields}
