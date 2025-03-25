@@ -1,8 +1,8 @@
-import Hero from "../components/Hero.tsx";
-import Header from "../components/Header.tsx";
-import ValueProposition from "../islands/ValueProposition.tsx";
-import StatsSection from "../components/StatsSection.tsx";
-import RecentWork from "../islands/RecentWork.tsx";
+import Hero from "../components/homepage/Hero.tsx";
+import Header from "../components/homepage/Header.tsx";
+import ValueProposition from "../islands/homepage/ValueProposition.tsx";
+import StatsSection from "../components/homepage/StatsSection.tsx";
+import RecentWork from "../islands/homepage/RecentWork.tsx";
 
 export default function Home() {
   return (

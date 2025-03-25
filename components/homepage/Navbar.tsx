@@ -1,5 +1,5 @@
 import { JSX } from "preact";
-import NavbarMenu from "../islands/NavbarMenu.tsx";
+import NavbarMenu from "../../islands/homepage/NavbarMenu.tsx";
 
 export default function Navbar(): JSX.Element {
   const menuItems = [

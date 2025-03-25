@@ -1,4 +1,4 @@
-import { languageSignal } from "../utils/languageState.ts";
+import { languageSignal } from "../../utils/languageState.ts";
 
 export default function ValueProposition() {
   const content = {
