@@ -1,5 +1,7 @@
 # Akordium - Mitra seng peduli karo sampeyan
 
+[![Deploy](https://github.com/akordium-id/web/actions/workflows/deploy.yml/badge.svg)](https://github.com/akordium-id/web/actions/workflows/deploy.yml)
+
 Selamat datang di Akordium, platform web yang dibangun dengan kepedulian untuk membantu Anda. Akordium adalah solusi digital yang mengedepankan kenyamanan dan kemudahan pengguna.
 
 ## 🚀 Tech Stack
