@@ -14,7 +14,7 @@ const content = {
     heading: "Mitra Digital untuk Pertumbuhan Bisnis Anda",
     subheading:
       "Aman dan terpercaya • Berorientasi hasil • Pengembangan cepat • Profesional",
-    cta: "Jadwalkan Konsultasi",
+    cta: "Hubungi Kami",
     work: "Lihat Hasil Kami",
   },
   jv: {
@@ -23,7 +23,7 @@ const content = {
     subheading:
       "Aman lan terpercaya • Fokus ing hasil • Pengembangan cepet • Profesional",
     cta: "Hubungi Kita",
-    work: "Lihat Hasil Kami",
+    work: "Delok Hasil Kita",
   },
 };
 

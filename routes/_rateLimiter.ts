@@ -3,11 +3,11 @@ import { FreshContext } from "$fresh/server.ts";
 import { renderToString } from "https://esm.sh/preact-render-to-string@6.2.1";
 import RateLimitError from "../components/RateLimitError.tsx";
 
+// Simple in-memory store for rate limiting
+const rateLimit = new Map<string, { count: number; resetTime: number }>();
+
 const WINDOW_MS = 60000; // 1 minute
 const MAX_REQUESTS = 100; // Maximum requests per window
-
-// Initialize Deno KV
-const kv = await Deno.openKv();
 
 export async function handler(
   req: Request,
@@ -15,19 +15,15 @@ export async function handler(
 ) {
   const ip = req.headers.get("x-forwarded-for") || "127.0.0.1";
   const now = Date.now();
-
-  // Get rate limit info from KV
-  const key = ["ratelimit", ip];
-  const rateLimitEntry = await kv.get<{ count: number; resetTime: number }>(key);
-
-  let rateLimitInfo = rateLimitEntry.value;
+  // Get or create rate limit entry
+  let rateLimitInfo = rateLimit.get(ip);
   if (!rateLimitInfo || now > rateLimitInfo.resetTime) {
     rateLimitInfo = { count: 0, resetTime: now + WINDOW_MS };
   }
 
-  // Increment request count using atomic operation
+  // Increment request count
   rateLimitInfo.count++;
-  await kv.set(key, rateLimitInfo, { expireIn: WINDOW_MS });
+  rateLimit.set(ip, rateLimitInfo);
 
   // Check if rate limit exceeded
   if (rateLimitInfo.count > MAX_REQUESTS) {
