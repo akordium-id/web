@@ -11,42 +11,86 @@
   <body>
     <!-- Tambahkan elemen root untuk Decap CMS -->
     <div id="nc-root"></div>
+
     <!-- Include the script that builds the page and powers Decap CMS -->
     <script>
-      // Tambahkan ini sebelum script Decap CMS
-      // Tangani callback autentikasi secara manual untuk menghindari masalah quota
+      // Configure Decap CMS to use GitHub authentication
+      window.CMS_MANUAL_INIT = true;
+
+      window.decapCmsConfig = {
+        backend: {
+          name: "github",
+          repo: "akordium-id/web", // Replace with your actual repo
+          auth_endpoint: "api/auth",
+          base_url: "https://akordium.id",
+          auth_type: "implicit",
+        },
+        media_folder: "static/images",
+        public_folder: "/images",
+        collections: [
+          {
+            name: "blog",
+            label: "Blog",
+            folder: "content/blog",
+            create: true,
+            slug: "{{year}}-{{month}}-{{day}}-{{slug}}",
+            fields: [
+              { label: "Title", name: "title", widget: "string" },
+              {
+                label: "Publish Date",
+                name: "date",
+                widget: "datetime",
+              },
+              {
+                label: "Featured Image",
+                name: "thumbnail",
+                widget: "image",
+                required: false,
+              },
+              { label: "Body", name: "body", widget: "markdown" },
+            ],
+          },
+        ],
+      };
+
+      // Handle auth callback
       if (window.location.hash.includes("auth-callback")) {
-        // Ekstrak kode dari hash
+        // Extract code from hash
         const code = window.location.hash.split("=")[1];
 
-        // Simpan kode dalam sessionStorage dengan ukuran yang lebih kecil
-        // atau kirim langsung ke backend untuk exchange
         if (code) {
-          // Opsi 1: Simpan kode saja, bukan seluruh token
+          // Store code in sessionStorage
           sessionStorage.setItem("auth-code", code);
 
-          // Opsi 2: Kirim ke backend untuk exchange
+          // Send to backend for exchange
           fetch("/api/auth", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ code }),
+            body: JSON.stringify({ code: code }),
           })
             .then((response) => response.json())
             .then((data) => {
-              // Simpan token yang diperlukan saja
               if (data.access_token) {
                 sessionStorage.setItem(
                   "github-token",
                   data.access_token,
                 );
+                console.log("Authentication successful");
               }
-              // Bersihkan hash dari URL
+              // Clean hash from URL
               window.location.hash = "";
+              // Reload the page to initialize CMS with the token
+              window.location.reload();
             })
             .catch((error) => {
               console.error("Auth error:", error);
             });
         }
+      } else {
+        // Initialize CMS when not in auth callback flow
+        window.addEventListener("load", function () {
+          window.CMS.init({ config: window.decapCmsConfig });
+        });
       }
     </script>
   </body>
