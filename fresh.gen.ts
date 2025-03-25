@@ -8,6 +8,7 @@ import * as $_rateLimiter from "./routes/_rateLimiter.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
+import * as $homepage_CallToAction from "./islands/homepage/CallToAction.tsx";
 import * as $homepage_ClientTestimonials from "./islands/homepage/ClientTestimonials.tsx";
 import * as $homepage_HeroContent from "./islands/homepage/HeroContent.tsx";
 import * as $homepage_LanguageDropdown from "./islands/homepage/LanguageDropdown.tsx";
@@ -28,6 +29,7 @@ const manifest = {
     "./routes/index.tsx": $index,
   },
   islands: {
+    "./islands/homepage/CallToAction.tsx": $homepage_CallToAction,
     "./islands/homepage/ClientTestimonials.tsx": $homepage_ClientTestimonials,
     "./islands/homepage/HeroContent.tsx": $homepage_HeroContent,
     "./islands/homepage/LanguageDropdown.tsx": $homepage_LanguageDropdown,
