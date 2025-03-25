@@ -13,6 +13,7 @@ import * as $homepage_HeroContent from "./islands/homepage/HeroContent.tsx";
 import * as $homepage_LanguageDropdown from "./islands/homepage/LanguageDropdown.tsx";
 import * as $homepage_NavbarMenu from "./islands/homepage/NavbarMenu.tsx";
 import * as $homepage_RecentWork from "./islands/homepage/RecentWork.tsx";
+import * as $homepage_Services from "./islands/homepage/Services.tsx";
 import * as $homepage_StatsCount from "./islands/homepage/StatsCount.tsx";
 import * as $homepage_ValueProposition from "./islands/homepage/ValueProposition.tsx";
 import type { Manifest } from "$fresh/server.ts";
@@ -32,6 +33,7 @@ const manifest = {
     "./islands/homepage/LanguageDropdown.tsx": $homepage_LanguageDropdown,
     "./islands/homepage/NavbarMenu.tsx": $homepage_NavbarMenu,
     "./islands/homepage/RecentWork.tsx": $homepage_RecentWork,
+    "./islands/homepage/Services.tsx": $homepage_Services,
     "./islands/homepage/StatsCount.tsx": $homepage_StatsCount,
     "./islands/homepage/ValueProposition.tsx": $homepage_ValueProposition,
   },

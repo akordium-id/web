@@ -91,7 +91,7 @@ export default function RecentWork() {
   const currentContent = content[languageSignal.value];
 
   return (
-    <section className="py-16 bg-gradient-to-br from-base via-base/95 to-primary/5">
+    <section className="py-16 bg-gradient-to-br from-base via-primary/5 to-base">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">

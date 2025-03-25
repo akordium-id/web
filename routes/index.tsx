@@ -4,6 +4,7 @@ import ValueProposition from "../islands/homepage/ValueProposition.tsx";
 import StatsSection from "../components/homepage/StatsSection.tsx";
 import RecentWork from "../islands/homepage/RecentWork.tsx";
 import ClientTestimonials from "../islands/homepage/ClientTestimonials.tsx";
+import Services from "../islands/homepage/Services.tsx";
 
 export default function Home() {
   return (
@@ -12,6 +13,7 @@ export default function Home() {
       <Hero />
       <ValueProposition />
       <StatsSection />
+      <Services />s
       <RecentWork />
       <ClientTestimonials />
     </main>
