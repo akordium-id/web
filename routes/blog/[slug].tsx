@@ -1,51 +1,32 @@
 import { Handlers, PageProps } from "$fresh/server.ts";
-import { BlogPost, getBlogPost } from "../../utils/content.ts";
-import { render } from "@deno/gfm";
+import { BlogPost, getBlogPost } from "@/utils/blog.ts";
+import MarkdownIt from "markdown-it";
 
-export const handler: Handlers = {
-  async GET(req, ctx) {
-    const { slug } = ctx.params;
-    const post = await getBlogPost(slug);
+const md = new MarkdownIt();
 
+export const handler: Handlers<BlogPost | null> = {
+  async GET(_, ctx) {
+    const post = await getBlogPost(ctx.params.slug);
     if (!post) {
-      return new Response("Post not found", { status: 404 });
+      return ctx.renderNotFound();
     }
-
-    return ctx.render({ post });
+    return ctx.render(post);
   },
 };
 
-export default function BlogPostPage({ data }: PageProps<{ post: BlogPost }>) {
-  const { post } = data;
-
-  // Render markdown to HTML
-  const contentHtml = render(post.content);
+export default function BlogPostPage({ data: post }: PageProps<BlogPost>) {
+  if (!post) {
+    return <div>Post not found</div>;
+  }
 
   return (
-    <div class="p-4 mx-auto max-w-screen-md">
-      <h1 class="text-4xl font-bold mb-2">{post.title}</h1>
-      <p class="text-gray-500 mb-8">
-        {new Date(post.date).toLocaleDateString()}
-      </p>
-
-      {post.thumbnail && (
-        <img
-          src={post.thumbnail}
-          alt={post.title}
-          class="w-full rounded-lg mb-8 max-h-96 object-cover"
-        />
-      )}
-
+    <div class="p-4 max-w-3xl mx-auto">
+      <h1 class="text-3xl font-bold">{post.title}</h1>
+      <p class="text-gray-600 mt-2">{post.date}</p>
       <div
-        class="prose prose-lg max-w-none"
-        dangerouslySetInnerHTML={{ __html: contentHtml }}
+        class="mt-8 prose"
+        dangerouslySetInnerHTML={{ __html: md.render(post.content) }}
       />
-
-      <div class="mt-8">
-        <a href="/blog" class="text-blue-500 hover:underline">
-          ← Back to all posts
-        </a>
-      </div>
     </div>
   );
 }
