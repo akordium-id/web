@@ -14,7 +14,7 @@ export default function Footer() {
           <div class="col-span-1">
             <h3 class="font-bold mb-4">{name}</h3>
             <p class="text-sm mb-4">{jargon}</p>
-            <p class="text-sm mb-4">PT. Digital Gerojok Berkah</p>
+            {/* <p class="text-sm mb-4">PT. Digital Gerojok Berkah</p> */}
             <div class="flex space-x-4 mb-4">
               <a href="#" class="hover:text-base">
                 <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">

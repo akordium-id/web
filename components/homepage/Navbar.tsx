@@ -6,7 +6,7 @@ export default function Navbar(): JSX.Element {
     { label: "Services", href: "#" },
     { label: "Work", href: "#" },
     { label: "About", href: "#" },
-    { label: "Blog", href: "#" },
+    { label: "Blog", href: "/blog" },
     { label: "Shop", href: "#" },
     { label: "Contact Us", href: "#" },
   ];
