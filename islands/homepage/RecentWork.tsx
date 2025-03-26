@@ -7,23 +7,23 @@ const content = {
       "Check out some of the cool projects we've worked on. From sleek websites to powerful apps, we build digital experiences that make an impact.",
     projects: [
       {
-        title: "Fashion E-commerce Platform",
+        title: "Customize Marketing Platform",
         description:
-          "Custom online store with advanced filtering and payment integration",
+          "Custom marketing platform with advanced filtering and customer personalization",
         image:
           "https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       },
       {
-        title: "Health Tracking App",
+        title: "Business Process Automation",
         description:
-          "Mobile application with real-time data visualization and analytics",
+          "Desktop robotic automation for streamlined and efficient business processes",
         image:
           "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
       },
       {
-        title: "SaaS Dashboard",
+        title: "Analytics Dashboard",
         description:
-          "Comprehensive admin interface with customizable widgets and reporting",
+          "Comprehensive analytics dashboard with customizable charts and reports",
         image:
           "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80",
       },
@@ -35,53 +35,53 @@ const content = {
       "Lihat beberapa proyek keren yang telah kami kerjakan. Dari website elegan hingga aplikasi powerful, kami membangun pengalaman digital yang berdampak.",
     projects: [
       {
-        title: "Platform E-commerce Fashion",
+        title: "Platform Marketing Kustom",
         description:
-          "Toko online kustom dengan filter canggih dan integrasi pembayaran",
+          "Platform marketing khusus dengan filter canggih dan personalisasi pelanggan",
         image:
-          "https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+          "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80",
       },
       {
-        title: "Aplikasi Pelacakan Kesehatan",
+        title: "Otomasi Proses Bisnis",
         description:
-          "Aplikasi mobile dengan visualisasi data real-time dan analitik",
+          "Otomasi robotik desktop untuk proses bisnis yang efisien dan terstruktur",
         image:
-          "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
+          "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
       },
       {
-        title: "Dashboard SaaS",
+        title: "Dashboard Analitik",
         description:
-          "Antarmuka admin komprehensif dengan widget dan pelaporan yang dapat disesuaikan",
+          "Dashboard analitik komprehensif dengan grafik dan laporan yang dapat disesuaikan",
         image:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80",
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       },
     ],
   },
   jv: {
-    title: "Gawe Anyar Kita",
+    title: "Gawe Anyar Awakdewe",
     description:
-      "Delok proyek-proyek apik sing wis kita gawe. Saka website sing apik nganti aplikasi sing canggih, kita nggawe pengalaman digital sing nduweni dampak.",
+      "Delok proyek-proyek seng apik seng wes tak gawe. Teko website seng jos gandos sampek aplikasi seng canggih, awakdewe nggawe pengalaman digital seng nggawe dampak.",
     projects: [
       {
-        title: "Platform E-commerce Fashion",
+        title: "Platform Marketing Kustom",
         description:
-          "Toko online kustom karo filter canggih lan integrasi pembayaran",
+          "Platform marketing khusus ambek filter canggih lan personalisasi pelanggan",
         image:
-          "https://images.unsplash.com/photo-1523381294911-8d3cead13475?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
+          "https://images.unsplash.com/photo-1432888498266-38ffec3eaf0a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2074&q=80",
       },
       {
-        title: "Aplikasi Pelacakan Kesehatan",
+        title: "Otomasi Proses Bisnis",
         description:
-          "Aplikasi mobile karo visualisasi data real-time lan analitik",
+          "Otomasi robotik desktop gawe proses bisnis seng efisien lan terstruktur",
         image:
-          "https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
+          "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
       },
       {
-        title: "Dashboard SaaS",
+        title: "Dashboard Analitik",
         description:
-          "Antarmuka admin lengkap karo widget lan pelaporan sing iso disesuaikan",
+          "Dashboard analitik lengkap ambek grafik lan laporan seng iso disesuaino",
         image:
-          "https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=2015&q=80",
+          "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       },
     ],
   },

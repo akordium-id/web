@@ -21,12 +21,12 @@ export default function Layout({
         <Header />
 
         {withHero && (
-          <div class="relative py-24 px-6 sm:px-8 lg:px-12 bg-gradient-to-t from-base via-primary/30 to-base">
+          <div class="relative py-24 px-6 sm:px-8 lg:px-12 bg-primary">
             <div class="max-w-7xl mx-auto text-center">
-              <h1 class="text-4xl md:text-5xl font-bold text-primary mb-6">
+              <h1 class="text-4xl md:text-5xl font-bold text-base mb-6">
                 {title}
               </h1>
-              <p class="text-xl text-primary/70 max-w-3xl mx-auto">
+              <p class="text-xl text-base/70 max-w-3xl mx-auto">
                 {description}
               </p>
             </div>

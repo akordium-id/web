@@ -8,10 +8,10 @@ export default function Footer() {
   return (
     <footer class="bg-gradient-to-b from-primary/10 to-tertiary/30 text-primary py-12">
       <div class="container mx-auto px-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div class="col-span-1">
-            <h3 class="font-bold mb-4">{name}</h3>
+            <h3 class="font-bold mb-4">{name} Lab</h3>
             <p class="text-sm mb-4">Your Digital Partner for Growth</p>
             {/* <p class="text-sm mb-4">PT. Digital Gerojok Berkah</p> */}
             <div class="flex space-x-4 mb-4">
@@ -47,11 +47,6 @@ export default function Footer() {
             <h4 class="font-bold mb-4">Services</h4>
             <ul class="space-y-2 text-sm">
               <li>
-                <a href="#" class="hover:text-gray-300">
-                  Custom Software Development
-                </a>
-              </li>
-              <li>
                 <a href="#" class="hover:text-gray-300">Web Application</a>
               </li>
               <li>
@@ -60,11 +55,18 @@ export default function Footer() {
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300">UI/UX Design</a>
+                <a href="#" class="hover:text-gray-300">
+                  Robot Process Automation
+                </a>
               </li>
               <li>
                 <a href="#" class="hover:text-gray-300">
-                  Digital Transformation
+                  Static Website
+                </a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-gray-300">
+                  WordPress
                 </a>
               </li>
             </ul>
