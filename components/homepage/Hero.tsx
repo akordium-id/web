@@ -31,30 +31,19 @@ export default function Hero(): JSX.Element {
         </svg>
       </div>
 
-      <div class="container mx-auto px-4 grid md:grid-cols-2 gap-8 md:gap-12 items-center relative z-10">
-        <HeroContent />
+      {/* Geometric Decorations */}
+      <div class="absolute top-20 left-10 w-32 h-32 bg-accent/10 rounded-full blur-2xl"></div>
+      <div class="absolute bottom-20 right-10 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 w-64 h-64 bg-tertiary/10 rounded-full blur-3xl"></div>
+      
+      {/* Floating Shapes */}
+      <div class="absolute top-10 right-[20%] w-8 h-8 border-4 border-accent/20 rounded-lg rotate-12"></div>
+      <div class="absolute bottom-20 left-[30%] w-12 h-12 border-4 border-primary/20 rounded-full"></div>
+      <div class="absolute top-[40%] right-10 w-10 h-10 bg-tertiary/20 rounded-md rotate-45"></div>
 
-        <div class="relative mt-8 md:mt-0">
-          <div class="absolute -top-10 -left-10 w-16 h-16 md:w-20 md:h-20 bg-accent/20 rounded-full">
-          </div>
-          <div class="absolute -bottom-5 -right-5 w-24 h-24 md:w-32 md:h-32 bg-primary/10 rounded-full">
-          </div>
-          <img
-            src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80"
-            alt="Team working on digital solutions"
-            width={500}
-            height={400}
-            class="rounded-lg relative z-10 object-cover w-full h-auto shadow-lg"
-          />
-          <div class="absolute -bottom-6 -right-6 md:-bottom-8 md:-right-8 bg-base p-3 md:p-4 rounded-full shadow-lg z-20">
-            <img
-              src="https://images.unsplash.com/photo-1560472355-536de3962603?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8MHx8fHx8fA%3D%3D&auto=format&fit=crop&w=1740&q=80"
-              alt="Award badge"
-              width={60}
-              height={60}
-              class="rounded-full w-12 h-12 md:w-16 md:h-16"
-            />
-          </div>
+      <div class="container mx-auto px-4 relative z-10">
+        <div class="max-w-4xl mx-auto">
+          <HeroContent />
         </div>
       </div>
     </section>

@@ -92,6 +92,7 @@ export default function BlogPostPage({ data: post }: PageProps<BlogPost>) {
                 </svg>
               </a>
               <a
+                title="Share on LinkedIn"
                 href={`https://www.linkedin.com/shareArticle?mini=true&url=${
                   encodeURIComponent(
                     `https://akordium.com/blog/${post.slug}`,
