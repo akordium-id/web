@@ -1,4 +1,4 @@
-import { defaultSEO } from "../../utils/seo.ts";
+import { defaultSEO } from "@/utils/seo.ts";
 
 const [name, jargon] = defaultSEO?.title?.split(" - ") ??
   ["Akordium", "Mitra seng peduli karo sampeyan"];
@@ -13,7 +13,7 @@ export default function Footer() {
           {/* Company Info */}
           <div class="col-span-1">
             <h3 class="font-bold mb-4">{name}</h3>
-            <p class="text-sm mb-4">{jargon}</p>
+            <p class="text-sm mb-4">Your Digital Partner for Growth</p>
             {/* <p class="text-sm mb-4">PT. Digital Gerojok Berkah</p> */}
             <div class="flex space-x-4 mb-4">
               <a href="#" class="hover:text-base">

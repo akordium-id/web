@@ -1,5 +1,5 @@
 import { JSX } from "preact";
-import StatsCount from "../../islands/homepage/StatsCount.tsx";
+import StatsCount from "@/islands/homepage/StatsCount.tsx";
 
 export default function StatsSection(): JSX.Element {
   return (

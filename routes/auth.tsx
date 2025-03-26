@@ -1,5 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
-import GitHubAuth from "../islands/GitHubAuth.tsx";
+import GitHubAuth from "@/islands/GitHubAuth.tsx";
 
 export default function AuthPage() {
   return (

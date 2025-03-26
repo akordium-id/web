@@ -1,5 +1,5 @@
 import { useSignal } from "@preact/signals";
-import { languageSignal, setLanguage } from "../../utils/languageState.ts";
+import { languageSignal, setLanguage } from "@/utils/languageState.ts";
 
 export default function LanguageDropdown() {
   const isOpen = useSignal(false);

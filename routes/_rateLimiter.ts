@@ -1,7 +1,7 @@
 
 import { FreshContext } from "$fresh/server.ts";
 import { renderToString } from "https://esm.sh/preact-render-to-string@6.2.1";
-import RateLimitError from "../components/RateLimitError.tsx";
+import RateLimitError from "@/components/RateLimitError.tsx";
 
 // Simple in-memory store for rate limiting
 const rateLimit = new Map<string, { count: number; resetTime: number }>();

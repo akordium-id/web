@@ -1,5 +1,5 @@
 import { useEffect, useState } from "preact/hooks";
-import { languageSignal } from "../../utils/languageState.ts";
+import { languageSignal } from "@/utils/languageState.ts";
 
 const translations = {
   en: {

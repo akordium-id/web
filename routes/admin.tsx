@@ -6,7 +6,7 @@ export const handler: Handlers = {
   async GET(req, _ctx) {
     // Gunakan path absolut untuk menemukan file static
     const currentDir = new URL(".", import.meta.url).pathname;
-    const staticDir = join(currentDir, "../static");
+    const staticDir = join(currentDir, "@/static");
     const filePath = join(staticDir, "admin/index.html");
 
     try {

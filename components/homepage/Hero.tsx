@@ -1,5 +1,5 @@
 import { JSX } from "preact";
-import HeroContent from "../../islands/homepage/HeroContent.tsx";
+import HeroContent from "@/islands/homepage/HeroContent.tsx";
 
 export default function Hero(): JSX.Element {
   return (

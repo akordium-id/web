@@ -1,5 +1,5 @@
 import { type PageProps } from "$fresh/server.ts";
-import { defaultSEO, generateMetaTags } from "../utils/seo.ts";
+import { defaultSEO, generateMetaTags } from "@/utils/seo.ts";
 
 export default function App({ Component }: PageProps) {
   const metaTags = generateMetaTags();
