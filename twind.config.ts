@@ -97,6 +97,14 @@ export default {
         fontFamily: {
           sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
         },
+        typography: {
+          DEFAULT: {
+            css: {
+              maxWidth: 'none',
+              color: 'inherit',
+            },
+          },
+        },
       },
     },
   }),
