@@ -60,19 +60,20 @@ export default function NavbarMenu(
         <div class="relative">
           <LanguageDropdown />
         </div>
-        <a
-          href="/contact"
-          title="Contact Us"
+        <button
           type="button"
+          onClick={() => globalThis.location.href = "/contact"}
           class="bg-tertiary text-base text-sm font-medium px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
         >
           Let's Talk
-        </a>
+        </button>
       </div>
 
       {/* Mobile menu dropdown */}
       <div
-        class={`fixed inset-0 z-50 md:hidden bg-base transform ${
+        class={`fixed top-0 right-0 left-0 z-50 md:hidden 
+          bg-gradient-to-b from-base to-gray-100 
+          transform border-b border-tertiary ${
           isMenuOpen.value ? "translate-x-0" : "translate-x-full"
         } transition-transform duration-200 ease-in-out`}
       >
@@ -113,14 +114,16 @@ export default function NavbarMenu(
           <div class="py-2 border-t border-secondary/20">
             <LanguageDropdown />
           </div>
-          <a
-            href="/contact"
-            title="Contact Us"
-            class="w-full bg-tertiary text-base px-4 py-3 rounded-full hover:bg-tertiary-light transition-colors text-lg font-medium"
-            onClick={toggleMenu}
+          <button
+            type="button"
+            onClick={() => {
+              toggleMenu();
+              globalThis.location.href = "/contact";
+            }}
+            class="bg-tertiary text-base px-4 py-3 rounded-full hover:bg-tertiary-light transition-colors text-lg font-medium"
           >
             Let's Talk
-          </a>
+          </button>
         </div>
       </div>
     </>
