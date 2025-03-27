@@ -26,54 +26,52 @@ export default function BlogIndexPage({ data: posts }: PageProps<BlogPost[]>) {
           }).map((meta, index) => <meta key={index} {...meta} />)}
         </head>
 
-        <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
-          <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <main class="min-h-screen bg-gradient-to-b from-gray-50 to-white">
-              {/* Blog Posts Grid */}
-              <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
-                {posts.map((post) => (
-                  <article key={post.slug} class="group">
-                    <a href={`/blog/${post.slug}`} class="block">
-                      <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow p-6 h-full border border-gray-100">
-                        <div class="flex flex-col h-full">
-                          <span class="text-blue-600 text-sm font-medium mb-2">
-                            {new Date(post.date).toLocaleDateString("en-US", {
-                              year: "numeric",
-                              month: "long",
-                              day: "numeric",
-                            })}
-                          </span>
-                          <h2 class="text-xl font-semibold text-gray-900 group-hover:text-blue-600 transition-colors mb-3">
-                            {post.title}
-                          </h2>
-                          <p class="text-gray-600 flex-grow mb-4">
-                            {post.description}
-                          </p>
-                          <div class="flex items-center text-blue-600">
-                            <span class="font-medium">Read more</span>
-                            <svg
-                              class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
-                              fill="none"
-                              viewBox="0 0 24 24"
-                              stroke="currentColor"
-                            >
-                              <path
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                stroke-width="2"
-                                d="M9 5l7 7-7 7"
-                              />
-                            </svg>
-                          </div>
+        <main class="min-h-screen bg-gradient-to-b from-base to-gray-100">
+          {/* Blog Posts Grid */}
+          <div class="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16">
+            <div class="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+              {posts.map((post) => (
+                <article key={post.slug} class="group">
+                  <a href={`/blog/${post.slug}`} class="block">
+                    <div class="bg-white rounded-2xl shadow-sm hover:shadow-md transition-shadow p-6 h-full border border-secondary/20">
+                      <div class="flex flex-col h-full">
+                        <span class="text-tertiary text-sm font-medium mb-2">
+                          {new Date(post.date).toLocaleDateString("en-US", {
+                            year: "numeric",
+                            month: "long",
+                            day: "numeric",
+                          })}
+                        </span>
+                        <h2 class="text-xl font-semibold text-primary group-hover:text-secondary transition-colors mb-3">
+                          {post.title}
+                        </h2>
+                        <p class="text-primary/80 flex-grow mb-4">
+                          {post.description}
+                        </p>
+                        <div class="flex items-center text-tertiary">
+                          <span class="font-medium">Read more</span>
+                          <svg
+                            class="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              stroke-width="2"
+                              d="M9 5l7 7-7 7"
+                            />
+                          </svg>
                         </div>
                       </div>
-                    </a>
-                  </article>
-                ))}
-              </div>
-            </main>
+                    </div>
+                  </a>
+                </article>
+              ))}
+            </div>
           </div>
-        </div>
+        </main>
       </Layout>
     </>
   );
