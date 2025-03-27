@@ -6,6 +6,7 @@ import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
 import * as $_rateLimiter from "./routes/_rateLimiter.ts";
 import * as $admin from "./routes/admin.tsx";
+import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $auth from "./routes/auth.tsx";
 import * as $blog_slug_ from "./routes/blog/[slug].tsx";
@@ -33,6 +34,7 @@ const manifest = {
     "./routes/_app.tsx": $_app,
     "./routes/_rateLimiter.ts": $_rateLimiter,
     "./routes/admin.tsx": $admin,
+    "./routes/api/contact.ts": $api_contact,
     "./routes/api/joke.ts": $api_joke,
     "./routes/auth.tsx": $auth,
     "./routes/blog/[slug].tsx": $blog_slug_,

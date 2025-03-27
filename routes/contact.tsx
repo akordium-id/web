@@ -12,8 +12,8 @@ const content = {
       "Have a question or want to work together? We'd love to hear from you.",
     businessInfo: {
       name: "Akordium Lab",
-      address: "Jl. Veteran No. 142-144, Malang, East Java",
-      phone: "+62 812-3456-7890",
+      address: "Jl. Pagesangan Agung I/84, Surabaya, Jawa Timur, 60233",
+      phone: "+62 815-9988-995",
       email: "hello@akordium.id",
     },
   },
@@ -24,20 +24,20 @@ const content = {
       "Punya pertanyaan atau ingin bekerja sama? Kami senang mendengar dari Anda.",
     businessInfo: {
       name: "Akordium Lab",
-      address: "Jl. Veteran No. 142-144, Malang, Jawa Timur",
-      phone: "+62 812-3456-7890",
+      address: "Jl. Pagesangan Agung I/84, Surabaya, Jawa Timur, 60233",
+      phone: "+62 815-9988-995",
       email: "hello@akordium.id",
     },
   },
   jv: {
-    title: "Hubungi Kita",
+    title: "Hubungi Awakdewe",
     subtitle: "Ayo Sambung",
     description:
-      "Nduwe pitakonan utowo pengen kerjo bareng? Kita seneng ngrungokno sampean.",
+      "Nduwe pitakonan utowo pengen kerjo bareng? Awakdewe seneng ngrungokno sampean.",
     businessInfo: {
       name: "Akordium Lab",
-      address: "Jl. Veteran No. 142-144, Malang, Jowo Timur",
-      phone: "+62 812-3456-7890",
+      address: "Jl. Pagesangan Agung I/84, Surabaya, Jawa Timur, 60233",
+      phone: "+62 815-9988-995",
       email: "hello@akordium.id",
     },
   },

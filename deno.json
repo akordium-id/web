@@ -34,7 +34,8 @@
     "@twind/preset-autoprefix": "https://esm.sh/@twind/preset-autoprefix@1.0.7/",
     "$std/": "https://deno.land/std@0.224.0/",
     "./": "./",
-    "@/": "./"
+    "@/": "./",
+    "zod": "npm:zod@^3.24.2"
   },
   "compilerOptions": {
     "jsx": "react-jsx",
