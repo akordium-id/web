@@ -5,22 +5,28 @@ const content = {
     title: "Let's Create Something Amazing Together",
     description:
       "Ready to take your digital presence to the next level? We're here to help you build, optimize, and grow your online business.",
-    startProject: "Start a Project",
-    scheduleCall: "Schedule a Call",
+    startProject: "Contact us",
+    scheduleCall: "WhatsApp",
+    ctaWhatsApp:
+      "http://wa.me/628159988995?text=Hello,%20I%20would%20like%20to%20consult%20with%20you...",
   },
   id: {
     title: "Mari Ciptakan Sesuatu yang Luar Biasa Bersama",
     description:
       "Siap membawa kehadiran digital Anda ke level berikutnya? Kami siap membantu Anda membangun, mengoptimalkan, dan mengembangkan bisnis online Anda.",
-    startProject: "Mulai Proyek",
-    scheduleCall: "Jadwalkan Konsultasi",
+    startProject: "Hubungi Kami",
+    scheduleCall: "WhatsApp",
+    ctaWhatsApp:
+      "http://wa.me/628159988995?text=Halo,%20saya%20ingin%20berkonsultasi%20dengan%20Anda...",
   },
   jv: {
-    title: "Ayo Nggawe Karya sing Apik Bareng-bareng",
+    title: "Ayo Gawe Karya Seng Apik Bareng-bareng",
     description:
-      "Siap ngangkat bisnis digital sampeyan dadi luwih apik? Kita siap mbiyantu sampeyan mbangun, ngoptimalake, lan ngrembakake bisnis online sampeyan.",
-    startProject: "Miwiti Proyek",
-    scheduleCall: "Janji Ketemu",
+      "Siap nggawe bisnis digital sampean dadi luwih jos? Awak dewe siap mbantu sampean nggawe, ngapiki, lan ngrembakno bisnis online sampean.",
+    startProject: "Hubungi Awak Dewe",
+    scheduleCall: "WA Sek",
+    ctaWhatsApp:
+      "http://wa.me/628159988995?text=Halo,%20aku%20kepingin%20konsultasi%20ambek%20sampean...",
   },
 };
 
@@ -42,6 +48,14 @@ export default function CallToAction() {
             className="bg-tertiary text-base px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
           >
             {currentContent.startProject}
+          </a>
+          <a
+            href={currentContent.ctaWhatsApp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border border-tertiary text-tertiary px-5 py-2 rounded-full hover:bg-tertiary/10 transition-colors"
+          >
+            {currentContent.scheduleCall}
           </a>
         </div>
       </div>

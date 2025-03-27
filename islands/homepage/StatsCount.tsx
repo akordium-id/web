@@ -13,9 +13,9 @@ const translations = {
     clientSatisfaction: "Kepuasan Klien",
   },
   jv: {
-    projectsDelivered: "Proyek Rampung",
+    projectsDelivered: "Proyek Wes Mari",
     yearsExperience: "Taun Pengalaman",
-    clientSatisfaction: "Kepuasan Pelanggan",
+    clientSatisfaction: "Kepuasan Langganan",
   },
 };
 

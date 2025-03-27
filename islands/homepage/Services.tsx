@@ -224,16 +224,16 @@ const content = {
     ],
   },
   jv: {
-    title: "Layanan Kita",
-    learnMore: "Luwih Lanjut",
+    title: "Layanan Awak Dewe",
+    learnMore: "Luwih Lengkap",
     services: [
       {
         title: "Pengembangan Web & Aplikasi",
         description:
-          "Saka website statis sderhana nganti aplikasi mobile, kita mbangun produk digital sing apik lan luwih apik maneh performane.",
+          "Teko website sederhana sampek aplikasi mobile, awak dewe nggawe produk digital seng apik lan performane jos.",
         features: [
-          "Pengembangan web statis atau Wordpress",
-          "Kustom aplikasi sing basise web",
+          "Pengembangan web statis utowo WordPress",
+          "Aplikasi kustom basis web",
           "Pengembangan aplikasi mobile",
         ],
         icon: (
@@ -283,7 +283,7 @@ const content = {
       {
         title: "Hosting & Infrastruktur",
         description:
-          "Solusi hosting sing cepet, aman, lan bisa dipercaya kanggo njaga produk digital sampeyan mlaku lancar 24/7.",
+          "Solusi hosting seng cepet, aman, lan iso dipercaya gawe njogo produk digital sampean mlaku lancar 24/7.",
         features: [
           "Solusi cloud hosting",
           "Optimasi performa",

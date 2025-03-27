@@ -36,19 +36,18 @@ export default function ValueProposition() {
     },
     jv: {
       intro:
-        "Kita dudu mung perusahaan teknologi biasa. Kita iku partner digital sampeyan, nggabungno ",
+        "Awak dewe gak mung perusahaan teknologi biasa. Awak dewe iki partner digital sampean, nggabungno ",
       firstValue: "keahlian pengembangan, ",
       secondValue: "konsultasi strategis, ",
-      thirdValue: "hosting sing iso dipercaya, ",
+      thirdValue: "hosting seng iso dipercaya, ",
       divider: "lan ",
-      fourthValue: "pemasaran sing fokus ing hasil ",
-      closure: "kanggo mbantu bisnis sampeyan sukses ing online.",
-      team: "Tim kita ",
-      trait: "sing sueneng teknologi ",
+      fourthValue: "pemasaran seng fokus hasil ",
+      closure: "gawe ngewangi bisnis sampean sukses nang online.",
+      team: "Tim awak dewe ",
+      trait: "seng seneng teknologi ",
       has: "nduweni ",
       experience: "pengalaman 3+ taun ",
-      fields:
-        "ing nggawe solusi digital kanggo bidang perbankan, pemasaran, dan IoT.",
+      fields: "gawe solusi digital nang bidang perbankan, pemasaran, lan IoT.",
     },
   };
 

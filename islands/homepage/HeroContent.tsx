@@ -19,11 +19,11 @@ const content = {
   },
   jv: {
     tagline: "Perusahaan Software",
-    heading: "Mitra seng peduli karo njenengan",
+    heading: "Partner Digital Seng Peduli Ambek Sampean",
     subheading:
-      "Aman lan terpercaya • Fokus ing hasil • Pengembangan cepet • Profesional",
-    cta: "Hubungi Kita",
-    work: "Delok Hasil Kita",
+      "Aman lan terpercaya • Fokus hasil • Pengembangan cepet • Profesional",
+    cta: "Hubungi Awak Dewe",
+    work: "Delok Garapan Awak Dewe",
   },
 };
 

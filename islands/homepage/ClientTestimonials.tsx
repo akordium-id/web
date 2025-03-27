@@ -86,41 +86,41 @@ const content = {
     ],
   },
   jv: {
-    title: "Opo Sing Diomongke Pelanggan",
+    title: "Opo Jare Pelanggan Awak Dewe",
     subtitle:
-      "Feedback asli soko wong-wong sing wis kerjo bareng karo awake dewe",
+      "Testimoni asli teko wong-wong seng wes kerjo bareng ambek awak dewe",
     testimonials: [
       {
         quote:
-          "Ora mung mbangun website, nanging uga mbangun presence digital sing ngowahi bisnis kita. Tim responsif, kreatif, lan nyenengke kanggo diajak kerjo bareng!",
+          "Gak mung gawe website, tapi yo nggawe presence digital seng ngowahi bisnis awak dewe. Time responsif, kreatif, lan penak diajak kerjo bareng!",
         author: "Sarah Johnson",
         position: "Direktur Marketing, TechStart",
         image: "https://i.pravatar.cc/150?img=1",
       },
       {
         quote:
-          "Launch aplikasi kita sukses banget mergo support pengembangan lan pemasaran soko tim iki. Dheweke paham visi kita lan nggawe luwih apik soko sing kita bayangke!",
+          "Peluncuran aplikasi awak dewe sukses pol mergo support pengembangan lan pemasaran teko tim iki. Arek-arek paham opo seng awak dewe pingini lan hasile malah luwih apik teko seng dibayangno!",
         author: "Michael Chen",
         position: "Pendiri, HeadTrack",
         image: "https://i.pravatar.cc/150?img=3",
       },
       {
         quote:
-          "Layanan konsultasi sing kita tampa ngewangi kita nglewati transformasi digital sing kompleks. Solusi hosting dheweke kuwat tenan, kanthi uptime 99.9% kaya sing dijanjekke.",
+          "Layanan konsultasi seng awak dewe tampa ngewangi awak dewe nglewati transformasi digital seng ribet. Solusi hosting e mantep, uptime 99.9% podo ambek seng dijanjekno.",
         author: "Jessica Williams",
         position: "CTO, RetailPlus",
         image: "https://i.pravatar.cc/150?img=4",
       },
       {
         quote:
-          "Layanan lan keahlian teknis sing apik tenan. Dheweke ngrampungke proyek luwih cepet soko jadwal lan ngluwihi kabeh ekspektasi.",
+          "Layanan lan keahlian teknise jos gandos. Arek-arek ngrampungno proyek luwih cepet teko jadwal lan ngluwihi ekspektasi.",
         author: "David Miller",
         position: "CEO, InnovateCo",
         image: "https://i.pravatar.cc/150?img=5",
       },
       {
         quote:
-          "Perhatiane tim marang detail lan komitmen marang kualitas kuwi luwar biasa. Partner teknologi paling apik sing tau kerjo bareng karo awake dewe!",
+          "Perhatiane tim nang detail lan komitmen nang kualitas iku jos. Partner teknologi paling apik seng tau kerjo bareng ambek awak dewe!",
         author: "Emma Thompson",
         position: "Manajer Produk, CloudSys",
         image: "https://i.pravatar.cc/150?img=6",

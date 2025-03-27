@@ -57,10 +57,9 @@ const content = {
       },
     ],
   },
-  jv: {
-    title: "Gawe Anyar Awakdewe",
+  title: "Garapan Anyar Awak Dewe",
     description:
-      "Delok proyek-proyek seng apik seng wes tak gawe. Teko website seng jos gandos sampek aplikasi seng canggih, awakdewe nggawe pengalaman digital seng nggawe dampak.",
+      "Deloken proyek-proyek jos seng wes tak gawe. Teko website seng apik sampek aplikasi seng canggih, awak dewe nggawe pengalaman digital seng nggawe dampak.",
     projects: [
       {
         title: "Platform Marketing Kustom",
@@ -72,14 +71,14 @@ const content = {
       {
         title: "Otomasi Proses Bisnis",
         description:
-          "Otomasi robotik desktop gawe proses bisnis seng efisien lan terstruktur",
+          "Otomasi robotik desktop gawe proses bisnis ben luwih efisien lan teratur",
         image:
           "https://images.unsplash.com/photo-1518432031352-d6fc5c10da5a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1674&q=80",
       },
       {
         title: "Dashboard Analitik",
         description:
-          "Dashboard analitik lengkap ambek grafik lan laporan seng iso disesuaino",
+          "Dashboard analitik lengkap ambek grafik lan laporan seng iso disesuekno",
         image:
           "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80",
       },
