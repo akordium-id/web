@@ -38,16 +38,10 @@ export default function CallToAction() {
         </p>
         <div className="flex gap-4 justify-center">
           <a
-            href="#"
+            href="/contact"
             className="bg-tertiary text-base px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
           >
             {currentContent.startProject}
-          </a>
-          <a
-            href="#"
-            className="border border-tertiary text-tertiary px-5 py-2 rounded-full hover:bg-tertiary/10 transition-colors"
-          >
-            {currentContent.scheduleCall}
           </a>
         </div>
       </div>

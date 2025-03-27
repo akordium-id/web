@@ -43,7 +43,7 @@ export default function HeroContent() {
       </p>
       <div class="flex flex-wrap gap-4 justify-center">
         <a
-          href="#"
+          href="/contact"
           class="bg-tertiary hover:bg-tertiary-light text-base rounded-full px-3 py-2 md:px-5 md:py-3 text-base md:text-lg transition-colors"
         >
           {currentContent.cta}

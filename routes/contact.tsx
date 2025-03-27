@@ -78,7 +78,7 @@ export default function Contact() {
                 <div class="space-y-4">
                   <p class="flex items-start gap-3">
                     <svg
-                      class="w-6 h-6 text-primary"
+                      class="w-6 h-6 mt-1 text-primary flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

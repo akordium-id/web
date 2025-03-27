@@ -25,6 +25,12 @@ const content = {
     },
     success: "Message sent successfully!",
     error: "Failed to send message. Please try again.",
+    required: "Required field",
+    maxLength: {
+      name: "Maximum 50 characters",
+      subject: "Maximum 100 characters",
+      message: "Maximum 500 characters",
+    },
   },
   id: {
     name: "Nama Lengkap",
@@ -49,6 +55,12 @@ const content = {
     },
     success: "Pesan berhasil dikirim!",
     error: "Gagal mengirim pesan. Silakan coba lagi.",
+    required: "Wajib diisi",
+    maxLength: {
+      name: "Maksimal 50 karakter",
+      subject: "Maksimal 100 karakter",
+      message: "Maksimal 500 karakter",
+    },
   },
   jv: {
     name: "Jeneng Lengkap",
@@ -58,33 +70,31 @@ const content = {
     message: "Pesen",
     submit: "Kirim Pesen",
     placeholders: {
-      name: "Lebokno jeneng lengkap sampean",
-      email: "Lebokno alamat email sampean",
-      phone: "Lebokno nomor telpon sampean",
+      name: "Isien jeneng lengkap sampean",
+      email: "Isien alamat email sampean",
+      phone: "Isien nomor telpon sampean",
       subject: "Opo sing arep dirembug?",
       message: "Tulis pesen sampean nang kene...",
     },
     errors: {
       name: "Jeneng kudu diisi",
-      email: "Lebokno alamat email sing bener",
-      phone: "Lebokno nomor telpon sing bener",
+      email: "Isien alamat email sing bener",
+      phone: "Isien nomor telpon sing bener",
       subject: "Subjek kudu diisi",
       message: "Pesen kudu diisi",
     },
     success: "Pesen wis dikirim!",
     error: "Gagal ngirim pesen. Monggo dicoba maneh.",
+    required: "Kudu diisi",
+    maxLength: {
+      name: "Maksimal 50 karakter",
+      subject: "Maksimal 100 karakter",
+      message: "Maksimal 500 karakter",
+    },
   },
 };
 
 export default function ContactForm() {
-  // const newErrors = {
-  //   name: "",
-  //   email: "",
-  //   phone: "",
-  //   subject: "",
-  //   message: "",
-  // };
-
   const currentContent = content[languageSignal.value];
   const [formData, setFormData] = useState({
     name: "",
@@ -196,6 +206,9 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} class="bg-white p-6 rounded-lg shadow-lg">
+      <p class="text-sm text-gray-500 mb-4">
+        <span class="text-red-500">*</span> {currentContent.required}
+      </p>
       {status.message && (
         <div
           class={`mb-6 p-4 rounded-md ${
@@ -212,7 +225,7 @@ export default function ContactForm() {
         <div class="grid md:grid-cols-2 gap-6">
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">
-              {currentContent.name}
+              {currentContent.name} <span class="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -220,6 +233,7 @@ export default function ContactForm() {
               value={formData.name}
               onChange={handleChange}
               required
+              maxLength={50}
               class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
                 (errors as { [key: string]: string }).name
                   ? "border-red-500"
@@ -227,15 +241,20 @@ export default function ContactForm() {
               }`}
               placeholder={currentContent.placeholders.name}
             />
-            {(errors as { [key: string]: string }).name && (
-              <p class="mt-1 text-sm text-red-600">
-                {(errors as { [key: string]: string }).name}
+            <div class="flex justify-between">
+              {(errors as { [key: string]: string }).name && (
+                <p class="mt-1 text-sm text-red-600">
+                  {(errors as { [key: string]: string }).name}
+                </p>
+              )}
+              <p class="mt-1 text-sm text-gray-500">
+                {formData.name.length}/50
               </p>
-            )}
+            </div>
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">
-              {currentContent.email}
+              {currentContent.email} <span class="text-red-500">*</span>
             </label>
             <input
               type="email"
@@ -268,7 +287,6 @@ export default function ContactForm() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              required
               class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
                 (errors as { [key: string]: string }).phone
                   ? "border-red-500"
@@ -284,7 +302,7 @@ export default function ContactForm() {
           </div>
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">
-              {currentContent.subject}
+              {currentContent.subject} <span class="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -292,6 +310,7 @@ export default function ContactForm() {
               value={formData.subject}
               onChange={handleChange}
               required
+              maxLength={100}
               class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
                 (errors as { [key: string]: string }).subject
                   ? "border-red-500"
@@ -299,32 +318,47 @@ export default function ContactForm() {
               }`}
               placeholder={currentContent.placeholders.subject}
             />
-            {(errors as { [key: string]: string }).subject && (
-              <p class="mt-1 text-sm text-red-600">
-                {(errors as { [key: string]: string }).subject}
+            <div class="flex justify-between">
+              {(errors as { [key: string]: string }).subject && (
+                <p class="mt-1 text-sm text-red-600">
+                  {(errors as { [key: string]: string }).subject}
+                </p>
+              )}
+              <p class="mt-1 text-sm text-gray-500">
+                {formData.subject.length}/100
               </p>
-            )}
+            </div>
           </div>
         </div>
         <div>
           <label class="block text-sm font-medium text-gray-700 mb-1">
-            {currentContent.message}
+            {currentContent.message} <span class="text-red-500">*</span>
           </label>
           <textarea
             name="message"
             value={formData.message}
             onChange={handleChange}
             required
+            maxLength={500}
             rows={6}
-            class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none"
+            class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none ${
+              (errors as { [key: string]: string }).message
+                ? "border-red-500"
+                : "border-gray-300"
+            }`}
             placeholder={currentContent.placeholders.message}
           >
           </textarea>
-          {(errors as { [key: string]: string }).message && (
-            <p class="mt-1 text-sm text-red-600">
-              {(errors as { [key: string]: string }).message}
+          <div class="flex justify-between">
+            {(errors as { [key: string]: string }).message && (
+              <p class="mt-1 text-sm text-red-600">
+                {(errors as { [key: string]: string }).message}
+              </p>
+            )}
+            <p class="mt-1 text-sm text-gray-500">
+              {formData.message.length}/500
             </p>
-          )}
+          </div>
         </div>
         <div>
           <button
