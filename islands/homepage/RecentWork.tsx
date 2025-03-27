@@ -57,7 +57,8 @@ const content = {
       },
     ],
   },
-  title: "Garapan Anyar Awak Dewe",
+  jv: {
+    title: "Garapan Anyar Awak Dewe",
     description:
       "Deloken proyek-proyek jos seng wes tak gawe. Teko website seng apik sampek aplikasi seng canggih, awak dewe nggawe pengalaman digital seng nggawe dampak.",
     projects: [

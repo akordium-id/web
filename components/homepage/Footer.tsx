@@ -6,7 +6,7 @@ const name = defaultSEO?.title ?? "Akordium";
 
 export default function Footer() {
   return (
-    <footer class="bg-gradient-to-b from-primary/10 to-tertiary/30 text-primary py-12">
+    <footer class="bg-gradient-to-b from-primary/10 to-tertiary/30 text-primary py-8 md:py-12">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
