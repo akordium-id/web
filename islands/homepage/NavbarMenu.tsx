@@ -59,12 +59,14 @@ export default function NavbarMenu(
           </a>
         ))}
         <LanguageDropdown />
-        <button
+        <a
+          href="/contact"
+          title="Contact Us"
           type="button"
           class="bg-tertiary text-base text-sm font-medium px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
         >
           Let's Talk
-        </button>
+        </a>
       </div>
 
       {/* Mobile menu dropdown */}
@@ -110,13 +112,14 @@ export default function NavbarMenu(
           <div class="py-2 border-t border-secondary/20">
             <LanguageDropdown />
           </div>
-          <button
-            type="button"
+          <a
+            href="/contact"
+            title="Contact Us"
             class="w-full bg-tertiary text-base px-4 py-3 rounded-full hover:bg-tertiary-light transition-colors text-lg font-medium"
             onClick={toggleMenu}
           >
             Let's Talk
-          </button>
+          </a>
         </div>
       </div>
     </>

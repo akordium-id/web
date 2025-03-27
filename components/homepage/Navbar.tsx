@@ -5,10 +5,8 @@ export default function Navbar(): JSX.Element {
   const menuItems = [
     { label: "Services", href: "#" },
     { label: "Work", href: "#" },
-    { label: "About", href: "#" },
     { label: "Blog", href: "/blog" },
     { label: "Shop", href: "#" },
-    { label: "Contact Us", href: "#" },
   ];
 
   return (

@@ -11,9 +11,11 @@ import * as $auth from "./routes/auth.tsx";
 import * as $blog_slug_ from "./routes/blog/[slug].tsx";
 import * as $blog_index from "./routes/blog/index.tsx";
 import * as $config_yml from "./routes/config.yml.ts";
+import * as $contact from "./routes/contact.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $GitHubAuth from "./islands/GitHubAuth.tsx";
+import * as $contact_ContactForm from "./islands/contact/ContactForm.tsx";
 import * as $homepage_CallToAction from "./islands/homepage/CallToAction.tsx";
 import * as $homepage_ClientTestimonials from "./islands/homepage/ClientTestimonials.tsx";
 import * as $homepage_HeroContent from "./islands/homepage/HeroContent.tsx";
@@ -36,11 +38,13 @@ const manifest = {
     "./routes/blog/[slug].tsx": $blog_slug_,
     "./routes/blog/index.tsx": $blog_index,
     "./routes/config.yml.ts": $config_yml,
+    "./routes/contact.tsx": $contact,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
   },
   islands: {
     "./islands/GitHubAuth.tsx": $GitHubAuth,
+    "./islands/contact/ContactForm.tsx": $contact_ContactForm,
     "./islands/homepage/CallToAction.tsx": $homepage_CallToAction,
     "./islands/homepage/ClientTestimonials.tsx": $homepage_ClientTestimonials,
     "./islands/homepage/HeroContent.tsx": $homepage_HeroContent,
