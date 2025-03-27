@@ -48,7 +48,6 @@ export default function NavbarMenu(
       </button>
 
       {/* Desktop menu */}
-      {/* Desktop menu */}
       <div class="hidden md:flex items-center gap-6">
         {menuItems.map((item) => (
           <a
@@ -58,7 +57,9 @@ export default function NavbarMenu(
             {item.label}
           </a>
         ))}
-        <LanguageDropdown />
+        <div class="relative">
+          <LanguageDropdown />
+        </div>
         <a
           href="/contact"
           title="Contact Us"

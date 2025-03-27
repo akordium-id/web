@@ -15,16 +15,16 @@ export default function LanguageDropdown() {
   };
 
   const selectLanguage = (lang: "en" | "id" | "jv") => {
-    setLanguage(lang); // Use the new function that also saves to localStorage
+    setLanguage(lang);
     isOpen.value = false;
   };
 
   return (
-    <div class="relative">
+    <div class="w-full">
       <button
         type="button"
         onClick={toggleDropdown}
-        class="flex items-center gap-1 text-sm text-primary hover:text-secondary px-1 py-1"
+        class="flex items-center gap-1 text-sm text-primary hover:text-secondary px-1 py-1 md:w-auto w-full"
       >
         {languages[languageSignal.value]}
         <svg
@@ -37,13 +37,14 @@ export default function LanguageDropdown() {
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
+          class={`transition-transform ${isOpen.value ? "rotate-180" : ""}`}
         >
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
 
       {isOpen.value && (
-        <div class="absolute right-0 mt-2 w-40 bg-white border border-gray-200 rounded-md shadow-lg z-50">
+        <div class="md:absolute md:right-0 md:mt-2 md:w-40 md:bg-white md:border md:border-gray-200 md:rounded-md md:shadow-lg md:z-50 w-full">
           {Object.entries(languages).map(([code, name]) => (
             <button
               type="button"
