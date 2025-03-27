@@ -206,9 +206,6 @@ export default function ContactForm() {
 
   return (
     <form onSubmit={handleSubmit} class="bg-white p-6 rounded-lg shadow-lg">
-      <p class="text-sm text-gray-500 mb-4">
-        <span class="text-red-500">*</span> {currentContent.required}
-      </p>
       {status.message && (
         <div
           class={`mb-6 p-4 rounded-md ${
@@ -220,6 +217,9 @@ export default function ContactForm() {
           {status.message}
         </div>
       )}
+      <p class="text-sm text-gray-500 mb-4">
+        <span class="text-red-500">*</span> {currentContent.required}
+      </p>
 
       <div class="grid gap-6">
         <div class="grid md:grid-cols-2 gap-6">

@@ -1,6 +1,7 @@
 import { Handlers } from "$fresh/server.ts";
 import { z } from "zod";
-import { SMTPClient } from "https://deno.land/x/denomailer@1.6.0/mod.ts";
+
+const key = Deno.env.get("RESEND_API_KEY")!;
 
 // Email configuration
 const EMAIL_TO = "admin@akordium.id";
@@ -26,7 +27,7 @@ export const handler: Handlers = {
       // Create HTML email content
       const htmlContent = `
         <h2>New Contact Form Submission</h2>
-        <table style="width: 100%; border-collapse: collapse;">
+        <table style="width: 30%; border-collapse: collapse;">
           <tr>
             <td style="padding: 8px; font-weight: bold;">Name:</td>
             <td style="padding: 8px;">${validatedData.name}</td>
@@ -49,26 +50,19 @@ export const handler: Handlers = {
         <p style="white-space: pre-wrap;">${validatedData.message}</p>
       `;
 
-      const client = new SMTPClient({
-        connection: {
-          hostname: "smtp.larksuite.com",
-          port: 465,
-          tls: true,
-          auth: {
-            username: "faiq@akordium.id",
-            password: "p6HbDArIgowLAX1G",
-          },
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${key}`
         },
+        body: JSON.stringify({
+          from: EMAIL_FROM,
+          to: EMAIL_TO,
+          subject: `New Contact Form: ${validatedData.subject}`,
+          html: htmlContent,
+        })
       });
-
-      await client.send({
-        from: EMAIL_FROM,
-        to: EMAIL_TO,
-        subject: `New Contact Form: ${validatedData.subject}`,
-        html: htmlContent,
-      });
-
-      await client.close();
 
       return new Response(
         JSON.stringify({ success: true, message: "Message sent successfully" }),
