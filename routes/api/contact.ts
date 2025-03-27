@@ -50,7 +50,7 @@ export const handler: Handlers = {
         <p style="white-space: pre-wrap;">${validatedData.message}</p>
       `;
 
-      await fetch('https://api.resend.com/emails', {
+      const response = await fetch('https://api.resend.com/emails', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -64,11 +64,21 @@ export const handler: Handlers = {
         })
       });
 
+      // Add response checking
+      if (!response.ok) {
+        const errorData = await response.json();
+        console.error('Resend API error:', errorData);
+        throw new Error(errorData.message || 'Failed to send email');
+      }
+
       return new Response(
         JSON.stringify({ success: true, message: "Message sent successfully" }),
         {
           status: 200,
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*", // Add CORS headers
+          },
         },
       );
     } catch (error) {
@@ -79,11 +89,14 @@ export const handler: Handlers = {
           success: false,
           message: error instanceof z.ZodError
             ? error.errors[0].message
-            : "Failed to send message",
+            : error.message || "Failed to send message",
         }),
         {
           status: 400,
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Origin": "*", // Add CORS headers
+          },
         },
       );
     }
