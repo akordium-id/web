@@ -85,4 +85,33 @@ export default {
   // Project 3
   project3_title: "Dashboard Analitik",
   project3_desc: "Dashboard analitik komprehensif dengan grafik dan laporan yang dapat disesuaikan",
+
+  // Client Testimonials Section
+  testimonials_title: "Apa Kata Klien Kami",
+  testimonials_subtitle: "Feedback nyata dari orang-orang yang telah bekerja sama dengan kami",
+
+  // Testimonial 1
+  testimonial1_quote: "Mereka tidak hanya membangun website untuk kami, tapi juga kehadiran digital yang mengubah bisnis kami. Tim sangat responsif, kreatif, dan menyenangkan untuk diajak bekerja sama!",
+  testimonial1_author: "Sarah Johnson",
+  testimonial1_position: "Direktur Marketing, TechStart",
+
+  // Testimonial 2
+  testimonial2_quote: "Peluncuran aplikasi kami sangat sukses berkat dukungan pengembangan dan pemasaran dari tim ini. Mereka memahami visi kami dan membuatnya lebih baik dari yang kami bayangkan!",
+  testimonial2_author: "Michael Chen",
+  testimonial2_position: "Pendiri, HeadTrack",
+
+  // Testimonial 3
+  testimonial3_quote: "Layanan konsultasi yang kami terima membantu kami menavigasi transformasi digital yang kompleks. Solusi hosting mereka sangat andal, dengan uptime 99,9% sesuai janji.",
+  testimonial3_author: "Jessica Williams",
+  testimonial3_position: "CTO, RetailPlus",
+
+  // Testimonial 4
+  testimonial4_quote: "Layanan dan keahlian teknis yang luar biasa. Mereka menyelesaikan proyek kami lebih cepat dari jadwal dan melampaui semua harapan.",
+  testimonial4_author: "David Miller",
+  testimonial4_position: "CEO, InnovateCo",
+
+  // Testimonial 5
+  testimonial5_quote: "Perhatian tim mereka terhadap detail dan komitmen terhadap kualitas sangat luar biasa. Partner teknologi terbaik yang pernah kami ajak kerja sama!",
+  testimonial5_author: "Emma Thompson",
+  testimonial5_position: "Manajer Produk, CloudSys",
 };

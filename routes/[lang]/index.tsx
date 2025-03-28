@@ -5,6 +5,7 @@ import ValueProposition from "@/components/homepage/ValueProposition.tsx";
 import StatsSection from "@/components/homepage/StatsSection.tsx";
 import Services from "@/components/homepage/Services.tsx";
 import RecentWork from "@/components/homepage/RecentWork.tsx";
+import ClientTestimonials from "@/islands/homepage/ClientTestimonials.tsx";
 
 export default function HomePage(props: PageProps) {
   const { lang } = props.params;
@@ -20,6 +21,7 @@ export default function HomePage(props: PageProps) {
       <StatsSection lang={lang} />
       <Services lang={lang} />
       <RecentWork lang={lang} />
+      <ClientTestimonials lang={lang} />
     </Layout>
   );
 }

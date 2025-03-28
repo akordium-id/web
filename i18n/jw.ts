@@ -85,4 +85,33 @@ export default {
   // Project 3
   project3_title: "Dashboard Analitik",
   project3_desc: "Dashboard analitik lengkap ambek grafik lan laporan seng iso disesuekno",
+
+  // Client Testimonials Section
+  testimonials_title: "Opo Jare Pelanggan Awak Dewe",
+  testimonials_subtitle: "Testimoni asli teko wong-wong seng wes kerjo bareng ambek awak dewe",
+
+  // Testimonial 1
+  testimonial1_quote: "Gak mung gawe website, tapi yo nggawe presence digital seng ngowahi bisnis awak dewe. Time responsif, kreatif, lan penak diajak kerjo bareng!",
+  testimonial1_author: "Sarah Johnson",
+  testimonial1_position: "Direktur Marketing, TechStart",
+
+  // Testimonial 2
+  testimonial2_quote: "Peluncuran aplikasi awak dewe sukses pol mergo support pengembangan lan pemasaran teko tim iki. Arek-arek paham opo seng awak dewe pingini lan hasile malah luwih apik teko seng dibayangno!",
+  testimonial2_author: "Michael Chen",
+  testimonial2_position: "Pendiri, HeadTrack",
+
+  // Testimonial 3
+  testimonial3_quote: "Layanan konsultasi seng awak dewe tampa ngewangi awak dewe nglewati transformasi digital seng ribet. Solusi hosting e mantep, uptime 99.9% podo ambek seng dijanjekno.",
+  testimonial3_author: "Jessica Williams",
+  testimonial3_position: "CTO, RetailPlus",
+
+  // Testimonial 4
+  testimonial4_quote: "Layanan lan keahlian teknise jos gandos. Arek-arek ngrampungno proyek luwih cepet teko jadwal lan ngluwihi ekspektasi.",
+  testimonial4_author: "David Miller",
+  testimonial4_position: "CEO, InnovateCo",
+
+  // Testimonial 5
+  testimonial5_quote: "Perhatiane tim nang detail lan komitmen nang kualitas iku jos. Partner teknologi paling apik seng tau kerjo bareng ambek awak dewe!",
+  testimonial5_author: "Emma Thompson",
+  testimonial5_position: "Manajer Produk, CloudSys",
 };

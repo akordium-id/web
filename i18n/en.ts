@@ -86,4 +86,33 @@ export default {
   // Project 3
   project3_title: "Analytics Dashboard",
   project3_desc: "Comprehensive analytics dashboard with customizable charts and reports",
+
+  // Client Testimonials Section
+  testimonials_title: "What Our Clients Say",
+  testimonials_subtitle: "Real feedback from real people we've worked with",
+
+  // Testimonial 1
+  testimonial1_quote: "They didn't just build us a website, they built us a digital presence that transformed our business. The team was responsive, creative, and actually fun to work with!",
+  testimonial1_author: "Sarah Johnson",
+  testimonial1_position: "Marketing Director, TechStart",
+
+  // Testimonial 2
+  testimonial2_quote: "Our app launch was a huge success thanks to the development and marketing support from this team. They understood our vision and made it even better than we imagined!",
+  testimonial2_author: "Michael Chen",
+  testimonial2_position: "Founder, HeadTrack",
+
+  // Testimonial 3
+  testimonial3_quote: "The consulting services we received helped us navigate a complex digital transformation. Their hosting solutions have been rock-solid, with 99.9% uptime as promised.",
+  testimonial3_author: "Jessica Williams",
+  testimonial3_position: "CTO, RetailPlus",
+
+  // Testimonial 4
+  testimonial4_quote: "Outstanding service and technical expertise. They delivered our project ahead of schedule and exceeded all expectations.",
+  testimonial4_author: "David Miller",
+  testimonial4_position: "CEO, InnovateCo",
+
+  // Testimonial 5
+  testimonial5_quote: "Their team's attention to detail and commitment to quality is remarkable. Best tech partner we've ever worked with!",
+  testimonial5_author: "Emma Thompson",
+  testimonial5_position: "Product Manager, CloudSys",
 };
