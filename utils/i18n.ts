@@ -14,14 +14,11 @@ const translations: Record<string, Record<string, string>> = {
 // Get saved language preference from localStorage
 export function getSavedLanguage(): string {
   if (typeof globalThis !== "undefined" && globalThis.localStorage) {
-    console.log("Client side detected");
     const saved = localStorage.getItem("preferredLanguage");
     if (saved && SUPPORTED_LANGUAGES.includes(saved)) {
-      console.log("saved language:", saved);
       return saved;
     }
   }
-  console.log("Using default language:", DEFAULT_LANGUAGE);
   return DEFAULT_LANGUAGE;
 }
 
@@ -32,20 +29,14 @@ function saveLanguagePreference(lang: string) {
   }
 }
 
-export function translate(
-  key: string,
-  lang: string = DEFAULT_LANGUAGE,
-): string {
+export function translate(key: string, lang: string = DEFAULT_LANGUAGE): string {
   const language = SUPPORTED_LANGUAGES.includes(lang) ? lang : DEFAULT_LANGUAGE;
-  return translations[language][key] || translations[DEFAULT_LANGUAGE][key] ||
-    key;
+  return translations[language][key] || translations[DEFAULT_LANGUAGE][key] || key;
 }
 
 export function getLanguageFromURL(url: URL): string {
   const [, maybeLocale] = url.pathname.split("/");
-  const urlLang = SUPPORTED_LANGUAGES.includes(maybeLocale)
-    ? maybeLocale
-    : getSavedLanguage();
+  const urlLang = SUPPORTED_LANGUAGES.includes(maybeLocale) ? maybeLocale : getSavedLanguage();
   saveLanguagePreference(urlLang);
   return urlLang;
 }

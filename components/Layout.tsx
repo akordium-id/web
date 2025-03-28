@@ -1,6 +1,4 @@
 import { ComponentChildren } from "preact";
-import { translate } from "../utils/i18n.ts";
-import { IS_BROWSER } from "$fresh/runtime.ts";
 import Header from "./homepage/Header.tsx";
 import Footer from "./homepage/Footer.tsx";
 

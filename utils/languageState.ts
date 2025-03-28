@@ -1,5 +1,4 @@
 import { signal } from "@preact/signals";
-import { SUPPORTED_LANGUAGES } from "./i18n.ts";
 
 // Function to get the initial language from localStorage or default to "en"
 function getInitialLanguage(): "en" | "id" | "jw" { // refer to SUPPORTED_LANGUAGES from i18n.ts
