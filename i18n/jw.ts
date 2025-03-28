@@ -45,4 +45,9 @@ export default {
   vp_has: "nduweni ",
   vp_experience: "pengalaman 3+ taun ",
   vp_fields: "gawe solusi digital nang bidang perbankan, pemasaran, lan IoT.",
+
+  // Stats Section
+  stats_projects_delivered: "Proyek Wes Mari",
+  stats_years_experience: "Taun Pengalaman",
+  stats_client_satisfaction: "Kepuasan Langganan",
 };

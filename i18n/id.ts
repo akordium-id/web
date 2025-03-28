@@ -45,4 +45,9 @@ export default {
   vp_has: "dengan ",
   vp_experience: "berpengalaman 3+ tahun ",
   vp_fields: "dalam menciptakan solusi digital untuk bidang perbankan, pemasaran, dan IoT.",
+
+  // Stats Section
+  stats_projects_delivered: "Proyek Terselesaikan",
+  stats_years_experience: "Tahun Pengalaman",
+  stats_client_satisfaction: "Kepuasan Klien",
 };

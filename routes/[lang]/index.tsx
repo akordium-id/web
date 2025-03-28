@@ -2,6 +2,7 @@ import { PageProps } from "$fresh/server.ts";
 import Layout from "@/components/Layout.tsx";
 import Hero from "@/components/homepage/Hero.tsx";
 import ValueProposition from "@/components/homepage/ValueProposition.tsx";
+import StatsSection from "@/components/homepage/StatsSection.tsx";
 
 export default function HomePage(props: PageProps) {
   const { lang } = props.params;
@@ -14,6 +15,7 @@ export default function HomePage(props: PageProps) {
     >
       <Hero lang={lang} />
       <ValueProposition lang={lang} />
+      <StatsSection lang={lang} />
     </Layout>
   );
 }

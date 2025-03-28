@@ -46,4 +46,9 @@ export default {
   vp_has: "has ",
   vp_experience: "3+ years of experience ",
   vp_fields: "creating digital solutions for banking, marketing, and IoT fields.",
+
+  // Stats Section
+  stats_projects_delivered: "Projects Delivered",
+  stats_years_experience: "Years Experience",
+  stats_client_satisfaction: "Client Satisfaction",
 };
