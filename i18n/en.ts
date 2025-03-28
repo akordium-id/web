@@ -69,4 +69,21 @@ export default {
   service_hosting_feature_1: "Cloud hosting solutions",
   service_hosting_feature_2: "Performance optimization",
   service_hosting_feature_3: "Security monitoring",
+
+  // Recent Work Section
+  recent_work_title: "Our Recent Work",
+  recent_work_desc: "Check out some of the cool projects we've worked on. From sleek websites to powerful apps, we build digital experiences that make an impact.",
+  view_more_projects: "View more projects →",
+
+  // Project 1
+  project1_title: "Customize Marketing Platform",
+  project1_desc: "Custom marketing platform with advanced filtering and customer personalization",
+
+  // Project 2
+  project2_title: "Business Process Automation",
+  project2_desc: "Desktop robotic automation for streamlined and efficient business processes",
+
+  // Project 3
+  project3_title: "Analytics Dashboard",
+  project3_desc: "Comprehensive analytics dashboard with customizable charts and reports",
 };

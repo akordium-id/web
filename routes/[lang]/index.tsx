@@ -4,6 +4,7 @@ import Hero from "@/components/homepage/Hero.tsx";
 import ValueProposition from "@/components/homepage/ValueProposition.tsx";
 import StatsSection from "@/components/homepage/StatsSection.tsx";
 import Services from "@/components/homepage/Services.tsx";
+import RecentWork from "@/components/homepage/RecentWork.tsx";
 
 export default function HomePage(props: PageProps) {
   const { lang } = props.params;
@@ -18,6 +19,7 @@ export default function HomePage(props: PageProps) {
       <ValueProposition lang={lang} />
       <StatsSection lang={lang} />
       <Services lang={lang} />
+      <RecentWork lang={lang} />
     </Layout>
   );
 }

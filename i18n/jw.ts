@@ -68,4 +68,21 @@ export default {
   service_hosting_feature_1: "Solusi cloud hosting",
   service_hosting_feature_2: "Optimasi performa",
   service_hosting_feature_3: "Monitoring keamanan",
+
+  // Recent Work Section
+  recent_work_title: "Garapan Anyar Awak Dewe",
+  recent_work_desc: "Deloken proyek-proyek jos seng wes tak gawe. Teko website seng apik sampek aplikasi seng canggih, awak dewe nggawe pengalaman digital seng nggawe dampak.",
+  view_more_projects: "Delok proyek liyane →",
+
+  // Project 1
+  project1_title: "Platform Marketing Kustom",
+  project1_desc: "Platform marketing khusus ambek filter canggih lan personalisasi pelanggan",
+
+  // Project 2
+  project2_title: "Otomasi Proses Bisnis",
+  project2_desc: "Otomasi robotik desktop gawe proses bisnis ben luwih efisien lan teratur",
+
+  // Project 3
+  project3_title: "Dashboard Analitik",
+  project3_desc: "Dashboard analitik lengkap ambek grafik lan laporan seng iso disesuekno",
 };

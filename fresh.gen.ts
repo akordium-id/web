@@ -18,7 +18,6 @@ import * as $homepage_CallToAction from "./islands/homepage/CallToAction.tsx";
 import * as $homepage_ClientTestimonials from "./islands/homepage/ClientTestimonials.tsx";
 import * as $homepage_LanguageDropdown from "./islands/homepage/LanguageDropdown.tsx";
 import * as $homepage_NavbarMenu from "./islands/homepage/NavbarMenu.tsx";
-import * as $homepage_RecentWork from "./islands/homepage/RecentWork.tsx";
 import * as $homepage_StatsCount from "./islands/homepage/StatsCount.tsx";
 import type { Manifest } from "$fresh/server.ts";
 
@@ -42,7 +41,6 @@ const manifest = {
     "./islands/homepage/ClientTestimonials.tsx": $homepage_ClientTestimonials,
     "./islands/homepage/LanguageDropdown.tsx": $homepage_LanguageDropdown,
     "./islands/homepage/NavbarMenu.tsx": $homepage_NavbarMenu,
-    "./islands/homepage/RecentWork.tsx": $homepage_RecentWork,
     "./islands/homepage/StatsCount.tsx": $homepage_StatsCount,
   },
   baseUrl: import.meta.url,

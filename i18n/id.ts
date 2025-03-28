@@ -68,4 +68,21 @@ export default {
   service_hosting_feature_1: "Solusi cloud hosting",
   service_hosting_feature_2: "Optimasi performa",
   service_hosting_feature_3: "Monitoring keamanan",
+
+  // Recent Work Section
+  recent_work_title: "Karya Terbaru Kami",
+  recent_work_desc: "Lihat beberapa proyek keren yang telah kami kerjakan. Dari website elegan hingga aplikasi powerful, kami membangun pengalaman digital yang berdampak.",
+  view_more_projects: "Lihat proyek lainnya →",
+
+  // Project 1
+  project1_title: "Platform Marketing Kustom",
+  project1_desc: "Platform marketing khusus dengan filter canggih dan personalisasi pelanggan",
+
+  // Project 2
+  project2_title: "Otomasi Proses Bisnis",
+  project2_desc: "Otomasi robotik desktop untuk proses bisnis yang efisien dan terstruktur",
+
+  // Project 3
+  project3_title: "Dashboard Analitik",
+  project3_desc: "Dashboard analitik komprehensif dengan grafik dan laporan yang dapat disesuaikan",
 };
