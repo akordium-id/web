@@ -115,4 +115,11 @@ export default {
   testimonial5_quote: "Their team's attention to detail and commitment to quality is remarkable. Best tech partner we've ever worked with!",
   testimonial5_author: "Emma Thompson",
   testimonial5_position: "Product Manager, CloudSys",
+
+  // Call To Action Section
+  cta_title: "Let's Create Something Amazing Together",
+  cta_description: "Ready to take your digital presence to the next level? We're here to help you build, optimize, and grow your online business.",
+  cta_contact: "Contact us",
+  cta_whatsapp: "WhatsApp",
+  cta_whatsapp_link: "http://wa.me/628159988995?text=Hello,%20I%20would%20like%20to%20consult%20with%20you...",
 };

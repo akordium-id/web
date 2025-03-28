@@ -114,4 +114,11 @@ export default {
   testimonial5_quote: "Perhatiane tim nang detail lan komitmen nang kualitas iku jos. Partner teknologi paling apik seng tau kerjo bareng ambek awak dewe!",
   testimonial5_author: "Emma Thompson",
   testimonial5_position: "Manajer Produk, CloudSys",
+
+  // Call To Action Section
+  cta_title: "Ayo Gawe Karya Seng Apik Bareng-bareng",
+  cta_description: "Siap nggawe bisnis digital sampean dadi luwih jos? Awak dewe siap mbantu sampean nggawe, ngapiki, lan ngrembakno bisnis online sampean.",
+  cta_contact: "Hubungi Awak Dewe",
+  cta_whatsapp: "WA Sek",
+  cta_whatsapp_link: "http://wa.me/628159988995?text=Halo,%20aku%20kepingin%20konsultasi%20ambek%20sampean...",
 };

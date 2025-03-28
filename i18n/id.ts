@@ -114,4 +114,11 @@ export default {
   testimonial5_quote: "Perhatian tim mereka terhadap detail dan komitmen terhadap kualitas sangat luar biasa. Partner teknologi terbaik yang pernah kami ajak kerja sama!",
   testimonial5_author: "Emma Thompson",
   testimonial5_position: "Manajer Produk, CloudSys",
+
+  // Call To Action Section
+  cta_title: "Mari Ciptakan Sesuatu yang Luar Biasa Bersama",
+  cta_description: "Siap membawa kehadiran digital Anda ke level berikutnya? Kami siap membantu Anda membangun, mengoptimalkan, dan mengembangkan bisnis online Anda.",
+  cta_contact: "Hubungi Kami",
+  cta_whatsapp: "WhatsApp",
+  cta_whatsapp_link: "http://wa.me/628159988995?text=Halo,%20saya%20ingin%20berkonsultasi%20dengan%20Anda...",
 };

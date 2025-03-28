@@ -14,7 +14,6 @@ import * as $contact from "./routes/contact.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $contact_ContactForm from "./islands/contact/ContactForm.tsx";
-import * as $homepage_CallToAction from "./islands/homepage/CallToAction.tsx";
 import * as $homepage_ClientTestimonials from "./islands/homepage/ClientTestimonials.tsx";
 import * as $homepage_LanguageDropdown from "./islands/homepage/LanguageDropdown.tsx";
 import * as $homepage_NavbarMenu from "./islands/homepage/NavbarMenu.tsx";
@@ -37,7 +36,6 @@ const manifest = {
   },
   islands: {
     "./islands/contact/ContactForm.tsx": $contact_ContactForm,
-    "./islands/homepage/CallToAction.tsx": $homepage_CallToAction,
     "./islands/homepage/ClientTestimonials.tsx": $homepage_ClientTestimonials,
     "./islands/homepage/LanguageDropdown.tsx": $homepage_LanguageDropdown,
     "./islands/homepage/NavbarMenu.tsx": $homepage_NavbarMenu,
