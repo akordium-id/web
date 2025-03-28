@@ -1,5 +1,6 @@
 import { useEffect, useState } from "preact/hooks";
 import { languageSignal } from "@/utils/languageState.ts";
+import { translate } from "@/utils/i18n.ts";
 
 const translations = {
   en: {
@@ -19,20 +20,20 @@ const translations = {
   },
 };
 
-export default function StatsCount() {
+export default function StatsCount({ lang }: { lang: string }) {
   const [isVisible, setIsVisible] = useState(false);
   const stats = [
     {
       value: "10",
-      label: translations[languageSignal.value].projectsDelivered,
+      label: translate("stats_projects_delivered", lang),
     },
     {
       value: "3+",
-      label: translations[languageSignal.value].yearsExperience,
+      label: translate("stats_years_experience", lang),
     },
     {
       value: "90%",
-      label: translations[languageSignal.value].clientSatisfaction,
+      label: translate("stats_client_satisfaction", lang),
     },
   ];
 

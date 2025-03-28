@@ -1,136 +1,48 @@
-import { languageSignal } from "@/utils/languageState.ts";
 import { useEffect, useRef, useState } from "preact/hooks";
+import { translate } from "@/utils/i18n.ts";
 
-const content = {
-  en: {
-    title: "What Our Clients Say",
-    subtitle: "Real feedback from real people we've worked with",
-    testimonials: [
-      {
-        quote:
-          "They didn't just build us a website, they built us a digital presence that transformed our business. The team was responsive, creative, and actually fun to work with!",
-        author: "Sarah Johnson",
-        position: "Marketing Director, TechStart",
-        image: "https://i.pravatar.cc/150?img=1",
-      },
-      {
-        quote:
-          "Our app launch was a huge success thanks to the development and marketing support from this team. They understood our vision and made it even better than we imagined!",
-        author: "Michael Chen",
-        position: "Founder, HeadTrack",
-        image: "https://i.pravatar.cc/150?img=3",
-      },
-      {
-        quote:
-          "The consulting services we received helped us navigate a complex digital transformation. Their hosting solutions have been rock-solid, with 99.9% uptime as promised.",
-        author: "Jessica Williams",
-        position: "CTO, RetailPlus",
-        image: "https://i.pravatar.cc/150?img=4",
-      },
-      {
-        quote:
-          "Outstanding service and technical expertise. They delivered our project ahead of schedule and exceeded all expectations.",
-        author: "David Miller",
-        position: "CEO, InnovateCo",
-        image: "https://i.pravatar.cc/150?img=5",
-      },
-      {
-        quote:
-          "Their team's attention to detail and commitment to quality is remarkable. Best tech partner we've ever worked with!",
-        author: "Emma Thompson",
-        position: "Product Manager, CloudSys",
-        image: "https://i.pravatar.cc/150?img=6",
-      },
-    ],
-  },
-  id: {
-    title: "Apa Kata Klien Kami",
-    subtitle:
-      "Feedback nyata dari orang-orang yang telah bekerja sama dengan kami",
-    testimonials: [
-      {
-        quote:
-          "Mereka tidak hanya membangun website untuk kami, tapi juga kehadiran digital yang mengubah bisnis kami. Tim sangat responsif, kreatif, dan menyenangkan untuk diajak bekerja sama!",
-        author: "Sarah Johnson",
-        position: "Direktur Marketing, TechStart",
-        image: "https://i.pravatar.cc/150?img=1",
-      },
-      {
-        quote:
-          "Peluncuran aplikasi kami sangat sukses berkat dukungan pengembangan dan pemasaran dari tim ini. Mereka memahami visi kami dan membuatnya lebih baik dari yang kami bayangkan!",
-        author: "Michael Chen",
-        position: "Pendiri, HeadTrack",
-        image: "https://i.pravatar.cc/150?img=3",
-      },
-      {
-        quote:
-          "Layanan konsultasi yang kami terima membantu kami menavigasi transformasi digital yang kompleks. Solusi hosting mereka sangat andal, dengan uptime 99,9% sesuai janji.",
-        author: "Jessica Williams",
-        position: "CTO, RetailPlus",
-        image: "https://i.pravatar.cc/150?img=4",
-      },
-      {
-        quote:
-          "Layanan dan keahlian teknis yang luar biasa. Mereka menyelesaikan proyek kami lebih cepat dari jadwal dan melampaui semua harapan.",
-        author: "David Miller",
-        position: "CEO, InnovateCo",
-        image: "https://i.pravatar.cc/150?img=5",
-      },
-      {
-        quote:
-          "Perhatian tim mereka terhadap detail dan komitmen terhadap kualitas sangat luar biasa. Partner teknologi terbaik yang pernah kami ajak kerja sama!",
-        author: "Emma Thompson",
-        position: "Manajer Produk, CloudSys",
-        image: "https://i.pravatar.cc/150?img=6",
-      },
-    ],
-  },
-  jv: {
-    title: "Opo Jare Pelanggan Awak Dewe",
-    subtitle:
-      "Testimoni asli teko wong-wong seng wes kerjo bareng ambek awak dewe",
-    testimonials: [
-      {
-        quote:
-          "Gak mung gawe website, tapi yo nggawe presence digital seng ngowahi bisnis awak dewe. Time responsif, kreatif, lan penak diajak kerjo bareng!",
-        author: "Sarah Johnson",
-        position: "Direktur Marketing, TechStart",
-        image: "https://i.pravatar.cc/150?img=1",
-      },
-      {
-        quote:
-          "Peluncuran aplikasi awak dewe sukses pol mergo support pengembangan lan pemasaran teko tim iki. Arek-arek paham opo seng awak dewe pingini lan hasile malah luwih apik teko seng dibayangno!",
-        author: "Michael Chen",
-        position: "Pendiri, HeadTrack",
-        image: "https://i.pravatar.cc/150?img=3",
-      },
-      {
-        quote:
-          "Layanan konsultasi seng awak dewe tampa ngewangi awak dewe nglewati transformasi digital seng ribet. Solusi hosting e mantep, uptime 99.9% podo ambek seng dijanjekno.",
-        author: "Jessica Williams",
-        position: "CTO, RetailPlus",
-        image: "https://i.pravatar.cc/150?img=4",
-      },
-      {
-        quote:
-          "Layanan lan keahlian teknise jos gandos. Arek-arek ngrampungno proyek luwih cepet teko jadwal lan ngluwihi ekspektasi.",
-        author: "David Miller",
-        position: "CEO, InnovateCo",
-        image: "https://i.pravatar.cc/150?img=5",
-      },
-      {
-        quote:
-          "Perhatiane tim nang detail lan komitmen nang kualitas iku jos. Partner teknologi paling apik seng tau kerjo bareng ambek awak dewe!",
-        author: "Emma Thompson",
-        position: "Manajer Produk, CloudSys",
-        image: "https://i.pravatar.cc/150?img=6",
-      },
-    ],
-  },
-};
+const profilePics = [
+  "https://i.pravatar.cc/150?img=1",
+  "https://i.pravatar.cc/150?img=3",
+  "https://i.pravatar.cc/150?img=4",
+  "https://i.pravatar.cc/150?img=5",
+  "https://i.pravatar.cc/150?img=6",
+];
 
-export default function ClientTestimonials() {
-  const currentContent = content[languageSignal.value];
+export default function ClientTestimonials({ lang }: { lang: string }) {
+  const testimonials = [
+    {
+      quote: translate("testimonial1_quote", lang),
+      author: translate("testimonial1_author", lang),
+      position: translate("testimonial1_position", lang),
+      image: profilePics[0],
+    },
+    {
+      quote: translate("testimonial2_quote", lang),
+      author: translate("testimonial2_author", lang),
+      position: translate("testimonial2_position", lang),
+      image: profilePics[1],
+    },
+    {
+      quote: translate("testimonial3_quote", lang),
+      author: translate("testimonial3_author", lang),
+      position: translate("testimonial3_position", lang),
+      image: profilePics[2],
+    },
+    {
+      quote: translate("testimonial4_quote", lang),
+      author: translate("testimonial4_author", lang),
+      position: translate("testimonial4_position", lang),
+      image: profilePics[3],
+    },
+    {
+      quote: translate("testimonial5_quote", lang),
+      author: translate("testimonial5_author", lang),
+      position: translate("testimonial5_position", lang),
+      image: profilePics[4],
+    },
+  ];
+
   const [activeIndices, setActiveIndices] = useState([0, 1, 2]);
   const [isTransitioning, setIsTransitioning] = useState(false);
   const testimonialRefs = useRef<(HTMLDivElement | null)[]>([]);
@@ -139,7 +51,7 @@ export default function ClientTestimonials() {
     if (isTransitioning) return;
 
     setIsTransitioning(true);
-    const allTestimonials = currentContent.testimonials;
+    const allTestimonials = testimonials;
     const unusedIndices = Array.from(Array(allTestimonials.length).keys())
       .filter((i) => !activeIndices.includes(i));
 
@@ -163,15 +75,15 @@ export default function ClientTestimonials() {
       <div className="container mx-auto px-4">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-primary mb-2">
-            {currentContent.title}
+            {translate("testimonials_title", lang)}
           </h2>
           <p className="text-gray-600">
-            {currentContent.subtitle}
+            {translate("testimonials_subtitle", lang)}
           </p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {activeIndices.map((testimonialIndex, index) => {
-            const testimonial = currentContent.testimonials[testimonialIndex];
+            const testimonial = testimonials[testimonialIndex];
             return (
               <div
                 key={testimonialIndex}
