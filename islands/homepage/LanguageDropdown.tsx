@@ -1,21 +1,18 @@
 import { useSignal } from "@preact/signals";
-import { setLanguage } from "@/utils/languageState.ts";
-import { IS_BROWSER } from "$fresh/runtime.ts";
+import { languageSignal, setLanguage } from "@/utils/languageState.ts";
 import { SUPPORTED_LANGUAGES } from "@/utils/i18n.ts";
 
 interface LanguageDropdownProps {
   currentLang?: string;
 }
 
-export default function LanguageDropdown(
-  { currentLang = "en" }: LanguageDropdownProps,
-) {
+export default function LanguageDropdown({ currentLang = "en" }: LanguageDropdownProps) {
   const isOpen = useSignal(false);
 
   const languages = {
     en: "EN",
     id: "ID",
-    jv: "JW",
+    jw: "JW",
   };
 
   const toggleDropdown = () => {
@@ -23,11 +20,11 @@ export default function LanguageDropdown(
   };
 
   const selectLanguage = (lang: string) => {
-    // Update language state
+    // Update language state using the signal
     setLanguage(lang as "en" | "id" | "jw");
 
     // Redirect to the same page but with new language
-    if (IS_BROWSER) {
+    if (typeof globalThis !== "undefined") {
       const currentPath = globalThis.location.pathname;
       const pathWithoutLang = currentPath.substring(3) || "";
       globalThis.location.href = `/${lang}${pathWithoutLang}`;
@@ -43,7 +40,7 @@ export default function LanguageDropdown(
         onClick={toggleDropdown}
         class="flex items-center gap-1 md:text-sm text-md font medium text-primary hover:text-secondary px-1 py-1 md:w-auto w-full"
       >
-        {languages[currentLang as keyof typeof languages] || languages.en}
+        {languages[languageSignal.value] || languages.en}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -68,7 +65,7 @@ export default function LanguageDropdown(
               key={code}
               onClick={() => selectLanguage(code)}
               class={`block text-primary md:text-sm text-md w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-secondary ${
-                currentLang === code ? "bg-tertiary/20 font-medium" : ""
+                languageSignal.value === code ? "bg-tertiary/20 font-medium" : ""
               }`}
             >
               {languages[code as keyof typeof languages] || code.toUpperCase()}
