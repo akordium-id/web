@@ -347,7 +347,10 @@ export default function Services() {
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {currentContent.services.map((service, index) => (
-            <div key={index} className="bg-white p-8 rounded-lg shadow-lg">
+            <div
+              key={index}
+              className="bg-white p-8 rounded-lg shadow-lg"
+            >
               <div className="flex flex-col items-center md:items-start">
                 {service.icon}
                 <h3 className="text-2xl font-semibold text-primary mb-4">
