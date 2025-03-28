@@ -51,4 +51,22 @@ export default {
   stats_projects_delivered: "Projects Delivered",
   stats_years_experience: "Years Experience",
   stats_client_satisfaction: "Client Satisfaction",
+
+  // Services Section
+  services_title: "Our Services",
+  services_learn_more: "Learn more",
+
+  // Web & App Development Service
+  service_web_title: "Web & App Development",
+  service_web_desc: "From simple static web to mobile apps, we build digital products that look great and perform better.",
+  service_web_feature_1: "Static website or WordPress development",
+  service_web_feature_2: "Custom web-based application",
+  service_web_feature_3: "Mobile application development",
+
+  // Hosting Service
+  service_hosting_title: "Hosting & Infrastructure",
+  service_hosting_desc: "Fast, secure, and reliable hosting solutions that keep your digital products running smoothly 24/7.",
+  service_hosting_feature_1: "Cloud hosting solutions",
+  service_hosting_feature_2: "Performance optimization",
+  service_hosting_feature_3: "Security monitoring",
 };

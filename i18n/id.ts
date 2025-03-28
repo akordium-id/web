@@ -50,4 +50,22 @@ export default {
   stats_projects_delivered: "Proyek Terselesaikan",
   stats_years_experience: "Tahun Pengalaman",
   stats_client_satisfaction: "Kepuasan Klien",
+
+  // Services Section
+  services_title: "Layanan Kami",
+  services_learn_more: "Lebih Lanjut",
+
+  // Web & App Development Service
+  service_web_title: "Pengembangan Web & Aplikasi",
+  service_web_desc: "Dari website statis sederhana hingga aplikasi mobile, kami membangun produk digital yang tampil bagus dan berkinerja lebih baik.",
+  service_web_feature_1: "Pengembangan web statis atau WordPress",
+  service_web_feature_2: "Kustom aplikasi berbasis web",
+  service_web_feature_3: "Pengembangan aplikasi mobile",
+
+  // Hosting Service
+  service_hosting_title: "Hosting & Infrastruktur",
+  service_hosting_desc: "Solusi hosting yang cepat, aman, dan andal untuk menjaga produk digital Anda berjalan lancar 24/7.",
+  service_hosting_feature_1: "Solusi cloud hosting",
+  service_hosting_feature_2: "Optimasi performa",
+  service_hosting_feature_3: "Monitoring keamanan",
 };

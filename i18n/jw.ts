@@ -50,4 +50,22 @@ export default {
   stats_projects_delivered: "Proyek Wes Mari",
   stats_years_experience: "Taun Pengalaman",
   stats_client_satisfaction: "Kepuasan Langganan",
+
+  // Services Section
+  services_title: "Layanan Awak Dewe",
+  services_learn_more: "Luwih Lengkap",
+
+  // Web & App Development Service
+  service_web_title: "Pengembangan Web & Aplikasi",
+  service_web_desc: "Teko website sederhana sampek aplikasi mobile, awak dewe nggawe produk digital seng apik lan performane jos.",
+  service_web_feature_1: "Pengembangan web statis utowo WordPress",
+  service_web_feature_2: "Aplikasi kustom basis web",
+  service_web_feature_3: "Pengembangan aplikasi mobile",
+
+  // Hosting Service
+  service_hosting_title: "Hosting & Infrastruktur",
+  service_hosting_desc: "Solusi hosting seng cepet, aman, lan iso dipercaya gawe njogo produk digital sampean mlaku lancar 24/7.",
+  service_hosting_feature_1: "Solusi cloud hosting",
+  service_hosting_feature_2: "Optimasi performa",
+  service_hosting_feature_3: "Monitoring keamanan",
 };
