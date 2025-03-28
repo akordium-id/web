@@ -24,4 +24,11 @@ export default {
   portfolio: "Portofolio",
   honorable_mentions: "Penghargaan",
   cookies: "Kebijakan Cookie",
+
+  // Hero Section
+  hero_tagline: "Perusahaan Software",
+  hero_heading: "Mitra Digital untuk Pertumbuhan Bisnis Anda",
+  hero_subheading: "Aman dan terpercaya • Berorientasi hasil • Pengembangan cepat • Profesional",
+  hero_cta: "Hubungi Kami",
+  hero_work: "Lihat Hasil Kami",
 };

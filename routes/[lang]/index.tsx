@@ -1,6 +1,6 @@
 import { PageProps } from "$fresh/server.ts";
 import Layout from "@/components/Layout.tsx";
-import { translate } from "@/utils/i18n.ts";
+import Hero from "@/components/homepage/Hero.tsx";
 
 export default function HomePage(props: PageProps) {
   const { lang } = props.params;
@@ -11,9 +11,7 @@ export default function HomePage(props: PageProps) {
       showHeader={true as boolean}
       showFooter={true as boolean}
     >
-      <div class="py-12">
-        {/* Konten halaman utama */}
-      </div>
+      <Hero lang={lang} />
     </Layout>
   );
 }

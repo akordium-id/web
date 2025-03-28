@@ -24,4 +24,12 @@ export default {
   portfolio: "Portfolio",
   honorable_mentions: "Honorable Mentions",
   cookies: "Cookie Policy",
+
+  // Hero Section
+  hero_tagline: "Software Company",
+  hero_heading: "Your Digital Partner for Growth",
+  hero_subheading:
+    "Secure and reliable • Result-driven approach • Fast-paced development • Professional",
+  hero_cta: "Book a Call",
+  hero_work: "See Our Work",
 };

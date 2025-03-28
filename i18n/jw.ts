@@ -24,4 +24,11 @@ export default {
   portfolio: "Portofolio",
   honorable_mentions: "Penghargaan",
   cookies: "Kebijakan Cookie",
+
+  // Hero Section
+  hero_tagline: "Perusahaan Software",
+  hero_heading: "Partner Digital Seng Peduli Ambek Sampean",
+  hero_subheading: "Aman lan terpercaya • Fokus hasil • Pengembangan cepet • Profesional",
+  hero_cta: "Hubungi Awak Dewe",
+  hero_work: "Delok Garapan Awak Dewe",
 };
