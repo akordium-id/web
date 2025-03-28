@@ -31,4 +31,18 @@ export default {
   hero_subheading: "Aman lan terpercaya • Fokus hasil • Pengembangan cepet • Profesional",
   hero_cta: "Hubungi Awak Dewe",
   hero_work: "Delok Garapan Awak Dewe",
+
+  // Value Proposition Section
+  vp_intro: "Awak dewe gak mung perusahaan teknologi biasa. Awak dewe iki partner digital sampean, nggabungno ",
+  vp_first_value: "keahlian pengembangan, ",
+  vp_second_value: "konsultasi strategis, ",
+  vp_third_value: "hosting seng iso dipercaya, ",
+  vp_divider: "lan ",
+  vp_fourth_value: "pemasaran seng fokus hasil ",
+  vp_closure: "gawe ngewangi bisnis sampean sukses nang online.",
+  vp_team: "Tim awak dewe ",
+  vp_trait: "seng seneng teknologi ",
+  vp_has: "nduweni ",
+  vp_experience: "pengalaman 3+ taun ",
+  vp_fields: "gawe solusi digital nang bidang perbankan, pemasaran, lan IoT.",
 };

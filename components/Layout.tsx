@@ -23,7 +23,7 @@ export default function Layout({
     <div class="min-h-screen flex flex-col">
       {showHeader && <Header lang={lang} />}
 
-      <main class="flex-grow container mx-auto px-4 py-8">
+      <main class="flex flex-col flex-grow min-h-screen">
         {title && <h1 class="text-3xl font-bold mb-6">{title}</h1>}
         {description && <p class="text-gray-600 mb-8">{description}</p>}
         {children}

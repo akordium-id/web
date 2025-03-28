@@ -33,6 +33,9 @@ export default {
           base: {
             DEFAULT: "#fcfcfc", // Off-white background
             foreground: "#3b2e83", // Primary text color
+            subtle: "#f5f5f7", // Subtle background variation for sections
+            muted: "#eaeaec", // Muted background for cards or containers
+            hover: "#f0f0f2", // Hover state for interactive elements
           },
           primary: {
             DEFAULT: "#3b2e83", // Dark Blue-Purple

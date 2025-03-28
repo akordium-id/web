@@ -31,4 +31,18 @@ export default {
   hero_subheading: "Aman dan terpercaya • Berorientasi hasil • Pengembangan cepat • Profesional",
   hero_cta: "Hubungi Kami",
   hero_work: "Lihat Hasil Kami",
+
+  // Value Proposition Section
+  vp_intro: "Kami bukan sekadar perusahaan teknologi biasa. Kami adalah mitra digital Anda, menggabungkan ",
+  vp_first_value: "keahlian pengembangan, ",
+  vp_second_value: "konsultasi strategis, ",
+  vp_third_value: "hosting yang andal, ",
+  vp_divider: "dan ",
+  vp_fourth_value: "pemasaran berorientasi hasil ",
+  vp_closure: "untuk membantu bisnis Anda berkembang secara online.",
+  vp_team: "Tim kami ",
+  vp_trait: "sebagai penggiat teknologi ",
+  vp_has: "dengan ",
+  vp_experience: "berpengalaman 3+ tahun ",
+  vp_fields: "dalam menciptakan solusi digital untuk bidang perbankan, pemasaran, dan IoT.",
 };
