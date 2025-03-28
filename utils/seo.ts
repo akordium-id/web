@@ -10,7 +10,7 @@ export interface SEOProps {
 }
 
 export const defaultSEO: SEOProps = {
-  title: "Akordium",
+  title: "Akordium Lab",
   description: "Your digital partner for business growth and innovation",
   keywords: [
     "digital",

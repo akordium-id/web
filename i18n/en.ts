@@ -1,5 +1,4 @@
 export default {
-  // Existing translations
   welcome: "Welcome",
   home: "Home",
   about: "About",
@@ -7,12 +6,22 @@ export default {
   privacy: "Privacy Policy",
   terms: "Terms of Service",
   rights: "All rights reserved.",
-  
-  // New translations
+
+  menu: "Menu",
   services: "Services",
   work: "Work",
   blog: "Blog",
   shop: "Shop",
   lets_talk: "Let's Talk",
-  menu: "Menu",
+
+  company_tagline: "Your Digital Partner for Growth",
+  web_app: "Web Application",
+  mobile_app: "Mobile Application",
+  rpa: "Robot Process Automation",
+  static_web: "Static Website",
+  wordpress: "WordPress",
+  company: "Company",
+  portfolio: "Portfolio",
+  honorable_mentions: "Honorable Mentions",
+  cookies: "Cookie Policy",
 };

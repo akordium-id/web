@@ -1,5 +1,4 @@
 export default {
-  // Existing translations
   welcome: "Selamat Datang",
   home: "Beranda",
   about: "Tentang",
@@ -7,12 +6,22 @@ export default {
   privacy: "Kebijakan Privasi",
   terms: "Ketentuan Layanan",
   rights: "Hak cipta dilindungi.",
-  
-  // New translations
+
+  menu: "Menu",
   services: "Layanan",
   work: "Portofolio",
   blog: "Blog",
   shop: "Toko",
   lets_talk: "Mari Bicara",
-  menu: "Menu",
+
+  company_tagline: "Partner Digital untuk Pertumbuhan Anda",
+  web_app: "Aplikasi Web",
+  mobile_app: "Aplikasi Mobile",
+  rpa: "Otomasi Proses Robot",
+  static_web: "Website Statis",
+  wordpress: "WordPress",
+  company: "Perusahaan",
+  portfolio: "Portofolio",
+  honorable_mentions: "Penghargaan",
+  cookies: "Kebijakan Cookie",
 };

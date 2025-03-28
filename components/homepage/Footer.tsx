@@ -1,19 +1,20 @@
+import { JSX } from "preact";
+import { translate } from "@/utils/i18n.ts";
 import { defaultSEO } from "@/utils/seo.ts";
 
 const name = defaultSEO?.title ?? "Akordium";
-// const description = defaultSEO?.description ??
-//   "Your digital partner for success online.";
 
-export default function Footer() {
+export default function Footer(
+  { lang = "en" }: { lang?: string },
+): JSX.Element {
   return (
     <footer class="bg-gradient-to-b from-primary/10 to-tertiary/30 text-primary py-8 md:py-12">
       <div class="container mx-auto px-4">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div class="col-span-1">
-            <h3 class="font-bold mb-4">{name} Lab</h3>
-            <p class="text-sm mb-4">Your Digital Partner for Growth</p>
-            {/* <p class="text-sm mb-4">PT. Digital Gerojok Berkah</p> */}
+            <h3 class="font-bold mb-4">{name}</h3>
+            <p class="text-sm mb-4">{translate("company_tagline", lang)}</p>
             <div class="flex space-x-4 mb-4">
               <div class="flex space-x-4 mb-4">
                 <a href="#" class="hover:text-gray-300" title="Facebook">
@@ -51,29 +52,40 @@ export default function Footer() {
 
           {/* Services */}
           <div class="col-span-1">
-            <h4 class="font-bold mb-4">Services</h4>
+            <h4 class="font-bold mb-4">{translate("services", lang)}</h4>
             <ul class="space-y-2 text-sm">
               <li>
-                <a href="#" class="hover:text-gray-300">Web Application</a>
-              </li>
-              <li>
-                <a href="#" class="hover:text-gray-300">
-                  Mobile Application
+                <a href={`/${lang}/services/web`} class="hover:text-gray-300">
+                  {translate("web_app", lang)}
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300">
-                  Robot Process Automation
+                <a
+                  href={`/${lang}/services/mobile`}
+                  class="hover:text-gray-300"
+                >
+                  {translate("mobile_app", lang)}
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300">
-                  Static Website
+                <a href={`/${lang}/services/rpa`} class="hover:text-gray-300">
+                  {translate("rpa", lang)}
                 </a>
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300">
-                  WordPress
+                <a
+                  href={`/${lang}/services/static`}
+                  class="hover:text-gray-300"
+                >
+                  {translate("static_web", lang)}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`/${lang}/services/wordpress`}
+                  class="hover:text-gray-300"
+                >
+                  {translate("wordpress", lang)}
                 </a>
               </li>
             </ul>
@@ -81,26 +93,31 @@ export default function Footer() {
 
           {/* Company */}
           <div class="col-span-1">
-            <h4 class="font-bold mb-4">Company</h4>
+            <h4 class="font-bold mb-4">{translate("company", lang)}</h4>
             <ul class="space-y-2 text-sm">
               <li>
-                <a href="#" class="hover:text-gray-300">About</a>
+                <a href={`/${lang}/about`} class="hover:text-gray-300">
+                  {translate("about", lang)}
+                </a>
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300">Portfolio</a>
+                <a href={`/${lang}/portfolio`} class="hover:text-gray-300">
+                  {translate("portfolio", lang)}
+                </a>
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300">Blog</a>
+                <a href={`/${lang}/blog`} class="hover:text-gray-300">
+                  {translate("blog", lang)}
+                </a>
               </li>
               <li>
-                <a href="#" class="hover:text-gray-300">Contact</a>
+                <a href={`/${lang}/contact`} class="hover:text-gray-300">
+                  {translate("contact", lang)}
+                </a>
               </li>
               <li>
-                <a
-                  href="/honorable_mentions.txt"
-                  class="hover:text-gray-300"
-                >
-                  Honorable Mentions
+                <a href="/honorable_mentions.txt" class="hover:text-gray-300">
+                  {translate("honorable_mentions", lang)}
                 </a>
               </li>
             </ul>
@@ -108,11 +125,19 @@ export default function Footer() {
         </div>
 
         <div class="border-t border-gray-600 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center text-sm">
-          <p>© {new Date().getFullYear()} Akordium. All rights reserved.</p>
+          <p>
+            © {new Date().getFullYear()} {name}. {translate("rights", lang)}
+          </p>
           <div class="flex gap-4 mt-4 md:mt-0">
-            <a href="#" class="hover:text-gray-300">Privacy Policy</a>
-            <a href="#" class="hover:text-gray-300">Terms of Service</a>
-            <a href="#" class="hover:text-gray-300">Cookie Policy</a>
+            <a href={`/${lang}/privacy`} class="hover:text-gray-300">
+              {translate("privacy", lang)}
+            </a>
+            <a href={`/${lang}/terms`} class="hover:text-gray-300">
+              {translate("terms", lang)}
+            </a>
+            <a href={`/${lang}/cookies`} class="hover:text-gray-300">
+              {translate("cookies", lang)}
+            </a>
           </div>
         </div>
       </div>

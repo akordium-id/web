@@ -1,5 +1,5 @@
 import { useSignal } from "@preact/signals";
-import { languageSignal, setLanguage } from "@/utils/languageState.ts";
+import { setLanguage } from "@/utils/languageState.ts";
 import { IS_BROWSER } from "$fresh/runtime.ts";
 import { SUPPORTED_LANGUAGES } from "@/utils/i18n.ts";
 
@@ -7,7 +7,9 @@ interface LanguageDropdownProps {
   currentLang?: string;
 }
 
-export default function LanguageDropdown({ currentLang = "en" }: LanguageDropdownProps) {
+export default function LanguageDropdown(
+  { currentLang = "en" }: LanguageDropdownProps,
+) {
   const isOpen = useSignal(false);
 
   const languages = {
@@ -23,14 +25,14 @@ export default function LanguageDropdown({ currentLang = "en" }: LanguageDropdow
   const selectLanguage = (lang: string) => {
     // Update language state
     setLanguage(lang as "en" | "id" | "jv");
-    
+
     // Redirect to the same page but with new language
     if (IS_BROWSER) {
       const currentPath = globalThis.location.pathname;
       const pathWithoutLang = currentPath.substring(3) || "";
       globalThis.location.href = `/${lang}${pathWithoutLang}`;
     }
-    
+
     isOpen.value = false;
   };
 
@@ -66,9 +68,7 @@ export default function LanguageDropdown({ currentLang = "en" }: LanguageDropdow
               key={code}
               onClick={() => selectLanguage(code)}
               class={`block text-primary md:text-sm text-md w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-secondary ${
-                currentLang === code
-                  ? "bg-tertiary/20 font-medium"
-                  : ""
+                currentLang === code ? "bg-tertiary/20 font-medium" : ""
               }`}
             >
               {languages[code as keyof typeof languages] || code.toUpperCase()}
