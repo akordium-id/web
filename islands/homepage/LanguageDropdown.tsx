@@ -24,7 +24,7 @@ export default function LanguageDropdown(
 
   const selectLanguage = (lang: string) => {
     // Update language state
-    setLanguage(lang as "en" | "id" | "jv");
+    setLanguage(lang as "en" | "id" | "jw");
 
     // Redirect to the same page but with new language
     if (IS_BROWSER) {
