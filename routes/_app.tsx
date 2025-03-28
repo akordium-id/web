@@ -1,11 +1,15 @@
 import { type PageProps } from "$fresh/server.ts";
 import { defaultSEO, generateMetaTags } from "@/utils/seo.ts";
+import { DEFAULT_LANGUAGE } from "@/utils/i18n.ts";
 
-export default function App({ Component }: PageProps) {
+export default function App({ Component, state }: PageProps) {
   const metaTags = generateMetaTags();
+  // Mengambil bahasa dari state (yang diatur oleh middleware)
+  // atau menggunakan bahasa default jika tidak tersedia
+  const lang = state?.lang || DEFAULT_LANGUAGE;
 
   return (
-    <html lang="id">
+    <html lang={lang as string}>
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
