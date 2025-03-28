@@ -2,6 +2,7 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $_lang_custom_page from "./routes/[lang]/custom-page.tsx";
 import * as $_lang_index from "./routes/[lang]/index.tsx";
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
@@ -26,6 +27,7 @@ import type { Manifest } from "$fresh/server.ts";
 
 const manifest = {
   routes: {
+    "./routes/[lang]/custom-page.tsx": $_lang_custom_page,
     "./routes/[lang]/index.tsx": $_lang_index,
     "./routes/_404.tsx": $_404,
     "./routes/_app.tsx": $_app,

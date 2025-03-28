@@ -1,6 +1,7 @@
 import { type PageProps } from "$fresh/server.ts";
 import { defaultSEO, generateMetaTags } from "@/utils/seo.ts";
 import { DEFAULT_LANGUAGE } from "@/utils/i18n.ts";
+import Layout from "@/components/Layout.tsx";
 
 export default function App({ Component, state }: PageProps) {
   const metaTags = generateMetaTags();
@@ -34,7 +35,9 @@ export default function App({ Component, state }: PageProps) {
         />
       </head>
       <body>
-        <Component />
+        <Layout lang={lang as string}>
+          <Component />
+        </Layout>
       </body>
     </html>
   );
