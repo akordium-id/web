@@ -1,6 +1,7 @@
 import { JSX } from "preact";
 import { useSignal } from "@preact/signals";
 import LanguageDropdown from "./LanguageDropdown.tsx";
+import { translate } from "@/utils/i18n.ts";
 
 interface MenuItem {
   label: string;
@@ -9,10 +10,11 @@ interface MenuItem {
 
 interface NavbarMenuProps {
   menuItems: MenuItem[];
+  lang?: string;
 }
 
 export default function NavbarMenu(
-  { menuItems }: NavbarMenuProps,
+  { menuItems, lang = "en" }: NavbarMenuProps,
 ): JSX.Element {
   const isMenuOpen = useSignal(false);
 
@@ -58,14 +60,14 @@ export default function NavbarMenu(
           </a>
         ))}
         <div class="relative">
-          <LanguageDropdown />
+          <LanguageDropdown currentLang={lang} />
         </div>
         <button
           type="button"
-          onClick={() => globalThis.location.href = "/contact"}
+          onClick={() => globalThis.location.href = `/${lang}/contact`}
           class="bg-tertiary text-base text-sm font-medium px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
         >
-          Let's Talk
+          {translate("lets_talk", lang)}
         </button>
       </div>
 
@@ -78,7 +80,7 @@ export default function NavbarMenu(
         } transition-transform duration-200 ease-in-out`}
       >
         <div class="flex items-center justify-between p-4 border-b border-secondary/20">
-          <span class="text-lg font-semibold text-primary">Menu</span>
+          <span class="text-lg font-semibold text-primary">{translate("menu", lang)}</span>
           <button
             type="button"
             class="p-2 rounded-lg hover:bg-gray-100"
@@ -112,17 +114,17 @@ export default function NavbarMenu(
             </a>
           ))}
           <div class="py-2 border-t border-secondary/20">
-            <LanguageDropdown />
+            <LanguageDropdown currentLang={lang} />
           </div>
           <button
             type="button"
             onClick={() => {
               toggleMenu();
-              globalThis.location.href = "/contact";
+              globalThis.location.href = `/${lang}/contact`;
             }}
             class="bg-tertiary text-base px-4 py-3 rounded-full hover:bg-tertiary-light transition-colors text-lg font-medium"
           >
-            Let's Talk
+            {translate("lets_talk", lang)}
           </button>
         </div>
       </div>

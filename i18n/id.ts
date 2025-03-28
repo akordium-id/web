@@ -1,4 +1,5 @@
 export default {
+  // Existing translations
   welcome: "Selamat Datang",
   home: "Beranda",
   about: "Tentang",
@@ -6,5 +7,12 @@ export default {
   privacy: "Kebijakan Privasi",
   terms: "Ketentuan Layanan",
   rights: "Hak cipta dilindungi.",
-  // tambahkan terjemahan lainnya
+  
+  // New translations
+  services: "Layanan",
+  work: "Portofolio",
+  blog: "Blog",
+  shop: "Toko",
+  lets_talk: "Mari Bicara",
+  menu: "Menu",
 };

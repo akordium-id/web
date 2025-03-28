@@ -1,7 +1,13 @@
 import { useSignal } from "@preact/signals";
 import { languageSignal, setLanguage } from "@/utils/languageState.ts";
+import { IS_BROWSER } from "$fresh/runtime.ts";
+import { SUPPORTED_LANGUAGES } from "@/utils/i18n.ts";
 
-export default function LanguageDropdown() {
+interface LanguageDropdownProps {
+  currentLang?: string;
+}
+
+export default function LanguageDropdown({ currentLang = "en" }: LanguageDropdownProps) {
   const isOpen = useSignal(false);
 
   const languages = {
@@ -14,8 +20,17 @@ export default function LanguageDropdown() {
     isOpen.value = !isOpen.value;
   };
 
-  const selectLanguage = (lang: "en" | "id" | "jv") => {
-    setLanguage(lang);
+  const selectLanguage = (lang: string) => {
+    // Update language state
+    setLanguage(lang as "en" | "id" | "jv");
+    
+    // Redirect to the same page but with new language
+    if (IS_BROWSER) {
+      const currentPath = globalThis.location.pathname;
+      const pathWithoutLang = currentPath.substring(3) || "";
+      globalThis.location.href = `/${lang}${pathWithoutLang}`;
+    }
+    
     isOpen.value = false;
   };
 
@@ -26,7 +41,7 @@ export default function LanguageDropdown() {
         onClick={toggleDropdown}
         class="flex items-center gap-1 md:text-sm text-md font medium text-primary hover:text-secondary px-1 py-1 md:w-auto w-full"
       >
-        {languages[languageSignal.value]}
+        {languages[currentLang as keyof typeof languages] || languages.en}
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -45,18 +60,18 @@ export default function LanguageDropdown() {
 
       {isOpen.value && (
         <div class="md:absolute md:right-0 md:mt-2 md:w-40 md:bg-white md:border md:border-gray-200 md:rounded-md md:shadow-lg md:z-50 w-full">
-          {Object.entries(languages).map(([code, name]) => (
+          {SUPPORTED_LANGUAGES.map((code) => (
             <button
               type="button"
               key={code}
-              onClick={() => selectLanguage(code as "en" | "id" | "jv")}
+              onClick={() => selectLanguage(code)}
               class={`block text-primary md:text-sm text-md w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-secondary ${
-                languageSignal.value === code
+                currentLang === code
                   ? "bg-tertiary/20 font-medium"
                   : ""
               }`}
             >
-              {name}
+              {languages[code as keyof typeof languages] || code.toUpperCase()}
             </button>
           ))}
         </div>

@@ -1,4 +1,5 @@
 export default {
+  // Existing translations
   welcome: "Welcome",
   home: "Home",
   about: "About",
@@ -6,5 +7,12 @@ export default {
   privacy: "Privacy Policy",
   terms: "Terms of Service",
   rights: "All rights reserved.",
-  // tambahkan terjemahan lainnya
+  
+  // New translations
+  services: "Services",
+  work: "Work",
+  blog: "Blog",
+  shop: "Shop",
+  lets_talk: "Let's Talk",
+  menu: "Menu",
 };
