@@ -34,12 +34,12 @@ export default function CallToAction() {
   const currentContent = content[languageSignal.value];
 
   return (
-    <section className="bg-gradient-to-b from-base to-primary/10 py-16">
+    <section className="bg-secondary/10 py-16">
       <div className="container mx-auto px-4 text-center">
         <h2 className="text-4xl font-bold mb-4 text-primary">
           {currentContent.title}
         </h2>
-        <p className="text-lg mb-8 max-w-2xl mx-auto text-secondary">
+        <p className="text-lg mb-8 max-w-2xl mx-auto text-primary">
           {currentContent.description}
         </p>
         <div className="flex gap-4 justify-center">

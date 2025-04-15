@@ -52,33 +52,33 @@ export default function Contact() {
         <title>{currentContent.title} - Akordium</title>
       </Head>
       <Header />
-      <main class="bg-base min-h-screen">
-        <section class="py-16 md:py-24">
-          <div class="container mx-auto px-4">
-            <div class="text-center mb-12">
-              <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">
+      <main className="bg-base min-h-screen">
+        <section className="py-16 md:py-24">
+          <div className="container mx-auto px-4">
+            <div className="text-center mb-12">
+              <h1 className="text-4xl md:text-5xl font-bold text-primary mb-4">
                 {currentContent.title}
               </h1>
-              <p class="text-xl text-gray-600 mb-2">
+              <p className="text-xl text-gray-600 mb-2">
                 {currentContent.subtitle}
               </p>
-              <p class="text-gray-600 max-w-2xl mx-auto">
+              <p className="text-gray-600 max-w-2xl mx-auto">
                 {currentContent.description}
               </p>
             </div>
 
-            <div class="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-              <div class="md:col-span-2">
+            <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+              <div className="md:col-span-2">
                 <ContactForm />
               </div>
-              <div class="bg-white p-6 rounded-lg shadow-lg h-fit">
-                <h3 class="font-bold text-xl text-primary mb-4">
+              <div className="bg-white p-6 rounded-lg shadow-lg h-fit">
+                <h3 className="font-bold text-xl text-primary mb-4">
                   {currentContent.businessInfo.name}
                 </h3>
-                <div class="space-y-4">
-                  <p class="flex items-start gap-3">
+                <div className="space-y-4">
+                  <p className="flex items-start gap-3">
                     <svg
-                      class="w-6 h-6 mt-1 text-primary flex-shrink-0"
+                      className="w-6 h-6 mt-1 text-primary flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -98,9 +98,9 @@ export default function Contact() {
                     </svg>
                     <span>{currentContent.businessInfo.address}</span>
                   </p>
-                  <p class="flex items-center gap-3">
+                  <p className="flex items-center gap-3">
                     <svg
-                      class="w-6 h-6 text-primary"
+                      className="w-6 h-6 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -114,9 +114,9 @@ export default function Contact() {
                     </svg>
                     <span>{currentContent.businessInfo.phone}</span>
                   </p>
-                  <p class="flex items-center gap-3">
+                  <p className="flex items-center gap-3">
                     <svg
-                      class="w-6 h-6 text-primary"
+                      className="w-6 h-6 text-primary"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"

@@ -20,11 +20,11 @@ export default function LanguageDropdown() {
   };
 
   return (
-    <div class="w-full">
+    <div className="w-full">
       <button
         type="button"
         onClick={toggleDropdown}
-        class="flex items-center gap-1 md:text-sm text-md font medium text-primary hover:text-secondary px-1 py-1 md:w-auto w-full"
+        className="flex items-center gap-1 md:text-sm text-md font medium text-primary hover:text-secondary px-1 py-1 md:w-auto w-full"
       >
         {languages[languageSignal.value]}
         <svg
@@ -37,20 +37,20 @@ export default function LanguageDropdown() {
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class={`transition-transform ${isOpen.value ? "rotate-180" : ""}`}
+          className={`transition-transform ${isOpen.value ? "rotate-180" : ""}`}
         >
           <polyline points="6 9 12 15 18 9"></polyline>
         </svg>
       </button>
 
       {isOpen.value && (
-        <div class="md:absolute md:right-0 md:mt-2 md:w-40 md:bg-white md:border md:border-gray-200 md:rounded-md md:shadow-lg md:z-50 w-full">
+        <div className="md:absolute md:right-0 md:mt-2 md:w-40 md:bg-white md:border md:border-gray-200 md:rounded-md md:shadow-lg md:z-50 w-full">
           {Object.entries(languages).map(([code, name]) => (
             <button
               type="button"
               key={code}
               onClick={() => selectLanguage(code as "en" | "id" | "jv")}
-              class={`block text-primary md:text-sm text-md w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-secondary ${
+              className={`block text-primary md:text-sm text-md w-full text-left px-4 py-2 hover:bg-gray-100 hover:text-secondary ${
                 languageSignal.value === code
                   ? "bg-tertiary/20 font-medium"
                   : ""

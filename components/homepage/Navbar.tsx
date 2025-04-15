@@ -10,7 +10,7 @@ export default function Navbar(): JSX.Element {
   ];
 
   return (
-    <nav class="flex items-center">
+    <nav className="flex items-center">
       <NavbarMenu menuItems={menuItems} />
     </nav>
   );

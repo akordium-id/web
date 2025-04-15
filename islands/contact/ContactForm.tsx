@@ -205,10 +205,10 @@ export default function ContactForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit} class="bg-white p-6 rounded-lg shadow-lg">
+    <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg">
       {status.message && (
         <div
-          class={`mb-6 p-4 rounded-md ${
+          className={`mb-6 p-4 rounded-md ${
             status.type === "success"
               ? "bg-green-50 text-green-700"
               : "bg-red-50 text-red-700"
@@ -217,15 +217,15 @@ export default function ContactForm() {
           {status.message}
         </div>
       )}
-      <p class="text-sm text-gray-500 mb-4">
-        <span class="text-red-500">*</span> {currentContent.required}
+      <p className="text-sm text-gray-500 mb-4">
+        <span className="text-red-500">*</span> {currentContent.required}
       </p>
 
-      <div class="grid gap-6">
-        <div class="grid md:grid-cols-2 gap-6">
+      <div className="grid gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-              {currentContent.name} <span class="text-red-500">*</span>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              {currentContent.name} <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -234,27 +234,27 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               maxLength={50}
-              class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
                 (errors as { [key: string]: string }).name
                   ? "border-red-500"
                   : "border-gray-300"
               }`}
               placeholder={currentContent.placeholders.name}
             />
-            <div class="flex justify-between">
+            <div className="flex justify-between">
               {(errors as { [key: string]: string }).name && (
-                <p class="mt-1 text-sm text-red-600">
+                <p className="mt-1 text-sm text-red-600">
                   {(errors as { [key: string]: string }).name}
                 </p>
               )}
-              <p class="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-gray-500">
                 {formData.name.length}/50
               </p>
             </div>
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-              {currentContent.email} <span class="text-red-500">*</span>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              {currentContent.email} <span className="text-red-500">*</span>
             </label>
             <input
               type="email"
@@ -262,7 +262,7 @@ export default function ContactForm() {
               value={formData.email}
               onChange={handleChange}
               required
-              class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
                 (errors as { [key: string]: string }).email
                   ? "border-red-500"
                   : "border-gray-300"
@@ -270,16 +270,16 @@ export default function ContactForm() {
               placeholder={currentContent.placeholders.email}
             />
             {(errors as { [key: string]: string }).email && (
-              <p class="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-red-600">
                 {(errors as { [key: string]: string }).email}
               </p>
             )}
           </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-6">
+        <div className="grid md:grid-cols-2 gap-6">
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">
+            <label className="block text-sm font-medium text-gray-700 mb-1">
               {currentContent.phone}
             </label>
             <input
@@ -287,7 +287,7 @@ export default function ContactForm() {
               name="phone"
               value={formData.phone}
               onChange={handleChange}
-              class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
                 (errors as { [key: string]: string }).phone
                   ? "border-red-500"
                   : "border-gray-300"
@@ -295,14 +295,14 @@ export default function ContactForm() {
               placeholder={currentContent.placeholders.phone}
             />
             {(errors as { [key: string]: string }).phone && (
-              <p class="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-red-600">
                 {(errors as { [key: string]: string }).phone}
               </p>
             )}
           </div>
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">
-              {currentContent.subject} <span class="text-red-500">*</span>
+            <label className="block text-sm font-medium text-gray-700 mb-1">
+              {currentContent.subject} <span className="text-red-500">*</span>
             </label>
             <input
               type="text"
@@ -311,28 +311,28 @@ export default function ContactForm() {
               onChange={handleChange}
               required
               maxLength={100}
-              class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
+              className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary ${
                 (errors as { [key: string]: string }).subject
                   ? "border-red-500"
                   : "border-gray-300"
               }`}
               placeholder={currentContent.placeholders.subject}
             />
-            <div class="flex justify-between">
+            <div className="flex justify-between">
               {(errors as { [key: string]: string }).subject && (
-                <p class="mt-1 text-sm text-red-600">
+                <p className="mt-1 text-sm text-red-600">
                   {(errors as { [key: string]: string }).subject}
                 </p>
               )}
-              <p class="mt-1 text-sm text-gray-500">
+              <p className="mt-1 text-sm text-gray-500">
                 {formData.subject.length}/100
               </p>
             </div>
           </div>
         </div>
         <div>
-          <label class="block text-sm font-medium text-gray-700 mb-1">
-            {currentContent.message} <span class="text-red-500">*</span>
+          <label className="block text-sm font-medium text-gray-700 mb-1">
+            {currentContent.message} <span className="text-red-500">*</span>
           </label>
           <textarea
             name="message"
@@ -341,7 +341,7 @@ export default function ContactForm() {
             required
             maxLength={500}
             rows={6}
-            class={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none ${
+            className={`w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none ${
               (errors as { [key: string]: string }).message
                 ? "border-red-500"
                 : "border-gray-300"
@@ -349,13 +349,13 @@ export default function ContactForm() {
             placeholder={currentContent.placeholders.message}
           >
           </textarea>
-          <div class="flex justify-between">
+          <div className="flex justify-between">
             {(errors as { [key: string]: string }).message && (
-              <p class="mt-1 text-sm text-red-600">
+              <p className="mt-1 text-sm text-red-600">
                 {(errors as { [key: string]: string }).message}
               </p>
             )}
-            <p class="mt-1 text-sm text-gray-500">
+            <p className="mt-1 text-sm text-gray-500">
               {formData.message.length}/500
             </p>
           </div>
@@ -364,7 +364,7 @@ export default function ContactForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            class={`w-full bg-primary text-white py-3 px-6 rounded-md transition-colors ${
+            className={`w-full bg-primary text-white py-3 px-6 rounded-md transition-colors ${
               isSubmitting
                 ? "opacity-70 cursor-not-allowed"
                 : "hover:bg-primary/90"

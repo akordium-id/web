@@ -10,7 +10,7 @@ import Footer from "@/components/homepage/Footer.tsx";
 
 export default function Home() {
   return (
-    <main class="flex flex-col flex-grow min-h-screen font-sans">
+    <main className="flex flex-col flex-grow min-h-screen font-sans">
       <Header />
       <Hero />
       <ValueProposition />

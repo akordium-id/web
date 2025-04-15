@@ -62,12 +62,12 @@ export default function StatsCount() {
   return (
     <div
       id="stats-grid"
-      class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
+      className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto"
     >
       {stats.map((stat, index) => (
-        <div key={index} class="text-center p-4">
+        <div key={index} className="text-center p-4">
           <h3
-            class={`text-3xl md:text-4xl font-bold text-primary transition-all duration-1000 ${
+            className={`text-3xl md:text-4xl font-bold text-primary transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 transform-none"
                 : "opacity-0 translate-y-4"
@@ -77,7 +77,7 @@ export default function StatsCount() {
             {stat.value}
           </h3>
           <p
-            class={`text-gray-600 text-sm transition-all duration-1000 ${
+            className={`text-gray-600 text-sm transition-all duration-1000 ${
               isVisible
                 ? "opacity-100 transform-none"
                 : "opacity-0 translate-y-4"

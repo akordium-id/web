@@ -56,33 +56,33 @@ export default function ValueProposition() {
   return (
     <>
       {/* Description Section */}
-      <section class="py-12 bg-base-muted">
-        <div class="container mx-auto px-4">
-          <p class="text-primary/90 max-w-4xl mx-auto text-center text-lg">
+      <section className="py-12 bg-base-muted">
+        <div className="container mx-auto px-4">
+          <p className="text-primary/90 max-w-4xl mx-auto text-center text-lg">
             {shortContent.intro}
-            <span class="font-semibold text-secondary">
+            <span className="font-semibold text-secondary">
               {shortContent.firstValue}
             </span>
-            <span class="font-semibold text-secondary">
+            <span className="font-semibold text-secondary">
               {shortContent.secondValue}
             </span>
-            <span class="font-semibold text-secondary">
+            <span className="font-semibold text-secondary">
               {shortContent.thirdValue}
             </span>
             {shortContent.divider}
-            <span class="text-tertiary font-semibold">
+            <span className="text-tertiary font-semibold">
               {shortContent.fourthValue}
             </span>
             {shortContent.closure}
           </p>
-          <div class="mt-8 text-center">
-            <p class="text-primary/80">
+          <div className="mt-8 text-center">
+            <p className="text-primary/80">
               {shortContent.team}{" "}
-              <span class="font-semibold text-accent">
+              <span className="font-semibold text-accent">
                 {shortContent.trait}
               </span>{" "}
               {shortContent.has}
-              <span class="text-tertiary font-semibold">
+              <span className="text-tertiary font-semibold">
                 {shortContent.experience}
               </span>{" "}
               {shortContent.fields}

@@ -1,7 +1,6 @@
 import { defineConfig } from "$fresh/server.ts";
-import twind from "$fresh/plugins/twindv1.ts";
-import twindConfig from "./twind.config.ts";
+import tailwind from "$fresh/plugins/tailwind.ts";
 
 export default defineConfig({
-  plugins: [twind(twindConfig)],
+  plugins: [tailwind()],
 });
