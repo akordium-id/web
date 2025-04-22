@@ -2,6 +2,7 @@
 import { FreshContext } from "$fresh/server.ts";
 import { renderToString } from "https://esm.sh/preact-render-to-string@6.2.1";
 import RateLimitError from "@/components/RateLimitError.tsx";
+import { I18nState } from "@/middleware/i18n.ts";
 
 // Simple in-memory store for rate limiting
 const rateLimit = new Map<string, { count: number; resetTime: number }>();
@@ -11,7 +12,7 @@ const MAX_REQUESTS = 100; // Maximum requests per window
 
 export async function handler(
   req: Request,
-  ctx: FreshContext,
+  ctx: FreshContext<I18nState>,
 ) {
   const ip = req.headers.get("x-forwarded-for") || "127.0.0.1";
   const now = Date.now();
