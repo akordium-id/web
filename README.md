@@ -14,4 +14,6 @@ Akordium dibangun menggunakan teknologi modern:
 
 ---
 
+[![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
+
 Dibuat dengan ❤️ oleh Tim Akordium
