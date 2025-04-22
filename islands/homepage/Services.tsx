@@ -336,56 +336,58 @@ const content = {
   },
 };
 
-export default function Services() {
-  const currentContent = content[languageSignal.value];
+import { Locale, t } from "@/utils/i18n.ts"; // Import Locale type and t function
+import { Signal, useSignal } from "@preact/signals"; // If using signals
+
+interface ServicesProps {
+  locale: Locale; // Receive locale as a prop
+  // lang: string; // Optionally receive lang if needed for signals
+}
+
+export default function Services(props: ServicesProps) {
+  // If using signals for client-side switching, initialize with server data
+  // const currentLocale = useSignal(props.locale);
+  // const currentLang = useSignal(props.lang);
+  // languageSignal.value = props.lang; // Initialize global signal if used
+
+  // Use props.locale directly for SSR rendering
+  const locale = props.locale;
+
+  // Example structure for services data (could be passed as prop or defined here)
+  const servicesData = [
+      { keyPrefix: "webAppDev", icon: /* SVG */ },
+      { keyPrefix: "hostingInfra", icon: /* SVG */ },
+      // Add other services
+  ];
+
 
   return (
-    <section className="py-16 bg-base">
+    <section className="py-16 bg-base-subtle">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl md:text-4xl font-bold text-primary text-center mb-12">
-          {currentContent.title}
-        </h2>
+        <div className="text-center mb-12">
+          {/* Use t() function */}
+          <h2 className="text-3xl md:text-4xl font-bold text-primary mb-4">
+            {t(locale, "servicesTitle")} {/* Use a key like 'servicesTitle' */}
+          </h2>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {currentContent.services.map((service, index) => (
-            <div
-              key={index}
-              className="bg-white p-8 rounded-lg shadow-lg"
-            >
-              <div className="flex flex-col items-center md:items-start">
-                {service.icon}
-                <h3 className="text-2xl font-semibold text-primary mb-4">
-                  {service.title}
-                </h3>
-              </div>
-              <p className="text-gray-600 mb-6">
-                {service.description}
+          {servicesData.map((service) => (
+            <div key={service.keyPrefix} className="bg-white p-8 rounded-lg shadow-md">
+              {service.icon}
+              <h3 className="text-xl font-semibold text-primary mb-3">
+                 {/* Use keys like 'webAppDevTitle' */}
+                {t(locale, `${service.keyPrefix}Title`)}
+              </h3>
+              <p className="text-gray-600 mb-4">
+                 {/* Use keys like 'webAppDevDescription' */}
+                {t(locale, `${service.keyPrefix}Description`)}
               </p>
-              <ul className="space-y-2 mb-6">
-                {service.features.map((feature, featureIndex) => (
-                  <li
-                    key={featureIndex}
-                    className="flex items-center text-gray-600"
-                  >
-                    <svg
-                      className="w-5 h-5 text-primary mr-2"
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        fillRule="evenodd"
-                        d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
-                        clipRule="evenodd"
-                      />
-                    </svg>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-              <a
-                href="{service.learnMoreLink}"
-                className="mt-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
-              >
-                {currentContent.learnMore}
+              {/* Translate features if needed */}
+              {/* <ul className="list-disc list-inside text-gray-600 space-y-1 mb-4">
+                 {t(locale, `${service.keyPrefix}Features`).split('\n').map(f => <li key={f}>{f}</li>)}
+              </ul> */}
+              <a href="#" className="text-tertiary font-medium hover:underline">
+                {t(locale, "learnMore")} {/* Use 'learnMore' key */}
               </a>
             </div>
           ))}

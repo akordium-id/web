@@ -1,14 +1,19 @@
 import { type PageProps } from "$fresh/server.ts";
 import { defaultSEO, generateMetaTags } from "@/utils/seo.ts";
+import { I18nState } from "@/middleware/i18n.ts"; // Import the state interface
 
-export default function App({ Component }: PageProps) {
+// The App component now receives the state via props
+export default function App({ Component, state }: PageProps<unknown, I18nState>) {
   const metaTags = generateMetaTags();
+  const lang = state.lang; // Get language from state
 
   return (
-    <html lang="id">
+    // Set the lang attribute dynamically
+    <html lang={lang}>
       <head>
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        {/* You might want to translate the title too */}
         <title>{defaultSEO.title}</title>
         {metaTags.map((tag) => (
           <meta
@@ -30,6 +35,7 @@ export default function App({ Component }: PageProps) {
         />
       </head>
       <body>
+        {/* Pass state down if needed, or Component might access it directly if it's a route */}
         <Component />
       </body>
     </html>

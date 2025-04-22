@@ -4,10 +4,11 @@
 
 import * as $_404 from "./routes/_404.tsx";
 import * as $_app from "./routes/_app.tsx";
-import * as $_rateLimiter from "./routes/_rateLimiter.ts";
+import * as $_rateLimiter from "./middleware/rateLimiter.ts";
 import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_joke from "./routes/api/joke.ts";
 import * as $contact from "./routes/contact.tsx";
+import * as $dashboard from "./routes/dashboard.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
 import * as $contact_ContactForm from "./islands/contact/ContactForm.tsx";
@@ -30,6 +31,7 @@ const manifest = {
     "./routes/api/contact.ts": $api_contact,
     "./routes/api/joke.ts": $api_joke,
     "./routes/contact.tsx": $contact,
+    "./routes/dashboard.tsx": $dashboard,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
   },
