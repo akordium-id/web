@@ -1,0 +1,10 @@
+{
+  "home": "Home",
+  "services": "Services",
+  "work": "Work",
+  "blog": "Blog",
+  "contact": "Contact",
+  "pageNotFound": "Oops! Page not found",
+  "pageNotFoundDescription": "The page you're looking for might have been removed, had its name changed, or is temporarily unavailable.",
+  "backToHomepage": "Back to Homepage"
+}

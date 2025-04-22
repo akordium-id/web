@@ -1,0 +1,13 @@
+{
+  "dashboardTitle": "Dasbor | Akordium",
+  "dashboardHeading": "Dasbor",
+  "home": "Beranda",
+  "services": "Layanan",
+  "work": "Karya",
+  "blog": "Blog",
+  "contact": "Kontak",
+  "pageNotFound": "Oops! Halaman tidak ditemukan",
+  "pageNotFoundDescription": "Halaman yang Anda cari mungkin telah dihapus, namanya diubah, atau sementara tidak tersedia.",
+  "backToHomepage": "Kembali ke Beranda"
+  // Add other translations from your components (Hero, Services, CTA, etc.) here
+}
