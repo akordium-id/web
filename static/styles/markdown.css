@@ -1,0 +1,114 @@
+/* Custom Markdown Styles */
+
+/* Improve code block styling */
+.prose pre {
+  padding: 1rem;
+  overflow-x: auto;
+  background-color: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 0.375rem;
+}
+
+.prose code {
+  font-family:
+    ui-monospace,
+    SFMono-Regular,
+    Menlo,
+    Monaco,
+    Consolas,
+    "Liberation Mono",
+    "Courier New",
+    monospace;
+  color: #d63384;
+  background-color: rgba(175, 184, 193, 0.2);
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.875em;
+}
+
+.prose pre code {
+  color: #24292f;
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+}
+
+/* Improve blockquote styling */
+.prose blockquote {
+  font-style: italic;
+  color: #6c757d;
+  border-left: 4px solid #dee2e6;
+  padding-left: 1rem;
+  margin-left: 0;
+}
+
+/* Improve table styling */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+.prose table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+  text-align: left;
+}
+
+.prose table th,
+.prose table td {
+  padding: 0.75rem;
+  border: 1px solid #dee2e6;
+}
+
+.prose table tr:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+/* Improve image styling */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.375rem;
+  margin: 1.5rem 0;
+}
+
+/* Improve list styling */
+.prose ul,
+.prose ol {
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Syntax highlighting for code blocks */
+.prose .language-typescript,
+.prose .language-javascript,
+.prose .language-js,
+.prose .language-ts {
+  color: #24292f;
+}
+
+.prose .language-typescript .keyword,
+.prose .language-javascript .keyword,
+.prose .language-js .keyword,
+.prose .language-ts .keyword {
+  color: #cf222e;
+}
+
+.prose .language-typescript .string,
+.prose .language-javascript .string,
+.prose .language-js .string,
+.prose .language-ts .string {
+  color: #0a3069;
+}
+
+.prose .language-typescript .comment,
+.prose .language-javascript .comment,
+.prose .language-js .comment,
+.prose .language-ts .comment {
+  color: #6e7781;
+}

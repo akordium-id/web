@@ -9,6 +9,8 @@ import * as $_middleware from "./routes/_middleware.ts";
 import * as $_rateLimiter from "./routes/_rateLimiter.ts";
 import * as $api_contact from "./routes/api/contact.ts";
 import * as $api_joke from "./routes/api/joke.ts";
+import * as $blog_slug_ from "./routes/blog/[slug].tsx";
+import * as $blog_index from "./routes/blog/index.tsx";
 import * as $contact from "./routes/contact.tsx";
 import * as $greet_name_ from "./routes/greet/[name].tsx";
 import * as $index from "./routes/index.tsx";
@@ -33,6 +35,8 @@ const manifest = {
     "./routes/_rateLimiter.ts": $_rateLimiter,
     "./routes/api/contact.ts": $api_contact,
     "./routes/api/joke.ts": $api_joke,
+    "./routes/blog/[slug].tsx": $blog_slug_,
+    "./routes/blog/index.tsx": $blog_index,
     "./routes/contact.tsx": $contact,
     "./routes/greet/[name].tsx": $greet_name_,
     "./routes/index.tsx": $index,
