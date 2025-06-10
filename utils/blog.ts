@@ -13,24 +13,18 @@ function extractFrontMatter(content: string, slug: string): { frontMatter: Recor
   // Normalize line endings
   const normalizedContent = content.replace(/\r\n/g, "\n");
 
-  console.log(`[DEBUG] Processing post: ${slug}`);
-  console.log(`[DEBUG] Content starts with: "${normalizedContent.substring(0, 50)}..."`);
-
   // More flexible regex that handles different line endings
   const frontMatterRegex = /^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/;
   const match = normalizedContent.match(frontMatterRegex);
 
   if (!match) {
-    console.log(`[DEBUG] Front matter regex failed to match for ${slug}`);
     throw new Error("Invalid front matter format");
   }
 
   const [, frontMatterYaml, markdownContent] = match;
-  console.log(`[DEBUG] Front matter YAML: "${frontMatterYaml}"`);
 
   try {
     const frontMatter = yaml.parse(frontMatterYaml) as Record<string, unknown>;
-    console.log(`[DEBUG] Parsed front matter:`, frontMatter);
 
     return {
       frontMatter,
@@ -38,7 +32,6 @@ function extractFrontMatter(content: string, slug: string): { frontMatter: Recor
     };
   } catch (error: unknown) {
     const errorMessage = error instanceof Error ? error.message : String(error);
-    console.error(`[DEBUG] Error parsing YAML front matter for ${slug}:`, error);
     throw new Error(`Failed to parse front matter: ${errorMessage}`);
   }
 }

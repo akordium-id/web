@@ -4,8 +4,8 @@
 .prose pre {
   padding: 1rem;
   overflow-x: auto;
-  background-color: #f8f9fa;
-  border: 1px solid #e9ecef;
+  background-color: #f5f5f7; /* base-subtle */
+  border: 1px solid #eaeaec; /* base-muted */
   border-radius: 0.375rem;
 }
 
@@ -19,15 +19,15 @@
     "Liberation Mono",
     "Courier New",
     monospace;
-  color: #d63384;
-  background-color: rgba(175, 184, 193, 0.2);
+  color: #673b75; /* secondary */
+  background-color: rgba(59, 46, 131, 0.05); /* primary with low opacity */
   padding: 0.2em 0.4em;
   border-radius: 0.25rem;
   font-size: 0.875em;
 }
 
 .prose pre code {
-  color: #24292f;
+  color: #3b2e83; /* primary */
   background-color: transparent;
   padding: 0;
   border-radius: 0;
@@ -36,10 +36,13 @@
 /* Improve blockquote styling */
 .prose blockquote {
   font-style: italic;
-  color: #6c757d;
-  border-left: 4px solid #dee2e6;
+  color: #542e61; /* secondary-dark */
+  border-left: 4px solid #673b75; /* secondary */
   padding-left: 1rem;
   margin-left: 0;
+  background-color: rgba(103, 59, 117, 0.05); /* secondary with low opacity */
+  padding: 1rem;
+  border-radius: 0 0.375rem 0.375rem 0;
 }
 
 /* Improve table styling */
@@ -47,10 +50,14 @@
   width: 100%;
   border-collapse: collapse;
   margin: 1.5rem 0;
+  border-radius: 0.375rem;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .prose table th {
-  background-color: #f8f9fa;
+  background-color: #3b2e83; /* primary */
+  color: #ffffff;
   font-weight: 600;
   text-align: left;
 }
@@ -58,11 +65,11 @@
 .prose table th,
 .prose table td {
   padding: 0.75rem;
-  border: 1px solid #dee2e6;
+  border: 1px solid #eaeaec; /* base-muted */
 }
 
 .prose table tr:nth-child(even) {
-  background-color: #f8f9fa;
+  background-color: #f5f5f7; /* base-subtle */
 }
 
 /* Improve image styling */
@@ -71,17 +78,58 @@
   height: auto;
   border-radius: 0.375rem;
   margin: 1.5rem 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: 1px solid #eaeaec; /* base-muted */
 }
 
 /* Improve list styling */
 .prose ul,
 .prose ol {
   padding-left: 1.5rem;
+  margin: 1.5rem 0;
 }
 
 .prose li {
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
+  color: #3b2e83; /* primary */
+}
+
+.prose li::marker {
+  color: #673b75; /* secondary */
+}
+
+/* Improve heading styling */
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4,
+.prose h5,
+.prose h6 {
+  color: #3b2e83; /* primary */
+  font-weight: 700;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.prose h1 {
+  font-size: 2.25rem;
+  border-bottom: 2px solid #eaeaec; /* base-muted */
+  padding-bottom: 0.5rem;
+}
+
+.prose h2 {
+  font-size: 1.875rem;
+  border-bottom: 1px solid #eaeaec; /* base-muted */
+  padding-bottom: 0.25rem;
+}
+
+.prose h3 {
+  font-size: 1.5rem;
+}
+
+.prose h4 {
+  font-size: 1.25rem;
 }
 
 /* Syntax highlighting for code blocks */
@@ -89,26 +137,53 @@
 .prose .language-javascript,
 .prose .language-js,
 .prose .language-ts {
-  color: #24292f;
+  color: #3b2e83; /* primary */
 }
 
 .prose .language-typescript .keyword,
 .prose .language-javascript .keyword,
 .prose .language-js .keyword,
 .prose .language-ts .keyword {
-  color: #cf222e;
+  color: #c1565b; /* tertiary */
 }
 
 .prose .language-typescript .string,
 .prose .language-javascript .string,
 .prose .language-js .string,
 .prose .language-ts .string {
-  color: #0a3069;
+  color: #673b75; /* secondary */
 }
 
 .prose .language-typescript .comment,
 .prose .language-javascript .comment,
 .prose .language-js .comment,
 .prose .language-ts .comment {
-  color: #6e7781;
+  color: #944868; /* accent */
+}
+
+/* Add some spacing to paragraphs */
+.prose p {
+  margin: 1.25rem 0;
+  line-height: 1.75;
+}
+
+/* Style links */
+.prose a {
+  color: #3b2e83; /* primary */
+  text-decoration: none;
+  border-bottom: 1px dotted #673b75; /* secondary */
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+}
+
+.prose a:hover {
+  color: #4d3ea5; /* primary-light */
+  border-bottom-color: #4d3ea5; /* primary-light */
+}
+
+/* Style horizontal rule */
+.prose hr {
+  border: 0;
+  height: 1px;
+  background-color: #eaeaec; /* base-muted */
+  margin: 2rem 0;
 }

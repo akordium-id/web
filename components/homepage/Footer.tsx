@@ -110,7 +110,7 @@ export default function Footer() {
                 <a href="#" className="hover:text-gray-300">Portfolio</a>
               </li>
               <li>
-                <a href="#" className="hover:text-gray-300">Blog</a>
+                <a href="/blog" className="hover:text-gray-300">Blog</a>
               </li>
               <li>
                 <a href="#" className="hover:text-gray-300">Contact</a>
