@@ -16,16 +16,33 @@ Akordium dibangun menggunakan teknologi modern:
 
 ## 📂 Project Structure
 
-```
-akordium/
-├── components/       # Reusable UI components
-├── islands/          # Interactive components (client hydrated)
-├── routes/           # Application routes
-├── middleware/       # Request middleware
-├── static/           # Static assets
-├── utils/            # Utility functions
-└── types/            # TypeScript type definitions
-```
+The project follows a feature-based organization:
+
+### Routes
+
+- `/routes/features/` - Feature-based routes organized by domain
+  - `/routes/features/home/` - Home page routes
+  - `/routes/features/contact/` - Contact page routes
+  - `/routes/features/about/` - About page routes
+  - `/routes/features/auth/` - Authentication routes
+
+### Components
+
+- `/components/shared/` - Shared components used across features
+  - `/components/shared/ui/` - UI components
+    - `/components/shared/ui/buttons/` - Button components
+    - `/components/shared/ui/forms/` - Form components
+    - `/components/shared/ui/layout/` - Layout components
+    - `/components/shared/ui/feedback/` - Feedback components (error messages, notifications)
+  - `/components/shared/layout/` - Shared layout components
+- `/components/homepage/` - Components specific to the homepage
+- `/components/layout/` - Layout components
+
+### Islands
+
+- `/islands/shared/` - Shared interactive components
+- `/islands/homepage/` - Interactive components for the homepage
+- `/islands/contact/` - Interactive components for the contact page
 
 ## ✨ Features
 
@@ -45,6 +62,16 @@ cd web
 # Start the development server
 deno task start
 ```
+
+## URL Structure
+
+While the project uses a feature-based organization internally, the public URLs remain clean and user-friendly:
+
+- `/` - Home page
+- `/contact` - Contact page
+- `/about` - About page
+
+The internal feature-based routes (`/features/home`, `/features/contact`, etc.) are not exposed to users. The middleware handles mapping between the internal structure and the public URLs.
 
 ---
 

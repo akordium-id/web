@@ -1,4 +1,23 @@
 import BaseLayout from "@/components/layout/BaseLayout.tsx";
+import { Handlers } from "$fresh/server.ts";
+
+export const handler: Handlers = {
+  GET(req, ctx) {
+    const url = new URL(req.url);
+    const path = url.pathname;
+
+    // Handle redirects for features routes
+    if (path === "/features/home") {
+      return Response.redirect(`${url.origin}/`, 307);
+    }
+    if (path === "/features/contact") {
+      return Response.redirect(`${url.origin}/contact`, 307);
+    }
+
+    // Continue to the 404 page for other paths
+    return ctx.render();
+  },
+};
 
 export default function Error404() {
   return (

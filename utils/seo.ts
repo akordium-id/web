@@ -15,7 +15,7 @@ export interface SEOProps {
 }
 
 export const defaultSEO: SEOProps = {
-  title: "Akordium - Mitra seng peduli karo sampeyan",
+  title: "Akordium",
   description: "Partner digital yang peduli untuk perkembangan bisnis Anda serta mengedepankan kenyamanan dan kolaborasi bersama",
   keywords: [
     "digital",

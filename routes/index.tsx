@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <BaseLayout
       seo={{
-        title: "Akordium - Mitra seng peduli karo sampeyan",
+        title: "Akordium",
         description:
           "Akordium adalah partner digital yang peduli untuk perkembangan bisnis Anda serta mengedepankan kenyamanan dan kolaborasi bersama.",
       }}

@@ -76,9 +76,9 @@ export default function Contact() {
                   {currentContent.businessInfo.name}
                 </h3>
                 <div className="space-y-4">
-                  <p className="flex items-start gap-3">
+                  <p className="flex items-start text-primary gap-3">
                     <svg
-                      className="w-6 h-6 mt-1 text-primary flex-shrink-0"
+                      className="w-6 h-6 mt-1 flex-shrink-0"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -98,9 +98,9 @@ export default function Contact() {
                     </svg>
                     <span>{currentContent.businessInfo.address}</span>
                   </p>
-                  <p className="flex items-center gap-3">
+                  <p className="flex items-cente text-primary gap-3">
                     <svg
-                      className="w-6 h-6 text-primary"
+                      className="w-6 h-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -114,9 +114,9 @@ export default function Contact() {
                     </svg>
                     <span>{currentContent.businessInfo.phone}</span>
                   </p>
-                  <p className="flex items-center gap-3">
+                  <p className="flex items-center text-primary gap-3">
                     <svg
-                      className="w-6 h-6 text-primary"
+                      className="w-6 h-6"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
