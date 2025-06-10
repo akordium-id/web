@@ -89,7 +89,8 @@ export const handler: Handlers = {
           success: false,
           message: error instanceof z.ZodError
             ? error.errors[0].message
-            : error.message || "Failed to send message",
+            : error instanceof Error
+              ? error.message : "Failed to send message",
         }),
         {
           status: 400,

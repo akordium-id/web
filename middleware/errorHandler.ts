@@ -1,36 +1,34 @@
 import { FreshContext } from "$fresh/server.ts";
 
-export interface ErrorResponse {
-  status: number;
-  message: string;
-  stack?: string;
-}
-
-export async function errorHandler(
+export async function handler(
   req: Request,
   ctx: FreshContext,
-) {
+): Promise<Response> {
   try {
     const resp = await ctx.next();
     return resp;
-  } catch (e) {
-    const err = e as Error & { status?: number };
+  } catch (err) {
+    console.error("Unhandled error:", err);
 
-    console.error(`[REQUEST] ${req.method} ${req.url}`);
-    console.error(`[ERROR] ${err.message}`);
-    console.error(err.stack);
+    // Return JSON for API routes
+    const url = new URL(req.url);
+    if (url.pathname.startsWith("/api/")) {
+      return new Response(
+        JSON.stringify({
+          error: "Internal Server Error",
+          message: "An unexpected error occurred",
+        }),
+        {
+          status: 500,
+          headers: { "Content-Type": "application/json" },
+        },
+      );
+    }
 
-    const isDevelopment = Deno.env.get("DENO_ENV") === "development";
-
-    const errorResponse: ErrorResponse = {
-      status: err.status || 500,
-      message: err.message || "Internal Server Error",
-      ...(isDevelopment && { stack: err.stack }),
-    };
-
-    return new Response(JSON.stringify(errorResponse), {
-      status: errorResponse.status,
-      headers: { "Content-Type": "application/json" },
+    // Redirect to error page for regular routes
+    return new Response("Internal Server Error", {
+      status: 500,
+      headers: { "Content-Type": "text/plain" },
     });
   }
 }

@@ -50,7 +50,7 @@ export default function HeroContent() {
         </a>
         <a
           href="#"
-          className="border-2 border-primary text-primary hover:bg-primary hover:text-base rounded-full px-3 py-2 md:px-5 md:py-3 text-base md:text-lg font-medium transition-colors"
+          className="border-2 border-primary text-primary hover:bg-primary hover:text-white rounded-full px-3 py-2 md:px-5 md:py-3 text-base md:text-lg font-medium transition-colors"
         >
           {currentContent.work}
         </a>
