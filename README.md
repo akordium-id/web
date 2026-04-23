@@ -1,80 +1,140 @@
-# Akordium - Mitra seng peduli karo sampeyan
+> ⭐️ Love this theme? Star it to support our work!
 
-[![Deploy](https://github.com/akordium-id/web/actions/workflows/deploy.yml/badge.svg)](https://github.com/akordium-id/web/actions/workflows/deploy.yml)
+# Lumio Lite
 
-Selamat datang di Akordium, partner digital yang peduli untuk perkembangan bisnis Anda serta mengedepankan kenyamanan dan kolaborasi bersama.
+**Lumio Lite** is a lightweight, free version of the premium [Lumio Astro Theme](https://getastrothemes.com/astro-themes/lumio/), designed for IT companies, digital agencies, and consulting firms.
 
-## 🚀 Tech Stack
+> ⚡ Built with Astro 6, Tailwind CSS 4, and Markdown — optimized for performance, SEO, and simplicity.
 
-Akordium dibangun menggunakan teknologi modern:
+[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/getastrothemes/lumio-lite-astro) [![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/getastrothemes/lumio-lite-astro) [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/getastrothemes/lumio-lite-astro?devcontainer_path=.devcontainer/devcontainer.json)
 
-- [Deno](https://deno.land/) - Runtime JavaScript/TypeScript yang aman dan modern
-- [Fresh Framework](https://fresh.deno.dev/) - Web framework untuk Deno yang ringan dan cepat
-- [Tailwind CSS](https://tailwindcss.com/) - Utility-first CSS framework untuk styling yang fleksibel
-- [Preact](https://preactjs.com/) - Library UI yang ringan dan cepat
-- [Zod](https://zod.dev/) - TypeScript-first schema validation
+![Lumio Lite Banner](/public/images/og-image.jpg)
 
-## 📂 Project Structure
+## ✨ Features at a Glance
 
-The project follows a feature-based organization:
+- ✅ Localized homepage for English and French
+- ✅ Services list page and localized single service pages
+- ✅ Fully responsive and accessible
+- ✅ SEO-ready: meta tags, Open Graph, JSON-LD schema
+- ✅ Sticky header, localized navigation, and section anchor navigation
+- ✅ Easily deploy to Vercel, Netlify, or Cloudflare Pages
+- ✅ Edit homepage and services content using Markdown and MDX frontmatter
+- ✅ Contact form integration support for Formspree, Formsubmit, and Netlify
 
-### Routes
+## 🔄 Lite vs. Pro — Feature Comparison
 
-- `/routes/features/` - Feature-based routes organized by domain
-  - `/routes/features/home/` - Home page routes
-  - `/routes/features/contact/` - Contact page routes
-  - `/routes/features/about/` - About page routes
-  - `/routes/features/auth/` - Authentication routes
+| Feature                                                       | Lumio Lite | Lumio Pro 💎 |
+| ------------------------------------------------------------- | ---------- | ------------ |
+| Multiple Homepage Layouts                                     | ❌         | ✅           |
+| Premium Scroll & Hover Animations                             | ❌         | ✅           |
+| Creative UI Components (Tabs, Accordions, Testimonials, etc.) | ❌         | ✅           |
+| Pre-built Pages: About, FAQ, Services, Pricing, etc.          | ❌         | ✅           |
+| Blog System (with Markdown & Schema)                          | ❌         | ✅           |
+| Projects/Portfolio Section                                    | ❌         | ✅           |
+| Mega Menu Navigation                                          | ❌         | ✅           |
+| Mutiple Header Layouts                                        | ❌         | ✅           |
+| Mutiple Footer Layouts                                        | ❌         | ✅           |
+| Terms & Privacy Pages (Auto-generated)                        | ❌         | ✅           |
+| Markdown Content Support                                      | ✅         | ✅           |
+| Built-in Contact Form Support                                 | ✅         | ✅           |
+| Fully Multilingual (i18n) Support                             | ✅         | ✅           |
+| SEO Optimized (Meta + OpenGraph + JSON-LD)                    | ✅         | ✅           |
+| 100/100 Lighthouse Score                                      | ✅         | ✅           |
+| Deployment Ready (Vercel, Netlify, Cloudflare)                | ✅         | ✅           |
+| Accessible & Responsive Design                                | ✅         | ✅           |
+| Minimal Animations                                            | ✅         | ✅           |
 
-### Components
+> 🎯 **Need more pages and flexibility?**  
+> Upgrade to [Lumio Pro →](https://getastrothemes.com/astro-themes/lumio/) for the full business-ready toolkit.
 
-- `/components/shared/` - Shared components used across features
-  - `/components/shared/ui/` - UI components
-    - `/components/shared/ui/buttons/` - Button components
-    - `/components/shared/ui/forms/` - Form components
-    - `/components/shared/ui/layout/` - Layout components
-    - `/components/shared/ui/feedback/` - Feedback components (error messages, notifications)
-  - `/components/shared/layout/` - Shared layout components
-- `/components/homepage/` - Components specific to the homepage
-- `/components/layout/` - Layout components
-
-### Islands
-
-- `/islands/shared/` - Shared interactive components
-- `/islands/homepage/` - Interactive components for the homepage
-- `/islands/contact/` - Interactive components for the contact page
-
-## ✨ Features
-
-- 🔄 Centralized layout system
-- 🛡️ Form validation with Zod
-- 🌐 Enhanced SEO utilities
-- 🚨 Error handling and boundaries
-- 🎨 Centralized theme configuration
-
-## 🚀 Getting Started
+## ⚡ Quick Start
 
 ```bash
-# Clone the repository
-git clone https://github.com/akordium-id/web.git
-cd web
-
-# Start the development server
-deno task start
+git clone https://github.com/getastrothemes/lumio-lite-astro.git
+cd lumio-lite-astro
+npm install
+npm run dev
 ```
 
-## URL Structure
+## 🚀 Project Structure
 
-While the project uses a feature-based organization internally, the public URLs remain clean and user-friendly:
+Inside of your Astro project, you'll see the following folders and files:
 
-- `/` - Home page
-- `/contact` - Contact page
-- `/about` - About page
+```text
+.
+├── .vscode/
+├── public/
+├── scripts/
+├── src/
+│ ├── assets/
+│ ├── config/
+│ ├── content/
+│ ├── i18n/
+│ ├── layouts/
+│ ├── lib/
+│ ├── pages/
+│ ├── styles/
+│ ├── types/
+│ ├── content.config.ts
+│ └── env.d.ts
+├── .editorconfig
+├── .gitignore
+├── .markdownlint.json
+├── .prettierrc
+├── astro.config.mjs
+├── netlify.toml
+├── vercel.json
+├── vercel.sh
+└── tsconfig.json
+```
 
-The internal feature-based routes (`/features/home`, `/features/contact`, etc.) are not exposed to users. The middleware handles mapping between the internal structure and the public URLs.
+Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
 
----
+There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
 
-[![Made with Fresh](https://fresh.deno.dev/fresh-badge.svg)](https://fresh.deno.dev)
+The `src/content/` directory contains "collections" of related Markdown and MDX documents. Use `getCollectionCTM()` to retrieve posts from `src/content/blog/`, and type-check your frontmatter using an optional schema. See [Astro's Content Collections docs](https://docs.astro.build/en/guides/content-collections/) to learn more.
 
-Dibuat dengan ❤️ oleh Tim Akordium
+Any static assets, like images, can be placed in the `public/` directory.
+
+## 🧞 Commands
+
+All commands are run from the root of the project, from a terminal:
+
+| Command                   | Action                                           |
+| :------------------------ | :----------------------------------------------- |
+| `npm install`             | Installs dependencies                            |
+| `npm run dev`             | Starts local dev server at `localhost:4321`      |
+| `npm run build`           | Build your production site to `./dist/`          |
+| `npm run preview`         | Preview your build locally, before deploying     |
+| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
+| `npm run astro -- --help` | Get help using the Astro CLI                     |
+
+## 🚀 One-Click Deployment
+
+Deploy the Lumio Lite theme instantly to your favorite platform:
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/getastrothemes/lumio-lite-astro)
+
+## 👀 Want to learn more?
+
+Full usage, customization, and deployment guide:
+
+[Theme Documentation](https://docs.getastrothemes.com/lumio/) · [Astro Documentation](https://docs.astro.build) · [Astro Discord server](https://astro.build/chat)
+
+## 📄 License
+
+Lumio Lite is free for personal and commercial use under the [Getastrothemes Free Theme License.](LICENSE.md)
+
+✅ Attribution appreciated but not required. You may optionally include a visible link to [getastrothemes.com](https://getastrothemes.com) in your site footer or credits section.
+
+## 💬 Feedback & Suggestions
+
+If you enjoy using Lumio Lite or have ideas to improve it:
+
+📣 [Give Feedback](https://getastrothemes.com/contact/)
+
+## 🛠 Credits
+
+Made with ❤️ by [Getastrothemes](https://getastrothemes.com/)
+
+Lumio Lite is inspired by the premium [Lumio Pro Theme](https://getastrothemes.com/astro-themes/lumio/)
