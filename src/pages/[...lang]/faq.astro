@@ -1,0 +1,37 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/layouts/components/widgets/PageHeader.astro";
+import FaqSection from "@/layouts/components/sections/FaqSection.astro";
+import ContactSection from "@/components/sections/ContactSection.astro";
+import { generatePaths } from "@/lib/utils/i18nUtils";
+import { getEntryCTM } from "@/lib/contentParser.astro";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+const lang = Astro.currentLocale || "en";
+const faqContent = (await getEntryCTM("sections", "faq-main", lang))?.data as any;
+
+// Flatten all Q&A for FAQPage JSON-LD
+const faqItems =
+  faqContent?.categories?.flatMap(
+    (cat: { items: { question: string; answer: string }[] }) => cat.items,
+  ) ?? [];
+
+const title = lang === "id" ? "Pertanyaan yang Sering Diajukan" : "Frequently Asked Questions";
+const description =
+  lang === "id"
+    ? "Jawaban atas pertanyaan umum tentang layanan, proses, dan harga Akordium."
+    : "Answers to common questions about Akordium's services, process, and pricing.";
+---
+
+<Base
+  {title}
+  {description}
+  structuredData={{ pageType: "faq", faqItems }}
+>
+  <PageHeader {title} breadcrumbTitle="FAQ" />
+  <FaqSection />
+  <ContactSection />
+</Base>

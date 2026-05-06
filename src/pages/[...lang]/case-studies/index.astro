@@ -1,0 +1,73 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/layouts/components/widgets/PageHeader.astro";
+import CaseStudyCard from "@/layouts/components/cards/CaseStudyCard.astro";
+import ContactSection from "@/components/sections/ContactSection.astro";
+import SectionBadge from "@/layouts/components/global/SectionBadge.astro";
+import SectionTitle from "@/layouts/components/global/SectionTitle.astro";
+import { generatePaths } from "@/lib/utils/i18nUtils";
+import { getCollectionCTM } from "@/lib/contentParser.astro";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+const lang = Astro.currentLocale || "en";
+const entries = await getCollectionCTM("case-studies", lang);
+
+const title = lang === "id" ? "Portofolio Kami" : "Our Portfolio";
+const description =
+  lang === "id"
+    ? "Lihat proyek nyata yang telah kami kerjakan dan hasil yang kami capai untuk klien."
+    : "See real projects we've delivered and results we've achieved for clients.";
+const badge = lang === "id" ? "// PORTOFOLIO" : "// PORTFOLIO";
+---
+
+<Base {title} {description}>
+  <PageHeader {title} breadcrumbTitle={title} />
+
+  <section class="section-spacing-vertical">
+    <div class="container">
+      <div class="mb-12 max-w-xl" data-aos="fade-up" data-aos-duration="600">
+        <SectionBadge title={badge} />
+        <SectionTitle
+          title={lang === "id"
+            ? "Proyek Nyata, Hasil Nyata"
+            : "Real Projects, Real Results"}
+        />
+        <p class="text-text-default/70 mt-4 leading-relaxed">
+          {
+            lang === "id"
+              ? "Kami berbicara melalui hasil kerja kami. Berikut beberapa proyek yang telah kami selesaikan untuk klien dari berbagai industri."
+              : "We let our work speak for us. Here are some of the projects we've completed for clients across different industries."
+          }
+        </p>
+      </div>
+
+      {
+        entries.length > 0 ? (
+          <div class="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+            {entries.map((entry, i) => (
+              <div
+                data-aos="fade-up"
+                data-aos-delay={i * 80}
+                data-aos-duration="600">
+                <CaseStudyCard {entry} />
+              </div>
+            ))}
+          </div>
+        ) : (
+          <div class="py-16 text-center">
+            <p class="text-text-default/60">
+              {lang === "id"
+                ? "Proyek segera hadir."
+                : "Case studies coming soon."}
+            </p>
+          </div>
+        )
+      }
+    </div>
+  </section>
+
+  <ContactSection />
+</Base>

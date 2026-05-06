@@ -1,0 +1,151 @@
+---
+import Base from "@/layouts/Base.astro";
+import PageHeader from "@/layouts/components/widgets/PageHeader.astro";
+import ContactSection from "@/components/sections/ContactSection.astro";
+import Icons from "@/helpers/Icons.astro";
+import { generatePaths, getEntryRouteParam } from "@/lib/utils/i18nUtils";
+import { getCollection } from "astro:content";
+
+export async function getStaticPaths() {
+  const entries = await getCollection("case-studies");
+  const langPaths = generatePaths();
+
+  return entries.flatMap((entry) =>
+    langPaths.map((langPath) => ({
+      params: {
+        lang: langPath.params.lang,
+        slug: getEntryRouteParam(entry),
+      },
+      props: { entry },
+    })),
+  );
+}
+
+const { entry } = Astro.props;
+if (!entry) return Astro.redirect("/404");
+
+const lang = Astro.currentLocale || "en";
+const {
+  title,
+  description,
+  client,
+  industry,
+  services,
+  challenge,
+  solution,
+  results,
+  techStack,
+  testimonial,
+} = entry.data;
+---
+
+<Base {title} {description}>
+  <PageHeader
+    {title}
+    breadcrumbTitle={lang === "id" ? "Portofolio" : "Portfolio"}
+  />
+
+  <section class="section-spacing-vertical">
+    <div class="container max-w-4xl">
+      <!-- Meta Tags -->
+      <div class="mb-10 flex flex-wrap gap-2" data-aos="fade-up">
+        {
+          services?.map((s: string) => (
+            <span class="bg-primary/10 text-primary rounded-full px-3 py-0.5 text-sm font-medium">
+              {s}
+            </span>
+          ))
+        }
+        {
+          industry && (
+            <span class="rounded-full bg-theme-light px-3 py-0.5 text-sm text-text-default/60">
+              {industry}
+            </span>
+          )
+        }
+      </div>
+
+      <!-- Results Grid -->
+      {
+        results && results.length > 0 && (
+          <div
+            class="mb-12 grid grid-cols-2 gap-4 md:grid-cols-4"
+            data-aos="fade-up"
+            data-aos-delay="80">
+            {results.map((r: { metric: string; value: string }) => (
+              <div class="bg-theme-light rounded-2xl p-4 text-center">
+                <p class="text-primary mb-1 text-3xl font-bold">{r.value}</p>
+                <p class="text-text-default/60 text-xs">{r.metric}</p>
+              </div>
+            ))}
+          </div>
+        )
+      }
+
+      <!-- Challenge + Solution -->
+      <div class="space-y-8" data-aos="fade-up" data-aos-delay="120">
+        {
+          challenge && (
+            <div>
+              <h2 class="mb-3 text-xl font-semibold">
+                {lang === "id" ? "Tantangan" : "The Challenge"}
+              </h2>
+              <p class="text-text-default/75 leading-relaxed">{challenge}</p>
+            </div>
+          )
+        }
+
+        {
+          solution && (
+            <div>
+              <h2 class="mb-3 text-xl font-semibold">
+                {lang === "id" ? "Solusi Kami" : "Our Solution"}
+              </h2>
+              <p class="text-text-default/75 leading-relaxed">{solution}</p>
+            </div>
+          )
+        }
+      </div>
+
+      <!-- Tech Stack -->
+      {
+        techStack && techStack.length > 0 && (
+          <div class="mt-10" data-aos="fade-up" data-aos-delay="160">
+            <h3 class="mb-3 font-semibold">
+              {lang === "id" ? "Teknologi yang Digunakan" : "Tech Stack"}
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              {techStack.map((tech: string) => (
+                <span class="border-border rounded-lg border bg-white px-3 py-1 text-sm">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
+        )
+      }
+
+      <!-- Testimonial -->
+      {
+        testimonial && (
+          <blockquote
+            class="bg-theme-light mt-12 rounded-2xl p-6 md:p-8"
+            data-aos="fade-up"
+            data-aos-delay="200">
+            <p class="text-text-default mb-4 text-lg leading-relaxed italic">
+              "{testimonial.quote}"
+            </p>
+            <footer>
+              <p class="font-semibold">{testimonial.author}</p>
+              {testimonial.role && (
+                <p class="text-text-default/60 text-sm">{testimonial.role}</p>
+              )}
+            </footer>
+          </blockquote>
+        )
+      }
+    </div>
+  </section>
+
+  <ContactSection />
+</Base>

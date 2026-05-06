@@ -47,7 +47,9 @@ export async function getStaticPaths() {
 }
 
 const { service } = Astro.props;
+const lang = Astro.currentLocale || "en";
 const { Content } = await render(service);
+const { pricing, deliverables, faq } = service.data;
 ---
 
 <Base {...service.data}>
@@ -61,5 +63,81 @@ const { Content } = await render(service);
     </div>
   </section>
 
+  <!-- Pricing + Deliverables -->
+  {
+    (pricing || deliverables) && (
+      <section class="section-spacing-vertical bg-theme-light">
+        <div class="container">
+          <div class="grid grid-cols-1 gap-10 md:grid-cols-2">
+            {pricing && (
+              <div class="rounded-2xl border border-primary bg-white p-6">
+                <h2 class="mb-1 text-xl font-semibold">
+                  {lang === "id" ? "Estimasi Harga" : "Starting Price"}
+                </h2>
+                <p class="text-primary mb-2 text-3xl font-bold">
+                  {pricing.from}
+                </p>
+                {pricing.note && (
+                  <p class="text-text-default/60 text-sm leading-relaxed">
+                    {pricing.note}
+                  </p>
+                )}
+                <a
+                  href={lang === "id" ? "/id/contact/" : "/contact/"}
+                  class="btn btn-primary mt-4 inline-block">
+                  {lang === "id" ? "Diskusi Proyek" : "Discuss Your Project"}
+                </a>
+              </div>
+            )}
+            {deliverables && (
+              <div>
+                <h2 class="mb-4 text-xl font-semibold">
+                  {lang === "id" ? "Yang Anda Dapatkan" : "What You Get"}
+                </h2>
+                <ul class="space-y-2">
+                  {deliverables.map((item: string) => (
+                    <li class="flex items-start gap-2 text-sm">
+                      <span class="text-primary mt-0.5 shrink-0">✓</span>
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <!-- FAQ -->
+  {
+    faq && faq.length > 0 && (
+      <section class="section-spacing-vertical">
+        <div class="container max-w-3xl">
+          <h2 class="mb-8 text-2xl font-semibold" data-aos="fade-up">
+            {lang === "id" ? "Pertanyaan yang Sering Diajukan" : "Frequently Asked Questions"}
+          </h2>
+          <div class="space-y-4">
+            {faq.map((item: { question: string; answer: string }, i: number) => (
+              <details
+                class="border-border rounded-xl border bg-white"
+                data-aos="fade-up"
+                data-aos-delay={i * 60}>
+                <summary class="cursor-pointer px-5 py-4 font-medium select-none">
+                  {item.question}
+                </summary>
+                <div class="text-text-default/70 border-border border-t px-5 py-4 text-sm leading-relaxed">
+                  {item.answer}
+                </div>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
   <ContactSection />
 </Base>
+

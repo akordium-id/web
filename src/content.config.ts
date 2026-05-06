@@ -50,6 +50,15 @@ const serviceCollection = defineCollection({
     icon: z.string().optional(),
     imagePosition: z.string().optional(),
     image3: z.string().optional(),
+    pricing: z.object({
+      from: z.string(),
+      note: z.string().optional(),
+    }).optional(),
+    deliverables: z.array(z.string()).optional(),
+    faq: z.array(z.object({
+      question: z.string(),
+      answer: z.string(),
+    })).optional(),
   }),
 });
 
@@ -99,9 +108,29 @@ const blogCollection = defineCollection({
   schema: basePage.extend({ snippet: z.string() }),
 });
 
+const caseStudiesCollection = defineCollection({
+  loader: contentLoader("./src/content/case-studies"),
+  schema: basePage.extend({
+    client: z.string(),
+    industry: z.string(),
+    services: z.array(z.string()),
+    challenge: z.string(),
+    solution: z.string(),
+    results: z.array(z.object({ metric: z.string(), value: z.string() })),
+    techStack: z.array(z.string()),
+    testimonial: z.object({
+      quote: z.string(),
+      author: z.string(),
+      role: z.string(),
+    }).optional(),
+  }),
+});
+
 export const collections = {
   [servicesFolder]: serviceCollection,
   services: serviceCollection,
+  team: teamCollection,
+  "case-studies": caseStudiesCollection,
   sections: defineCollection({
     loader: contentLoader("./src/content/sections"),
   }),

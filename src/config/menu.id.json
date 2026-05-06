@@ -14,14 +14,26 @@
     },
     {
       "enable": true,
-      "name": "Blog",
+      "name": "Tentang",
       "weight": 2,
+      "url": "/about/"
+    },
+    {
+      "enable": true,
+      "name": "Portofolio",
+      "weight": 3,
+      "url": "/case-studies/"
+    },
+    {
+      "enable": true,
+      "name": "Blog",
+      "weight": 4,
       "url": "/blog/"
     },
     {
       "enable": true,
       "name": "Kontak",
-      "weight": 3,
+      "weight": 5,
       "url": "/contact/"
     }
   ],
@@ -67,27 +79,39 @@
       "list": [
         {
           "enable": true,
-          "name": "Tentang",
-          "url": "/",
+          "name": "Tentang Kami",
+          "url": "/about/",
           "weight": 0
         },
         {
           "enable": true,
           "name": "Portofolio",
-          "url": "/",
-          "weight": 0
+          "url": "/case-studies/",
+          "weight": 1
         },
         {
           "enable": true,
           "name": "Blog",
           "url": "/blog/",
-          "weight": 0
+          "weight": 2
         },
         {
           "enable": true,
           "name": "Kontak",
           "url": "/contact/",
-          "weight": 0
+          "weight": 3
+        },
+        {
+          "enable": true,
+          "name": "Harga",
+          "url": "/pricing/",
+          "weight": 4
+        },
+        {
+          "enable": true,
+          "name": "FAQ",
+          "url": "/faq/",
+          "weight": 5
         }
       ]
     }

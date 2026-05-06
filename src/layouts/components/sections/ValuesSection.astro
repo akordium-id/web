@@ -1,0 +1,50 @@
+---
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects";
+import SectionBadge from "@/layouts/components/global/SectionBadge.astro";
+import SectionTitle from "@/layouts/components/global/SectionTitle.astro";
+import Icons from "@/helpers/Icons.astro";
+
+type Value = { icon: string; title: string; description: string };
+type Props = Record<string, unknown>;
+
+const defaultContent = (
+  await getEntryCTM("sections", "about-values", Astro.currentLocale)
+)?.data as any;
+
+const { enable, badge, title, values } = overrideObjects(
+  { ...defaultContent },
+  Astro.props,
+) as typeof defaultContent;
+
+if (!enable) return;
+---
+
+<section class="section-spacing-vertical">
+  <div class="container">
+    <div class="mb-12 max-w-xl" data-aos="fade-up" data-aos-duration="600">
+      {badge && <SectionBadge title={badge} />}
+      {title && <SectionTitle title={title} />}
+    </div>
+
+    <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        (values as Value[])?.map((val, i) => (
+          <div
+            class="border-border rounded-2xl border bg-white p-6 transition-shadow hover:shadow-md"
+            data-aos="fade-up"
+            data-aos-delay={i * 80}
+            data-aos-duration="600">
+            <div class="text-primary mb-4 inline-flex size-12 items-center justify-center rounded-xl bg-primary/10">
+              <Icons name={val.icon} class="size-6" />
+            </div>
+            <h3 class="mb-2 font-semibold">{val.title}</h3>
+            <p class="text-text-default/70 text-sm leading-relaxed">
+              {val.description}
+            </p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

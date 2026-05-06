@@ -1,0 +1,49 @@
+---
+import { getEntryCTM } from "@/lib/contentParser.astro";
+import overrideObjects from "@/lib/utils/overrideObjects";
+
+type Stat = { label: string; value: string };
+type Props = Record<string, unknown>;
+
+const defaultContent = (
+  await getEntryCTM("sections", "about-stats", Astro.currentLocale)
+)?.data as any;
+
+const { enable, title, stats } = overrideObjects(
+  { ...defaultContent },
+  Astro.props,
+) as typeof defaultContent;
+
+if (!enable) return;
+---
+
+<section class="section-spacing-vertical bg-theme-light">
+  <div class="container">
+    {
+      title && (
+        <h2
+          class="text-h4 text-center font-semibold mb-10"
+          data-aos="fade-up"
+          data-aos-duration="600">
+          {title}
+        </h2>
+      )
+    }
+    <div class="grid grid-cols-2 gap-8 lg:grid-cols-4">
+      {
+        (stats as Stat[])?.map((stat, i) => (
+          <div
+            class="text-center"
+            data-aos="fade-up"
+            data-aos-delay={i * 80}
+            data-aos-duration="600">
+            <p class="text-primary mb-1 text-4xl font-bold lg:text-5xl">
+              {stat.value}
+            </p>
+            <p class="text-text-default/60 text-sm">{stat.label}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

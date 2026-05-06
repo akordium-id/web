@@ -44,6 +44,27 @@ export default function JsonLdGenerator(content: JSONLDProps, Astro: any) {
   };
 
   switch (pageType) {
+    case "faq":
+      jsonLdData["@type"] = "FAQPage";
+      jsonLdData.name = title;
+      jsonLdData.description = description;
+      jsonLdData.url = canonical;
+      if (lang) {
+        jsonLdData.inLanguage = lang;
+      }
+      if (content.faqItems && Array.isArray(content.faqItems)) {
+        jsonLdData.mainEntity = content.faqItems.map(
+          (item: { question: string; answer: string }) => ({
+            "@type": "Question",
+            name: item.question,
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: item.answer,
+            },
+          }),
+        );
+      }
+      break;
     default:
       jsonLdData["@type"] = "WebPage";
       jsonLdData.name = title;

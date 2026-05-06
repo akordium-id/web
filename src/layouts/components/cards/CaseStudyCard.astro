@@ -1,0 +1,87 @@
+---
+import type { CollectionEntry } from "astro:content";
+import { getEntrySlugCTM } from "@/lib/utils/i18nUtils";
+
+type Props = { entry: CollectionEntry<"case-studies"> };
+const { entry } = Astro.props;
+const {
+  title,
+  description,
+  industry,
+  services,
+  results,
+  techStack,
+} = entry.data;
+const url = getEntrySlugCTM(entry, Astro.currentLocale);
+---
+
+<article
+  class="border-border group flex flex-col rounded-2xl border bg-white transition-shadow hover:shadow-md">
+  <div class="flex flex-1 flex-col p-6">
+    <div class="mb-4 flex flex-wrap gap-2">
+      {
+        services?.slice(0, 2).map((s: string) => (
+          <span class="bg-primary/10 text-primary rounded-full px-3 py-0.5 text-xs font-medium">
+            {s}
+          </span>
+        ))
+      }
+      {
+        industry && (
+          <span class="rounded-full bg-theme-light px-3 py-0.5 text-xs text-text-default/60">
+            {industry}
+          </span>
+        )
+      }
+    </div>
+
+    <h2 class="mb-2 text-lg font-semibold leading-snug">
+      <a
+        href={url}
+        class="hover:text-primary transition-colors"
+        aria-label={`Read case study: ${title}`}>
+        {title}
+      </a>
+    </h2>
+    {
+      description && (
+        <p class="text-text-default/70 mb-4 flex-1 text-sm leading-relaxed">
+          {description}
+        </p>
+      )
+    }
+
+    {
+      results && results.length > 0 && (
+        <div class="mb-4 grid grid-cols-2 gap-3">
+          {results.slice(0, 2).map((r: { metric: string; value: string }) => (
+            <div class="bg-theme-light rounded-xl p-3 text-center">
+              <p class="text-primary text-xl font-bold">{r.value}</p>
+              <p class="text-text-default/60 text-xs">{r.metric}</p>
+            </div>
+          ))}
+        </div>
+      )
+    }
+
+    {
+      techStack && techStack.length > 0 && (
+        <div class="flex flex-wrap gap-1">
+          {techStack.slice(0, 4).map((tech: string) => (
+            <span class="rounded bg-theme-light px-2 py-0.5 text-xs text-text-default/60">
+              {tech}
+            </span>
+          ))}
+        </div>
+      )
+    }
+  </div>
+
+  <div class="border-border border-t px-6 py-4">
+    <a
+      href={url}
+      class="text-primary inline-flex items-center gap-1 text-sm font-medium transition-gap hover:gap-2">
+      {Astro.currentLocale === "id" ? "Lihat Detail →" : "View Case Study →"}
+    </a>
+  </div>
+</article>
