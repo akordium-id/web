@@ -96,9 +96,7 @@ export const teamCollection = defineCollection({
 
 const blogCollection = defineCollection({
   loader: contentLoader("./src/content/blog"),
-  schema: basePage.extend({
-    snippet: z.string(),
-  }),
+  schema: basePage.extend({ snippet: z.string() }),
 });
 
 export const collections = {

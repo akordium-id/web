@@ -1,10 +1,12 @@
 import mdx from "@astrojs/mdx";
 import remarkToc from "remark-toc";
+import AutoImport from "astro-auto-import";
 import sitemap from "@astrojs/sitemap";
 import { defineConfig } from "astro/config";
 import tailwindcss from "@tailwindcss/vite";
 import rehypeExternalLinks from "rehype-external-links";
 import { enabledLanguages } from "./src/lib/utils/i18nUtils.ts";
+import remarkParseContent from "./src/lib/utils/remarkParseContent.ts";
 import config from "./.astro/config.generated.json";
 import fontsJson from "./src/config/fonts.json";
 import { generateAstroFontsConfig } from "./src/lib/utils/AstroFont.ts";
@@ -40,6 +42,14 @@ export default defineConfig({
 
   integrations: [
     sitemapConfig.enable ? sitemap() : null,
+    AutoImport({
+      imports: [
+        "@/shortcodes/ImageList.astro",
+        "@/shortcodes/ImageItem.astro",
+        "@/shortcodes/InfoBlockItem.astro",
+        "@/shortcodes/InfoBlockList.astro",
+      ],
+    }),
     mdx(),
   ],
 
@@ -54,6 +64,7 @@ export default defineConfig({
       ],
     ],
     remarkPlugins: [
+      remarkParseContent, // Parse markdown content and add classes in heading and  to images
       remarkToc,
     ],
 

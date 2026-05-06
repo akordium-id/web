@@ -1,8 +1,7 @@
 ---
 import Base from "@/layouts/Base.astro";
 import { generatePaths, useTranslations, getEntryRouteParam } from "@/lib/utils/i18nUtils";
-import { getCollection, type CollectionEntry } from "astro:content";
-import { NotFoundResponse } from "astro/errors";
+import { getCollection, render, type CollectionEntry } from "astro:content";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog");
@@ -23,13 +22,13 @@ export async function getStaticPaths() {
 
 const { post } = Astro.props;
 if (!post) {
-  return NotFoundResponse();
+  return Astro.redirect("/404");
 }
 
 const lang = Astro.currentLocale || "en";
 const t = await useTranslations(lang);
 
-const { Content } = await post.render();
+const { Content } = await render(post);
 const formattedDate = post.data.date
   ? new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(post.data.date)
   : "";

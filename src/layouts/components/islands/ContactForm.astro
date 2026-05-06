@@ -1,0 +1,156 @@
+---
+---
+
+<form id="contact-form" class="space-y-6">
+  <div>
+    <label for="name" class="block text-sm font-medium text-primary mb-1">Full Name <span class="text-tertiary">*</span></label>
+    <input type="text" id="name" name="name" required maxlength="50" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-colors" placeholder="John Doe" />
+    <p class="text-sm text-red-500 mt-1 hidden" data-error="name"></p>
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium text-primary mb-1">Email <span class="text-tertiary">*</span></label>
+    <input type="email" id="email" name="email" required class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-colors" placeholder="john@example.com" />
+    <p class="text-sm text-red-500 mt-1 hidden" data-error="email"></p>
+  </div>
+
+  <div>
+    <label for="phone" class="block text-sm font-medium text-primary mb-1">Phone</label>
+    <input type="tel" id="phone" name="phone" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-colors" placeholder="+1 (555) 123-4567" />
+  </div>
+
+  <div>
+    <label for="subject" class="block text-sm font-medium text-primary mb-1">Subject <span class="text-tertiary">*</span></label>
+    <input type="text" id="subject" name="subject" required maxlength="100" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-colors" placeholder="How can we help?" />
+    <p class="text-sm text-red-500 mt-1 hidden" data-error="subject"></p>
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-primary mb-1">Message <span class="text-tertiary">*</span></label>
+    <textarea id="message" name="message" required maxlength="500" rows="5" class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-colors resize-vertical" placeholder="Tell us more about your inquiry..."></textarea>
+    <p class="text-sm text-red-500 mt-1 hidden" data-error="message"></p>
+  </div>
+
+  <div>
+    <button type="submit" class="w-full bg-tertiary hover:bg-tertiary/90 text-white font-semibold py-3 px-6 rounded-lg transition-colors focus:ring-2 focus:ring-tertiary/50 focus:ring-offset-2 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed" id="contact-submit">
+      Send Message
+    </button>
+  </div>
+
+  <div id="contact-success" class="hidden p-4 bg-green-50 border border-green-200 rounded-lg text-green-700 text-sm"></div>
+  <div id="contact-error" class="hidden p-4 bg-red-50 border border-red-200 rounded-lg text-red-700 text-sm"></div>
+</form>
+
+<script is:inline>
+  (function () {
+    const form = document.getElementById("contact-form");
+    if (!form) return;
+
+    const submitBtn = document.getElementById("contact-submit");
+    const successEl = document.getElementById("contact-success");
+    const errorEl = document.getElementById("contact-error");
+    const errorFields = form.querySelectorAll("[data-error]");
+
+    function showFieldError(fieldName, message) {
+      const el = form.querySelector(`[data-error="${fieldName}"]`);
+      if (el) {
+        el.textContent = message;
+        el.classList.remove("hidden");
+      }
+    }
+
+    function clearFieldErrors() {
+      errorFields.forEach((el) => {
+        el.textContent = "";
+        el.classList.add("hidden");
+      });
+    }
+
+    function clearMessages() {
+      successEl.classList.add("hidden");
+      errorEl.classList.add("hidden");
+      successEl.textContent = "";
+      errorEl.textContent = "";
+    }
+
+    function validate(formData) {
+      let valid = true;
+      clearFieldErrors();
+
+      const name = formData.get("name").trim();
+      if (!name) {
+        showFieldError("name", "Full name is required.");
+        valid = false;
+      }
+
+      const email = formData.get("email").trim();
+      if (!email) {
+        showFieldError("email", "Email is required.");
+        valid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        showFieldError("email", "Please enter a valid email address.");
+        valid = false;
+      }
+
+      const subject = formData.get("subject").trim();
+      if (!subject) {
+        showFieldError("subject", "Subject is required.");
+        valid = false;
+      }
+
+      const message = formData.get("message").trim();
+      if (!message) {
+        showFieldError("message", "Message is required.");
+        valid = false;
+      }
+
+      return valid;
+    }
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      clearMessages();
+
+      const formData = new FormData(form);
+      if (!validate(formData)) return;
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Sending...";
+
+      try {
+        const payload = {
+          name: formData.get("name").trim(),
+          email: formData.get("email").trim(),
+          phone: formData.get("phone").trim(),
+          subject: formData.get("subject").trim(),
+          message: formData.get("message").trim(),
+        };
+
+        const res = await fetch("/api/contact", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          let errMsg = "Failed to send message. Please try again.";
+          try {
+            const errData = await res.json();
+            if (errData.error) errMsg = errData.error;
+          } catch {}
+          throw new Error(errMsg);
+        }
+
+        successEl.textContent = "Thank you! Your message has been sent successfully.";
+        successEl.classList.remove("hidden");
+        form.reset();
+      } catch (err) {
+        errorEl.textContent = err.message || "An unexpected error occurred.";
+        errorEl.classList.remove("hidden");
+      } finally {
+        submitBtn.disabled = false;
+        submitBtn.textContent = "Send Message";
+      }
+    });
+  })();
+</script>
