@@ -15,7 +15,7 @@
     "experienceBadge": "Experience badge",
     "paginationNext": "Next",
     "paginationPrevious": "Previous",
-    "contactDropdownSearch404": "No results wewe found",
+    "contactDropdownSearch404": "No results found",
     "404Heading": "404 - Page Not Found",
     "404Description": "Oh dear, it seems like you've ventured off the map.",
     "404ButtonLabel": "Go Back to Home",
@@ -40,8 +40,8 @@
     "backToIntegration": "Browse"
   },
   "footerBlock": {
-    "description": "Duis aute irure dolor in reprehenderit velit esse cillum dolore in fugiat nulla pariatur, excepteur sint",
-    "copyright": "Copyright © 2024 Lumio All Rights Reserved.",
+    "description": "Your digital partner for growth online.",
+    "copyright": "Copyright © 2024 Akordium. All Rights Reserved.",
     "contactBlockLabel": "Contact",
     "aboutUsLabel": "About us",
     "quickLinksLabel": "Quick Links",
@@ -53,7 +53,13 @@
     "comments": "Comments",
     "noComments": "No Comments",
     "previousPost": "Previous Post",
-    "nextPost": "Next Post"
+    "nextPost": "Next Post",
+    "title": "Blog - Akordium",
+    "description": "Insights, tips, and updates from our team.",
+    "heading": "Blog",
+    "subheading": "Stay up-to-date with our latest articles and insights.",
+    "noPosts": "No blog posts found.",
+    "backToList": "Back to Blog"
   },
   "button": {
     "readMore": "Read More",
@@ -62,7 +68,8 @@
     "getAQuote": "Get A Quote",
     "discoverMore": "Discover More",
     "findOutMore": "Find out more",
-    "showAll": "Show All"
+    "showAll": "Show All",
+    "learnMore": "Learn more"
   },
   "header": {
     "announcement": "Announcing our expanded Trusted Partner Program. [find our more](/)"
@@ -70,7 +77,10 @@
   "social": {
     "facebook": "Facebook",
     "twitter": "Twitter",
-    "linkedin": "Linkedin"
+    "linkedin": "Linkedin",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "x": "X"
   },
   "widgets": {
     "postSearchTitle": "Search",
@@ -92,5 +102,62 @@
     "pagination": "Pagination",
     "socialLinks": "Social links",
     "aboutCompany": "About company"
+  },
+  "home": {
+    "title": "Akordium - Your Digital Partner for Growth",
+    "description": "Akordium adalah partner digital yang peduli untuk perkembangan bisnis Anda serta mengedepankan kenyamanan dan kolaborasi bersama.",
+    "hero": {
+      "tagline": "Software Company",
+      "heading": "Your Digital Partner for Growth",
+      "subheading": "Secure and reliable • Result-driven approach • Fast-paced development • Professional",
+      "ctaText": "Book a Call",
+      "workText": "See Our Work"
+    },
+    "valueProposition": {
+      "intro": "We're not just another tech company. We're your digital partners, bringing together ",
+      "firstValue": "development expertise, ",
+      "secondValue": "strategic consulting, ",
+      "thirdValue": "reliable hosting, ",
+      "divider": "and ",
+      "fourthValue": "results-driven marketing ",
+      "closure": "to help your business thrive online.",
+      "team": "Our team of ",
+      "trait": "passionate tech enthusiasts ",
+      "has": "has ",
+      "experience": "3+ years of experience ",
+      "fields": "creating digital solutions for banking, marketing, and IoT fields."
+    },
+    "stats": {
+      "projects": "Projects Delivered",
+      "experience": "Years Experience",
+      "satisfaction": "Client Satisfaction"
+    },
+    "services": {
+      "title": "Our Services"
+    },
+    "recentWork": {
+      "title": "Our Recent Work",
+      "description": "Check out some of the cool projects we've worked on. From sleek websites to powerful apps, we build digital experiences that make an impact."
+    },
+    "testimonials": {
+      "title": "What Our Clients Say",
+      "subtitle": "Real feedback from real people we've worked with"
+    },
+    "cta": {
+      "title": "Let's Create Something Amazing Together",
+      "description": "Ready to take your digital presence to the next level? We're here to help you build, optimize, and grow your online business.",
+      "ctaText": "Contact us",
+      "whatsappText": "WhatsApp"
+    }
+  },
+  "contact": {
+    "title": "Contact Us - Akordium",
+    "description": "Get in touch with us using the form below or through our contact information.",
+    "heading": "Contact Us",
+    "subheading": "Have a question or want to work together? We'd love to hear from you.",
+    "info": {
+      "title": "Business Information",
+      "company": "Akordium Lab"
+    }
   }
 }

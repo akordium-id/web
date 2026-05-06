@@ -1,0 +1,243 @@
+---
+interface FormLabels {
+  name?: string;
+  email?: string;
+  phone?: string;
+  subject?: string;
+  message?: string;
+  submit?: string;
+}
+
+interface FormPlaceholders {
+  name?: string;
+  email?: string;
+  phone?: string;
+  subject?: string;
+  message?: string;
+}
+
+interface Props {
+  labels?: FormLabels;
+  placeholders?: FormPlaceholders;
+}
+
+const {
+  labels = {
+    name: "Name",
+    email: "Email",
+    phone: "Phone",
+    subject: "Subject",
+    message: "Message",
+    submit: "Send Message",
+  },
+  placeholders = {
+    name: "Enter your name",
+    email: "Enter your email",
+    phone: "Enter your phone number (optional)",
+    subject: "Enter subject",
+    message: "Enter your message",
+  },
+} = Astro.props;
+---
+
+<form id="contact-form" class="space-y-5" novalidate>
+  <div id="form-status" class="hidden p-4 rounded-lg text-sm font-medium" role="alert" aria-live="polite"></div>
+
+  <div>
+    <label for="name" class="block text-sm font-medium text-primary mb-1">{labels.name} <span class="text-red-500">*</span></label>
+    <input
+      type="text"
+      id="name"
+      name="name"
+      required
+      maxlength="50"
+      placeholder={placeholders.name}
+      class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tertiary focus:border-tertiary outline-none transition-colors"
+    />
+    <p id="name-error" class="mt-1 text-sm text-red-500 hidden" role="alert"></p>
+  </div>
+
+  <div>
+    <label for="email" class="block text-sm font-medium text-primary mb-1">{labels.email} <span class="text-red-500">*</span></label>
+    <input
+      type="email"
+      id="email"
+      name="email"
+      required
+      placeholder={placeholders.email}
+      class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tertiary focus:border-tertiary outline-none transition-colors"
+    />
+    <p id="email-error" class="mt-1 text-sm text-red-500 hidden" role="alert"></p>
+  </div>
+
+  <div>
+    <label for="phone" class="block text-sm font-medium text-primary mb-1">{labels.phone}</label>
+    <input
+      type="tel"
+      id="phone"
+      name="phone"
+      placeholder={placeholders.phone}
+      class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tertiary focus:border-tertiary outline-none transition-colors"
+    />
+  </div>
+
+  <div>
+    <label for="subject" class="block text-sm font-medium text-primary mb-1">{labels.subject} <span class="text-red-500">*</span></label>
+    <input
+      type="text"
+      id="subject"
+      name="subject"
+      required
+      maxlength="100"
+      placeholder={placeholders.subject}
+      class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tertiary focus:border-tertiary outline-none transition-colors"
+    />
+    <p id="subject-error" class="mt-1 text-sm text-red-500 hidden" role="alert"></p>
+  </div>
+
+  <div>
+    <label for="message" class="block text-sm font-medium text-primary mb-1">{labels.message} <span class="text-red-500">*</span></label>
+    <textarea
+      id="message"
+      name="message"
+      required
+      maxlength="500"
+      rows="5"
+      placeholder={placeholders.message}
+      class="w-full px-4 py-2.5 border border-gray-300 rounded-lg focus:ring-2 focus:ring-tertiary focus:border-tertiary outline-none transition-colors resize-y"
+    ></textarea>
+    <p id="message-error" class="mt-1 text-sm text-red-500 hidden" role="alert"></p>
+    <p id="message-count" class="mt-1 text-xs text-gray-500 text-right">0/500</p>
+  </div>
+
+  <button
+    type="submit"
+    id="submit-btn"
+    class="w-full bg-tertiary text-white font-medium py-3 px-6 rounded-lg hover:bg-tertiary-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+  >
+    <span id="submit-text">{labels.submit}</span>
+    <svg id="submit-spinner" class="hidden animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+    </svg>
+  </button>
+</form>
+
+<script>
+  const form = document.getElementById("contact-form") as HTMLFormElement;
+  const statusEl = document.getElementById("form-status") as HTMLElement;
+  const submitBtn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const submitText = document.getElementById("submit-text") as HTMLElement;
+  const submitSpinner = document.getElementById("submit-spinner") as SVGElement;
+  const messageTextarea = document.getElementById("message") as HTMLTextAreaElement;
+  const messageCount = document.getElementById("message-count") as HTMLElement;
+
+  const validators: Record<string, (value: string) => string> = {
+    name: (v) => (!v.trim() ? "Name is required" : v.length > 50 ? "Name must be at most 50 characters" : ""),
+    email: (v) => (!v.trim() ? "Email is required" : !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v) ? "Please enter a valid email" : ""),
+    subject: (v) => (!v.trim() ? "Subject is required" : v.length > 100 ? "Subject must be at most 100 characters" : ""),
+    message: (v) => (!v.trim() ? "Message is required" : v.length > 500 ? "Message must be at most 500 characters" : ""),
+  };
+
+  function showFieldError(field: string, message: string) {
+    const errorEl = document.getElementById(`${field}-error`);
+    const inputEl = document.getElementById(field);
+    if (errorEl && inputEl) {
+      errorEl.textContent = message;
+      errorEl.classList.remove("hidden");
+      inputEl.classList.add("border-red-500");
+      inputEl.classList.remove("border-gray-300");
+    }
+  }
+
+  function clearFieldError(field: string) {
+    const errorEl = document.getElementById(`${field}-error`);
+    const inputEl = document.getElementById(field);
+    if (errorEl && inputEl) {
+      errorEl.textContent = "";
+      errorEl.classList.add("hidden");
+      inputEl.classList.remove("border-red-500");
+      inputEl.classList.add("border-gray-300");
+    }
+  }
+
+  function validateField(field: string): boolean {
+    const inputEl = document.getElementById(field) as HTMLInputElement | HTMLTextAreaElement;
+    if (!inputEl || !validators[field]) return true;
+    const error = validators[field](inputEl.value);
+    if (error) {
+      showFieldError(field, error);
+      return false;
+    }
+    clearFieldError(field);
+    return true;
+  }
+
+  function setSubmitting(submitting: boolean) {
+    submitBtn.disabled = submitting;
+    submitText.textContent = submitting ? "Sending..." : submitText.dataset.original || "Send Message";
+    submitSpinner.classList.toggle("hidden", !submitting);
+  }
+
+  function showStatus(type: "success" | "error", message: string) {
+    statusEl.textContent = message;
+    statusEl.classList.remove("hidden", "bg-green-100", "text-green-700", "bg-red-100", "text-red-700");
+    statusEl.classList.add(type === "success" ? "bg-green-100" : "bg-red-100", type === "success" ? "text-green-700" : "text-red-700");
+  }
+
+  ["name", "email", "subject", "message"].forEach((field) => {
+    const inputEl = document.getElementById(field);
+    inputEl?.addEventListener("blur", () => validateField(field));
+    inputEl?.addEventListener("input", () => clearFieldError(field));
+  });
+
+  messageTextarea?.addEventListener("input", () => {
+    if (messageCount) {
+      messageCount.textContent = `${messageTextarea.value.length}/500`;
+    }
+  });
+
+  form?.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    statusEl.classList.add("hidden");
+
+    let isValid = true;
+    ["name", "email", "subject", "message"].forEach((field) => {
+      if (!validateField(field)) isValid = false;
+    });
+
+    if (!isValid) return;
+
+    setSubmitting(true);
+
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
+
+      if (response.ok) {
+        showStatus("success", result.message || "Message sent successfully!");
+        form.reset();
+        if (messageCount) messageCount.textContent = "0/500";
+      } else {
+        showStatus("error", result.message || "Failed to send message. Please try again.");
+      }
+    } catch (err) {
+      showStatus("error", "Network error. Please check your connection and try again.");
+    } finally {
+      setSubmitting(false);
+    }
+  });
+
+  const submitTextEl = document.getElementById("submit-text");
+  if (submitTextEl) {
+    submitTextEl.dataset.original = submitTextEl.textContent || "";
+  }
+</script>

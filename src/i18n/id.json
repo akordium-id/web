@@ -53,7 +53,13 @@
     "comments": "Komentar",
     "noComments": "Tidak Ada Komentar",
     "previousPost": "Postingan Sebelumnya",
-    "nextPost": "Postingan Selanjutnya"
+    "nextPost": "Postingan Selanjutnya",
+    "title": "Blog - Akordium",
+    "description": "Wawasan, tips, dan pembaruan dari tim kami.",
+    "heading": "Blog",
+    "subheading": "Tetap terkini dengan artikel dan wawasan terbaru kami.",
+    "noPosts": "Tidak ada postingan blog ditemukan.",
+    "backToList": "Kembali ke Blog"
   },
   "button": {
     "readMore": "Baca Selengkapnya",
@@ -62,7 +68,8 @@
     "getAQuote": "Dapatkan Penawaran",
     "discoverMore": "Temukan Lebih Banyak",
     "findOutMore": "Cari Tahu Lebih Lanjut",
-    "showAll": "Tampilkan Semua"
+    "showAll": "Tampilkan Semua",
+    "learnMore": "Lebih Lanjut"
   },
   "header": {
     "announcement": "Mengumumkan Program Mitra Terpercaya kami yang diperluas. [cari tahu lebih lanjut](/)"
@@ -95,5 +102,62 @@
     "pagination": "Paginasi",
     "socialLinks": "Tautan sosial",
     "aboutCompany": "Tentang perusahaan"
+  },
+  "home": {
+    "title": "Akordium - Mitra Digital untuk Pertumbuhan Bisnis Anda",
+    "description": "Partner digital yang peduli untuk perkembangan bisnis Anda serta mengedepankan kenyamanan dan kolaborasi bersama.",
+    "hero": {
+      "tagline": "Perusahaan Software",
+      "heading": "Mitra Digital untuk Pertumbuhan Bisnis Anda",
+      "subheading": "Aman dan terpercaya • Berorientasi hasil • Pengembangan cepat • Profesional",
+      "ctaText": "Hubungi Kami",
+      "workText": "Lihat Hasil Kami"
+    },
+    "valueProposition": {
+      "intro": "Kami bukan sekadar perusahaan teknologi biasa. Kami adalah mitra digital Anda, menggabungkan ",
+      "firstValue": "keahlian pengembangan, ",
+      "secondValue": "konsultasi strategis, ",
+      "thirdValue": "hosting yang andal, ",
+      "divider": "dan ",
+      "fourthValue": "pemasaran berorientasi hasil ",
+      "closure": "untuk membantu bisnis Anda berkembang secara online.",
+      "team": "Tim kami ",
+      "trait": "sebagai penggiat teknologi ",
+      "has": "dengan ",
+      "experience": "berpengalaman 3+ tahun ",
+      "fields": "dalam menciptakan solusi digital untuk bidang perbankan, pemasaran, dan IoT."
+    },
+    "stats": {
+      "projects": "Proyek Terselesaikan",
+      "experience": "Tahun Pengalaman",
+      "satisfaction": "Kepuasan Klien"
+    },
+    "services": {
+      "title": "Layanan Kami"
+    },
+    "recentWork": {
+      "title": "Karya Terbaru Kami",
+      "description": "Lihat beberapa proyek keren yang telah kami kerjakan. Dari website elegan hingga aplikasi powerful, kami membangun pengalaman digital yang berdampak."
+    },
+    "testimonials": {
+      "title": "Apa Kata Klien Kami",
+      "subtitle": "Feedback nyata dari orang-orang yang telah bekerja sama dengan kami"
+    },
+    "cta": {
+      "title": "Mari Ciptakan Sesuatu yang Luar Biasa Bersama",
+      "description": "Siap membawa kehadiran digital Anda ke level berikutnya? Kami siap membantu Anda membangun, mengoptimalkan, dan mengembangkan bisnis online Anda.",
+      "ctaText": "Hubungi Kami",
+      "whatsappText": "WhatsApp"
+    }
+  },
+  "contact": {
+    "title": "Hubungi Kami - Akordium",
+    "description": "Terhubung dengan kami menggunakan formulir di bawah atau melalui informasi kontak kami.",
+    "heading": "Hubungi Kami",
+    "subheading": "Punya pertanyaan atau ingin bekerja sama? Kami senang mendengar dari Anda.",
+    "info": {
+      "title": "Informasi Bisnis",
+      "company": "Akordium Lab"
+    }
   }
 }

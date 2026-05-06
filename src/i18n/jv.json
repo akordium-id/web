@@ -53,7 +53,13 @@
     "comments": "Komentar",
     "noComments": "Ora Ana Komentar",
     "previousPost": "Postingan Sadurunge",
-    "nextPost": "Postingan Sabanjure"
+    "nextPost": "Postingan Sabanjure",
+    "title": "Blog - Akordium",
+    "description": "Wawasan, tips, lan pembaruan teko tim awak dewe.",
+    "heading": "Blog",
+    "subheading": "Tetep terkini ambek artikel lan wawasan terbaru awak dewe.",
+    "noPosts": "Ora ana postingan blog ditemokake.",
+    "backToList": "Bali nang Blog"
   },
   "button": {
     "readMore": "Waca Selengkapnya",
@@ -62,7 +68,8 @@
     "getAQuote": "Dapatkan Penawaran",
     "discoverMore": "Temokake Luwih Akèh",
     "findOutMore": "Cari Tahu Luwih Lengkap",
-    "showAll": "Tampilkan Kabèh"
+    "showAll": "Tampilkan Kabèh",
+    "learnMore": "Luwih Lengkap"
   },
   "header": {
     "announcement": "Ngumumake Program Mitra Terpercaya awak dewe sing diperluas. [cari tahu lebih lanjut](/)"
@@ -95,5 +102,62 @@
     "pagination": "Paginasi",
     "socialLinks": "Tautan sosial",
     "aboutCompany": "Babagan perusahaan"
+  },
+  "home": {
+    "title": "Akordium - Partner Digital Seng Peduli Ambek Sampean",
+    "description": "Partner digital sing peduli gawe perkembangan bisnis sampean lan ngutamakno kenyamanan lan kolaborasi bareng.",
+    "hero": {
+      "tagline": "Perusahaan Software",
+      "heading": "Partner Digital Seng Peduli Ambek Sampean",
+      "subheading": "Aman lan terpercaya • Fokus hasil • Pengembangan cepet • Profesional",
+      "ctaText": "Hubungi Awak Dewe",
+      "workText": "Delok Garapan Awak Dewe"
+    },
+    "valueProposition": {
+      "intro": "Awak dewe gak mung perusahaan teknologi biasa. Awak dewe iki partner digital sampean, nggabungno ",
+      "firstValue": "keahlian pengembangan, ",
+      "secondValue": "konsultasi strategis, ",
+      "thirdValue": "hosting seng iso dipercaya, ",
+      "divider": "lan ",
+      "fourthValue": "pemasaran seng fokus hasil ",
+      "closure": "gawe ngewangi bisnis sampean sukses nang online.",
+      "team": "Tim awak dewe ",
+      "trait": "seng seneng teknologi ",
+      "has": "nduweni ",
+      "experience": "pengalaman 3+ taun ",
+      "fields": "gawe solusi digital nang bidang perbankan, pemasaran, lan IoT."
+    },
+    "stats": {
+      "projects": "Proyek Wes Mari",
+      "experience": "Taun Pengalaman",
+      "satisfaction": "Kepuasan Langganan"
+    },
+    "services": {
+      "title": "Layanan Awak Dewe"
+    },
+    "recentWork": {
+      "title": "Garapan Anyar Awak Dewe",
+      "description": "Deloken proyek-proyek jos seng wes tak gawe. Teko website seng apik sampek aplikasi seng canggih, awak dewe nggawe pengalaman digital seng nggawe dampak."
+    },
+    "testimonials": {
+      "title": "Opo Jare Pelanggan Awak Dewe",
+      "subtitle": "Testimoni asli teko wong-wong seng wes kerjo bareng ambek awak dewe"
+    },
+    "cta": {
+      "title": "Ayo Gawe Karya Seng Apik Bareng-bareng",
+      "description": "Siap nggawe bisnis digital sampean dadi luwih jos? Awak dewe siap mbantu sampean nggawe, ngapiki, lan ngrembakno bisnis online sampean.",
+      "ctaText": "Hubungi Awak Dewe",
+      "whatsappText": "WA Sek"
+    }
+  },
+  "contact": {
+    "title": "Hubungi Awakdewe - Akordium",
+    "description": "Sambung ambek awak dewe nggunakno formulir nang ngisor utowo lewat informasi kontak awak dewe.",
+    "heading": "Hubungi Awakdewe",
+    "subheading": "Nduwe pitakonan utowo pengen kerjo bareng? Awakdewe seneng ngrungokno sampean.",
+    "info": {
+      "title": "Informasi Bisnis",
+      "company": "Akordium Lab"
+    }
   }
 }

@@ -1,0 +1,66 @@
+---
+import Base from "@/layouts/Base.astro";
+import { generatePaths, useTranslations, getEntryRouteParam } from "@/lib/utils/i18nUtils";
+import { getCollection, type CollectionEntry } from "astro:content";
+import { NotFoundResponse } from "astro/errors";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog");
+  const langPaths = generatePaths();
+
+  return posts.flatMap((post) =>
+    langPaths.map((langPath) => ({
+      params: {
+        lang: langPath.params.lang,
+        slug: getEntryRouteParam(post),
+      },
+      props: {
+        post,
+      },
+    }))
+  );
+}
+
+const { post } = Astro.props;
+if (!post) {
+  return NotFoundResponse();
+}
+
+const lang = Astro.currentLocale || "en";
+const t = await useTranslations(lang);
+
+const { Content } = await post.render();
+const formattedDate = post.data.date
+  ? new Intl.DateTimeFormat("en-US", { dateStyle: "long" }).format(post.data.date)
+  : "";
+---
+
+<Base
+  title={post.data.title}
+  description={post.data.description || post.data.snippet}
+>
+  <article class="py-16 bg-base">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <a
+        href="/blog/"
+        class="inline-flex items-center text-primary hover:text-tertiary transition-colors mb-8 font-medium"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 mr-2" viewBox="0 0 20 20" fill="currentColor">
+          <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+        </svg>
+        {t("blog.backToList") || "Back to Blog"}
+      </a>
+
+      <header class="mb-12">
+        <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">{post.data.title}</h1>
+        {formattedDate && (
+          <time class="text-gray-500 text-sm">{formattedDate}</time>
+        )}
+      </header>
+
+      <div class="prose prose-lg max-w-none">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Base>

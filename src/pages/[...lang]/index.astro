@@ -1,40 +1,80 @@
 ---
 import Base from "@/layouts/Base.astro";
-import { generatePaths } from "@/lib/utils/i18nUtils";
-import { getEntryCTM } from "@/lib/contentParser.astro";
-import HomeBannerTwo from "@/components/sections/HomeBannerTwo.astro";
-import ContactSection from "@/components/sections/ContactSection.astro";
-import FeaturesGridTwo from "@/components/sections/FeaturesGridTwo.astro";
-import OurServicesSection from "@/components/sections/OurServicesSection.astro";
-import WorkingProcessSection from "@/components/sections/WorkingProcessSection.astro";
-import AboutCompanySectionTwo from "@/components/sections/AboutCompanySectionTwo.astro";
-import bgOptimizedImage from "@/lib/utils/bgOptimizedImage";
+import HeroSection from "@/components/sections/HeroSection.astro";
+import ValueProposition from "@/components/sections/ValueProposition.astro";
+import StatsSection from "@/components/sections/StatsSection.astro";
+import ServicesSection from "@/components/sections/ServicesSection.astro";
+import RecentWorkSection from "@/components/sections/RecentWorkSection.astro";
+import ClientTestimonials from "@/components/sections/ClientTestimonials.astro";
+import CallToActionSection from "@/components/sections/CallToActionSection.astro";
+import PartnersSection from "@/components/sections/PartnersSection.astro";
+import { generatePaths, useTranslations } from "@/lib/utils/i18nUtils";
 
 export function getStaticPaths() {
   return generatePaths();
 }
 
-const homepage = await getEntryCTM("homepage", "-index", Astro.currentLocale);
-const heroSection = await getEntryCTM(
-  "sections",
-  "home-banner-two",
-  Astro.currentLocale,
-);
-
-// Increase page performance by preloading banner image
-let imageToPreload = heroSection?.data?.image ? heroSection.data.image : [];
-imageToPreload = imageToPreload
-  ? imageToPreload.startsWith("http")
-    ? imageToPreload
-    : await bgOptimizedImage(imageToPreload)
-  : "";
+const lang = Astro.currentLocale || "en";
+const t = await useTranslations(lang);
 ---
 
-<Base {...homepage.data} homepage={true} preloadImages={[imageToPreload]}>
-  <HomeBannerTwo />
-  <FeaturesGridTwo />
-  <AboutCompanySectionTwo hasSectionSpacing={false} />
-  <WorkingProcessSection />
-  <OurServicesSection />
-  <ContactSection />
+<Base title={t("home.title") || "Akordium Lab - Your Digital Partner for Growth"} description={t("home.description")}>
+  <HeroSection
+    tagline={t("home.hero.tagline") || "Software Company"}
+    heading={t("home.hero.heading") || "Your Digital Partner for Growth"}
+    subheading={t("home.hero.subheading") || "Secure and reliable • Result-driven approach • Fast-paced development • Professional"}
+    ctaText={t("home.hero.ctaText") || "Book a Call"}
+    ctaHref="/contact"
+    workText={t("home.hero.workText") || "See Our Work"}
+    workHref="#projects"
+  />
+
+  <ValueProposition
+    intro={t("home.valueProposition.intro") || "We're not just another tech company. We're your digital partners, bringing together "}
+    firstValue={t("home.valueProposition.firstValue") || "development expertise, "}
+    secondValue={t("home.valueProposition.secondValue") || "strategic consulting, "}
+    thirdValue={t("home.valueProposition.thirdValue") || "reliable hosting, "}
+    divider={t("home.valueProposition.divider") || "and "}
+    fourthValue={t("home.valueProposition.fourthValue") || "results-driven marketing "}
+    closure={t("home.valueProposition.closure") || "to help your business thrive online."}
+    team={t("home.valueProposition.team") || "Our team of "}
+    trait={t("home.valueProposition.trait") || "passionate tech enthusiasts "}
+    has={t("home.valueProposition.has") || "has "}
+    experience={t("home.valueProposition.experience") || "3+ years of experience "}
+    fields={t("home.valueProposition.fields") || "creating digital solutions for banking, marketing, and IoT fields."}
+  />
+
+  <StatsSection
+    stats={[
+      { value: "10", label: t("home.stats.projects") || "Projects Delivered" },
+      { value: "3+", label: t("home.stats.experience") || "Years Experience" },
+      { value: "90%", label: t("home.stats.satisfaction") || "Client Satisfaction" },
+    ]}
+  />
+
+  <ServicesSection
+    title={t("home.services.title") || "Our Services"}
+    learnMore={t("button.learnMore") || "Learn more"}
+  />
+
+  <RecentWorkSection
+    title={t("home.recentWork.title") || "Our Recent Work"}
+    description={t("home.recentWork.description") || "Check out some of the cool projects we've worked on. From sleek websites to powerful apps, we build digital experiences that make an impact."}
+  />
+
+  <ClientTestimonials
+    title={t("home.testimonials.title") || "What Our Clients Say"}
+    subtitle={t("home.testimonials.subtitle") || "Real feedback from real people we've worked with"}
+  />
+
+  <CallToActionSection
+    title={t("home.cta.title") || "Let's Create Something Amazing Together"}
+    description={t("home.cta.description") || "Ready to take your digital presence to the next level? We're here to help you build, optimize, and grow your online business."}
+    ctaText={t("home.cta.ctaText") || "Contact us"}
+    ctaHref="/contact"
+    whatsappText={t("home.cta.whatsappText") || "WhatsApp"}
+    whatsappHref="http://wa.me/628159988995?text=Hello,%20I%20would%20like%20to%20consult%20with%20you..."
+  />
+
+  <PartnersSection />
 </Base>

@@ -1,0 +1,51 @@
+---
+import Base from "@/layouts/Base.astro";
+import BlogPostPreview from "@/components/shared/BlogPostPreview.astro";
+import { generatePaths, useTranslations } from "@/lib/utils/i18nUtils";
+import { getCollection } from "astro:content";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+const lang = Astro.currentLocale || "en";
+const t = await useTranslations(lang);
+
+const posts = await getCollection("blog");
+const sortedPosts = posts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => {
+    const dateA = a.data.date ? new Date(a.data.date).getTime() : 0;
+    const dateB = b.data.date ? new Date(b.data.date).getTime() : 0;
+    return dateB - dateA;
+  });
+---
+
+<Base title={t("blog.title") || "Blog - Akordium Lab"} description={t("blog.description")}>
+  <section class="py-16 bg-base">
+    <div class="container mx-auto px-4 max-w-4xl">
+      <h1 class="text-4xl md:text-5xl font-bold text-primary mb-4">{t("blog.heading") || "Blog"}</h1>
+      <p class="text-gray-600 mb-12">{t("blog.subheading") || "Insights, tips, and updates from our team."}</p>
+
+      {sortedPosts.length > 0 ? (
+        <div class="divide-y divide-gray-200">
+          {sortedPosts.map((post) => {
+            const slug = post.id.split("/").pop()?.replace(/\.(md|mdx)$/, "") || post.id;
+            return (
+              <BlogPostPreview
+                post={{
+                  slug,
+                  title: post.data.title,
+                  date: post.data.date || new Date(),
+                  snippet: post.data.snippet || post.data.description || "",
+                }}
+              />
+            );
+          })}
+        </div>
+      ) : (
+        <p class="text-gray-500 text-center py-12">{t("blog.noPosts") || "No blog posts found."}</p>
+      )}
+    </div>
+  </section>
+</Base>
