@@ -1,0 +1,59 @@
+---
+interface StatItem {
+  value: string;
+  label: string;
+}
+
+interface Props {
+  stats?: StatItem[];
+}
+
+const {
+  stats = [
+    { value: "10", label: "Projects Delivered" },
+    { value: "3+", label: "Years Experience" },
+    { value: "90%", label: "Client Satisfaction" },
+  ],
+} = Astro.props;
+---
+
+<section class="bg-base-muted py-12 relative overflow-hidden">
+  <div class="container mx-auto px-4 relative z-10">
+    <div id="stats-grid" class="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-2xl mx-auto">
+      {stats.map((stat, index) => (
+        <div class="text-center p-4">
+          <h3
+            class="text-3xl md:text-4xl font-bold text-primary opacity-0 translate-y-4 transition-all duration-1000 stat-value"
+            style={`transition-delay: ${index * 200}ms`}
+          >
+            {stat.value}
+          </h3>
+          <p
+            class="text-gray-600 text-sm opacity-0 translate-y-4 transition-all duration-1000 stat-label"
+            style={`transition-delay: ${index * 200 + 100}ms`}
+          >
+            {stat.label}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script>
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        document.querySelectorAll(".stat-value, .stat-label").forEach((el) => {
+          el.classList.remove("opacity-0", "translate-y-4");
+          el.classList.add("opacity-100", "translate-y-0");
+        });
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.1 },
+  );
+
+  const el = document.getElementById("stats-grid");
+  if (el) observer.observe(el);
+</script>

@@ -1,0 +1,51 @@
+---
+import { generateMetaTags, generateStructuredData, defaultSEO } from "@/lib/utils/seo";
+
+interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string[];
+  ogImage?: string;
+  canonical?: string;
+  noIndex?: boolean;
+  structuredData?: Record<string, unknown>;
+  robots?: string;
+}
+
+const {
+  title = defaultSEO.title,
+  description = defaultSEO.description,
+  keywords = defaultSEO.keywords,
+  ogImage = defaultSEO.ogImage,
+  canonical,
+  noIndex = false,
+  structuredData,
+  robots,
+} = Astro.props;
+
+const seoProps = { title, description, keywords, ogImage, canonicalUrl: canonical, noIndex, structuredData };
+const metaTags = generateMetaTags(seoProps);
+const jsonLd = generateStructuredData(structuredData);
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+{metaTags.map((tag) => (
+  tag.name ? <meta name={tag.name} content={tag.content} /> : <meta property={tag.property} content={tag.content} />
+))}
+
+{noIndex && <meta name="robots" content="noindex, nofollow" />}
+{robots && <meta name="robots" content={robots} />}
+
+{canonical && <link rel="canonical" href={canonical} />}
+
+<title>{title}</title>
+
+{jsonLd && (
+  <script type="application/ld+json" set:html={jsonLd} />
+)}
+
+<link rel="icon" href="/favicon.ico" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />

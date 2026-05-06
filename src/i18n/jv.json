@@ -1,0 +1,99 @@
+{
+  "common": {
+    "readMore": "Waca Selengkapnya",
+    "category": "Kategori",
+    "emailPlaceholder": "Alamat Email",
+    "emailLabel": "Email",
+    "subscribeSuccess": "Kasil langganan!",
+    "subscribeFail": "Gagal langganan.",
+    "subscribeError": "Ana kesalahan sing ora dikarepake.",
+    "bannerPattern": "Pola banner",
+    "customerAvatar": "Avatar pelanggan",
+    "decorativePattern": "Pola dekoratif",
+    "experience": "Pengalaman",
+    "aboutUs": "Babagan awak dewe",
+    "experienceBadge": "Lencana pengalaman",
+    "paginationNext": "Sabanjure",
+    "paginationPrevious": "Sadurunge",
+    "contactDropdownSearch404": "Ora ana asil ditemokake",
+    "404Heading": "404 - Kaca Ora Ditemokake",
+    "404Description": "Aduh, kayaké sampeyan kesasar.",
+    "404ButtonLabel": "Bali nang Beranda",
+    "send": "Kirim",
+    "share": "Bagikan",
+    "projectDetails": "Detail Proyek"
+  },
+  "navigation": {
+    "buttonLabel": "Miwiti"
+  },
+  "contactInfo": {
+    "locationLabel": "Lokasi",
+    "phoneLabel": "Nomor Telpon",
+    "emailLabel": "Email"
+  },
+  "subscription": {
+    "title": "",
+    "description": ""
+  },
+  "integration": {
+    "relatedIntegrationSectionTitle": "Sampeyan mungkin **tertarik karo**",
+    "backToIntegration": "Jelajahi"
+  },
+  "footerBlock": {
+    "description": "Partner digital sampean gawe pertumbuhan bisnis online.",
+    "copyright": "Hak Cipta © 2024 Akordium. Sakabehé hak cipta dilindhungi.",
+    "contactBlockLabel": "Kontak",
+    "aboutUsLabel": "Babagan awak dewe",
+    "quickLinksLabel": "Tautan Cepet",
+    "officeLabel": "Kantor",
+    "socialLabel": "Sosial",
+    "recentPostsLabel": "Postingan Terbaru"
+  },
+  "blog": {
+    "comments": "Komentar",
+    "noComments": "Ora Ana Komentar",
+    "previousPost": "Postingan Sadurunge",
+    "nextPost": "Postingan Sabanjure"
+  },
+  "button": {
+    "readMore": "Waca Selengkapnya",
+    "viewProjects": "Delok Proyek",
+    "view": "Delok",
+    "getAQuote": "Dapatkan Penawaran",
+    "discoverMore": "Temokake Luwih Akèh",
+    "findOutMore": "Cari Tahu Luwih Lengkap",
+    "showAll": "Tampilkan Kabèh"
+  },
+  "header": {
+    "announcement": "Ngumumake Program Mitra Terpercaya awak dewe sing diperluas. [cari tahu lebih lanjut](/)"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "x": "X"
+  },
+  "widgets": {
+    "postSearchTitle": "Cari",
+    "postSearchFormPlaceholder": "Cari",
+    "categoriesTitle": "Kategori",
+    "recentPostsTitle": "Postingan Terbaru"
+  },
+  "aria": {
+    "toggleNav": "Buka navigasi",
+    "backToTop": "Bali nang ndhuwur",
+    "closeModal": "Tutup",
+    "playVideo": "Putar video",
+    "search": "Cari",
+    "prevSlide": "Slide sadurunge",
+    "nextSlide": "Slide sabanjure",
+    "prevTestimonial": "Testimoni sadurunge",
+    "nextTestimonial": "Testimoni sabanjure",
+    "languageMenu": "Menu bahasa",
+    "pagination": "Paginasi",
+    "socialLinks": "Tautan sosial",
+    "aboutCompany": "Babagan perusahaan"
+  }
+}

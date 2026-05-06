@@ -1,0 +1,99 @@
+{
+  "common": {
+    "readMore": "Baca Selengkapnya",
+    "category": "Kategori",
+    "emailPlaceholder": "Alamat Email",
+    "emailLabel": "Email",
+    "subscribeSuccess": "Berhasil berlangganan!",
+    "subscribeFail": "Gagal berlangganan.",
+    "subscribeError": "Terjadi kesalahan yang tidak terduga.",
+    "bannerPattern": "Pola banner",
+    "customerAvatar": "Avatar pelanggan",
+    "decorativePattern": "Pola dekoratif",
+    "experience": "Pengalaman",
+    "aboutUs": "Tentang kami",
+    "experienceBadge": "Lencana pengalaman",
+    "paginationNext": "Selanjutnya",
+    "paginationPrevious": "Sebelumnya",
+    "contactDropdownSearch404": "Tidak ada hasil ditemukan",
+    "404Heading": "404 - Halaman Tidak Ditemukan",
+    "404Description": "Ups, sepertinya Anda tersesat.",
+    "404ButtonLabel": "Kembali ke Beranda",
+    "send": "Kirim",
+    "share": "Bagikan",
+    "projectDetails": "Detail Proyek"
+  },
+  "navigation": {
+    "buttonLabel": "Mulai"
+  },
+  "contactInfo": {
+    "locationLabel": "Lokasi",
+    "phoneLabel": "Nomor Telepon",
+    "emailLabel": "Email"
+  },
+  "subscription": {
+    "title": "",
+    "description": ""
+  },
+  "integration": {
+    "relatedIntegrationSectionTitle": "Anda mungkin **tertarik dengan**",
+    "backToIntegration": "Jelajahi"
+  },
+  "footerBlock": {
+    "description": "Mitra digital Anda untuk pertumbuhan bisnis online.",
+    "copyright": "Hak Cipta © 2024 Akordium. Seluruh hak cipta dilindungi.",
+    "contactBlockLabel": "Kontak",
+    "aboutUsLabel": "Tentang kami",
+    "quickLinksLabel": "Tautan Cepat",
+    "officeLabel": "Kantor",
+    "socialLabel": "Sosial",
+    "recentPostsLabel": "Postingan Terbaru"
+  },
+  "blog": {
+    "comments": "Komentar",
+    "noComments": "Tidak Ada Komentar",
+    "previousPost": "Postingan Sebelumnya",
+    "nextPost": "Postingan Selanjutnya"
+  },
+  "button": {
+    "readMore": "Baca Selengkapnya",
+    "viewProjects": "Lihat Proyek",
+    "view": "Lihat",
+    "getAQuote": "Dapatkan Penawaran",
+    "discoverMore": "Temukan Lebih Banyak",
+    "findOutMore": "Cari Tahu Lebih Lanjut",
+    "showAll": "Tampilkan Semua"
+  },
+  "header": {
+    "announcement": "Mengumumkan Program Mitra Terpercaya kami yang diperluas. [cari tahu lebih lanjut](/)"
+  },
+  "social": {
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn",
+    "instagram": "Instagram",
+    "tiktok": "TikTok",
+    "x": "X"
+  },
+  "widgets": {
+    "postSearchTitle": "Cari",
+    "postSearchFormPlaceholder": "Cari",
+    "categoriesTitle": "Kategori",
+    "recentPostsTitle": "Postingan Terbaru"
+  },
+  "aria": {
+    "toggleNav": "Buka navigasi",
+    "backToTop": "Kembali ke atas",
+    "closeModal": "Tutup",
+    "playVideo": "Putar video",
+    "search": "Cari",
+    "prevSlide": "Slide sebelumnya",
+    "nextSlide": "Slide selanjutnya",
+    "prevTestimonial": "Testimoni sebelumnya",
+    "nextTestimonial": "Testimoni selanjutnya",
+    "languageMenu": "Menu bahasa",
+    "pagination": "Paginasi",
+    "socialLinks": "Tautan sosial",
+    "aboutCompany": "Tentang perusahaan"
+  }
+}

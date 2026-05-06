@@ -1,0 +1,66 @@
+---
+interface ServiceItem {
+  title: string;
+  description: string;
+  features: string[];
+  learnMoreLink?: string;
+  iconSvg: string;
+}
+
+interface Props {
+  title?: string;
+  learnMore?: string;
+  services?: ServiceItem[];
+}
+
+const {
+  title = "Our Services",
+  learnMore = "Learn more",
+  services = [
+    {
+      title: "Web & App Development",
+      description: "From simple static web to mobile apps, we build digital products that look great and perform better.",
+      features: ["Static website or WordPress development", "Custom web-based application", "Mobile application development"],
+      learnMoreLink: "#webDevelopment",
+      iconSvg: `<svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>`,
+    },
+    {
+      title: "Hosting & Infrastructure",
+      description: "Fast, secure, and reliable hosting solutions that keep your digital products running smoothly 24/7.",
+      features: ["Cloud hosting solutions", "Performance optimization", "Security monitoring"],
+      learnMoreLink: "#hostingInfrastructure",
+      iconSvg: `<svg class="w-12 h-12 text-primary mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"/></svg>`,
+    },
+  ],
+} = Astro.props;
+---
+
+<section class="py-16 bg-base">
+  <div class="container mx-auto px-4">
+    <h2 class="text-3xl md:text-4xl font-bold text-primary text-center mb-12">{title}</h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {services.map((service) => (
+        <div class="bg-white p-8 rounded-lg shadow-lg">
+          <div class="flex flex-col items-center md:items-start">
+            <div set:html={service.iconSvg} />
+            <h3 class="text-2xl font-semibold text-primary mb-4">{service.title}</h3>
+          </div>
+          <p class="text-gray-600 mb-6">{service.description}</p>
+          <ul class="space-y-2 mb-6">
+            {service.features.map((feature) => (
+              <li class="flex items-center text-gray-600">
+                <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" />
+                </svg>
+                {feature}
+              </li>
+            ))}
+          </ul>
+          <a href={service.learnMoreLink} class="mt-4 px-6 py-2 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors inline-block">
+            {learnMore}
+          </a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

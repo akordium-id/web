@@ -1,0 +1,149 @@
+---
+import Logo from "./Logo.astro";
+import LanguageDropdown from "../islands/LanguageDropdown.astro";
+
+interface Props {
+  menuItems: Array<{ label: string; href: string }>;
+  navButtonText?: string;
+}
+
+const { menuItems, navButtonText = "Let's Talk" } = Astro.props;
+---
+
+<header class="bg-white sticky top-0 z-50 border-b border-base-muted">
+  <div class="container mx-auto px-4 h-16 flex items-center justify-between">
+    <Logo />
+
+    <nav class="hidden md:flex items-center gap-6">
+      {menuItems.map((item) => (
+        <a
+          href={item.href}
+          class="text-primary text-sm font-medium hover:text-secondary transition-colors"
+        >
+          {item.label}
+        </a>
+      ))}
+      <div class="relative">
+        <LanguageDropdown client:load />
+      </div>
+      <a
+        href="/contact"
+        class="bg-tertiary text-white text-sm font-medium px-5 py-2 rounded-full hover:bg-tertiary-light transition-colors"
+      >
+        {navButtonText}
+      </a>
+    </nav>
+
+    <div class="flex items-center gap-2 md:hidden">
+      <LanguageDropdown client:load />
+      <button
+        type="button"
+        id="mobile-menu-toggle"
+        class="flex items-center p-2 rounded-lg hover:bg-base/80"
+        aria-label="Toggle menu"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6 text-primary"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M4 6h16M4 12h16M4 18h16"
+            id="menu-icon-open"
+          />
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M6 18L18 6M6 6l12 12"
+            id="menu-icon-close"
+            class="hidden"
+          />
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div
+  id="mobile-menu"
+  class="fixed top-0 right-0 left-0 z-50 md:hidden bg-gradient-to-b from-base to-gray-100 border-b border-tertiary translate-x-full transition-transform duration-200 ease-in-out"
+>
+  <div class="flex items-center justify-between p-4 border-b border-secondary/20">
+    <span class="text-lg font-semibold text-primary">Menu</span>
+    <button
+      type="button"
+      id="mobile-menu-close"
+      class="p-2 rounded-lg hover:bg-gray-100"
+      aria-label="Close menu"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6 text-primary"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M6 18L18 6M6 6l12 12"
+        />
+      </svg>
+    </button>
+  </div>
+  <div class="p-4 space-y-4">
+    {menuItems.map((item) => (
+      <a
+        href={item.href}
+        class="block py-2 text-primary hover:text-secondary transition-colors text-lg mobile-nav-link"
+      >
+        {item.label}
+      </a>
+    ))}
+    <div class="py-2 border-t border-secondary/20">
+      <LanguageDropdown client:load />
+    </div>
+    <a
+      href="/contact"
+      class="block bg-tertiary text-white px-4 py-3 rounded-full hover:bg-tertiary-light transition-colors text-lg font-medium text-center mobile-nav-link"
+    >
+      {navButtonText}
+    </a>
+  </div>
+</div>
+
+<script>
+  const toggle = document.getElementById("mobile-menu-toggle");
+  const menu = document.getElementById("mobile-menu");
+  const closeBtn = document.getElementById("mobile-menu-close");
+  const iconOpen = document.getElementById("menu-icon-open");
+  const iconClose = document.getElementById("menu-icon-close");
+
+  function openMenu() {
+    menu?.classList.remove("translate-x-full");
+    menu?.classList.add("translate-x-0");
+    iconOpen?.classList.add("hidden");
+    iconClose?.classList.remove("hidden");
+  }
+
+  function closeMenu() {
+    menu?.classList.remove("translate-x-0");
+    menu?.classList.add("translate-x-full");
+    iconOpen?.classList.remove("hidden");
+    iconClose?.classList.add("hidden");
+  }
+
+  toggle?.addEventListener("click", openMenu);
+  closeBtn?.addEventListener("click", closeMenu);
+
+  document.querySelectorAll(".mobile-nav-link").forEach((link) => {
+    link.addEventListener("click", closeMenu);
+  });
+</script>

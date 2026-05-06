@@ -94,6 +94,13 @@ export const teamCollection = defineCollection({
   }),
 });
 
+const blogCollection = defineCollection({
+  loader: contentLoader("./src/content/blog"),
+  schema: basePage.extend({
+    snippet: z.string(),
+  }),
+});
+
 export const collections = {
   [servicesFolder]: serviceCollection,
   services: serviceCollection,
@@ -103,4 +110,5 @@ export const collections = {
   homepage: defineCollection({
     loader: contentLoader("./src/content/homepage"),
   }),
+  blog: blogCollection,
 };

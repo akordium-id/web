@@ -2,13 +2,13 @@
   "main": [
     {
       "enable": true,
-      "name": "Home",
+      "name": "Beranda",
       "weight": 0,
       "url": "/"
     },
     {
       "enable": true,
-      "name": "Services",
+      "name": "Layanan",
       "weight": 1,
       "url": "/services/"
     },
@@ -20,7 +20,7 @@
     },
     {
       "enable": true,
-      "name": "Contact",
+      "name": "Kontak",
       "weight": 3,
       "url": "/contact/"
     }
@@ -28,29 +28,29 @@
   "topbar": [],
   "footer": [
     {
-      "label": "Services",
+      "label": "Layanan",
       "list": [
         {
           "enable": true,
-          "name": "Web Application",
+          "name": "Aplikasi Web",
           "url": "/services/",
           "weight": 0
         },
         {
           "enable": true,
-          "name": "Mobile Application",
+          "name": "Aplikasi Mobile",
           "url": "/services/",
           "weight": 0
         },
         {
           "enable": true,
-          "name": "Robot Process Automation",
+          "name": "Robot Proses Otomasi",
           "url": "/services/",
           "weight": 0
         },
         {
           "enable": true,
-          "name": "Static Website",
+          "name": "Website Statis",
           "url": "/services/",
           "weight": 0
         },
@@ -63,17 +63,17 @@
       ]
     },
     {
-      "label": "Company",
+      "label": "Perusahaan",
       "list": [
         {
           "enable": true,
-          "name": "About",
+          "name": "Tentang",
           "url": "/",
           "weight": 0
         },
         {
           "enable": true,
-          "name": "Portfolio",
+          "name": "Portofolio",
           "url": "/",
           "weight": 0
         },
@@ -85,7 +85,7 @@
         },
         {
           "enable": true,
-          "name": "Contact",
+          "name": "Kontak",
           "url": "/contact/",
           "weight": 0
         }
