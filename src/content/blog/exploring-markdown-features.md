@@ -2,6 +2,9 @@
 title: Exploring Markdown Features
 date: 2023-05-15
 snippet: A comprehensive guide to using markdown in your blog posts.
+categories:
+  - IT Consultancy
+image: "/images/service/service-2.png"
 ---
 
 # Exploring Markdown Features
