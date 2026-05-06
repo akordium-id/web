@@ -1,5 +1,5 @@
 ---
 title: "Layanan Kami"
 breadcrumbTitle: "Layanan Kami"
-metaDescription: "Solusi digital komprehensif dari Akordium - Pengembangan Web & Aplikasi, Hosting & Infrastruktur."
+metaDescription: "Layanan digital personal: Pengembangan Web, Pengembangan Aplikasi, Dukungan Hosting & Infrastruktur, Pelatihan, dan Konsultasi Digital."
 ---

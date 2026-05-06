@@ -44,33 +44,33 @@
       "list": [
         {
           "enable": true,
-          "name": "Aplikasi Web",
-          "url": "/services/",
+          "name": "Pengembangan Web",
+          "url": "/services/pengembangan-web/",
           "weight": 0
         },
         {
           "enable": true,
-          "name": "Aplikasi Mobile",
-          "url": "/services/",
-          "weight": 0
+          "name": "Pengembangan Aplikasi",
+          "url": "/services/pengembangan-aplikasi/",
+          "weight": 1
         },
         {
           "enable": true,
-          "name": "Robot Proses Otomasi",
-          "url": "/services/",
-          "weight": 0
+          "name": "Dukungan Hosting & Infrastruktur",
+          "url": "/services/dukungan-hosting-infrastruktur/",
+          "weight": 2
         },
         {
           "enable": true,
-          "name": "Website Statis",
-          "url": "/services/",
-          "weight": 0
+          "name": "Pelatihan",
+          "url": "/services/pelatihan/",
+          "weight": 3
         },
         {
           "enable": true,
-          "name": "WordPress",
-          "url": "/services/",
-          "weight": 0
+          "name": "Konsultasi Digital",
+          "url": "/services/konsultasi-digital/",
+          "weight": 4
         }
       ]
     },

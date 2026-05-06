@@ -44,33 +44,33 @@
       "list": [
         {
           "enable": true,
-          "name": "Web Application",
-          "url": "/services/",
+          "name": "Web Development",
+          "url": "/services/web-development/",
           "weight": 0
         },
         {
           "enable": true,
-          "name": "Mobile Application",
-          "url": "/services/",
-          "weight": 0
+          "name": "Application Development",
+          "url": "/services/application-development/",
+          "weight": 1
         },
         {
           "enable": true,
-          "name": "Robot Process Automation",
-          "url": "/services/",
-          "weight": 0
+          "name": "Hosting & Infrastructure Support",
+          "url": "/services/hosting-infrastructure-support/",
+          "weight": 2
         },
         {
           "enable": true,
-          "name": "Static Website",
-          "url": "/services/",
-          "weight": 0
+          "name": "Training",
+          "url": "/services/training/",
+          "weight": 3
         },
         {
           "enable": true,
-          "name": "WordPress",
-          "url": "/services/",
-          "weight": 0
+          "name": "Digital Consultancy",
+          "url": "/services/digital-consultancy/",
+          "weight": 4
         }
       ]
     },

@@ -1,5 +1,5 @@
 ---
 title: "Our Services"
 breadcrumbTitle: "Our Services"
-metaDescription: "Comprehensive digital solutions from Akordium - Web & App Development, Hosting & Infrastructure."
+metaDescription: "Personal digital services: Web Development, Application Development, Hosting & Infrastructure Support, Training, and Digital Consultancy."
 ---
