@@ -310,6 +310,12 @@ const defaultErrorMessage = messageContent.error || (isFrench
   }
 
   {
+    contactFormProvider === "web3forms" && (
+      <div class="h-captcha contact-form-field contact-form-field--full" data-captcha="true" />
+    )
+  }
+
+  {
     form.submitButton && (
       <div class="contact-form-submit">
         <Button
@@ -369,6 +375,12 @@ const defaultErrorMessage = messageContent.error || (isFrench
     )
   }
 </form>
+
+{
+  contactFormProvider === "web3forms" && (
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+  )
+}
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
