@@ -3,7 +3,7 @@ enable: true
 badge: "Contact"
 title: "Have a project in mind? Let's talk."
 description: "Whether you need a website, mobile app, or hosting infrastructure, our team is ready to help you."
-image: "/images/contact-home.jpg"
+image: "/images/about/about-rated-pic.jpg"
 imageAlt: "Contact"
 characterImage: "/images/character-3d.png"
 characterImageAlt: "3D character"

@@ -4,12 +4,19 @@ import BlogPostPreview from "@/components/shared/BlogPostPreview.astro";
 import ContactSection from "@/components/sections/ContactSection.astro";
 import PageHeader from "@/layouts/components/widgets/PageHeader.astro";
 import Pagination from "@/layouts/components/widgets/Pagination.astro";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
 import { generatePaths, getEntrySlugCTM, getLocaleUrlCTM, useTranslations } from "@/lib/utils/i18nUtils";
 import { slugifyyy } from "@/lib/utils/textConverter";
 import { getCollection } from "astro:content";
 
 const pageSize = 2;
-const brandLogos = ["amazon", "slack", "Google", "LinkedIn", "Walmart"];
+const brandLogos = [
+  { name: "Amazon", src: "/images/customers/brands/amazon.webp" },
+  { name: "Slack", src: "/images/customers/brands/slack.webp" },
+  { name: "Google", src: "/images/customers/brands/google.webp" },
+  { name: "LinkedIn", src: "/images/customers/brands/linkedin.webp" },
+  { name: "Walmart", src: "/images/customers/brands/walmart.webp" },
+];
 
 export async function getStaticPaths() {
   const pageSize = 2;
@@ -115,8 +122,14 @@ const getReadTime = (content: string) =>
 
         <div class="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-5">
           {brandLogos.map((brand) => (
-            <div class="border-border-dark/12 flex min-h-18 items-center justify-center rounded-xl border bg-white px-4 py-5 text-center text-3xl font-semibold leading-none text-[#1c1c1c] shadow-[0_8px_30px_rgba(0,0,0,0.02)]">
-              {brand}
+            <div class="border-border-dark/12 flex min-h-18 items-center justify-center rounded-xl border bg-white px-4 py-5 shadow-[0_8px_30px_rgba(0,0,0,0.02)]">
+              <OptimizedImage
+                src={brand.src}
+                alt={brand.name}
+                width={133}
+                height={32}
+                class="h-8 w-auto object-contain"
+              />
             </div>
           ))}
         </div>

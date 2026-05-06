@@ -1,135 +1,150 @@
 ---
 import social from "@/config/social.json";
-import type { NavigationLink } from "@/types";
 import { markdownify } from "@/lib/utils/textConverter";
 import config from ".astro/config.generated.json";
-import { useTranslations, getLocaleUrlCTM } from "@/lib/utils/i18nUtils";
-import Button from "../Button.astro";
+import { useTranslations, getLocaleUrlCTM, getEntrySlugCTM } from "@/lib/utils/i18nUtils";
 import { filteredEnabled } from "@/lib/utils/filteredEnabled";
+import Logo from "./Logo.astro";
+import Icons from "@/helpers/Icons.astro";
+import OptimizedImage from "@/components/utilities/OptimizedImage.astro";
+import { getCollection } from "astro:content";
 
 const t = await useTranslations(Astro.currentLocale as string);
-let footerMenus = t("footer") as {
-  label: string;
-  list: NavigationLink[];
-  footerOuterSpace?: boolean;
-}[];
-
 let { copyright, footerDescription } = config.settings;
 
 footerDescription = footerDescription || t("footerBlock.description");
 const copyrightText = copyright.text;
+
+const quickLinks = [
+  { label: "Home", url: "/" },
+  { label: "About Us", url: "/" },
+  { label: "Services", url: "/services/" },
+  { label: "Case Studies", url: "/services/" },
+  { label: "Contact", url: "/contact/" },
+];
+
+const posts = await getCollection("blog");
+const recentPosts = posts
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => {
+    const dateA = a.data.date ? new Date(a.data.date).getTime() : 0;
+    const dateB = b.data.date ? new Date(b.data.date).getTime() : 0;
+    return dateB - dateA;
+  })
+  .slice(0, 2);
+
+const formatDate = (date?: Date) => {
+  if (!date) return "";
+  return new Intl.DateTimeFormat("en-US", {
+    day: "2-digit",
+    month: "long",
+    year: "numeric",
+  })
+    .format(date)
+    .toUpperCase();
+};
 ---
 
 <footer>
-  <div class="bg-theme-dark">
-    <div class="relative container flex flex-col">
-      <div
-        class="grid gap-12 py-15 md:grid-cols-6 md:py-20 lg:flex lg:justify-between xl:py-27">
-        <div class="space-y-4 md:col-span-3">
-          <h3
-            class="text-text-inverse mb-4 text-2xl font-semibold capitalize md:mb-10">
-            {t("footerBlock.aboutUsLabel")}
-          </h3>
+  <div class="bg-theme-dark px-5 pb-7.5">
+    <div class="container rounded-[14px] bg-[#0a0b10] px-8 py-14 md:px-12 lg:px-14 lg:py-18">
+      <div class="grid gap-10 md:grid-cols-2 xl:grid-cols-4 xl:gap-12">
+        <div class="space-y-6">
+          <Logo variant="blue" />
           {
             footerDescription && (
               <p
-                class="text-text-inverse/50 max-w-74.5"
+                class="text-text-inverse/55 max-w-76 text-lg leading-8"
                 set:html={markdownify(footerDescription)}
               />
             )
           }
-        </div>
-
-        <div class="md:col-span-3">
-          <h3
-            class="text-text-inverse mb-4 text-2xl font-semibold capitalize md:mb-10">
-            {t("footerBlock.officeLabel")}
-          </h3>
-          <div class="text-text-inverse/50 flex flex-col gap-0 md:gap-4">
-            <p class="leading-relaxed lg:max-w-50">
-              {config.contact.location}
-            </p>
-            <div
-              class="hover:text-text-inverse! text-text-inverse/50! mt-4 transition-colors"
-              set:html={markdownify(config.contact.email)}
+          <div class="relative max-w-70">
+            <input
+              type="email"
+              placeholder={t("common.emailPlaceholder") || "Email Address"}
+              class="border-border-dark/20 text-text-inverse placeholder:text-text-inverse/35 h-13 w-full rounded-md border bg-transparent px-4 pr-14 outline-none"
             />
-            <div class="mt-4 text-2xl font-semibold">
-              <Button
-                tag="a"
-                variant="text"
-                url={getLocaleUrlCTM(
-                  `tel:${config.contact.phone?.replace(/\s/g, "")}`,
-                  Astro.currentLocale,
-                )}
-                label={config.contact.phone}
-                class="text-text-inverse hover:text-text-inverse"
-              />
-            </div>
+            <button
+              type="button"
+              aria-label={t("common.send") || "Send"}
+              class="bg-light text-primary hover:bg-primary hover:text-light absolute top-1/2 right-1.5 inline-flex size-10 -translate-y-1/2 items-center justify-center rounded-md transition-colors">
+              <Icons icon="Send" class="h-4 w-4" />
+            </button>
           </div>
         </div>
 
-        {
-          footerMenus?.map((menu) => (
-            <div class="md:col-span-2">
-              {menu.label && (
-                <h3
-                  class="text-text-inverse mb-4 text-2xl font-semibold capitalize md:mb-10"
-                  set:html={markdownify(menu.label)}
-                />
-              )}
-              <ul class="flex flex-col gap-3.5">
-                {menu.list?.map((item) => (
-                  <li>
-                    <Button
-                      tag="a"
-                      variant="text"
-                      url={getLocaleUrlCTM(
-                        item.url as string,
-                        Astro.currentLocale,
-                      )}
-                      label={item.name}
-                      class="text-text-inverse/50 hover:text-text-inverse transition-colors"
-                    />
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
-
-        <div class="md:col-span-2">
-          <h3
-            class="text-text-inverse mb-4 text-2xl font-semibold capitalize md:mb-10">
-            {t("footerBlock.socialLabel")}
+        <div class="space-y-6">
+          <h3 class="text-text-inverse text-h4 font-semibold">
+            {t("footerBlock.contactBlockLabel") || "Contact"}
           </h3>
-          <ul class="flex flex-col gap-3.5">
-            {
-              filteredEnabled(social.main).map((item: any) => (
-                <li>
-                  <Button
-                    tag="a"
-                    variant="text"
-                    url={getLocaleUrlCTM(
-                      item.url as string,
-                      Astro.currentLocale,
-                    )}
-                    aria-label={item.label}
-                    label={item.label}
-                    class="text-text-inverse/50 hover:text-text-inverse capitalize transition-colors"
-                  />
-                </li>
-              ))
-            }
+          <div class="border-border-dark/25 h-px border-t"></div>
+          <p class="text-text-inverse/55 leading-9">
+            {config.contact.location}
+          </p>
+          <div class="text-text-inverse/55" set:html={markdownify(config.contact.email)} />
+          <a
+            href={getLocaleUrlCTM(
+              `tel:${config.contact.phone?.replace(/\s/g, "")}`,
+              Astro.currentLocale,
+            )}
+            class="text-text-inverse text-4xl font-medium tracking-tight">
+            {config.contact.phone}
+          </a>
+        </div>
+
+        <div class="space-y-6">
+          <h3 class="text-text-inverse text-h4 font-semibold">
+            {t("footerBlock.quickLinksLabel") || "Quick Links"}
+          </h3>
+          <div class="border-border-dark/25 h-px border-t"></div>
+          <ul class="space-y-3">
+            {quickLinks.map((item) => (
+              <li>
+                <a
+                  href={getLocaleUrlCTM(item.url, Astro.currentLocale)}
+                  class="text-text-inverse/55 hover:text-text-inverse transition-colors">
+                  {item.label}
+                </a>
+              </li>
+            ))}
           </ul>
+        </div>
+
+        <div class="space-y-6">
+          <h3 class="text-text-inverse text-h4 font-semibold">
+            {t("footerBlock.recentPostsLabel") || "Recent Posts"}
+          </h3>
+          <div class="border-border-dark/25 h-px border-t"></div>
+          <div class="space-y-6">
+            {recentPosts.map((post) => (
+              <a href={getEntrySlugCTM(post, Astro.currentLocale)} class="group flex items-start gap-4">
+                <OptimizedImage
+                  src={post.data.image || "/images/service/service-1.png"}
+                  alt={post.data.title}
+                  width={90}
+                  height={90}
+                  class="h-22 w-22 shrink-0 rounded-sm object-cover"
+                />
+                <div class="space-y-2">
+                  <p class="text-text-inverse/35 text-xs font-medium uppercase">
+                    {formatDate(post.data.date)}
+                  </p>
+                  <h4 class="text-text-inverse/90 group-hover:text-text-inverse line-clamp-2 text-lg font-medium leading-7 transition-colors">
+                    {post.data.title}
+                  </h4>
+                </div>
+              </a>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div
-        class="border-border-dark flex flex-col items-center justify-center border-t py-7">
+      <div class="border-border-dark/20 mt-12 flex flex-col gap-6 border-t pt-8 md:flex-row md:items-center md:justify-between">
         {
           copyright.enable && (
             <div
-              class="text-text-inverse/50 text-center"
+              class="text-text-inverse/70"
               set:html={markdownify(
                 t("footerBlock.copyright") || copyrightText,
                 true,
@@ -137,6 +152,21 @@ const copyrightText = copyright.text;
             />
           )
         }
+
+        <ul class="flex items-center gap-4">
+          {filteredEnabled(social.main).map((item: any) => (
+            <li>
+              <a
+                href={item.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={item.label}
+                class="border-border-dark/20 text-text-inverse/65 hover:bg-primary hover:text-light inline-flex size-11 items-center justify-center rounded-full border transition-colors">
+                <Icons icon={item.lucideIcon} class="h-4.5 w-4.5" />
+              </a>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   </div>

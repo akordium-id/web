@@ -3,7 +3,7 @@ enable: true
 badge: "Kontak"
 title: "Punya proyek? Mari kita bicara."
 description: "Baik Anda membutuhkan website, aplikasi mobile, atau infrastruktur hosting, tim kami siap membantu Anda."
-image: "/images/contact-home.jpg"
+image: "/images/about/about-rated-pic.jpg"
 imageAlt: "Kontak"
 characterImage: "/images/character-3d.png"
 characterImageAlt: "Karakter 3D"

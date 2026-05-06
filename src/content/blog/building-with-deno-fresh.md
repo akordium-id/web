@@ -4,7 +4,7 @@ date: 2023-08-20
 snippet: Learn how to build modern web applications with Deno Fresh framework.
 categories:
   - Development
-image: "/images/service/service-1.png"
+image: "/images/blog/blog-1.webp"
 ---
 
 # Building with Deno Fresh
