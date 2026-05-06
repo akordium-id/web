@@ -10,11 +10,5 @@
     "languageCode": "id",
     "contentDir": "indonesian",
     "weight": 2
-  },
-  {
-    "languageName": "Jv",
-    "languageCode": "jv",
-    "contentDir": "javanese",
-    "weight": 3
   }
 ]
