@@ -4,6 +4,7 @@ import type { z } from "astro/zod";
 import type { contactFormSchema, inputFieldSchema } from "@/sections.schema";
 import Button from "@/components/Button.astro";
 import { markdownify, toLowerCase } from "@/lib/utils/textConverter";
+import { getLocaleUrlCTM } from "@/lib/utils/i18nUtils";
 
 type FormType = z.infer<typeof contactFormSchema>;
 type InputField = z.infer<typeof inputFieldSchema>;
@@ -18,8 +19,10 @@ interface Props {
 }
 
 const {
-  settings: { contactFormAction, contactFormProvider, contactFormAccessKey },
+  settings: { contactFormAction, contactFormProvider },
 } = config;
+const web3formsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
+const redirectUrl = getLocaleUrlCTM("/thank-you", Astro.currentLocale);
 
 const genIdFromLabel = (label: string) =>
   toLowerCase(label).replace(/\s+/g, "-");
@@ -133,6 +136,7 @@ const defaultErrorMessage = messageContent.error || (isFrench
   {...{
     "data-action": contactFormAction,
     "data-provider": contactFormProvider,
+    "data-redirect": redirectUrl,
     "data-netlify": contactFormProvider === "netlify" ? "true" : undefined,
     action: contactFormProvider === "netlify" ? contactFormAction : undefined,
   }}
@@ -159,8 +163,8 @@ const defaultErrorMessage = messageContent.error || (isFrench
   }
 
   {
-    contactFormProvider === "web3forms" && contactFormAccessKey && (
-      <input type="hidden" name="access_key" value={contactFormAccessKey} />
+    contactFormProvider === "web3forms" && web3formsAccessKey && (
+      <input type="hidden" name="access_key" value={web3formsAccessKey} />
     )
   }
 
@@ -535,6 +539,7 @@ const defaultErrorMessage = messageContent.error || (isFrench
 
           const provider = form.getAttribute("data-provider") || "";
           const action = form.getAttribute("data-action") || "";
+          const redirect = form.getAttribute("data-redirect") || "";
 
           form
             .querySelectorAll<HTMLElement>("[input-wrapper]")
@@ -628,7 +633,7 @@ const defaultErrorMessage = messageContent.error || (isFrench
               );
               break;
             case "web3forms":
-              await formUtils.web3formsSubmit(form, action);
+              await formUtils.web3formsSubmit(form, action, redirect);
               break;
             default:
                 throw new Error("Unknown form provider.");

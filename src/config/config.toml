@@ -46,7 +46,6 @@
 
   contactFormAction = "https://api.web3forms.com/submit"
   contactFormProvider = "web3forms"
-   contactFormAccessKey = "104218fe-b076-4d24-a8aa-dd434f5bbd46"
 
   footerDescription = ""
 

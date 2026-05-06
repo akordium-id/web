@@ -159,5 +159,12 @@
       "title": "Informasi Bisnis",
       "company": "Akordium Lab"
     }
+  },
+  "thankYou": {
+    "title": "Matur Nuwun - Akordium",
+    "description": "Pesan sampean wis ditompo. Awakdewe arep enggal-enggal ngewaoli.",
+    "heading": "Matur Nuwun!",
+    "message": "Pesan sampean wis kasil ditompo. Awakdewe arep ngewaoli sak ongone 1x24 jam.",
+    "backHome": "Bali nang Beranda"
   }
 }

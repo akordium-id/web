@@ -1,0 +1,53 @@
+---
+import Base from "@/layouts/Base.astro";
+import Button from "@/components/Button.astro";
+import { generatePaths, useTranslations } from "@/lib/utils/i18nUtils";
+
+export function getStaticPaths() {
+  return generatePaths();
+}
+
+const lang = Astro.currentLocale || "en";
+const t = await useTranslations(lang);
+---
+
+<Base
+  title={t("thankYou.title") || "Thank You - Akordium"}
+  description={t("thankYou.description") || "Your message has been received."}>
+  <section class="section-spacing-vertical">
+    <div class="container">
+      <div class="mx-auto max-w-2xl text-center">
+        <div class="text-primary mx-auto mb-8 flex size-20 items-center justify-center rounded-full bg-green-50">
+          <svg
+            class="h-10 w-10 text-green-600"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="2"
+            stroke="currentColor">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4.5 12.75l6 6 9-13.5" />
+          </svg>
+        </div>
+
+        <h1 class="text-h2 text-dark mb-4 font-bold">
+          {t("thankYou.heading") || "Thank You!"}
+        </h1>
+
+        <p class="text-text-default/80 mx-auto mb-10 max-w-lg text-lg leading-relaxed">
+          {t("thankYou.message") ||
+            "Your message has been received successfully."}
+        </p>
+
+        <Button
+          label={t("thankYou.backHome") || "Back to Home"}
+          url="/"
+          variant="fill"
+          icon={{ enable: true, name: "ArrowUpRight", position: "left" }}
+        />
+      </div>
+    </div>
+  </section>
+</Base>

@@ -302,6 +302,7 @@ export const netlifySubmit = async (form: HTMLFormElement, action: string) => {
 export const web3formsSubmit = async (
   form: HTMLFormElement,
   action: string,
+  redirectUrl?: string,
 ) => {
   const data = Object.fromEntries(new FormData(form).entries());
   const controller = new AbortController();
@@ -326,8 +327,12 @@ export const web3formsSubmit = async (
     const jsonResponse = await response.json();
 
     if (jsonResponse.success) {
-      setMessage("default", true, false, form);
-      formReset(form);
+      if (redirectUrl) {
+        window.location.href = redirectUrl;
+      } else {
+        setMessage("default", true, false, form);
+        formReset(form);
+      }
       return;
     }
 

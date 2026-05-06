@@ -159,5 +159,12 @@
       "title": "Informasi Bisnis",
       "company": "Akordium Lab"
     }
+  },
+  "thankYou": {
+    "title": "Terima Kasih - Akordium",
+    "description": "Pesan Anda telah diterima. Kami akan segera menghubungi Anda.",
+    "heading": "Terima Kasih!",
+    "message": "Pesan Anda telah berhasil diterima. Kami akan meninjau dan menghubungi Anda dalam waktu 1x24 jam.",
+    "backHome": "Kembali ke Beranda"
   }
 }

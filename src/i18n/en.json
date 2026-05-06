@@ -159,5 +159,12 @@
       "title": "Business Information",
       "company": "Akordium Lab"
     }
+  },
+  "thankYou": {
+    "title": "Thank You - Akordium",
+    "description": "Your message has been received. We'll get back to you shortly.",
+    "heading": "Thank You!",
+    "message": "Your message has been received successfully. We'll review it and get back to you within 24 hours.",
+    "backHome": "Back to Home"
   }
 }
