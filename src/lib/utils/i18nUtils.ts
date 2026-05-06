@@ -113,7 +113,7 @@ export const useTranslations = async (lang: string): Promise<Function> => {
       if (value && typeof value === "object" && k in value) {
         value = value[k];
       } else {
-        return "Not Found";
+        return key;
       }
     }
 

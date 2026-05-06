@@ -190,7 +190,6 @@ export const formSubmit = async ({
 
     setMessage(jsonResponse.message, false, false, form);
   } catch (error: any) {
-    console.log(error);
     if (error?.name === "AbortError") {
       setMessage(
         "We couldn't reach the server. Trying alternative server.",
@@ -297,5 +296,59 @@ export const netlifySubmit = async (form: HTMLFormElement, action: string) => {
   } catch (error) {
     setMessage("Netlify submission error: " + error, false, false, form);
     throw error;
+  }
+};
+
+export const web3formsSubmit = async (
+  form: HTMLFormElement,
+  action: string,
+) => {
+  const data = Object.fromEntries(new FormData(form).entries());
+  const controller = new AbortController();
+  const signal = controller.signal;
+  const timeout = 60000;
+
+  const timer = setTimeout(() => {
+    controller.abort();
+  }, timeout);
+
+  try {
+    const response = await fetch(action, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify(data),
+      signal,
+    });
+
+    const jsonResponse = await response.json();
+
+    if (jsonResponse.success) {
+      setMessage("default", true, false, form);
+      formReset(form);
+      return;
+    }
+
+    setMessage(
+      jsonResponse.message || "Something went wrong. Please try again.",
+      false,
+      false,
+      form,
+    );
+  } catch (error: any) {
+    if (error?.name === "AbortError") {
+      setMessage("Request timed out. Please try again.", false, false, form);
+    } else {
+      setMessage(
+        "Oops! There was a problem submitting your form.",
+        false,
+        false,
+        form,
+      );
+    }
+  } finally {
+    clearTimeout(timer);
   }
 };

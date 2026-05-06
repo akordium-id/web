@@ -44,8 +44,9 @@
   pagination   = 6
   stickyHeader = true
 
-  contactFormAction = "/api/contact"
-  contactFormProvider = "resend"
+  contactFormAction = "https://api.web3forms.com/submit"
+  contactFormProvider = "web3forms"
+   contactFormAccessKey = "104218fe-b076-4d24-a8aa-dd434f5bbd46"
 
   footerDescription = ""
 
