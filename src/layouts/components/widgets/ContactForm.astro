@@ -4,7 +4,6 @@ import type { z } from "astro/zod";
 import type { contactFormSchema, inputFieldSchema } from "@/sections.schema";
 import Button from "@/components/Button.astro";
 import { markdownify, toLowerCase } from "@/lib/utils/textConverter";
-import { getLocaleUrlCTM } from "@/lib/utils/i18nUtils";
 
 type FormType = z.infer<typeof contactFormSchema>;
 type InputField = z.infer<typeof inputFieldSchema>;
@@ -21,8 +20,6 @@ interface Props {
 const {
   settings: { contactFormAction, contactFormProvider },
 } = config;
-const web3formsAccessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
-const redirectUrl = getLocaleUrlCTM("/thank-you", Astro.currentLocale);
 
 const genIdFromLabel = (label: string) =>
   toLowerCase(label).replace(/\s+/g, "-");
@@ -136,7 +133,6 @@ const defaultErrorMessage = messageContent.error || (isFrench
   {...{
     "data-action": contactFormAction,
     "data-provider": contactFormProvider,
-    "data-redirect": redirectUrl,
     "data-netlify": contactFormProvider === "netlify" ? "true" : undefined,
     action: contactFormProvider === "netlify" ? contactFormAction : undefined,
   }}
@@ -159,12 +155,6 @@ const defaultErrorMessage = messageContent.error || (isFrench
   {
     contactFormProvider === "formsubmit.co" && (
       <input type="hidden" name="_template" value="table" />
-    )
-  }
-
-  {
-    contactFormProvider === "web3forms" && web3formsAccessKey && (
-      <input type="hidden" name="access_key" value={web3formsAccessKey} />
     )
   }
 
@@ -270,7 +260,7 @@ const defaultErrorMessage = messageContent.error || (isFrench
                     ? "contact-form-choice-input--radio"
                     : "contact-form-choice-input--checkbox",
                 ]}
-                {...(input.required && { required: true, "aria-required": "true" })}
+                {...(input.required && { required: true })}
               />
               <label
                 for={input.id || genIdFromLabel(input.label || "example-id")}
@@ -300,19 +290,13 @@ const defaultErrorMessage = messageContent.error || (isFrench
                   input.required,
                 )}
                 class="contact-form-control"
-                {...(input.required && { required: true, "aria-required": "true" })}
+                {...(input.required && { required: true })}
               />
             </div>
           )
         )}
       </div>
     ))
-  }
-
-  {
-    contactFormProvider === "web3forms" && (
-      <div class="h-captcha contact-form-field contact-form-field--full" data-captcha="true" />
-    )
   }
 
   {
@@ -375,12 +359,6 @@ const defaultErrorMessage = messageContent.error || (isFrench
     )
   }
 </form>
-
-{
-  contactFormProvider === "web3forms" && (
-    <script src="https://web3forms.com/client/script.js" async defer></script>
-  )
-}
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -551,7 +529,6 @@ const defaultErrorMessage = messageContent.error || (isFrench
 
           const provider = form.getAttribute("data-provider") || "";
           const action = form.getAttribute("data-action") || "";
-          const redirect = form.getAttribute("data-redirect") || "";
 
           form
             .querySelectorAll<HTMLElement>("[input-wrapper]")
@@ -630,24 +607,21 @@ const defaultErrorMessage = messageContent.error || (isFrench
           }
 
           try {
-          switch (provider) {
-            case "netlify":
-              await formUtils.netlifySubmit(form, action);
-              break;
-            case "formsubmit.co":
-              await formUtils.formSubmit({ form, action });
-              break;
-            case "formspree":
-              await formUtils.formspreeSubmit(
-                Object.fromEntries(new FormData(form).entries()),
-                5000,
-                form,
-              );
-              break;
-            case "web3forms":
-              await formUtils.web3formsSubmit(form, action, redirect);
-              break;
-            default:
+            switch (provider) {
+              case "netlify":
+                await formUtils.netlifySubmit(form, action);
+                break;
+              case "formsubmit.co":
+                await formUtils.formSubmit({ form, action });
+                break;
+              case "formspree":
+                await formUtils.formspreeSubmit(
+                  Object.fromEntries(new FormData(form).entries()),
+                  5000,
+                  form,
+                );
+                break;
+              default:
                 throw new Error("Unknown form provider.");
             }
           } catch (error) {

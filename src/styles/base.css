@@ -63,7 +63,7 @@ h6 {
 
 b,
 strong {
-  color: inherit;
+  @apply text-white;
 }
 
 code {

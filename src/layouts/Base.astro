@@ -37,7 +37,7 @@ let { structuredData } = Astro.props;
   <Head {...Astro.props} structuredData={structuredData} />
   <body>
     <Header />
-    <main id="main-content" class:list={["has-section-gap", Astro.props.class]}>
+    <main class:list={["has-section-gap", Astro.props.class]}>
       <slot />
     </main>
     <Footer />

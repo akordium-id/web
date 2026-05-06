@@ -19,7 +19,4 @@
   @import "./animation.css";
   @import "./navigation.css";
   @import "./components.css";
-  @import "./markdown.css";
 }
-
-@import "./utilities.css";

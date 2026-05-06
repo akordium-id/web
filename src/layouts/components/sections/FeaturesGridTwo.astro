@@ -41,13 +41,13 @@ const { features, bgShape } = actualContent;
               data-aos="fade-up"
               data-aos-delay={i * 100}
               data-aos-duration="600">
-              <span class="text-dark text-base font-semibold lg:text-lg">
+              <span class="text-base font-semibold lg:text-lg">
                 {String(i + 1).padStart(2, "0")}
               </span>
 
               <div class="bg-dark h-px w-full" />
 
-              <h2 class="text-dark flex items-center gap-2.5 pt-1 text-sm font-semibold lg:text-lg">
+              <h2 class="flex items-center gap-2.5 pt-1 text-sm font-semibold lg:text-lg">
                 {feature.icon && (
                   <OptimizedImage
                     src={feature.icon}

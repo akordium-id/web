@@ -38,7 +38,7 @@ const {
 if (!enable) return;
 ---
 
-<section id="about" class="relative overflow-hidden scroll-mt-28 bg-white pt-0">
+<section id="about" class="relative overflow-hidden scroll-mt-28 pt-0">
   <div class="container grid grid-cols-1 lg:grid-cols-2 lg:gap-16 xl:gap-32">
     <div
       class="section-spacing-vertical z-10 flex flex-col justify-center gap-x-6 gap-y-10 lg:gap-12 xl:gap-14">
@@ -89,7 +89,7 @@ if (!enable) return;
       {
         description && (
           <p
-            class="text-text-default -mt-2 text-sm md:text-base xl:text-lg"
+            class="text-text-default/70 -mt-2 text-sm md:text-base xl:text-lg"
             set:html={markdownify(description)}
           />
         )

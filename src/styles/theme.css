@@ -4,34 +4,20 @@
   --leading-body: 1.8;
   --leading-inherit: inherit;
 
-  /* Akordium Colors */
-  --color-primary: #3b2e83;
-  --color-primary-light: #4d3ea5;
-  --color-primary-dark: #2a2161;
-  --color-secondary: #673b75;
-  --color-secondary-light: #7a4889;
-  --color-secondary-dark: #542e61;
-  --color-tertiary: #c1565b;
-  --color-tertiary-light: #d4686d;
-  --color-tertiary-dark: #a44549;
-  --color-accent: #944868;
-  --color-accent-light: #a85a7a;
-  --color-accent-dark: #803656;
-  --color-base: #fcfcfc;
-  --color-base-foreground: #3b2e83;
-  --color-base-subtle: #f5f5f7;
-  --color-base-muted: #eaeaec;
-  --color-base-hover: #f0f0f2;
-  --color-body: #fcfcfc;
-  --color-text-default: #3b2e83;
-  --color-text-inverse: #FFFFFF;
-  --color-border-light: #eaeaec;
-  --color-border-dark: #3b2e83;
+  /* Colors */
+  --color-primary: #2563ff;
+  --color-secondary: #9ECF59;
+  --color-accent: #6366F1;
+  --color-body: #fff; /* Background color */
+  --color-theme-light: #f5f3ef; /* light surface/card section */
+  --color-theme-dark: #141414; /* dark surface/card section */
+  --color-text-default: #222222; /* default text on light backgrounds */
+  --color-text-inverse: #FFFFFF; /* default text on dark backgrounds */
+  --color-border-light: #ECEEF1; /* light border */
+  --color-border-dark: #222222; /* dark border */
 
-  --color-theme-light: #f5f3ef;
-  --color-theme-dark: #141414;
-  --color-dark: #3b2e83;
-  --color-light: #fcfcfc;
+  --color-dark: #3B3B3B; /* heading/dark UI color if needed */
+  --color-light: #fff6f6; /* light UI color if needed */
 
   /* Screen */
   --breakpoint-*: initial;
@@ -45,30 +31,27 @@
   --text-base-scale: 1.23;
   --text-base-sm: calc(var(--text-base) * 0.9);
 
-  --text-h1: calc(var(--text-base) * pow(var(--text-base-scale), 6));
-  --text-h2: calc(var(--text-base) * pow(var(--text-base-scale), 5));
-  --text-h3: calc(var(--text-base) * pow(var(--text-base-scale), 4));
-  --text-h4: calc(var(--text-base) * pow(var(--text-base-scale), 3));
-  --text-h5: calc(var(--text-base) * pow(var(--text-base-scale), 2));
-  --text-h6: calc(var(--text-base) * pow(var(--text-base-scale), 1));
+  --text-h1: calc(var(--text-base) * pow(var(--text-base-scale), 6)); /* ~55.43px */
+  --text-h2: calc(var(--text-base) * pow(var(--text-base-scale), 5)); /* ~45.06px */
+  --text-h3: calc(var(--text-base) * pow(var(--text-base-scale), 4)); /* ~36.63px */
+  --text-h4: calc(var(--text-base) * pow(var(--text-base-scale), 3)); /* ~29.77px */
+  --text-h5: calc(var(--text-base) * pow(var(--text-base-scale), 2)); /* ~24.21px */
+  --text-h6: calc(var(--text-base) * pow(var(--text-base-scale), 1)); /* ~19.68px */
 
-  --text-h1-sm: calc(var(--text-h1) * 0.9);
-  --text-h2-sm: calc(var(--text-h2) * 0.9);
-  --text-h3-sm: calc(var(--text-h3) * 0.9);
-  --text-h4-sm: calc(var(--text-h4) * 0.9);
-  --text-h5-sm: calc(var(--text-h5) * 0.9);
-  --text-h6-sm: calc(var(--text-h6) * 0.9);
+  --text-h1-sm: calc(var(--text-h1) * 0.9); /* ~49.89px */
+  --text-h2-sm: calc(var(--text-h2) * 0.9); /* ~40.55px */
+  --text-h3-sm: calc(var(--text-h3) * 0.9); /* ~32.97px */
+  --text-h4-sm: calc(var(--text-h4) * 0.9); /* ~26.79px */
+  --text-h5-sm: calc(var(--text-h5) * 0.9); /* ~21.79px */
+  --text-h6-sm: calc(var(--text-h6) * 0.9); /* ~17.71px */
 
-  --text-display-1: calc(var(--text-base) * pow(var(--text-base-scale), 10.81));
-  --text-display-2: calc(var(--text-base) * pow(var(--text-base-scale), 9.53));
-  --text-display-3: calc(var(--text-base) * pow(var(--text-base-scale), 8.85));
-  --text-display-4: calc(var(--text-base) * pow(var(--text-base-scale), 7.77));
-  --text-display-5: calc(var(--text-base) * pow(var(--text-base-scale), 5.69));
-  --text-display-6: calc(var(--text-base) * pow(var(--text-base-scale), 4.66));
+  --text-display-1: calc(var(--text-base) * pow(var(--text-base-scale), 10.81)); /* ~150px */
+  --text-display-2: calc(var(--text-base) * pow(var(--text-base-scale), 9.53));  /* ~115px */
+  --text-display-3: calc(var(--text-base) * pow(var(--text-base-scale), 8.85));  /* ~100px */
+  --text-display-4: calc(var(--text-base) * pow(var(--text-base-scale), 7.77));  /* ~80px  */
+  --text-display-5: calc(var(--text-base) * pow(var(--text-base-scale), 5.69));  /* ~52px  */
+  --text-display-6: calc(var(--text-base) * pow(var(--text-base-scale), 4.66));  /* ~42px  */
 
   /* Custom Shadow */
   --shadow-button: inset 0px 0px 8px 4px rgba(255,255,255,0.48);
-  --shadow-small: 0 1px 2px 0 rgb(0 0 0 / 0.05);
-  --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --shadow-large: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
