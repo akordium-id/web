@@ -1,0 +1,98 @@
+---
+const navLinks = [
+  { href: "/", label: "Beranda", labelEn: "Home" },
+  { href: "/about", label: "Tentang", labelEn: "About" },
+  { href: "/services", label: "Layanan", labelEn: "Services" },
+  { href: "/blog", label: "Blog" },
+  { href: "/contact", label: "Kontak", labelEn: "Contact" },
+];
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-slate-100 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <nav class="flex items-center justify-between h-16 lg:h-18">
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group">
+        <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-700 transition-colors">
+          <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
+          </svg>
+        </div>
+        <span class="font-bold text-lg text-slate-900 tracking-tight">Akordium <span class="text-blue-600">Lab</span></span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <ul class="hidden lg:flex items-center gap-1">
+        {navLinks.map((link) => (
+          <li>
+            <a
+              href={link.href}
+              class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+                  ? 'text-blue-600 bg-blue-50'
+                  : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+              }`}
+            >
+              {link.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+
+      <!-- CTA -->
+      <div class="hidden lg:flex items-center gap-3">
+        <a href="/contact" class="px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 active:scale-95 transition-all shadow-sm shadow-blue-200">
+          Mulai Sekarang
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-slate-600 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+        <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </nav>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white">
+    <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+      {navLinks.map((link) => (
+        <a
+          href={link.href}
+          class={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
+            currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
+              ? 'text-blue-600 bg-blue-50'
+              : 'text-slate-700 hover:bg-slate-50'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <div class="pt-3 border-t border-slate-100 mt-3">
+        <a href="/contact" class="block w-full text-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+          Mulai Sekarang
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const iconOpen = document.getElementById('icon-open');
+  const iconClose = document.getElementById('icon-close');
+
+  toggle?.addEventListener('click', () => {
+    const isOpen = !menu?.classList.contains('hidden');
+    menu?.classList.toggle('hidden', isOpen);
+    iconOpen?.classList.toggle('hidden', !isOpen);
+    iconClose?.classList.toggle('hidden', isOpen);
+  });
+</script>

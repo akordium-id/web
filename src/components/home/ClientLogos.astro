@@ -1,0 +1,28 @@
+---
+const partners = [
+  { name: "Google", logo: "G" },
+  { name: "Medium", logo: "M" },
+  { name: "Factset", logo: "FS" },
+  { name: "Bunge", logo: "B" },
+  { name: "Celanese", logo: "C" },
+  { name: "Zimmer Biomet", logo: "ZB" },
+];
+---
+
+<section class="py-12 bg-white border-y border-slate-100">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <p class="text-center text-sm font-medium text-slate-400 uppercase tracking-widest mb-8">
+      Dipercaya oleh berbagai bisnis di Indonesia
+    </p>
+    <div class="flex flex-wrap justify-center items-center gap-8 lg:gap-14">
+      {partners.map(p => (
+        <div class="flex items-center gap-2 text-slate-300 hover:text-slate-500 transition-colors">
+          <div class="w-8 h-8 rounded-md bg-slate-100 flex items-center justify-center text-xs font-bold text-slate-400">
+            {p.logo}
+          </div>
+          <span class="text-lg font-bold tracking-tight">{p.name}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

@@ -1,0 +1,104 @@
+---
+import { pricingTiers } from '../../data/pricing';
+---
+
+<section id="pricing" class="py-20 lg:py-28 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-14">
+      <span class="inline-block px-3 py-1 bg-blue-50 text-blue-700 text-xs font-semibold rounded-full uppercase tracking-wider mb-4">
+        Harga
+      </span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+        Harga Fleksibel<br />
+        <span class="text-blue-600">untuk Setiap Bisnis</span>
+      </h2>
+      <p class="text-slate-500 max-w-xl mx-auto">
+        Mulai dari UMKM hingga enterprise — kami punya paket yang sesuai dengan kebutuhan dan anggaran Anda.
+      </p>
+    </div>
+
+    <!-- Cards -->
+    <div class="grid md:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+      {pricingTiers.map((tier) => (
+        <div class={`relative rounded-2xl p-7 flex flex-col ${
+          tier.featured
+            ? 'bg-blue-600 text-white shadow-2xl shadow-blue-200 scale-[1.02]'
+            : 'bg-white border border-slate-100 hover:border-blue-100 hover:shadow-lg transition-all'
+        }`}>
+          {/* Badge */}
+          {tier.badge && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="px-3 py-1 bg-amber-400 text-amber-900 text-xs font-bold rounded-full shadow-sm">
+                {tier.badge}
+              </span>
+            </div>
+          )}
+          {tier.featured && (
+            <div class="absolute -top-3 left-1/2 -translate-x-1/2">
+              <span class="px-3 py-1 bg-white text-blue-600 text-xs font-bold rounded-full shadow-sm">
+                Paling Populer
+              </span>
+            </div>
+          )}
+
+          {/* Tier name */}
+          <h3 class={`text-lg font-bold mb-1 ${tier.featured ? 'text-white' : 'text-slate-900'}`}>
+            {tier.name}
+          </h3>
+          <p class={`text-sm mb-6 ${tier.featured ? 'text-blue-100' : 'text-slate-500'}`}>
+            {tier.descriptionId}
+          </p>
+
+          {/* Price */}
+          <div class="mb-6">
+            <span class={`text-3xl font-extrabold ${tier.featured ? 'text-white' : 'text-slate-900'}`}>
+              {tier.price}
+            </span>
+            {tier.period && (
+              <span class={`text-sm ml-1 ${tier.featured ? 'text-blue-200' : 'text-slate-400'}`}>
+                {tier.period}
+              </span>
+            )}
+          </div>
+
+          {/* Features */}
+          <ul class="space-y-3 flex-1 mb-7">
+            {tier.features.map(feat => (
+              <li class={`flex items-center gap-2.5 text-sm ${
+                feat.included
+                  ? tier.featured ? 'text-white' : 'text-slate-700'
+                  : tier.featured ? 'text-blue-300 line-through' : 'text-slate-300 line-through'
+              }`}>
+                <svg class={`w-4 h-4 shrink-0 ${
+                  feat.included
+                    ? tier.featured ? 'text-white' : 'text-blue-500'
+                    : tier.featured ? 'text-blue-400' : 'text-slate-300'
+                }`} fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                </svg>
+                {feat.text}
+              </li>
+            ))}
+          </ul>
+
+          {/* CTA */}
+          <a
+            href="/contact"
+            class={`block w-full text-center py-3 rounded-xl font-semibold text-sm transition-all ${
+              tier.featured
+                ? 'bg-white text-blue-600 hover:bg-blue-50 active:scale-95'
+                : 'bg-blue-600 text-white hover:bg-blue-700 active:scale-95'
+            }`}
+          >
+            {tier.ctaTextId}
+          </a>
+        </div>
+      ))}
+    </div>
+
+    <p class="text-center text-sm text-slate-400 mt-8">
+      Semua harga belum termasuk PPN. Hubungi kami untuk kebutuhan custom.
+    </p>
+  </div>
+</section>
