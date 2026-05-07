@@ -2,23 +2,16 @@
   "extends": "astro/tsconfigs/strict",
   "include": [
     ".astro/types.d.ts",
-    "**/*"
+    "**/*",
+    "./worker-configuration.d.ts"
   ],
   "exclude": [
-    "dist",
-    "public",
-    "scripts"
+    "dist"
 ],
 "compilerOptions": {
-    "baseUrl": ".",
-    "ignoreDeprecations": "6.0",
-    "target": "es2017",
-    "allowJs": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noEmit": true,
-    "isolatedModules": true,
-    "incremental": true,
-    "allowSyntheticDefaultImports": true,
+    "types": [
+        "./worker-configuration.d.ts",
+        "node"
+    ]
 }
 }
