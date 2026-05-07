@@ -9,9 +9,8 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
+  output: 'static',           // or 'hybrid' if you need some SSR
   adapter: cloudflare({
-    platformProxy: {
-      enabled: true
-    },
-  })
+    // platformProxy: { ... } if needed for local dev
+  }),
 });
