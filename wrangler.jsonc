@@ -7,7 +7,7 @@
 	"name": "akordium-web",
 	"compatibility_date": "2026-05-07",
 	"assets": {
-		"directory": "./dist",
+		"directory": "./dist/client",
 	},
 	/**
 	 * Smart Placement
