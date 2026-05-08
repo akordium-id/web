@@ -1,79 +1,49 @@
 export interface Service {
   id: string;
   title: string;
-  titleId: string;
   description: string;
-  descriptionId: string;
   icon: string;
   features: string[];
-  featuresId: string[];
 }
 
 export const services: Service[] = [
   {
-    id: "web-app-dev",
-    title: "Web & App Development",
-    titleId: "Pengembangan Web & Aplikasi",
+    id: "company-profile",
+    title: "Website company profile",
     description:
-      "We build fast, scalable, and modern web applications tailored to your business needs — from company profiles to complex enterprise systems.",
-    descriptionId:
-      "Kami membangun aplikasi web modern yang cepat dan skalabel, mulai dari company profile hingga sistem enterprise kompleks.",
-    icon: "code",
+      "Profesional dan jelas, pondasi bisnis hadir secara digital dengan lebih meyakinkan.",
+    icon: "globe",
     features: [
-      "Custom web application development",
-      "Mobile-responsive design",
-      "API development & integration",
-      "Performance optimization",
-    ],
-    featuresId: [
-      "Pengembangan aplikasi web custom",
-      "Desain responsif mobile-first",
-      "Pengembangan & integrasi API",
-      "Optimasi performa",
+      "Desain profesional dan responsif",
+      "Menjelaskan layanan bisnis dengan jelas",
+      "Kehadiran digital yang meyakinkan",
+      "Pondasi untuk sistem internal berikutnya",
     ],
   },
   {
-    id: "infrastructure",
-    title: "Infrastructure & Hosting Support",
-    titleId: "Infrastruktur & Dukungan Hosting",
+    id: "dashboard-web",
+    title: "Dashboard dan web internal",
     description:
-      "Reliable cloud infrastructure setup, management, and 24/7 monitoring so your systems stay up and running without interruption.",
-    descriptionId:
-      "Setup dan manajemen infrastruktur cloud yang handal dengan monitoring 24/7 agar sistem Anda selalu berjalan tanpa gangguan.",
-    icon: "server",
+      "Platform pengelola data, memantau aktivitas, dan menjalankan proses kerja internal lebih tertata. Ketika spreadsheet dan chat sudah tidak cukup.",
+    icon: "chart",
     features: [
-      "Cloud server setup & management",
-      "24/7 uptime monitoring",
-      "Backup & disaster recovery",
-      "Security hardening",
-    ],
-    featuresId: [
-      "Setup & manajemen server cloud",
-      "Monitoring uptime 24/7",
-      "Backup & disaster recovery",
-      "Penguatan keamanan sistem",
+      "Dashboard pengelolaan data tim",
+      "Pemantauan aktivitas dan laporan",
+      "Web admin untuk proses kerja internal",
+      "Menggantikan spreadsheet dan chat manual",
     ],
   },
   {
-    id: "training",
-    title: "Training Services",
-    titleId: "Layanan Pelatihan",
+    id: "mis-operasional",
+    title: "MIS operasional",
     description:
-      "Hands-on technology training for your team — covering software tools, digital workflows, and IT best practices tailored to your industry.",
-    descriptionId:
-      "Pelatihan teknologi praktis untuk tim Anda — mencakup tools software, alur kerja digital, dan praktik terbaik IT sesuai industri.",
-    icon: "academic",
+      "Management information system untuk penjualan, inventory, maintenance, invoice, dan workflow antarbagian.",
+    icon: "cog",
     features: [
-      "In-house corporate training",
-      "Online & on-site sessions",
-      "Customized training modules",
-      "Post-training support",
-    ],
-    featuresId: [
-      "Pelatihan korporat in-house",
-      "Sesi online & tatap muka",
-      "Modul pelatihan custom",
-      "Dukungan pasca pelatihan",
+      "Sistem penjualan dan inventory",
+      "Manajemen aset, maintenance, dan invoice",
+      "Workflow dan dokumen antarbagian",
+      "Sistem yang praktis dan mudah dipakai tim",
     ],
   },
 ];

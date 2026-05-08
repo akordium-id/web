@@ -1,0 +1,53 @@
+---
+---
+
+<section class="py-20 lg:py-28 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-10">
+        Cara kerja
+      </h2>
+
+      <div class="flex flex-col sm:flex-row items-start gap-0">
+        {[
+          {
+            step: "01",
+            title: "Pahami bisnis Anda",
+            desc: "Kami mulai dari memahami proses yang sudah berjalan — bukan langsung menawarkan solusi.",
+          },
+          {
+            step: "02",
+            title: "Temukan titik masalah",
+            desc: "Kami identifikasi bagian mana yang paling sering menimbulkan kebingungan atau pekerjaan berulang.",
+          },
+          {
+            step: "03",
+            title: "Rancang solusinya",
+            desc: "Kami bangun sistem yang sesuai kebutuhan nyata — cukup tepat untuk sekarang, rapi untuk dikembangkan nanti.",
+          },
+        ].map((item, i) => (
+          <div class="flex sm:flex-col flex-row items-start gap-4 flex-1 relative">
+            <!-- Connector line (horizontal on desktop, vertical on mobile) -->
+            {i < 2 && (
+              <div class="hidden sm:block absolute top-5 left-1/2 w-full h-px bg-slate-200 z-0" style="left: 50%; width: 100%;"></div>
+            )}
+            {i < 2 && (
+              <div class="sm:hidden absolute top-8 left-5 w-px h-full bg-slate-200 z-0"></div>
+            )}
+
+            <!-- Step number bubble -->
+            <div class="relative z-10 w-10 h-10 shrink-0 rounded-full bg-blue-600 text-white text-sm font-bold flex items-center justify-center">
+              {item.step}
+            </div>
+
+            <!-- Content -->
+            <div class="pb-10 sm:pb-0 sm:pt-4">
+              <p class="font-bold text-slate-900 text-base mb-1">{item.title}</p>
+              <p class="text-sm text-slate-500 leading-relaxed">{item.desc}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,150 @@
+---
+const clients = [
+  {
+    title: "Distributor & Supplier",
+    desc: "Bisnis yang perlu melacak stok, pesanan, dan pengiriman dari banyak pihak secara terpusat.",
+    color: "blue",
+    svg: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Warehouse -->
+      <rect x="10" y="36" width="60" height="34" rx="2" fill="#DBEAFE"/>
+      <polygon points="10,36 40,14 70,36" fill="#93C5FD"/>
+      <!-- Door -->
+      <rect x="32" y="52" width="16" height="18" rx="1" fill="#3B82F6"/>
+      <!-- Windows -->
+      <rect x="16" y="44" width="12" height="10" rx="1" fill="#BFDBFE"/>
+      <rect x="52" y="44" width="12" height="10" rx="1" fill="#BFDBFE"/>
+      <!-- Box on left -->
+      <rect x="2" y="54" width="14" height="12" rx="1" fill="#60A5FA"/>
+      <line x1="9" y1="54" x2="9" y2="66" stroke="#93C5FD" stroke-width="1"/>
+      <line x1="2" y1="60" x2="16" y2="60" stroke="#93C5FD" stroke-width="1"/>
+      <!-- Box on right -->
+      <rect x="64" y="54" width="14" height="12" rx="1" fill="#60A5FA"/>
+      <line x1="71" y1="54" x2="71" y2="66" stroke="#93C5FD" stroke-width="1"/>
+      <line x1="64" y1="60" x2="78" y2="60" stroke="#93C5FD" stroke-width="1"/>
+      <!-- Arrow -->
+      <path d="M22 48 L28 48 M25 45 L28 48 L25 51" stroke="#1D4ED8" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>`,
+  },
+  {
+    title: "Jasa Maintenance & Layanan Berkala",
+    desc: "Tim lapangan yang perlu menjadwalkan kunjungan, mencatat hasil servis, dan melacak aset pelanggan.",
+    color: "green",
+    svg: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Clipboard -->
+      <rect x="18" y="16" width="44" height="52" rx="3" fill="#D1FAE5"/>
+      <rect x="29" y="10" width="22" height="12" rx="3" fill="#6EE7B7"/>
+      <!-- Checklist lines -->
+      <rect x="30" y="34" width="20" height="3" rx="1" fill="#6EE7B7"/>
+      <rect x="30" y="42" width="14" height="3" rx="1" fill="#6EE7B7"/>
+      <rect x="30" y="50" width="18" height="3" rx="1" fill="#6EE7B7"/>
+      <!-- Check marks -->
+      <path d="M24 35.5 L26.5 38 L31 33" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M24 43.5 L26.5 46 L31 41" stroke="#10B981" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <!-- Wrench -->
+      <path d="M52 58 L62 48 C64 46 64 42 62 40 C61 39 59.5 38.5 58 39 L55 42 L58 45 L55 48 L52 45 L49 48 C47 50 47 54 49 56 C51 58 55 60 57 58 Z" fill="#34D399" stroke="#059669" stroke-width="1"/>
+      <circle cx="56" cy="42" r="2" fill="#059669"/>
+    </svg>`,
+  },
+  {
+    title: "Kontraktor & Bisnis Lapangan",
+    desc: "Operasional yang tersebar di berbagai lokasi dan membutuhkan koordinasi tim, laporan progres, dan dokumentasi pekerjaan.",
+    color: "orange",
+    svg: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Hard hat -->
+      <path d="M20 44 Q20 28 40 26 Q60 28 60 44 Z" fill="#FED7AA"/>
+      <rect x="14" y="44" width="52" height="7" rx="2" fill="#FDBA74"/>
+      <!-- Building/site outline -->
+      <rect x="22" y="55" width="14" height="16" rx="1" fill="#FED7AA"/>
+      <rect x="42" y="48" width="18" height="23" rx="1" fill="#FDBA74"/>
+      <!-- Windows on tall building -->
+      <rect x="45" y="52" width="5" height="5" rx="0.5" fill="#EA580C"/>
+      <rect x="53" y="52" width="5" height="5" rx="0.5" fill="#EA580C"/>
+      <rect x="45" y="60" width="5" height="5" rx="0.5" fill="#EA580C"/>
+      <rect x="53" y="60" width="5" height="5" rx="0.5" fill="#EA580C"/>
+      <!-- Crane arm -->
+      <line x1="28" y1="55" x2="28" y2="30" stroke="#FB923C" stroke-width="2"/>
+      <line x1="28" y1="30" x2="52" y2="30" stroke="#FB923C" stroke-width="2"/>
+      <line x1="52" y1="30" x2="52" y2="48" stroke="#FB923C" stroke-width="1.5" stroke-dasharray="3,2"/>
+    </svg>`,
+  },
+  {
+    title: "Perusahaan yang Ingin Rapi Secara Internal",
+    desc: "Organisasi yang siap menggantikan proses manual dengan alur kerja digital untuk administrasi, pelaporan, dan koordinasi antar bagian.",
+    color: "purple",
+    svg: `<svg viewBox="0 0 80 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Org chart nodes -->
+      <!-- Top -->
+      <rect x="30" y="10" width="20" height="14" rx="3" fill="#DDD6FE"/>
+      <rect x="33" y="14" width="14" height="2" rx="1" fill="#8B5CF6"/>
+      <rect x="33" y="18" width="10" height="2" rx="1" fill="#C4B5FD"/>
+      <!-- Connector line down -->
+      <line x1="40" y1="24" x2="40" y2="32" stroke="#A78BFA" stroke-width="1.5"/>
+      <line x1="20" y1="32" x2="60" y2="32" stroke="#A78BFA" stroke-width="1.5"/>
+      <!-- Left node -->
+      <line x1="20" y1="32" x2="20" y2="38" stroke="#A78BFA" stroke-width="1.5"/>
+      <rect x="10" y="38" width="20" height="14" rx="3" fill="#EDE9FE"/>
+      <rect x="13" y="42" width="14" height="2" rx="1" fill="#8B5CF6"/>
+      <rect x="13" y="46" width="10" height="2" rx="1" fill="#C4B5FD"/>
+      <!-- Center node -->
+      <line x1="40" y1="32" x2="40" y2="38" stroke="#A78BFA" stroke-width="1.5"/>
+      <rect x="30" y="38" width="20" height="14" rx="3" fill="#EDE9FE"/>
+      <rect x="33" y="42" width="14" height="2" rx="1" fill="#8B5CF6"/>
+      <rect x="33" y="46" width="10" height="2" rx="1" fill="#C4B5FD"/>
+      <!-- Right node -->
+      <line x1="60" y1="32" x2="60" y2="38" stroke="#A78BFA" stroke-width="1.5"/>
+      <rect x="50" y="38" width="20" height="14" rx="3" fill="#EDE9FE"/>
+      <rect x="53" y="42" width="14" height="2" rx="1" fill="#8B5CF6"/>
+      <rect x="53" y="46" width="10" height="2" rx="1" fill="#C4B5FD"/>
+      <!-- Bottom row connectors -->
+      <line x1="20" y1="52" x2="20" y2="58" stroke="#A78BFA" stroke-width="1.5"/>
+      <line x1="10" y1="58" x2="30" y2="58" stroke="#A78BFA" stroke-width="1.5"/>
+      <circle cx="15" cy="62" r="5" fill="#DDD6FE" stroke="#8B5CF6" stroke-width="1"/>
+      <circle cx="25" cy="62" r="5" fill="#DDD6FE" stroke="#8B5CF6" stroke-width="1"/>
+      <line x1="40" y1="52" x2="40" y2="62" stroke="#A78BFA" stroke-width="1.5"/>
+      <circle cx="40" cy="66" r="5" fill="#DDD6FE" stroke="#8B5CF6" stroke-width="1"/>
+    </svg>`,
+  },
+];
+
+const colorMap: Record<string, { bg: string; badge: string; text: string; border: string }> = {
+  blue:   { bg: "bg-blue-50",   badge: "bg-blue-100 text-blue-700",   text: "text-blue-700",   border: "hover:border-blue-200" },
+  green:  { bg: "bg-green-50",  badge: "bg-green-100 text-green-700",  text: "text-green-700",  border: "hover:border-green-200" },
+  orange: { bg: "bg-orange-50", badge: "bg-orange-100 text-orange-700", text: "text-orange-700", border: "hover:border-orange-200" },
+  purple: { bg: "bg-purple-50", badge: "bg-purple-100 text-purple-700", text: "text-purple-700", border: "hover:border-purple-200" },
+};
+---
+
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="mb-12">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4">
+        Cocok untuk
+      </h2>
+      <p class="text-slate-600 text-base leading-relaxed max-w-2xl">
+        Akordium paling cocok untuk bisnis kecil-menengah yang sedang bertumbuh dan membutuhkan sistem yang praktis, bukan implementasi ERP besar yang berat sejak awal.
+      </p>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {clients.map((client) => {
+        const c = colorMap[client.color];
+        return (
+          <div class={`group rounded-2xl border border-slate-100 ${c.border} bg-white hover:shadow-lg transition-all duration-300 overflow-hidden`}>
+            <!-- Illustration area -->
+            <div class={`${c.bg} flex items-center justify-center p-6 h-40`}>
+              <div class="w-20 h-20" set:html={client.svg} />
+            </div>
+            <!-- Content -->
+            <div class="p-5">
+              <p class={`text-xs font-semibold uppercase tracking-wider mb-2 ${c.text}`}>
+                Klien kami
+              </p>
+              <h3 class="font-bold text-slate-900 text-sm leading-snug mb-2">{client.title}</h3>
+              <p class="text-xs text-slate-500 leading-relaxed">{client.desc}</p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+  </div>
+</section>

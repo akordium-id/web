@@ -1,59 +1,31 @@
 ---
-import { stats } from '../../data/stats';
 ---
 
-<section class="py-20 lg:py-28 bg-white">
+<section class="py-20 lg:py-28 bg-slate-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <!-- Left: Image/Illustration -->
-      <div class="relative">
-        <div class="relative rounded-2xl overflow-hidden shadow-2xl shadow-slate-200">
-          <img
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=700&auto=format&fit=crop&q=80"
-            alt="Tim Akordium Lab bekerja bersama"
-            class="w-full h-80 lg:h-[420px] object-cover"
-            loading="lazy"
-          />
-          <div class="absolute inset-0 bg-gradient-to-br from-blue-900/10 to-transparent"></div>
-        </div>
-        <!-- Floating pill tabs — mirrors the "Our Mission / Our Team / Our Story" tabs in reference -->
-        <div class="absolute -bottom-5 left-1/2 -translate-x-1/2 flex gap-2 bg-white rounded-full shadow-xl shadow-slate-200/80 border border-slate-100 px-3 py-2 whitespace-nowrap hidden sm:flex">
-          <span class="px-4 py-1.5 bg-blue-600 text-white text-xs font-bold rounded-full">Our Mission</span>
-          <span class="px-4 py-1.5 text-slate-500 text-xs font-medium rounded-full hover:bg-slate-50 cursor-pointer transition-colors">Our Team</span>
-          <span class="px-4 py-1.5 text-slate-500 text-xs font-medium rounded-full hover:bg-slate-50 cursor-pointer transition-colors">Our Story</span>
-        </div>
-      </div>
+    <div class="max-w-3xl mx-auto">
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-6">
+        Banyak bisnis kecil-menengah sebenarnya tidak kekurangan kerja keras;<br class="hidden sm:block" />
+        <span class="text-blue-600">yang sering kurang adalah sistemnya.</span>
+      </h2>
 
-      <!-- Right: Content -->
-      <div class="pt-4 sm:pt-0">
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-4">
-          Memberdayakan Bisnis<br />
-          <span class="text-blue-600">Indonesia dengan Teknologi</span>
-        </h2>
-        <p class="text-slate-600 leading-relaxed mb-2">
-          Di Akordium Lab, kami berspesialisasi dalam menghadirkan solusi IT yang sederhana, efisien, dan skalabel untuk bisnis modern Indonesia. Mulai dari cloud infrastructure hingga sistem enterprise kompleks, kami hadir sebagai mitra teknologi Anda.
-        </p>
-        <p class="text-slate-400 text-sm italic leading-relaxed mb-10">
-          At Akordium Lab, we specialize in delivering simple, scalable, and effective IT solutions. From cloud infrastructure to complex enterprise systems — we've got you covered.
-        </p>
+      <ul class="space-y-4 mb-8">
+        {[
+          "Data masih tersebar di chat, spreadsheet, dan catatan manual.",
+          "Status penjualan, stok, invoice, atau pekerjaan lapangan tidak mudah dipantau.",
+          "Website sudah ada, tetapi belum mendukung operasional atau alur administrasi.",
+          "Bisnis mulai berkembang, tetapi proses internal masih bergantung pada orang tertentu.",
+        ].map(item => (
+          <li class="flex items-start gap-3 text-slate-600">
+            <span class="mt-1.5 w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
+            <span class="text-base leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
 
-        <!-- Stats: 4-column horizontal row like reference -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 pt-4 border-t border-slate-100">
-          {stats.map(stat => (
-            <div class="text-center sm:text-left">
-              <p class="text-2xl lg:text-3xl font-extrabold text-slate-900">{stat.value}</p>
-              <p class="text-xs text-slate-500 mt-1 leading-snug">{stat.labelId}</p>
-            </div>
-          ))}
-        </div>
-
-        <a href="/about" class="inline-flex items-center gap-2 text-blue-600 font-semibold hover:text-blue-700 group text-sm">
-          Pelajari Lebih Lanjut
-          <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-          </svg>
-        </a>
-      </div>
+      <p class="text-base text-slate-600 leading-relaxed border-l-4 border-blue-200 pl-5">
+        Akordium membantu merapikan titik-titik itu menjadi alur kerja digital yang lebih jelas, terukur, dan mudah dijalankan oleh tim sehari-hari.
+      </p>
     </div>
   </div>
 </section>
