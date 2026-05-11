@@ -130,32 +130,89 @@ const philosophyPillars = [
   </section>
 
   <!-- Philosophy -->
-  <section class="py-20 bg-slate-950">
+  <section class="py-24 bg-slate-950">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl mx-auto text-center mb-14">
+
+      <!-- Header -->
+      <div class="max-w-xl mb-16">
         <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Di balik nama</p>
-        <h2 class="text-3xl font-extrabold text-white mb-4">Mengapa "Akordium Lab"?</h2>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-white mb-4 leading-snug">Mengapa "Akordium Lab"?</h2>
         <p class="text-slate-400 leading-relaxed">
           Nama ini bukan sekadar branding. Ada cara pandang di dalamnya tentang bagaimana kami ingin bekerja bersama klien.
         </p>
       </div>
 
-      <div class="grid md:grid-cols-3 gap-5">
-        {philosophyPillars.map((p) => (
-          <div class={`rounded-2xl border p-7 ${p.accent}`}>
-            <span class={`text-3xl font-serif ${p.symbolColor} block mb-5`}>{p.symbol}</span>
-            <h3 class="text-base font-bold text-white mb-3">{p.title}</h3>
-            <p class="text-sm text-slate-400 leading-relaxed">{p.body}</p>
+      <!-- Pillars: vertical rows -->
+      <div class="space-y-0 divide-y divide-white/5">
+        {philosophyPillars.map((p, i) => (
+          <div class={`py-12 grid lg:grid-cols-[1fr_2fr] gap-8 lg:gap-16 items-start`}>
+            <!-- Left: symbol + label -->
+            <div class="flex items-center gap-5 lg:flex-col lg:items-start lg:gap-4">
+              <div class={`w-16 h-16 rounded-2xl border flex items-center justify-center text-2xl shrink-0 ${p.accent}`}>
+                <span class={p.symbolColor}>{p.symbol}</span>
+              </div>
+              <h3 class="text-lg font-bold text-white leading-snug">{p.title}</h3>
+            </div>
+            <!-- Right: body -->
+            <p class="text-base text-slate-400 leading-relaxed max-w-2xl">{p.body}</p>
           </div>
         ))}
       </div>
 
       <!-- Closing note -->
-      <div class="mt-10 max-w-2xl mx-auto text-center">
-        <p class="text-slate-500 text-sm leading-relaxed">
-          Singkatnya: kami ingin ikut <span class="text-slate-300 font-medium">bernapas bersama proses bisnis Anda</span> — bukan datang, serahkan sistem, lalu pergi.
-          Seperti akordeon yang hanya berbunyi indah kalau dua tangannya bekerja bersama.
+      <div class="mt-12 pt-10 border-t border-white/5">
+        <p class="text-slate-500 text-sm leading-relaxed max-w-2xl">
+          Singkatnya: kami ingin ikut <span class="text-slate-300 font-medium">bernapas bersama proses bisnis Anda</span> — bukan datang, serahkan sistem, lalu pergi. Seperti akordeon yang hanya berbunyi indah kalau dua tangannya bekerja bersama.
         </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Core Values -->
+  <section class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-[1fr_2fr] gap-12 lg:gap-20">
+
+        <!-- Left: heading -->
+        <div class="lg:sticky lg:top-28 self-start">
+          <p class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-3">Cara kerja kami</p>
+          <h2 class="text-3xl font-extrabold text-slate-900 mb-4 leading-snug">
+            Nilai yang mendasari setiap proyek
+          </h2>
+          <p class="text-slate-500 text-sm leading-relaxed">
+            Filosofi di atas menentukan <em>mengapa</em> kami ada. Ini menentukan <em>bagaimana</em> kami bekerja di setiap proyek — dari diskusi awal hingga serah terima sistem.
+          </p>
+        </div>
+
+        <!-- Right: value cards -->
+        <div class="space-y-4">
+          {values.map((v, i) => (
+            <div class="flex gap-5 items-start p-6 rounded-2xl bg-slate-50 border border-slate-100 hover:border-blue-100 hover:bg-blue-50/30 transition-all group">
+              <div class="w-12 h-12 bg-white rounded-xl border border-slate-200 flex items-center justify-center shrink-0 group-hover:border-blue-200 group-hover:bg-blue-50 transition-all">
+                <div class="w-5 h-5 text-blue-600" set:html={v.icon} />
+              </div>
+              <div>
+                <h3 class="font-bold text-slate-900 mb-1.5">{v.title}</h3>
+                <p class="text-sm text-slate-500 leading-relaxed">{v.description}</p>
+              </div>
+            </div>
+          ))}
+
+          <!-- Extra value: kolaborasi -->
+          <div class="flex gap-5 items-start p-6 rounded-2xl bg-blue-600 border border-blue-600">
+            <div class="w-12 h-12 bg-white/15 rounded-xl flex items-center justify-center shrink-0">
+              <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"/>
+              </svg>
+            </div>
+            <div>
+              <h3 class="font-bold text-white mb-1.5">Kolaborasi, bukan transaksi</h3>
+              <p class="text-sm text-blue-100 leading-relaxed">Kami ingin memahami bisnis Anda sebelum menulis satu baris kode pun. Karena sistem terbaik lahir dari pemahaman yang dalam, bukan asumsi.</p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -188,32 +245,11 @@ const philosophyPillars = [
     </div>
   </section>
 
-  <!-- Values -->
-  <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center mb-12">
-        <p class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-3">Cara kerja kami</p>
-        <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Nilai-nilai yang mendasari setiap proyek</h2>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        {values.map(v => (
-          <div class="bg-slate-50 rounded-2xl p-7 border border-slate-100 hover:border-blue-100 hover:shadow-lg transition-all">
-            <div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center mb-4">
-              <div class="w-6 h-6 text-blue-600" set:html={v.icon} />
-            </div>
-            <h3 class="font-bold text-slate-900 mb-2">{v.title}</h3>
-            <p class="text-sm text-slate-500 leading-relaxed">{v.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
   <!-- CTA -->
   <section class="py-16 bg-slate-950">
     <div class="max-w-3xl mx-auto px-4 text-center">
       <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Ada proyek yang ingin dibangun?</h2>
-      <p class="text-slate-400 mb-8 leading-relaxed">Ceritakan kebutuhan bisnis Anda — kami akan diskusikan solusi yang paling masuk akal dan realistis.</p>
+      <p class="text-slate-400 mb-8 leading-relaxed">Ceritakan kebutuhan bisnis Anda, kami akan diskusikan solusi yang paling masuk akal dan realistis.</p>
       <a href="/contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-500 transition-all">
         Hubungi Kami
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
