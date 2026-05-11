@@ -27,6 +27,30 @@ const experiences = [
   { year: "2025–kini", role: "Backend Developer", place: "Vastel (Orin GPS)", desc: "Migrasi sistem GPS tracker ke Go + PostgreSQL + TimescaleDB; 8.000 tps, 3 TB/bulan." },
   { year: "2026–kini", role: "Founder & Developer", place: "PT Akordium Digital Berkah", desc: "MIS-APAR untuk CV Andika Jaya Infinite, dashboard internal @sabagya.co, dan layanan klien lainnya." },
 ];
+
+const philosophyPillars = [
+  {
+    symbol: "♩",
+    title: "Akordeon — Harmoni dua tangan",
+    body: "Akordeon dimainkan dengan dua tangan: satu untuk melodi, satu untuk harmoni. Keduanya harus bergerak bersama agar musik terdengar baik. Begitu juga cara kami bekerja — pengetahuan bisnis Anda dan keahlian teknis kami harus selaras untuk menghasilkan sistem yang benar-benar berguna.",
+    accent: "border-blue-500/30 bg-blue-500/5",
+    symbolColor: "text-blue-400",
+  },
+  {
+    symbol: "⚗",
+    title: "Lab — Jujur dan iteratif",
+    body: "Laboratorium bukan tempat yang serba sempurna — tapi tempat di mana masalah diteliti dengan jujur, hipotesis diuji, dan kesalahan menjadi bahan pelajaran. Kami membawa semangat itu ke setiap proyek: tidak ada janji besar, tapi ada proses yang disiplin dan bisa dipertanggungjawabkan.",
+    accent: "border-emerald-500/30 bg-emerald-500/5",
+    symbolColor: "text-emerald-400",
+  },
+  {
+    symbol: "✦",
+    title: "Berkah — Teknologi yang bermanfaat",
+    body: "Teknologi hanya sebaik manfaat yang ia bawa. Sistem terbaik bukan yang paling canggih, tapi yang paling membantu tim bekerja lebih mudah setiap harinya. Kami percaya bahwa pekerjaan baik yang dilakukan dengan niat baik akan menghasilkan sesuatu yang berkelanjutan.",
+    accent: "border-amber-500/30 bg-amber-500/5",
+    symbolColor: "text-amber-400",
+  },
+];
 ---
 
 <Layout title="Tentang Kami — Akordium Lab" description="Kenali Akordium Lab lebih dalam — studio IT kecil yang fokus pada sistem bisnis yang benar-benar bekerja.">
@@ -101,6 +125,37 @@ const experiences = [
             </div>
           </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Philosophy -->
+  <section class="py-20 bg-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto text-center mb-14">
+        <p class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-3">Di balik nama</p>
+        <h2 class="text-3xl font-extrabold text-white mb-4">Mengapa "Akordium Lab"?</h2>
+        <p class="text-slate-400 leading-relaxed">
+          Nama ini bukan sekadar branding. Ada cara pandang di dalamnya tentang bagaimana kami ingin bekerja bersama klien.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-5">
+        {philosophyPillars.map((p) => (
+          <div class={`rounded-2xl border p-7 ${p.accent}`}>
+            <span class={`text-3xl font-serif ${p.symbolColor} block mb-5`}>{p.symbol}</span>
+            <h3 class="text-base font-bold text-white mb-3">{p.title}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{p.body}</p>
+          </div>
+        ))}
+      </div>
+
+      <!-- Closing note -->
+      <div class="mt-10 max-w-2xl mx-auto text-center">
+        <p class="text-slate-500 text-sm leading-relaxed">
+          Singkatnya: kami ingin ikut <span class="text-slate-300 font-medium">bernapas bersama proses bisnis Anda</span> — bukan datang, serahkan sistem, lalu pergi.
+          Seperti akordeon yang hanya berbunyi indah kalau dua tangannya bekerja bersama.
+        </p>
       </div>
     </div>
   </section>
