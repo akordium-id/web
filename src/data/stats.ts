@@ -5,8 +5,8 @@ export interface Stat {
 }
 
 export const stats: Stat[] = [
-  { value: "200+", label: "Projects Completed", labelId: "Proyek Selesai" },
-  { value: "95%", label: "Client Satisfaction", labelId: "Kepuasan Klien" },
-  { value: "40%", label: "Average Cost Savings", labelId: "Penghematan Biaya" },
-  { value: "50+", label: "Active Partners", labelId: "Mitra Aktif" },
+  { value: "7+", label: "Clients Handled", labelId: "Instansi Ditangani" },
+  { value: "4×", label: "Throughput Improvement", labelId: "Peningkatan Performa" },
+  { value: "5+", label: "Years of Experience", labelId: "Tahun Pengalaman" },
+  { value: "75%", label: "Test Coverage Achieved", labelId: "Test Coverage" },
 ];
