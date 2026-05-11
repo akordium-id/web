@@ -1,31 +1,82 @@
 ---
+const painPoints = [
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M7 21h10M12 3v6m0 0l-3-3m3 3l3-3M5 10h14a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2z" />`,
+    color: "text-orange-500",
+    bg: "bg-orange-50",
+    label: "Data tersebar",
+    desc: "Chat, spreadsheet, dan catatan manual yang tidak terhubung satu sama lain.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />`,
+    color: "text-blue-500",
+    bg: "bg-blue-50",
+    label: "Sulit dipantau",
+    desc: "Status penjualan, stok, dan lapangan tidak bisa dilihat secara real-time.",
+  },
+  {
+    icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />`,
+    color: "text-violet-500",
+    bg: "bg-purple-50",
+    label: "Terlalu bergantung orang",
+    desc: "Proses internal hanya berjalan kalau ada orang tertentu yang tahu caranya.",
+  },
+];
 ---
 
-<section class="py-20 lg:py-28 bg-slate-50">
+<section class="py-20 lg:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-3xl mx-auto">
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-tight mb-6">
-        Banyak bisnis kecil-menengah sebenarnya tidak kekurangan kerja keras;<br class="hidden sm:block" />
-        <span class="text-blue-600">yang sering kurang adalah sistemnya.</span>
-      </h2>
 
-      <ul class="space-y-4 mb-8">
-        {[
-          "Data masih tersebar di chat, spreadsheet, dan catatan manual.",
-          "Status penjualan, stok, invoice, atau pekerjaan lapangan tidak mudah dipantau.",
-          "Website sudah ada, tetapi belum mendukung operasional atau alur administrasi.",
-          "Bisnis mulai berkembang, tetapi proses internal masih bergantung pada orang tertentu.",
-        ].map(item => (
-          <li class="flex items-start gap-3 text-slate-600">
-            <span class="mt-1.5 w-2 h-2 rounded-full bg-blue-500 shrink-0"></span>
-            <span class="text-base leading-relaxed">{item}</span>
-          </li>
+    <div class="grid lg:grid-cols-2 gap-16 items-center">
+
+      <!-- Left: Narasi -->
+      <div>
+        <p class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-4">Kenapa ini penting</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-snug mb-6">
+          Bukan kurang kerja keras,<br class="hidden sm:block" />
+          tapi <span class="text-blue-600">sistem yang belum ada.</span>
+        </h2>
+        <p class="text-base text-slate-500 leading-relaxed mb-8">
+          Banyak bisnis yang sudah berjalan bertahun-tahun, tapi operasionalnya masih melelahkan karena prosesnya belum tertata. Akordium hadir untuk merapikan itu — bukan dengan solusi rumit, tapi dengan sistem yang langsung bisa dipakai tim sehari-hari.
+        </p>
+        <a href="/services" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group">
+          Lihat apa yang kami bangun
+          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
+      </div>
+
+      <!-- Right: Pain point cards -->
+      <div class="space-y-4">
+        {painPoints.map((p) => (
+          <div class="flex items-start gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50/60 hover:border-slate-200 hover:bg-slate-50 transition-colors">
+            <div class={`w-10 h-10 ${p.bg} rounded-xl flex items-center justify-center shrink-0`}>
+              <svg class={`w-5 h-5 ${p.color}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <Fragment set:html={p.icon} />
+              </svg>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-slate-800 mb-0.5">{p.label}</p>
+              <p class="text-sm text-slate-500 leading-relaxed">{p.desc}</p>
+            </div>
+          </div>
         ))}
-      </ul>
 
-      <p class="text-base text-slate-600 leading-relaxed border-l-4 border-blue-200 pl-5">
-        Akordium membantu merapikan titik-titik itu menjadi alur kerja digital yang lebih jelas, terukur, dan mudah dijalankan oleh tim sehari-hari.
-      </p>
+        <!-- Resolution note -->
+        <div class="flex items-start gap-4 p-5 rounded-2xl bg-blue-600 border border-blue-600">
+          <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-semibold text-white mb-0.5">Akordium merapikannya</p>
+            <p class="text-sm text-blue-100 leading-relaxed">Sistem digital yang jelas, terukur, dan mudah dijalankan tim sehari-hari.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
