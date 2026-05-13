@@ -31,17 +31,17 @@ const painPoints = [
 
       <!-- Left: Narasi -->
       <div>
-        <p class="text-sm font-semibold text-blue-600 uppercase tracking-wider mb-4">Kenapa ini penting</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 leading-snug mb-6">
+        <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">Kenapa ini penting</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-snug mb-6">
           Bukan kurang kerja keras,<br class="hidden sm:block" />
           tapi <span class="text-blue-600">sistem yang belum ada.</span>
         </h2>
-        <p class="text-base text-slate-500 leading-relaxed mb-8">
+        <p class="text-base text-slate-500 leading-relaxed mb-8 max-w-lg">
           Banyak bisnis yang sudah berjalan bertahun-tahun, tapi operasionalnya masih melelahkan karena prosesnya belum tertata. Akordium hadir untuk merapikan itu — bukan dengan solusi rumit, tapi dengan sistem yang langsung bisa dipakai tim sehari-hari.
         </p>
-        <a href="/services" class="inline-flex items-center gap-2 text-sm font-semibold text-blue-600 hover:text-blue-700 transition-colors group">
+        <a href="/services" class="inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white text-sm font-semibold rounded-xl hover:bg-blue-700 active:scale-95 transition-all shadow-sm shadow-blue-200">
           Lihat apa yang kami bangun
-          <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
@@ -50,7 +50,7 @@ const painPoints = [
       <!-- Right: Pain point cards -->
       <div class="space-y-4">
         {painPoints.map((p) => (
-          <div class="flex items-start gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50/60 hover:border-slate-200 hover:bg-slate-50 transition-colors">
+          <div class="flex items-start gap-4 p-5 rounded-2xl border border-slate-100 bg-slate-50 hover:border-slate-200 hover:bg-white hover:shadow-sm transition-all">
             <div class={`w-10 h-10 ${p.bg} rounded-xl flex items-center justify-center shrink-0`}>
               <svg class={`w-5 h-5 ${p.color}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <Fragment set:html={p.icon} />
@@ -64,8 +64,8 @@ const painPoints = [
         ))}
 
         <!-- Resolution note -->
-        <div class="flex items-start gap-4 p-5 rounded-2xl bg-blue-600 border border-blue-600">
-          <div class="w-10 h-10 bg-white/15 rounded-xl flex items-center justify-center shrink-0">
+        <div class="flex items-start gap-4 p-5 rounded-2xl bg-blue-600 border border-blue-600 shadow-lg shadow-blue-100">
+          <div class="w-10 h-10 bg-white/20 rounded-xl flex items-center justify-center shrink-0">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M5 13l4 4L19 7" />
             </svg>
@@ -78,5 +78,6 @@ const painPoints = [
       </div>
 
     </div>
+
   </div>
 </section>

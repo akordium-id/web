@@ -7,29 +7,25 @@ const options = pricingTiers;     // all three as right-side selectable options
 <section id="pricing" class="py-20 lg:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
-    <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
-      <div>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-2">
-          Harga Fleksibel untuk Setiap Bisnis
-        </h2>
-        <p class="text-slate-500 text-sm">
-          Di Akordium Lab, kami percaya pada transparansi harga. Paket kami cocok untuk semua bisnis — dari startup hingga enterprise.
-        </p>
-      </div>
-      <a href="/contact" class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 group whitespace-nowrap">
-        Explore Plans
-        <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
+    <div class="text-center mb-14">
+      <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">Harga</p>
+      <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-tight mb-4">
+        Harga Fleksibel untuk<br class="hidden sm:block" /> Setiap Bisnis
+      </h2>
+      <p class="text-slate-500 text-sm max-w-xl mx-auto leading-relaxed">
+        Di Akordium Lab, kami percaya pada transparansi harga. Paket kami cocok untuk semua bisnis — dari startup hingga enterprise.
+      </p>
     </div>
 
     <!-- Main layout: featured card left + options right -->
     <div class="grid lg:grid-cols-2 gap-8 items-start">
 
       <!-- Left: Featured plan detail card -->
-      <div class="bg-blue-600 rounded-2xl p-8 text-white shadow-2xl shadow-blue-200">
-        <h3 class="text-xl font-bold mb-1">{featured.name} Plan</h3>
+      <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white shadow-2xl shadow-blue-100">
+        <div class="inline-flex items-center gap-2 bg-white/15 rounded-full px-3 py-1 text-xs font-semibold mb-5">
+          {featured.badge && <span>{featured.badge}</span>}
+        </div>
+        <h3 class="text-2xl font-bold mb-1">{featured.name} Plan</h3>
         <p class="text-blue-100 text-sm mb-6">{featured.descriptionId}</p>
 
         <ul class="space-y-3 mb-8">
@@ -47,7 +43,7 @@ const options = pricingTiers;     // all three as right-side selectable options
 
         <a
           href="/contact"
-          class="block w-full text-center py-3 bg-white text-blue-600 font-bold rounded-xl hover:bg-blue-50 active:scale-95 transition-all"
+          class="block w-full text-center py-3.5 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 active:scale-95 transition-all"
         >
           {featured.ctaTextId}
         </a>
@@ -56,7 +52,7 @@ const options = pricingTiers;     // all three as right-side selectable options
       <!-- Right: Selectable pricing options -->
       <div class="space-y-4">
         {options.map((tier, i) => (
-          <label class={`flex items-center gap-5 p-5 rounded-2xl border-2 cursor-pointer transition-all hover:border-blue-300 hover:shadow-md ${
+          <label class={`flex items-center gap-5 p-5 rounded-2xl border-2 cursor-pointer transition-all hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 ${
             i === 0 ? 'border-blue-500 bg-blue-50/50' : 'border-slate-100 bg-white'
           }`}>
             <!-- Radio -->
@@ -89,6 +85,13 @@ const options = pricingTiers;     // all three as right-side selectable options
         <p class="text-xs text-slate-400 pt-2 px-1">
           Semua harga belum termasuk PPN. Hubungi kami untuk kebutuhan custom atau konsultasi gratis.
         </p>
+
+        <a href="/contact" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-blue-600 transition-colors mt-2">
+          Diskusikan kebutuhan Anda
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </a>
       </div>
     </div>
   </div>

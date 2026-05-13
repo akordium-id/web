@@ -1,29 +1,70 @@
 ---
 ---
 
-<section class="py-24 bg-slate-900 relative overflow-hidden">
-  <!-- Subtle radial glow -->
-  <div class="absolute inset-0 overflow-hidden pointer-events-none">
-    <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] rounded-full bg-blue-600/10 blur-3xl"></div>
+<section class="py-24 relative overflow-hidden bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800">
+  <!-- Background decoration -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-white/5 blur-3xl"></div>
+    <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-indigo-500/20 blur-3xl"></div>
+    <!-- Subtle dot grid -->
+    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
   </div>
 
-  <div class="relative max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+  <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 bg-white/15 border border-white/20 rounded-full px-4 py-1.5 text-sm text-white font-medium mb-8">
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+      </svg>
+      Mulai sekarang — gratis
+    </div>
+
     <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
-      Operasional bisnis mulai terasa padat?<br class="hidden sm:block" />
-      <span class="text-blue-400">Bantu sistem Anda lebih rapi.</span>
+      Operasional bisnis mulai<br class="hidden sm:block" />
+      terasa padat?
     </h2>
-    <p class="text-slate-400 text-base mb-4 max-w-2xl mx-auto leading-relaxed">
-      Akordium membantu bisnis kecil-menengah bekerja lebih tertata melalui website dan sistem informasi yang praktis, terstruktur, dan mudah dipakai sehari-hari.
+    <p class="text-blue-100 text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+      Akordium membantu bisnis kecil-menengah bekerja lebih tertata melalui website dan sistem informasi yang praktis. Konsultasi pertama gratis, tanpa komitmen.
     </p>
 
-    <a
-      href="/contact"
-      class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 active:scale-95 transition-all shadow-xl shadow-blue-900/30 text-sm mt-6"
-    >
-      Jadwalkan konsultasi
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-      </svg>
-    </a>
+    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 active:scale-95 transition-all shadow-xl text-sm w-full sm:w-auto"
+      >
+        Jadwalkan konsultasi
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </a>
+      <a
+        href="/services"
+        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 border border-white/20 text-white font-semibold rounded-xl hover:bg-white/20 active:scale-95 transition-all text-sm w-full sm:w-auto"
+      >
+        Lihat layanan kami
+      </a>
+    </div>
+
+    <!-- Trust signals -->
+    <div class="mt-10 flex flex-wrap items-center justify-center gap-6 text-blue-200 text-sm">
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-blue-300" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        Tanpa biaya awal
+      </span>
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-blue-300" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        Respon cepat dalam 24 jam
+      </span>
+      <span class="flex items-center gap-2">
+        <svg class="w-4 h-4 text-blue-300" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+        </svg>
+        20+ bisnis telah dipercaya
+      </span>
+    </div>
   </div>
 </section>

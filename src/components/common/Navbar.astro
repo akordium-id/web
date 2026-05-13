@@ -1,8 +1,8 @@
 ---
 const navLinks = [
   { href: "/", label: "Beranda" },
-  { href: "/about", label: "Tentang" },
   { href: "/services", label: "Layanan" },
+  { href: "/about", label: "Tentang" },
   { href: "/blog", label: "Blog" },
 ];
 const currentPath = Astro.url.pathname;
@@ -10,12 +10,12 @@ const currentPath = Astro.url.pathname;
 
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50">
   <!-- Announcement bar -->
-  <div id="announcement-bar" class="relative bg-slate-950 border-b border-white/5 py-2.5 px-4 text-center text-sm text-slate-400">
+  <div id="announcement-bar" class="relative bg-blue-600 py-2 px-4 text-center text-sm text-white">
     <span>✦ Sistem Informasi Manajemen kini tersedia untuk bisnis Anda.</span>
-    <a href="/services" class="ml-2 text-blue-400 hover:text-blue-300 font-semibold transition-colors">
+    <a href="/services" class="ml-2 font-semibold underline underline-offset-2 hover:no-underline transition-all">
       Pelajari selengkapnya →
     </a>
-    <button id="close-bar" class="absolute right-4 top-1/2 -translate-y-1/2 text-slate-600 hover:text-slate-300 transition-colors" aria-label="Tutup pengumuman">
+    <button id="close-bar" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors" aria-label="Tutup pengumuman">
       <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
       </svg>
@@ -23,17 +23,17 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Main nav -->
-  <div class="bg-slate-950/95 backdrop-blur-md border-b border-white/5">
+  <div class="bg-white border-b border-slate-200 shadow-sm">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-2.5 group">
-          <div class="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center group-hover:bg-blue-400 transition-colors">
+          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
             </svg>
           </div>
-          <span class="font-bold text-lg text-white tracking-tight">Akordium <span class="text-blue-400">Lab</span></span>
+          <span class="font-bold text-lg text-slate-900 tracking-tight">Akordium <span class="text-blue-600">Lab</span></span>
         </a>
 
         <!-- Desktop Nav -->
@@ -44,8 +44,8 @@ const currentPath = Astro.url.pathname;
                 href={link.href}
                 class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-                    ? 'text-white bg-white/10'
-                    : 'text-slate-400 hover:text-white hover:bg-white/5'
+                    ? 'text-blue-600 bg-blue-50'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
                 {link.label}
@@ -55,17 +55,17 @@ const currentPath = Astro.url.pathname;
         </ul>
 
         <!-- CTA -->
-        <div class="hidden lg:flex items-center gap-4">
-          <a href="/contact" class="text-sm font-medium text-slate-400 hover:text-white transition-colors">
+        <div class="hidden lg:flex items-center gap-3">
+          <a href="/contact" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
             Kontak
           </a>
-          <a href="/contact" class="px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-500 active:scale-95 transition-all">
+          <a href="/contact" class="px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 active:scale-95 transition-all shadow-sm">
             Mulai Sekarang
           </a>
         </div>
 
         <!-- Mobile Hamburger -->
-        <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-slate-400 hover:text-white hover:bg-white/5 transition-colors" aria-label="Toggle menu">
+        <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
           <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -78,22 +78,22 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-white/5 bg-slate-950">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white shadow-lg">
     <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
       {navLinks.map((link) => (
         <a
           href={link.href}
           class={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
             currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-              ? 'text-white bg-white/10'
-              : 'text-slate-400 hover:text-white hover:bg-white/5'
+              ? 'text-blue-600 bg-blue-50'
+              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
           {link.label}
         </a>
       ))}
-      <div class="pt-3 border-t border-white/5 mt-3">
-        <a href="/contact" class="block w-full text-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-500 transition-colors">
+      <div class="pt-3 border-t border-slate-100 mt-3">
+        <a href="/contact" class="block w-full text-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
           Mulai Sekarang
         </a>
       </div>
@@ -131,6 +131,21 @@ const currentPath = Astro.url.pathname;
     iconClose?.classList.toggle('hidden', isOpen);
   });
 
+  // Add shadow on scroll
+  const mainNav = document.querySelector('#main-header .bg-white') as HTMLElement;
+  window.addEventListener('scroll', () => {
+    if (mainNav) {
+      if (window.scrollY > 10) {
+        mainNav.classList.add('shadow-md');
+        mainNav.classList.remove('shadow-sm');
+      } else {
+        mainNav.classList.remove('shadow-md');
+        mainNav.classList.add('shadow-sm');
+      }
+    }
+  });
+
   syncMainPadding();
   window.addEventListener('resize', syncMainPadding);
 </script>
+

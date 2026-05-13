@@ -1,153 +1,161 @@
 ---
 ---
 
-<section class="relative min-h-screen flex items-center overflow-hidden bg-slate-950">
-  <!-- Background -->
-  <div class="absolute inset-0 pointer-events-none">
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_70%_40%,rgba(37,99,235,0.12),transparent)]"></div>
-    <div class="absolute inset-0 bg-[radial-gradient(ellipse_50%_60%_at_0%_100%,rgba(37,99,235,0.08),transparent)]"></div>
-    <!-- Dot grid -->
-    <div class="absolute inset-0 opacity-[0.025]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 28px 28px;"></div>
+<section class="relative overflow-hidden bg-gradient-to-br from-white via-blue-50/40 to-indigo-50/30 pt-16 pb-0">
+  <!-- Background decorations -->
+  <div class="absolute inset-0 pointer-events-none overflow-hidden">
+    <div class="absolute -top-40 -right-40 w-[600px] h-[600px] rounded-full bg-blue-100/50 blur-3xl"></div>
+    <div class="absolute top-1/2 -left-40 w-[400px] h-[400px] rounded-full bg-indigo-100/40 blur-3xl"></div>
   </div>
 
-  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 lg:py-32">
-    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+  <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center py-16 lg:py-24">
 
       <!-- Left: Copy -->
       <div>
         <!-- Badge -->
-        <div class="inline-flex items-center gap-2 bg-blue-500/10 border border-blue-500/20 rounded-full px-4 py-1.5 text-sm text-blue-400 font-medium mb-8">
-          <span class="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse"></span>
+        <div class="inline-flex items-center gap-2 bg-blue-600/10 border border-blue-200 rounded-full px-4 py-1.5 text-sm text-blue-700 font-medium mb-8">
+          <span class="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse"></span>
           Solusi digital untuk bisnis Indonesia
         </div>
 
-        <h1 class="text-5xl sm:text-6xl lg:text-6xl font-extrabold text-white leading-tight tracking-tight">
-          Akordium,<br />
-          <span class="text-blue-400">sistem bisnis</span> lebih rapi
+        <h1 class="text-5xl sm:text-6xl lg:text-[64px] font-extrabold text-slate-900 leading-[1.05] tracking-tight">
+          Satu sistem,<br />
+          <span class="text-blue-600">bisnis lebih</span><br />
+          tertata.
         </h1>
-        <p class="mt-6 text-lg text-slate-400 leading-relaxed max-w-xl">
+        <p class="mt-6 text-lg text-slate-600 leading-relaxed max-w-xl">
           Akordium membantu bisnis kecil-menengah merapikan operasional melalui website dan sistem informasi yang praktis, terstruktur, dan mudah dipakai sehari-hari.
         </p>
 
-        <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-5">
-          <a href="/contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-500 active:scale-95 transition-all shadow-lg shadow-blue-900/50">
-            Hubungi kami
+        <div class="mt-10 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <a href="/contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 active:scale-95 transition-all shadow-lg shadow-blue-200">
+            Mulai Sekarang — Gratis
             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
-          <a href="/services" class="inline-flex items-center gap-1.5 text-slate-400 hover:text-white font-medium text-sm transition-colors group">
-            Lihat layanan kami
-            <svg class="w-4 h-4 group-hover:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          <a href="/services" class="inline-flex items-center gap-1.5 text-slate-600 hover:text-blue-600 font-medium text-sm transition-colors group border border-slate-200 hover:border-blue-200 px-6 py-3.5 rounded-xl">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
+            Lihat Layanan Kami
           </a>
         </div>
 
         <!-- Social proof -->
-        <div class="mt-12 flex items-center gap-4 pt-10 border-t border-white/5">
+        <div class="mt-10 flex items-center gap-4 pt-8 border-t border-slate-200">
           <div class="flex -space-x-2">
-            <div class="w-8 h-8 rounded-full bg-blue-600 border-2 border-slate-950 flex items-center justify-center text-xs font-bold text-white">A</div>
-            <div class="w-8 h-8 rounded-full bg-emerald-600 border-2 border-slate-950 flex items-center justify-center text-xs font-bold text-white">B</div>
-            <div class="w-8 h-8 rounded-full bg-violet-600 border-2 border-slate-950 flex items-center justify-center text-xs font-bold text-white">C</div>
-            <div class="w-8 h-8 rounded-full bg-orange-600 border-2 border-slate-950 flex items-center justify-center text-xs font-bold text-white">D</div>
+            <div class="w-8 h-8 rounded-full bg-blue-600 border-2 border-white flex items-center justify-center text-xs font-bold text-white">A</div>
+            <div class="w-8 h-8 rounded-full bg-emerald-600 border-2 border-white flex items-center justify-center text-xs font-bold text-white">B</div>
+            <div class="w-8 h-8 rounded-full bg-violet-600 border-2 border-white flex items-center justify-center text-xs font-bold text-white">C</div>
+            <div class="w-8 h-8 rounded-full bg-orange-500 border-2 border-white flex items-center justify-center text-xs font-bold text-white">D</div>
           </div>
           <p class="text-sm text-slate-500">
-            <span class="text-slate-300 font-semibold">20+ bisnis</span> sudah mempercayai Akordium
+            <span class="text-slate-900 font-semibold">20+ bisnis</span> sudah mempercayai Akordium
           </p>
+          <div class="flex items-center gap-0.5 ml-2">
+            {[1,2,3,4,5].map(() => (
+              <svg class="w-4 h-4 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              </svg>
+            ))}
+          </div>
         </div>
       </div>
 
-      <!-- Right: UI Mockup Cards -->
-      <div class="relative hidden lg:flex items-center justify-center h-[480px]">
+      <!-- Right: UI Mockup Cards on light background -->
+      <div class="relative hidden lg:flex items-center justify-center h-[500px]">
+
+        <!-- Shadow base plate -->
+        <div class="absolute inset-8 bg-white rounded-3xl shadow-2xl border border-slate-100"></div>
 
         <!-- Main card: Sales dashboard -->
-        <div class="absolute top-0 right-0 w-[300px] bg-slate-900 border border-white/8 rounded-2xl shadow-2xl shadow-black/60 p-5">
+        <div class="absolute top-4 right-4 w-[310px] bg-white border border-slate-200 rounded-2xl shadow-xl p-5">
           <div class="flex items-center justify-between mb-4">
-            <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Ringkasan Penjualan</p>
-            <span class="inline-flex items-center gap-1 text-xs text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full">
-              <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <p class="text-xs font-semibold text-slate-500 uppercase tracking-wider">Ringkasan Penjualan</p>
+            <span class="inline-flex items-center gap-1 text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 px-2 py-0.5 rounded-full">
+              <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
               Live
             </span>
           </div>
           <div class="grid grid-cols-2 gap-3 mb-5">
-            <div class="bg-slate-800/60 rounded-xl p-3">
-              <p class="text-[11px] text-slate-500">Bulan Ini</p>
-              <p class="text-xl font-bold text-white mt-1">Rp 128jt</p>
-              <p class="text-xs text-emerald-400 mt-0.5">↑ 12.4%</p>
+            <div class="bg-blue-50 rounded-xl p-3">
+              <p class="text-[11px] text-blue-600/70 font-medium">Bulan Ini</p>
+              <p class="text-xl font-bold text-slate-900 mt-1">Rp 128jt</p>
+              <p class="text-xs text-emerald-600 mt-0.5 font-medium">↑ 12.4%</p>
             </div>
-            <div class="bg-slate-800/60 rounded-xl p-3">
-              <p class="text-[11px] text-slate-500">Transaksi</p>
-              <p class="text-xl font-bold text-white mt-1">384</p>
-              <p class="text-xs text-emerald-400 mt-0.5">↑ 8.1%</p>
+            <div class="bg-slate-50 rounded-xl p-3">
+              <p class="text-[11px] text-slate-500 font-medium">Transaksi</p>
+              <p class="text-xl font-bold text-slate-900 mt-1">384</p>
+              <p class="text-xs text-emerald-600 mt-0.5 font-medium">↑ 8.1%</p>
             </div>
           </div>
           <!-- Bar chart -->
           <div class="flex items-end gap-1 h-14">
-            {[30, 55, 40, 70, 50, 85, 65, 80, 55, 90, 70, 100].map((h) => (
-              <div class={`flex-1 rounded-sm ${h === 100 ? 'bg-blue-500' : 'bg-blue-600/30'}`} style={`height: ${h}%`}></div>
+            {[30, 55, 40, 70, 50, 85, 65, 80, 55, 90, 70, 100].map((h, i) => (
+              <div class={`flex-1 rounded-sm ${i === 11 ? 'bg-blue-600' : 'bg-blue-200'}`} style={`height: ${h}%`}></div>
             ))}
           </div>
           <div class="flex justify-between mt-1.5">
             {['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'].map((m) => (
-              <span class="text-[8px] text-slate-600 flex-1 text-center">{m[0]}</span>
+              <span class="text-[8px] text-slate-400 flex-1 text-center">{m[0]}</span>
             ))}
           </div>
         </div>
 
-        <!-- Floating card: Inventory -->
-        <div class="absolute top-[180px] left-0 w-[210px] bg-slate-900 border border-white/8 rounded-2xl shadow-xl shadow-black/50 p-4">
+        <!-- Floating card: Inventory status -->
+        <div class="absolute top-[200px] left-4 w-[220px] bg-white border border-slate-200 rounded-2xl shadow-lg p-4">
           <div class="flex items-center gap-2.5 mb-3">
-            <div class="w-8 h-8 bg-emerald-500/15 rounded-lg flex items-center justify-center shrink-0">
-              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center">
+              <svg class="w-4 h-4 text-indigo-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
               </svg>
             </div>
             <div>
-              <p class="text-xs font-bold text-white">Stok Terpantau</p>
-              <p class="text-[11px] text-slate-500">142 produk aktif</p>
+              <p class="text-xs font-semibold text-slate-700">Stok Inventory</p>
+              <p class="text-[11px] text-slate-400">Diperbarui 2m lalu</p>
             </div>
           </div>
           <div class="space-y-2">
-            <div class="flex justify-between text-[11px] mb-1">
-              <span class="text-slate-500">Kapasitas gudang</span>
-              <span class="text-slate-300 font-medium">78%</span>
-            </div>
-            <div class="h-1.5 bg-slate-800 rounded-full">
-              <div class="h-full w-[78%] bg-emerald-500 rounded-full"></div>
-            </div>
+            {[
+              { label: "Produk A", pct: 82, color: "bg-blue-500" },
+              { label: "Produk B", pct: 47, color: "bg-emerald-500" },
+              { label: "Produk C", pct: 93, color: "bg-indigo-500" },
+            ].map((item) => (
+              <div>
+                <div class="flex justify-between mb-1">
+                  <span class="text-[11px] text-slate-600">{item.label}</span>
+                  <span class="text-[11px] font-semibold text-slate-700">{item.pct}%</span>
+                </div>
+                <div class="h-1.5 bg-slate-100 rounded-full overflow-hidden">
+                  <div class={`h-full ${item.color} rounded-full`} style={`width: ${item.pct}%`}></div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 
-        <!-- Floating card: Report done -->
-        <div class="absolute bottom-0 right-8 w-[250px] bg-slate-900 border border-white/8 rounded-2xl shadow-xl shadow-black/50 p-4">
-          <div class="flex items-center gap-2.5 mb-2.5">
-            <div class="w-7 h-7 bg-blue-500/15 rounded-lg flex items-center justify-center shrink-0">
-              <svg class="w-3.5 h-3.5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-            </div>
-            <p class="text-xs font-semibold text-white">Laporan Q1 Selesai</p>
+        <!-- Notification badge -->
+        <div class="absolute bottom-10 right-8 w-[200px] bg-white border border-slate-200 rounded-xl shadow-md p-3.5 flex items-center gap-3">
+          <div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0">
+            <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+            </svg>
           </div>
-          <p class="text-[11px] text-slate-500 leading-relaxed">Laporan bulanan berhasil dibuat dan dikirim otomatis ke manajemen.</p>
-          <div class="flex items-center gap-2 mt-3">
-            <div class="flex -space-x-1">
-              <div class="w-5 h-5 rounded-full bg-blue-600 border border-slate-900 text-[9px] font-bold text-white flex items-center justify-center">R</div>
-              <div class="w-5 h-5 rounded-full bg-violet-600 border border-slate-900 text-[9px] font-bold text-white flex items-center justify-center">A</div>
-            </div>
-            <span class="text-[10px] text-slate-600">2 jam lalu</span>
+          <div>
+            <p class="text-xs font-semibold text-slate-800">Invoice dikirim</p>
+            <p class="text-[11px] text-slate-500">PT. Maju Bersama · barusan</p>
           </div>
         </div>
 
-        <!-- Connecting line decoration -->
-        <div class="absolute inset-0 pointer-events-none">
-          <svg class="w-full h-full opacity-10" viewBox="0 0 400 480" fill="none">
-            <path d="M 210 80 Q 180 180 120 210" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4 4"/>
-            <path d="M 210 80 Q 230 300 260 380" stroke="#3b82f6" stroke-width="1" stroke-dasharray="4 4"/>
-          </svg>
-        </div>
       </div>
+    </div>
 
+    <!-- Bottom wave divider into next section -->
+    <div class="relative -mb-px">
+      <div class="h-16 bg-gradient-to-b from-transparent to-slate-50"></div>
     </div>
   </div>
 </section>
+
