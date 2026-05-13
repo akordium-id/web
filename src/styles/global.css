@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, sans-serif;
+  --font-sans: "Sora", "Inter", system-ui, sans-serif;
+  --font-body: "Manrope", "Inter", system-ui, sans-serif;
 
   /* Layout dimensions */
   --nav-height: 72px;
@@ -18,6 +18,17 @@
   --color-primary-700: #6b1438;
   --color-primary-800: #54102d;
   --color-primary-900: #3d0c21;
+}
+
+/* Font pair switcher: `modern` (default) and `editorial` */
+body[data-font-pair="modern"] {
+  --font-sans: "Sora", "Inter", system-ui, sans-serif;
+  --font-body: "Manrope", "Inter", system-ui, sans-serif;
+}
+
+body[data-font-pair="editorial"] {
+  --font-sans: "Source Serif 4", "Times New Roman", serif;
+  --font-body: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
 }
 
 /* Odoo-inspired smooth scrolling and base */
