@@ -8,42 +8,75 @@ const icons: Record<string, string> = {
 };
 
 const iconColors: Record<string, { bg: string; icon: string }> = {
-  globe: { bg: 'bg-blue-100', icon: 'text-blue-600' },
-  chart: { bg: 'bg-indigo-100', icon: 'text-indigo-600' },
-  cog: { bg: 'bg-violet-100', icon: 'text-violet-600' },
+  globe: { bg: 'bg-rose-50', icon: 'text-rose-800' },
+  chart: { bg: 'bg-purple-50', icon: 'text-purple-800' },
+  cog: { bg: 'bg-rose-50', icon: 'text-rose-800' },
+};
+
+// Outcome-first content mapping (business impact → implementation)
+const outcomeContent: Record<string, { description?: string; bullets: string[] }> = {
+  'company-profile': {
+    bullets: [
+      'Kredibilitas bisnis meningkat di mata calon klien',
+      'Pesan dan layanan bisnis tersampaikan dengan jelas',
+      'Kehadiran digital yang meyakinkan untuk first impression',
+      'Desain responsif profesional & siap jadi pondasi sistem lanjutan',
+    ],
+  },
+  'dashboard-web': {
+    bullets: [
+      'Keputusan lebih cepat dengan data real-time yang jelas',
+      'Produktivitas tim naik tanpa bolak-balik spreadsheet',
+      'Proses kerja internal lebih tertata dan transparan',
+      'Dashboard dan web admin yang mudah dipakai setiap hari',
+    ],
+  },
+  'mis-operasional': {
+    description:
+      'Operasional lebih lancar dengan sistem yang menjaga revenue, inventory, dan workflow tetap terkendali dalam satu alur kerja.',
+    bullets: [
+      'Revenue tracking lebih akurat, order tidak terlewat',
+      'Inventory dan aset terpantau, maintenance tepat waktu',
+      'Workflow antarbagian lancar tanpa delay dokumen',
+      'Sistem terintegrasi yang praktis untuk operasional harian',
+    ],
+  },
 };
 ---
 
-<section id="services" class="py-20 lg:py-28 bg-slate-50">
+<section id="services" class="py-20 lg:py-28 bg-stone-50">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-16">
-      <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">Layanan Kami</p>
+      <p class="text-xs font-bold text-rose-800 uppercase tracking-widest mb-4">Layanan Kami</p>
       <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-tight mb-5">
-        Solusi web untuk bisnis<br />
-        <span class="text-blue-600">yang lebih tertata</span>
+        Hasil bisnis yang<br />
+        <span class="text-rose-800">terukur & berkelanjutan</span>
       </h2>
       <p class="text-slate-500 max-w-xl mx-auto leading-relaxed">
-        Kami membangun website dan sistem informasi yang praktis, terstruktur, dan mudah dipakai sehari-hari oleh tim Anda.
+        Kami membantu bisnis Anda tumbuh lewat sistem yang berdampak langsung pada operasional dan revenue.
       </p>
     </div>
 
-    <!-- Cards — Odoo app-grid style -->
+    <!-- Cards | Premium modular outcome-focused -->
     <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-      {services.map((service) => (
-        <div class="group relative bg-white rounded-2xl border border-slate-100 p-8 hover:border-blue-100 hover:shadow-xl hover:shadow-blue-50/80 hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
+      {services.map((service) => {
+        const outcome = outcomeContent[service.id];
+
+        return (
+        <div class="group relative bg-white rounded-2xl border border-slate-200 p-8 hover:border-rose-200 hover:shadow-xl hover:shadow-rose-50/60 hover:-translate-y-1.5 transition-all duration-300 flex flex-col">
           <!-- Icon -->
-          <div class={`w-14 h-14 ${iconColors[service.icon]?.bg ?? 'bg-blue-100'} rounded-2xl flex items-center justify-center mb-6`}>
-            <div class={`w-7 h-7 ${iconColors[service.icon]?.icon ?? 'text-blue-600'}`} set:html={icons[service.icon]} />
+          <div class={`w-14 h-14 ${iconColors[service.icon]?.bg ?? 'bg-rose-50'} rounded-2xl flex items-center justify-center mb-6`}>
+            <div class={`w-7 h-7 ${iconColors[service.icon]?.icon ?? 'text-rose-800'}`} aria-hidden="true" set:html={icons[service.icon]} />
           </div>
           <!-- Content -->
           <h3 class="text-xl font-bold text-slate-900 mb-3">{service.title}</h3>
-          <p class="text-slate-500 text-sm leading-relaxed mb-6">{service.description}</p>
-          <!-- Features -->
+          <p class="text-slate-600 text-sm leading-relaxed mb-6">{outcome?.description ?? service.description}</p>
+          <!-- Outcomes -->
           <ul class="space-y-2.5 mb-8 flex-1">
-            {service.features.map(feat => (
+            {(outcome?.bullets ?? service.features).map(feat => (
               <li class="flex items-start gap-2.5 text-sm text-slate-600">
-                <svg class="w-4 h-4 text-blue-500 shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20">
+                <svg class="w-4 h-4 text-rose-700 shrink-0 mt-0.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
                   <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
                 </svg>
                 {feat}
@@ -53,21 +86,22 @@ const iconColors: Record<string, { bg: string; icon: string }> = {
           <!-- CTA -->
           <a
             href={`/services#${service.id}`}
-            class="inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 group/link mt-auto"
+            class="inline-flex items-center gap-1.5 text-sm font-semibold text-rose-800 hover:text-rose-900 group/link mt-auto"
           >
-            Pelajari Lebih Lanjut
-            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            Lihat Selengkapnya
+            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
             </svg>
           </a>
         </div>
-      ))}
+        );
+      })}
     </div>
 
     <div class="mt-12 text-center">
-      <a href="/contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-slate-900 text-white font-semibold rounded-xl hover:bg-blue-600 transition-colors shadow-sm">
-        Konsultasikan segera
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <a href="/contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-slate-900 text-white font-semibold rounded-xl hover:bg-rose-800 transition-colors shadow-sm">
+        Diskusikan kebutuhan Anda
+        <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
         </svg>
       </a>

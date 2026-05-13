@@ -4,14 +4,20 @@
   --font-sans: "Plus Jakarta Sans", "Inter", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
 
-  --color-primary-50: #eff6ff;
-  --color-primary-100: #dbeafe;
-  --color-primary-200: #bfdbfe;
-  --color-primary-500: #3b82f6;
-  --color-primary-600: #2563eb;
-  --color-primary-700: #1d4ed8;
-  --color-primary-800: #1e40af;
-  --color-primary-900: #1e3a8a;
+  /* Layout dimensions */
+  --nav-height: 72px;
+
+  /* Warm maroon/plum brand palette */
+  --color-primary-50: #faf5f7;
+  --color-primary-100: #f4e6ed;
+  --color-primary-200: #e8c5d8;
+  --color-primary-300: #d68bb8;
+  --color-primary-400: #b74f85;
+  --color-primary-500: #9f1853;
+  --color-primary-600: #831843;
+  --color-primary-700: #6b1438;
+  --color-primary-800: #54102d;
+  --color-primary-900: #3d0c21;
 }
 
 /* Odoo-inspired smooth scrolling and base */
@@ -19,8 +25,33 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Utility Classes */
+.section-shell {
+  @apply max-w-7xl mx-auto px-6 py-20 sm:px-8 lg:px-12;
+}
+
+.section-heading {
+  @apply font-sans text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-stone-900;
+}
+
+.eyebrow {
+  @apply font-sans text-sm sm:text-base font-semibold uppercase tracking-wider text-primary-600;
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors duration-200 shadow-sm hover:shadow-md;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-stone-300 text-stone-700 font-semibold hover:border-primary-600 hover:text-primary-600 transition-all duration-200;
+}
+
+.surface-card {
+  @apply bg-white border border-stone-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200;
+}
+
 /* Subtle section transition helper */
 .section-divider {
   height: 1px;
-  background: linear-gradient(to right, transparent, #e2e8f0, transparent);
+  background: linear-gradient(to right, transparent, #e7e5e4, transparent);
 }

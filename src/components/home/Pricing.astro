@@ -1,66 +1,51 @@
 ---
 import { pricingTiers } from '../../data/pricing';
-const featured = pricingTiers[0]; // Starter — featured left card
-const options = pricingTiers;     // all three as right-side selectable options
+const tiersJson = JSON.stringify(pricingTiers);
 ---
 
 <section id="pricing" class="py-20 lg:py-28 bg-white">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-14">
-      <p class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-4">Harga</p>
+      <p class="text-xs font-bold text-rose-800 uppercase tracking-widest mb-4">Cara Kolaborasi</p>
       <h2 class="text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-slate-900 leading-tight mb-4">
-        Harga Fleksibel untuk<br class="hidden sm:block" /> Setiap Bisnis
+        Pilih cara kolaborasi yang sesuai<br class="hidden sm:block" /> dengan ritme bisnis Anda.
       </h2>
       <p class="text-slate-500 text-sm max-w-xl mx-auto leading-relaxed">
-        Di Akordium Lab, kami percaya pada transparansi harga. Paket kami cocok untuk semua bisnis — dari startup hingga enterprise.
+        Kami tidak memaksa paket tertentu. Pilih pendekatan yang paling masuk akal untuk kebutuhan dan tahap bisnis Anda saat ini.
       </p>
     </div>
 
     <!-- Main layout: featured card left + options right -->
     <div class="grid lg:grid-cols-2 gap-8 items-start">
 
-      <!-- Left: Featured plan detail card -->
-      <div class="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-8 text-white shadow-2xl shadow-blue-100">
-        <div class="inline-flex items-center gap-2 bg-white/15 rounded-full px-3 py-1 text-xs font-semibold mb-5">
-          {featured.badge && <span>{featured.badge}</span>}
-        </div>
-        <h3 class="text-2xl font-bold mb-1">{featured.name} Plan</h3>
-        <p class="text-blue-100 text-sm mb-6">{featured.descriptionId}</p>
-
-        <ul class="space-y-3 mb-8">
-          {featured.features.map(feat => (
-            <li class={`flex items-center gap-3 text-sm ${feat.included ? 'text-white' : 'text-blue-300/60'}`}>
-              <span class={`w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${feat.included ? 'bg-white/20' : 'bg-white/10'}`}>
-                <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-              </span>
-              {feat.text}
-            </li>
-          ))}
-        </ul>
-
-        <a
-          href="/contact"
-          class="block w-full text-center py-3.5 bg-white text-blue-700 font-bold rounded-xl hover:bg-blue-50 active:scale-95 transition-all"
-        >
-          {featured.ctaTextId}
-        </a>
+      <!-- Left: Featured plan detail card (dynamic) -->
+      <div id="pricing-featured" class="bg-gradient-to-br from-rose-800 to-purple-900 rounded-2xl p-8 text-white shadow-2xl shadow-rose-100">
+        <div id="pricing-badge-wrap" class="inline-flex items-center gap-2 bg-white/15 rounded-full px-3 py-1 text-xs font-semibold mb-5"></div>
+        <h3 id="pricing-name" class="text-2xl font-bold mb-1"></h3>
+        <p id="pricing-desc" class="text-rose-200 text-sm mb-6"></p>
+        <ul id="pricing-features" class="space-y-3 mb-8"></ul>
+        <a id="pricing-cta" href="/contact" class="block w-full text-center py-3.5 bg-white text-rose-800 font-bold rounded-xl hover:bg-rose-50 active:scale-95 transition-all"></a>
       </div>
 
       <!-- Right: Selectable pricing options -->
-      <div class="space-y-4">
-        {options.map((tier, i) => (
-          <label class={`flex items-center gap-5 p-5 rounded-2xl border-2 cursor-pointer transition-all hover:border-blue-300 hover:shadow-md hover:-translate-y-0.5 ${
-            i === 0 ? 'border-blue-500 bg-blue-50/50' : 'border-slate-100 bg-white'
-          }`}>
-            <!-- Radio -->
-            <div class={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-              i === 0 ? 'border-blue-600' : 'border-slate-300'
-            }`}>
-              {i === 0 && <div class="w-2.5 h-2.5 rounded-full bg-blue-600"></div>}
-            </div>
+      <div class="space-y-4" role="radiogroup" aria-label="Pilih paket">
+        {pricingTiers.map((tier, i) => (
+          <label
+            class="pricing-option flex items-center gap-5 p-5 rounded-2xl border-2 cursor-pointer transition-all hover:border-rose-300 hover:shadow-md hover:-translate-y-0.5 border-slate-100 bg-white"
+            data-tier-id={tier.id}
+          >
+            <input
+              type="radio"
+              name="pricing-tier"
+              value={tier.id}
+              class="sr-only"
+              checked={i === 0}
+            />
+            <!-- Radio indicator -->
+            <span class="radio-indicator w-5 h-5 rounded-full border-2 border-slate-300 flex items-center justify-center shrink-0 transition-colors">
+              <span class="radio-dot w-2.5 h-2.5 rounded-full bg-transparent transition-colors"></span>
+            </span>
 
             <!-- Content -->
             <div class="flex-1 min-w-0">
@@ -76,8 +61,10 @@ const options = pricingTiers;     // all three as right-side selectable options
             <!-- Price -->
             <div class="text-right shrink-0">
               <p class="text-2xl font-extrabold text-slate-900">{tier.price}</p>
-              {tier.period && <p class="text-xs text-slate-400">{tier.period}</p>}
-              {!tier.period && <p class="text-xs text-slate-400">custom</p>}
+              {tier.period
+                ? <p class="text-xs text-slate-400">{tier.period}</p>
+                : <p class="text-xs text-slate-400">custom</p>
+              }
             </div>
           </label>
         ))}
@@ -86,9 +73,9 @@ const options = pricingTiers;     // all three as right-side selectable options
           Semua harga belum termasuk PPN. Hubungi kami untuk kebutuhan custom atau konsultasi gratis.
         </p>
 
-        <a href="/contact" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-blue-600 transition-colors mt-2">
+        <a href="/contact" class="flex items-center justify-center gap-2 w-full py-3 bg-slate-900 text-white text-sm font-semibold rounded-xl hover:bg-rose-800 transition-colors mt-2">
           Diskusikan kebutuhan Anda
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </a>
@@ -96,3 +83,71 @@ const options = pricingTiers;     // all three as right-side selectable options
     </div>
   </div>
 </section>
+
+<script define:vars={{ tiersJson }}>
+  const tiers = JSON.parse(tiersJson);
+
+  function renderFeatured(tier) {
+    // Badge
+    const badgeWrap = document.getElementById('pricing-badge-wrap');
+    badgeWrap.textContent = tier.badge ?? '';
+    badgeWrap.style.display = tier.badge ? '' : 'none';
+
+    document.getElementById('pricing-name').textContent = tier.name + ' Plan';
+    document.getElementById('pricing-desc').textContent = tier.descriptionId;
+
+    const featEl = document.getElementById('pricing-features');
+    featEl.innerHTML = tier.features.map(feat => `
+      <li class="flex items-center gap-3 text-sm ${feat.included ? 'text-white' : 'text-rose-300/60'}">
+        <span class="w-5 h-5 rounded-full flex items-center justify-center shrink-0 ${feat.included ? 'bg-white/20' : 'bg-white/10'}">
+          <svg class="w-3 h-3" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
+            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+          </svg>
+        </span>
+        ${feat.text}
+      </li>
+    `).join('');
+
+    document.getElementById('pricing-cta').textContent = tier.ctaTextId;
+  }
+
+  function updateSelected(selectedId) {
+    document.querySelectorAll('.pricing-option').forEach(label => {
+      const input = label.querySelector('input[type="radio"]');
+      const indicator = label.querySelector('.radio-indicator');
+      const dot = label.querySelector('.radio-dot');
+      const isSelected = label.dataset.tierId === selectedId;
+
+      input.checked = isSelected;
+
+      if (isSelected) {
+        label.classList.add('border-rose-700', 'bg-rose-50/50');
+        label.classList.remove('border-slate-100', 'bg-white');
+        indicator.classList.add('border-rose-700');
+        indicator.classList.remove('border-slate-300');
+        dot.classList.add('bg-rose-700');
+        dot.classList.remove('bg-transparent');
+      } else {
+        label.classList.remove('border-rose-700', 'bg-rose-50/50');
+        label.classList.add('border-slate-100', 'bg-white');
+        indicator.classList.remove('border-rose-700');
+        indicator.classList.add('border-slate-300');
+        dot.classList.remove('bg-rose-700');
+        dot.classList.add('bg-transparent');
+      }
+    });
+
+    const tier = tiers.find(t => t.id === selectedId);
+    if (tier) renderFeatured(tier);
+  }
+
+  // Wire up click handlers
+  document.querySelectorAll('.pricing-option').forEach(label => {
+    label.addEventListener('click', () => {
+      updateSelected(label.dataset.tierId);
+    });
+  });
+
+  // Init with first tier
+  updateSelected(tiers[0].id);
+</script>
