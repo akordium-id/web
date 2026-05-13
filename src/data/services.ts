@@ -9,41 +9,38 @@ export interface Service {
 export const services: Service[] = [
   {
     id: "company-profile",
-    title: "Website company profile",
+    title: "Website Company Profile",
     description:
-      "Profesional dan jelas, pondasi bisnis hadir secara digital dengan lebih meyakinkan.",
+      "Pondasi awal untuk membangun kepercayaan Anda di dunia digital.",
     icon: "globe",
     features: [
-      "Desain profesional dan responsif",
-      "Menjelaskan layanan bisnis dengan jelas",
-      "Kehadiran digital yang meyakinkan",
-      "Pondasi untuk sistem internal berikutnya",
+      "Tampil profesional di mata klien sejak impresi pertama",
+      "Memastikan nilai bisnis Anda dipahami dengan mudah",
+      "Desain responsif yang siap menjadi pintu masuk bagi sistem bisnis yang lebih besar nantinya",
     ],
   },
   {
     id: "dashboard-web",
-    title: "Dashboard dan web internal",
+    title: "Dashboard dan Sistem Internal",
     description:
-      "Platform pengelola data, memantau aktivitas, dan menjalankan proses kerja internal lebih tertata. Ketika spreadsheet dan chat sudah tidak cukup.",
+      "Platform yang hadir ketika spreadsheet dan chat sudah tidak cukup.",
     icon: "chart",
     features: [
-      "Dashboard pengelolaan data tim",
-      "Pemantauan aktivitas dan laporan",
-      "Web admin untuk proses kerja internal",
-      "Menggantikan spreadsheet dan chat manual",
+      "Pantau kondisi bisnis lewat data real-time yang mudah dibaca",
+      "Berhenti membuang waktu untuk koordinasi manual yang melelahkan",
+      "Pantau setiap proses dari awal hingga akhir dengan transparan dan rapi",
     ],
   },
   {
     id: "mis-operasional",
-    title: "MIS operasional",
+    title: "MIS (Management Information System) Operasional",
     description:
-      "Management information system untuk penjualan, inventory, maintenance, invoice, dan workflow antarbagian.",
+      "Menjaga operasional tetap lancar, dan kendali tetap di tangan Anda.",
     icon: "cog",
     features: [
-      "Sistem penjualan dan inventory",
-      "Manajemen aset, maintenance, dan invoice",
-      "Workflow dan dokumen antarbagian",
-      "Sistem yang praktis dan mudah dipakai tim",
+      "Pastikan tidak ada pesanan yang terlewat atau tagihan yang terlupakan",
+      "Pantau stok dan jadwal perawatan aset secara otomatis dan akurat",
+      "Hubungkan antar divisi tanpa kendala dokumen yang tertunda atau hilang di tengah jalan",
     ],
   },
 ];
