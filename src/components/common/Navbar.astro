@@ -9,31 +9,18 @@ const currentPath = Astro.url.pathname;
 ---
 
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50">
-  <!-- Announcement bar -->
-  <div id="announcement-bar" class="relative bg-blue-600 py-2 px-4 text-center text-sm text-white">
-    <span>✦ Sistem Informasi Manajemen kini tersedia untuk bisnis Anda.</span>
-    <a href="/services" class="ml-2 font-semibold underline underline-offset-2 hover:no-underline transition-all">
-      Pelajari selengkapnya →
-    </a>
-    <button id="close-bar" class="absolute right-4 top-1/2 -translate-y-1/2 text-white/70 hover:text-white transition-colors" aria-label="Tutup pengumuman">
-      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
-  </div>
-
   <!-- Main nav -->
-  <div class="bg-white border-b border-slate-200 shadow-sm">
+  <div data-main-nav class="bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-2.5 group">
-          <div class="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center group-hover:bg-blue-500 transition-colors">
+          <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center group-hover:bg-primary-700 transition-colors">
             <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
             </svg>
           </div>
-          <span class="font-bold text-lg text-slate-900 tracking-tight">Akordium <span class="text-blue-600">Lab</span></span>
+          <span class="font-bold text-lg text-slate-900 tracking-tight">Akordium <span class="text-primary-600">Lab</span></span>
         </a>
 
         <!-- Desktop Nav -->
@@ -44,7 +31,7 @@ const currentPath = Astro.url.pathname;
                 href={link.href}
                 class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-                    ? 'text-blue-600 bg-blue-50'
+                    ? 'text-primary-600 bg-primary-50'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                 }`}
               >
@@ -55,17 +42,14 @@ const currentPath = Astro.url.pathname;
         </ul>
 
         <!-- CTA -->
-        <div class="hidden lg:flex items-center gap-3">
-          <a href="/contact" class="text-sm font-medium text-slate-600 hover:text-slate-900 transition-colors">
-            Kontak
-          </a>
-          <a href="/contact" class="px-5 py-2 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 active:scale-95 transition-all shadow-sm">
-            Mulai Sekarang
+        <div class="hidden lg:flex items-center">
+          <a href="/contact" class="px-5 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 active:scale-95 transition-all shadow-sm hover:shadow-md">
+            Hubungi Kami
           </a>
         </div>
 
         <!-- Mobile Hamburger -->
-        <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" aria-label="Toggle menu">
+        <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" aria-label="Toggle menu" aria-expanded="false">
           <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -85,7 +69,7 @@ const currentPath = Astro.url.pathname;
           href={link.href}
           class={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
             currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-              ? 'text-blue-600 bg-blue-50'
+              ? 'text-primary-600 bg-primary-50'
               : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
           }`}
         >
@@ -93,8 +77,8 @@ const currentPath = Astro.url.pathname;
         </a>
       ))}
       <div class="pt-3 border-t border-slate-100 mt-3">
-        <a href="/contact" class="block w-full text-center px-5 py-2.5 bg-blue-600 text-white text-sm font-semibold rounded-lg hover:bg-blue-700 transition-colors">
-          Mulai Sekarang
+        <a href="/contact" class="block w-full text-center px-5 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition-colors">
+          Hubungi Kami
         </a>
       </div>
     </div>
@@ -110,14 +94,6 @@ const currentPath = Astro.url.pathname;
     }
   }
 
-  // Announcement bar dismiss
-  const closeBar = document.getElementById('close-bar');
-  const bar = document.getElementById('announcement-bar');
-  closeBar?.addEventListener('click', () => {
-    bar?.remove();
-    syncMainPadding();
-  });
-
   // Mobile menu toggle
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
@@ -129,18 +105,19 @@ const currentPath = Astro.url.pathname;
     menu?.classList.toggle('hidden', isOpen);
     iconOpen?.classList.toggle('hidden', !isOpen);
     iconClose?.classList.toggle('hidden', isOpen);
+    toggle?.setAttribute('aria-expanded', String(!isOpen));
   });
 
-  // Add shadow on scroll
-  const mainNav = document.querySelector('#main-header .bg-white') as HTMLElement;
+  // Add premium scroll state with elevated surface separation
+  const mainNav = document.querySelector('[data-main-nav]') as HTMLElement;
   window.addEventListener('scroll', () => {
     if (mainNav) {
       if (window.scrollY > 10) {
-        mainNav.classList.add('shadow-md');
-        mainNav.classList.remove('shadow-sm');
+        mainNav.classList.remove('bg-white/90', 'backdrop-blur-xl', 'border-slate-200/60', 'shadow-sm');
+        mainNav.classList.add('bg-white', 'backdrop-blur-2xl', 'border-slate-300/80', 'shadow-lg', 'shadow-slate-200/50');
       } else {
-        mainNav.classList.remove('shadow-md');
-        mainNav.classList.add('shadow-sm');
+        mainNav.classList.remove('bg-white', 'backdrop-blur-2xl', 'border-slate-300/80', 'shadow-lg', 'shadow-slate-200/50');
+        mainNav.classList.add('bg-white/90', 'backdrop-blur-xl', 'border-slate-200/60', 'shadow-sm');
       }
     }
   });
