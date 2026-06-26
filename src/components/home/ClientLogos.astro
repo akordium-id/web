@@ -1,9 +1,10 @@
 ---
-const trustMarkers = [
-  { label: "7+ instansi", sublabel: "dipercaya" },
-  { label: "Perbankan", sublabel: "hingga UMKM" },
-  { label: "4× throughput", sublabel: "peningkatan rata-rata" },
-  { label: "5+ tahun", sublabel: "pengalaman" },
+const clientNames = [
+  "Bank Mega",
+  "Teavaro",
+  "Orin GPS",
+  "CV Andika Jaya",
+  "Sabagya.co",
 ];
 ---
 
@@ -15,23 +16,22 @@ const trustMarkers = [
       
       <!-- Left: Headline -->
       <div class="text-center md:text-left">
-        <p class="eyebrow text-xs mb-2">Rekam Jejak</p>
+        <p class="eyebrow text-xs mb-2">Klien Kami</p>
         <h3 class="font-sans text-xl sm:text-2xl font-bold text-stone-900">
-          Dipercaya di berbagai industri
+          Dipercaya oleh mereka yang serius
         </h3>
       </div>
 
-      <!-- Right: Inline trust metrics -->
-      <div class="flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
-        {trustMarkers.map((marker) => (
-          <div class="text-center">
-            <p class="font-sans text-lg sm:text-xl font-bold text-stone-900">{marker.label}</p>
-            <p class="text-xs text-stone-500 mt-0.5">{marker.sublabel}</p>
-          </div>
+      <!-- Right: Client names -->
+      <div class="flex flex-wrap items-center justify-center gap-x-6 gap-y-3">
+        {clientNames.map((client) => (
+          <span class="font-sans text-base sm:text-lg font-semibold text-primary-800">
+            {client}
+          </span>
         ))}
       </div>
 
     </div>
-
+    
   </div>
 </section>
