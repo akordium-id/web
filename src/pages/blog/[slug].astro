@@ -1,22 +1,24 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { blogPosts } from '../../data/blog';
-
-const { slug } = Astro.params;
-const post = blogPosts.find(p => p.slug === slug);
-
-if (!post) return Astro.redirect('/blog');
+import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
-  const { blogPosts } = await import('../../data/blog');
-  return blogPosts.map(post => ({
-    params: { slug: post.slug },
+  const posts = await getCollection("blog");
+  return posts.map((post) => ({
+    params: { slug: post.data.slug },
   }));
 }
+
+const { slug } = Astro.params;
+const posts = await getCollection("blog");
+const post = posts.find(p => p.data.slug === slug);
+
+if (!post) return Astro.redirect("/blog");
+
+const { Content } = await render(post);
 ---
 
-<Layout title={`${post.titleId} | Akordium Lab Blog`} description={post.excerptId}>
-  <!-- Hero -->
+<Layout title={`${post.data.titleId} | Akordium Lab Blog`} description={post.data.excerptId}>
   <section class="py-12 bg-slate-50 border-b border-slate-100">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <div class="mb-4">
@@ -27,37 +29,34 @@ export async function getStaticPaths() {
           Kembali ke Blog
         </a>
       </div>
-      <span class="inline-block px-2.5 py-1 bg-primary-600 text-white text-xs font-semibold rounded-lg mb-3">{post.category}</span>
-      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">{post.titleId}</h1>
-      <p class="text-lg text-slate-500 italic mb-4">{post.title}</p>
+      <span class="inline-block px-2.5 py-1 bg-primary-600 text-white text-xs font-semibold rounded-lg mb-3">{post.data.category}</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4 leading-tight">{post.data.titleId}</h1>
+      <p class="text-lg text-slate-500 italic mb-4">{post.data.title}</p>
       <div class="flex items-center gap-3 text-sm text-slate-400">
         <span>Akordium Lab Team</span>
         <span>·</span>
-        <span>{post.date}</span>
+        <span>{post.data.date}</span>
         <span>·</span>
-        <span>{post.readTime}</span>
+        <span>{post.data.readTime}</span>
       </div>
     </div>
   </section>
 
-  <!-- Featured image -->
   <div class="max-w-4xl mx-auto px-4 sm:px-6 mt-8">
     <img
-      src={post.image}
-      alt={post.titleId}
+      src={post.data.image}
+      alt={post.data.titleId}
       class="w-full h-64 sm:h-80 object-cover rounded-2xl shadow-lg shadow-slate-200"
       loading="lazy"
     />
   </div>
 
-  <!-- Content -->
   <article class="max-w-3xl mx-auto px-4 sm:px-6 py-12">
     <div class="prose prose-slate prose-lg max-w-none">
-      <p class="text-xl text-slate-600 font-medium mb-6 leading-relaxed">{post.excerptId}</p>
-      <div set:html={post.contentId}></div>
+      <p class="text-xl text-slate-600 font-medium mb-6 leading-relaxed">{post.data.excerptId}</p>
+      <Content />
     </div>
 
-    <!-- CTA -->
     <div class="mt-12 p-6 bg-primary-50 rounded-2xl border border-primary-200">
       <h3 class="font-bold text-slate-900 mb-2">Tertarik mendiskusikan hal ini lebih lanjut?</h3>
       <p class="text-slate-600 text-sm mb-4">Tim kami siap membantu Anda mengimplementasikan solusi yang dibahas dalam artikel ini.</p>
