@@ -1,0 +1,49 @@
+---
+import { testimonials } from '../../data/testimonials';
+---
+
+<section class="py-20 lg:py-28 bg-slate-50">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-3 py-1 bg-primary-50 text-primary-800 text-xs font-semibold rounded-full uppercase tracking-wider mb-4">Testimonial</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+        Kata Mereka yang Telah Bekerja Sama
+      </h2>
+      <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+        Dengarkan langsung klien kami tentang hasil yang mereka dapatkan.
+      </p>
+    </div>
+
+    <!-- Testimonials grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {testimonials.map((t) => (
+        <div class="bg-white rounded-2xl p-6 border border-slate-100 hover:border-primary-200 hover:shadow-lg transition-all">
+          <!-- Quote -->
+          <svg class="w-8 h-8 text-primary-200 mb-4" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M10 8h2v2c0 2.2-.8 4-2 4H8c-2.2 0-4-1.8-4-4V8c0-2.2 1.8-4 4-4h2c2.2 0 4 1.8 4 4zm8 0h2v2c0 2.2-.8 4-2 4h-2c-2.2 0-4-1.8-4-4V8c0-2.2 1.8-4 4-4h2c2.2 0 4 1.8 4 4z" />
+          </svg>
+          
+          <p class="text-slate-600 text-sm leading-relaxed mb-6 italic">
+            "{t.contentId}"
+          </p>
+
+          <!-- Author -->
+          <div class="flex items-center gap-3">
+            {t.avatar && (
+              <img
+                src={t.avatar}
+                alt={t.name}
+                class="w-12 h-12 rounded-full object-cover border-2 border-slate-100"
+              />
+            )}
+            <div>
+              <p class="font-semibold text-slate-900 text-sm">{t.name}</p>
+              <p class="text-slate-500 text-xs">{t.role}, {t.companyId}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>

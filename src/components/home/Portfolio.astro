@@ -1,0 +1,92 @@
+---
+import { portfolioItems } from '../../data/portfolio';
+---
+
+<section class="py-20 lg:py-28 bg-white">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <span class="inline-block px-3 py-1 bg-primary-50 text-primary-800 text-xs font-semibold rounded-full uppercase tracking-wider mb-4">Portofolio</span>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
+        Project yang Telah Kami Selesaikan
+      </h2>
+      <p class="text-lg text-slate-500 max-w-2xl mx-auto">
+        Studi kasus nyata dari migrasi sistem legacy ke arsitektur modern yang skalabel.
+      </p>
+    </div>
+
+    <!-- Projects grid -->
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {portfolioItems.map((item) => (
+        <div class="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300">
+          <!-- Image -->
+          <div class="relative overflow-hidden aspect-[16/9]">
+            <img
+              src={item.image}
+              alt={item.titleId}
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+              loading="lazy"
+            />
+          </div>
+
+          <!-- Content -->
+          <div class="p-6">
+            <h3 class="font-bold text-slate-900 text-lg mb-2 group-hover:text-primary-700 transition-colors">
+              {item.titleId}
+            </h3>
+            <p class="text-slate-500 text-sm leading-relaxed mb-4">
+              {item.descriptionId}
+            </p>
+
+            <!-- Tech Stack -->
+            <div class="flex flex-wrap gap-2 mb-4">
+              {item.techStack.map((tech) => (
+                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-md">
+                  {tech}
+                </span>
+              ))}
+            </div>
+
+            <!-- Metrics -->
+            <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100">
+              {item.metrics.slice(0, 3).map((metric) => (
+                <div class="text-center">
+                  <div class="font-bold text-primary-700 text-sm">{metric.value}</div>
+                  <div class="text-slate-400 text-xs">{metric.label}</div>
+                </div>
+              ))}
+            </div>
+
+            <!-- Links -->
+            <div class="flex gap-3 mt-4">
+              {item.liveUrl && (
+                <a
+                  href={item.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+                >
+                  Live Demo
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              )}
+              {item.caseStudyUrl && (
+                <a
+                  href={item.caseStudyUrl}
+                  class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors"
+                >
+                  Lihat Studi Kasus
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+              )}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
