@@ -23,6 +23,21 @@ const {
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
     <meta name="description" content={description} />
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:locale" content="id_ID" />
+    <meta property="og:site_name" content="Akordium Lab" />
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content="/og-image.png" />
+    
     <title>{title}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,6 +49,15 @@ const {
       <slot />
     </main>
     <Footer />
+    
+    <!-- Floating WhatsApp Button (mobile only) -->
+    <a href="https://wa.me/6285156123456" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat via WhatsApp">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="currentColor">
+        <path d="M16 0C7.16 0 0 7.16 0 16c0 2.75.75 5.38 2.07 7.71L0 32l8.49-2.12C10.63 31.25 13.25 32 16 32c8.84 0 16-7.16 16-16S24.84 0 16 0zm0 29.5c-2.55 0-5-.67-7.21-1.88l-5.12 1.36 1.36-5.12C4.17 21 3.5 19.05 3.5 16c0-7.37 6.03-13.4 13.4-13.4S29.4 8.63 29.4 16 23.37 29.4 16 29.4z"/>
+        <path d="M21.5 15.5c-.33-.83-1.5-1.5-2.5-1.5-1.25 0-2.25.75-3.75 1.25-.33.12-.75.17-1.12.08l-.12-.02c-.33-.07-.67-.07-1 .02-.33.05-.67.05-1-.02l-.12-.02c-.33-.05-.75-.05-1 .08-1.5-.5-2.75-1.25-3.75-1.25-1 .05-2.17.72-2.5 1.55-.17.5.25 1.67.88 2.75.42.75 1.17 1.5 2 2.12l.33.25c.25.17.5.33.75.33.17 0 .33-.05.5-.12.83-.33 1.83-1.25 2.5-.33.5.75.25 1.5.17 2 .08.83.5 1.67.88 2.25.33.5.75.67 1.25.67h.5c.5 0 .88-.25 1.25-.67.38-.58.75-1.42.88-2.25.08-.5-.17-1.25.17-2 .17-.5.5-.75 1-.75.25 0 .5.17.75.33l.33.25c.83-.62 1.5-1.37 2-2.12.67-.83 1.17-1.75.88-2.5z"/>
+      </svg>
+    </a>
+    
     <script>
       const params = new URLSearchParams(window.location.search);
       const fromQuery = params.get('font');
@@ -47,3 +71,30 @@ const {
     </script>
   </body>
 </html>
+
+<style>
+  .whatsapp-float {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    z-index: 100;
+    width: 56px;
+    height: 56px;
+    background-color: #25D366;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .whatsapp-float:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  }
+  @media (min-width: 768px) {
+    .whatsapp-float {
+      display: none;
+    }
+  }
+</style>
