@@ -15,7 +15,7 @@ const featured = blogPosts.slice(0, 4);
           Tetap terinformasi dengan insight terbaru dari tim Akordium Lab | dari tren teknologi hingga strategi digital yang membantu bisnis Anda selalu selangkah lebih maju.
         </p>
       </div>
-      <a href="/blog" class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-blue-600 hover:text-blue-700 group whitespace-nowrap">
+      <a href="/blog" class="shrink-0 inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 group whitespace-nowrap">
         Lihat Semua
         <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -27,7 +27,7 @@ const featured = blogPosts.slice(0, 4);
     <div class="grid sm:grid-cols-2 gap-6 lg:gap-8">
       {featured.map((post) => (
         <a href={`/blog/${post.slug}`} class="group block">
-          <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-blue-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+          <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-primary-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
             <!-- Image -->
             <div class="relative overflow-hidden aspect-[16/9]">
               <img
@@ -37,7 +37,7 @@ const featured = blogPosts.slice(0, 4);
                 loading="lazy"
               />
               <div class="absolute top-3 left-3">
-                <span class="px-2.5 py-1 bg-blue-600 text-white text-xs font-semibold rounded-lg">
+                <span class="px-2.5 py-1 bg-primary-600 text-white text-xs font-semibold rounded-lg">
                   {post.category}
                 </span>
               </div>
@@ -49,11 +49,11 @@ const featured = blogPosts.slice(0, 4);
                 <span>·</span>
                 <span>{post.readTime}</span>
               </div>
-              <h3 class="font-bold text-slate-900 text-base lg:text-lg leading-snug mb-2 group-hover:text-blue-600 transition-colors">
+              <h3 class="font-bold text-slate-900 text-base lg:text-lg leading-snug mb-2 group-hover:text-primary-600 transition-colors">
                 {post.titleId}
               </h3>
               <p class="text-sm text-slate-500 leading-relaxed line-clamp-2">{post.excerptId}</p>
-              <div class="flex items-center gap-1.5 mt-4 text-sm font-semibold text-blue-600 group-hover:gap-3 transition-all">
+              <div class="flex items-center gap-1.5 mt-4 text-sm font-semibold text-primary-600 group-hover:gap-3 transition-all">
                 Baca Selengkapnya
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />

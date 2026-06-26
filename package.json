@@ -8,15 +8,23 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "astro": "astro"
+    "astro": "astro",
+    "check": "astro check",
+    "lint": "eslint src --ext .js,.ts,.astro"
   },
   "dependencies": {
     "astro": "^6.2.2"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.9",
+    "@eslint/js": "^10.0.1",
     "@tailwindcss/vite": "^4.2.4",
     "@types/node": "^25.6.0",
-    "tailwindcss": "^4.2.4"
+    "eslint": "^10.5.0",
+    "eslint-plugin-astro": "^1.7.0",
+    "tailwindcss": "^4.2.4",
+    "typescript": "^6.0.3",
+    "typescript-eslint": "^8.62.0"
   },
   "overrides": {
     "vite": "^7"

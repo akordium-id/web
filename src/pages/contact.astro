@@ -200,7 +200,7 @@ const accessKey = import.meta.env.PUBLIC_WEB3FORMS_ACCESS_KEY;
   </section>
 </Layout>
 
-<script src="https://web3forms.com/client/script.js" async defer></script>
+<script is:inline src="https://web3forms.com/client/script.js" async defer></script>
 <script>
   // Set redirect URL dinamis agar berfungsi di semua environment (localhost & production)
   const redirectField = document.getElementById('redirect-field') as HTMLInputElement | null;

@@ -84,7 +84,7 @@ const tiersJson = JSON.stringify(pricingTiers);
   </div>
 </section>
 
-<script define:vars={{ tiersJson }}>
+<script is:inline define:vars={{ tiersJson }}>
   const tiers = JSON.parse(tiersJson);
 
   function renderFeatured(tier) {
