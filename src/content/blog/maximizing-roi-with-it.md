@@ -6,7 +6,8 @@ titleId: "Memaksimalkan ROI dengan IT"
 excerpt: "How strategic technology investment delivers measurable returns, reduces operational costs, and accelerates growth."
 excerptId: "Bagaimana investasi teknologi strategis memberikan hasil terukur, mengurangi biaya operasional, dan mempercepat pertumbuhan."
 date: "5 Mar 2026"
-readTime: "5 min read"
+readTime: "7 min read"
+author: "Akordium Lab Team"
 image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&auto=format&fit=crop&q=80"
 ---
 

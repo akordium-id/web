@@ -7,6 +7,7 @@ excerpt: "A practical guide to moving your business infrastructure to the cloud 
 excerptId: "Panduan praktis memindahkan infrastruktur bisnis Anda ke cloud tanpa downtime atau kerumitan."
 date: "3 Apr 2026"
 readTime: "5 min read"
+author: "Akordium Lab Team"
 image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=600&auto=format&fit=crop&q=80"
 ---
 

@@ -7,6 +7,7 @@ excerpt: "The right software architecture, combined with proper planning, lets y
 excerptId: "Arsitektur software yang tepat, dikombinasikan dengan perencanaan yang baik, membuat sistem Anda tumbuh bersama bisnis."
 date: "27 Mar 2026"
 readTime: "6 min read"
+author: "Akordium Lab Team"
 image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&auto=format&fit=crop&q=80"
 ---
 

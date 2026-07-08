@@ -14,6 +14,7 @@ const blog = defineCollection({
     readTime: z.string(),
     image: z.string(),
     slug: z.string(),
+    author: z.string().default("Akordium Lab Team"),
   }),
 });
 

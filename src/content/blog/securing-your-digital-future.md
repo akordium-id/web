@@ -7,6 +7,7 @@ excerpt: "Cybersecurity is no longer optional. Here's how to build a proactive s
 excerptId: "Keamanan siber bukan lagi pilihan. Inilah cara membangun postur keamanan proaktif untuk bisnis Anda."
 date: "15 Mar 2026"
 readTime: "7 min read"
+author: "Akordium Lab Team"
 image: "https://images.unsplash.com/photo-1563986768494-4dee2763ff3f?w=600&auto=format&fit=crop&q=80"
 ---
 

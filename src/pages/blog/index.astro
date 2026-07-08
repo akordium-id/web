@@ -4,27 +4,80 @@ import { getCollection } from 'astro:content';
 
 const blogPosts = await getCollection("blog");
 blogPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime());
+const featuredPost = blogPosts[0];
+const restPosts = blogPosts.slice(1);
 ---
 
 <Layout title="Blog | Akordium Lab" description="Artikel, tips, dan insights seputar teknologi IT untuk bisnis Indonesia dari tim Akordium Lab.">
-  <section class="py-20 bg-gradient-to-br from-stone-50 to-primary-50/20">
+  <!-- Hero -->
+  <section class="py-24 lg:py-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-      <span class="inline-block px-3 py-1 bg-primary-50 text-primary-800 text-xs font-semibold rounded-full uppercase tracking-wider mb-4">Blog</span>
-      <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 mb-4">
+      <span class="inline-block px-3 py-1 bg-primary-500/10 border border-primary-500/20 text-primary-400 text-xs font-semibold rounded-full uppercase tracking-wider mb-5">Blog</span>
+      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 mb-5 leading-tight">
         Insights & Inovasi
       </h1>
-      <p class="text-lg text-slate-500 max-w-xl mx-auto">
+      <p class="text-lg text-slate-500 max-w-2xl mx-auto leading-relaxed">
         Tips teknologi, strategi digital, dan berita terbaru dari tim Akordium Lab untuk membantu bisnis Anda berkembang.
       </p>
     </div>
   </section>
 
-  <section class="py-16 lg:py-20 bg-white">
+  <!-- Featured Post -->
+  {featuredPost && (
+    <section class="pb-16 lg:pb-24">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <a href={`/blog/${featuredPost.data.slug}`} class="group block">
+          <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-primary-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="grid lg:grid-cols-2">
+              <div class="relative overflow-hidden aspect-[16/9] lg:aspect-auto lg:min-h-[420px]">
+                <img
+                  src={featuredPost.data.image}
+                  alt={featuredPost.data.titleId}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="eager"
+                />
+                <div class="absolute top-4 left-4">
+                  <span class="px-3 py-1.5 bg-rose-800 text-white text-xs font-semibold rounded-lg shadow-sm">
+                    {featuredPost.data.category}
+                  </span>
+                </div>
+              </div>
+              <div class="p-8 lg:p-10 flex flex-col justify-center">
+                <div class="flex items-center gap-3 text-sm text-slate-400 mb-4">
+                  <span>{featuredPost.data.date}</span>
+                  <span class="w-1 h-1 rounded-full bg-slate-300"></span>
+                  <span>{featuredPost.data.readTime}</span>
+                </div>
+                <h2 class="text-2xl sm:text-3xl lg:text-4xl font-extrabold text-slate-900 leading-tight mb-4 group-hover:text-primary-700 transition-colors">
+                  {featuredPost.data.titleId}
+                </h2>
+                <p class="text-slate-500 leading-relaxed line-clamp-3 mb-6">
+                  {featuredPost.data.excerptId}
+                </p>
+                <div class="flex items-center gap-3">
+                  <div class="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center">
+                    <span class="text-rose-800 font-bold text-sm">{featuredPost.data.author.charAt(0)}</span>
+                  </div>
+                  <div>
+                    <span class="text-sm font-semibold text-slate-700 block">{featuredPost.data.author}</span>
+                    <span class="text-xs text-slate-400">Author</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
+  )}
+
+  <!-- Blog Grid -->
+  <section class="pb-20 lg:pb-28">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        {blogPosts.map(post => (
+      <div class="grid sm:grid-cols-2 gap-8">
+        {restPosts.map(post => (
           <a href={`/blog/${post.data.slug}`} class="group block">
-            <div class="rounded-2xl overflow-hidden border border-slate-100 hover:border-primary-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
+            <div class="bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-primary-200 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
               <div class="relative overflow-hidden aspect-video">
                 <img
                   src={post.data.image}
@@ -33,24 +86,43 @@ blogPosts.sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date)
                   loading="lazy"
                 />
                 <div class="absolute top-3 left-3">
-                  <span class="px-2.5 py-1 bg-primary-600 text-white text-xs font-semibold rounded-lg">{post.data.category}</span>
+                  <span class="px-2.5 py-1 bg-rose-800 text-white text-xs font-semibold rounded-lg shadow-sm">
+                    {post.data.category}
+                  </span>
                 </div>
               </div>
-              <div class="p-5">
-                <div class="flex items-center gap-2 text-xs text-slate-400 mb-3">
+              <div class="p-6">
+                <div class="flex items-center gap-2 text-sm text-slate-400 mb-3">
                   <span>{post.data.date}</span>
-                  <span>·</span>
+                  <span class="w-1 h-1 rounded-full bg-slate-300"></span>
                   <span>{post.data.readTime}</span>
                 </div>
-                <h2 class="font-bold text-slate-900 text-lg leading-snug mb-2 group-hover:text-primary-800 transition-colors">
+                <h2 class="font-bold text-slate-900 text-lg leading-snug mb-2 group-hover:text-primary-700 transition-colors">
                   {post.data.titleId}
                 </h2>
-                <p class="text-slate-500 text-sm leading-relaxed line-clamp-2">{post.data.excerptId}</p>
+                <p class="text-slate-500 text-sm leading-relaxed line-clamp-2 mb-4">{post.data.excerptId}</p>
+                <div class="flex items-center gap-1.5 text-sm font-semibold text-primary-600 group-hover:gap-3 transition-all">
+                  Baca Selengkapnya
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+                </div>
               </div>
             </div>
           </a>
         ))}
       </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20 bg-slate-950">
+    <div class="max-w-3xl mx-auto px-4 text-center">
+      <h2 class="text-2xl sm:text-3xl font-extrabold text-white mb-4">Ada proyek yang ingin dibangun?</h2>
+      <p class="text-slate-400 mb-3 leading-relaxed">Ceritakan kebutuhan bisnis Anda, kami diskusikan solusi yang paling masuk akal dan realistis.</p>
+      <p class="text-slate-500 text-sm mb-8">Diskusi awal tidak berbayar dan tidak mengikat.</p>
+      <a href="/contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-rose-800 text-white font-bold rounded-xl hover:bg-rose-700 transition-all">
+        Hubungi Kami
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" /></svg>
+      </a>
     </div>
   </section>
 </Layout>
