@@ -1,0 +1,12 @@
+{
+  "$schema": "https://agentskills.io/schema/0.2.0/agent-skills.json",
+  "skills": [
+    {
+      "name": "akordium-profile",
+      "type": "text/markdown",
+      "description": "Company profile for Akordium Lab — services (PHP to Go and MySQL to PostgreSQL migration, MIS/dashboard builds) and how to engage/contact.",
+      "url": "https://akordium.id/.well-known/agent-skills/akordium-profile.md",
+      "sha256": "458026d9a4a57d3cfb8fb972e5c73187806c92038faf89f2bd995fa5345375b2"
+    }
+  ]
+}
