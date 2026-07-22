@@ -5,14 +5,12 @@ interface ImportMetaEnv {
 // Cloudflare Workers runtime globals used by the Markdown-for-Agents function.
 // Declared ambient (not via @cloudflare/workers-types) to avoid DOM-lib conflicts.
 type HTMLRewriterElementHandler = {
-	element?(
-		element: {
-			tagName: string;
-			getAttribute(name: string): string | null;
-			remove(): void;
-			onEndTag(handler: () => void): void;
-		},
-	): void;
+	element?(element: {
+		tagName: string;
+		getAttribute(name: string): string | null;
+		remove(): void;
+		onEndTag(handler: () => void): void;
+	}): void;
 	text?(text: { text: string; lastInTextNode: boolean }): void;
 };
 
