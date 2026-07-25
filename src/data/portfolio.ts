@@ -11,17 +11,19 @@ export interface PortfolioItem {
   caseStudyUrl?: string;
 }
 
+// Case nyata engagement Akordium Lab. Framing: manfaat operasional dulu,
+// teknologi (Go/PostgreSQL) sebagai bukti kapabilitas, bukan headline.
 export const portfolioItems: PortfolioItem[] = [
   {
     id: "mis-apar",
-    title: "MIS-APAR: Fire Safety Management System",
-    titleId: "MIS-APAR: Sistem Manajemen Keselamatan Kebakaran",
-    description: "Legacy CodeIgniter 3 system migrated to Go with PostgreSQL, reducing server costs by 50% and improving response time by 87%.",
-    descriptionId: "Sistem legacy CodeIgniter 3 di-migrasi ke Go dengan PostgreSQL, mengurangi biaya server 50% dan memperbaiki response time 87%.",
+    title: "MIS-APAR: Fire Safety Operations System",
+    titleId: "MIS-APAR: Sistem Operasional Keselamatan Kebakaran",
+    description: "Unifies APAR inspections, stock, and maintenance scheduling into one workflow — so no extinguisher goes expired and no inspection gets missed. (Rebuilt from a legacy system to Go/PostgreSQL.)",
+    descriptionId: "Menyatukan inspeksi APAR, stok, dan jadwal perawatan dalam satu alur kerja — agar tidak ada alat kedaluwarsa atau inspeksi yang terlewat. (Dibangun ulang dari sistem lama ke Go/PostgreSQL.)",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
     techStack: ["Go", "PostgreSQL", "Docker", "Tailwind CSS"],
     metrics: [
-      { label: "Server Cost Reduction", value: "50%" },
+      { label: "Pengurangan Biaya Server", value: "50%" },
       { label: "Response Time", value: "4.2s → 0.4s" },
       { label: "Throughput", value: "200 → 1200 req/min" },
     ],
@@ -29,15 +31,15 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "orin-gps",
-    title: "Orin GPS Platform",
-    titleId: "Platform GPS Orin",
-    description: "Real-time GPS tracking platform handling 10k+ devices with TimescaleDB for time-series data compression and query optimization.",
-    descriptionId: "Platform tracking GPS real-time yang menangani 10k+ device dengan TimescaleDB untuk kompresi dan optimisasi query data time-series.",
+    title: "Orin GPS: Real-time Operations Tracking",
+    titleId: "Orin GPS: Pelacakan Operasional Real-time",
+    description: "Real-time fleet and asset tracking for 10,000+ devices, with consistent location data and low latency for field operations.",
+    descriptionId: "Pelacakan armada dan aset real-time untuk 10.000+ perangkat, dengan data lokasi yang konsisten dan latensi rendah untuk operasional lapangan.",
     image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=80",
     techStack: ["Go", "PostgreSQL + TimescaleDB", "Redis", "WebSocket", "Docker"],
     metrics: [
-      { label: "Devices Tracked", value: "10k+" },
-      { label: "Data Volume", value: "3TB/month" },
+      { label: "Perangkat Dipantau", value: "10k+" },
+      { label: "Volume Data", value: "3TB/bulan" },
       { label: "Uptime", value: "99.9%" },
       { label: "Latency", value: "<100ms (4G)" },
     ],
@@ -45,16 +47,16 @@ export const portfolioItems: PortfolioItem[] = [
   },
   {
     id: "bank-mega",
-    title: "Bank Mega Automation",
-    titleId: "Otomasi Bank Mega",
-    description: "RPA and integration project improving transaction throughput from 8k to 32k TPS with cloud-native architecture.",
-    descriptionId: "Proyek RPA dan integrasi yang meningkatkan throughput transaksi dari 8k ke 32k TPS dengan arsitektur cloud-native.",
+    title: "Bank Mega: Transaction Process Automation",
+    titleId: "Bank Mega: Otomasi Proses Transaksi",
+    description: "Automation and integration of internal transaction processes that cut processing time and eliminated repetitive manual work.",
+    descriptionId: "Otomasi dan integrasi proses transaksi internal yang memangkas waktu pemrosesan dan menghilangkan pekerjaan manual berulang.",
     image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
     techStack: ["Go", "PostgreSQL", "UiPath", "AWS"],
     metrics: [
       { label: "Throughput", value: "8k → 32k TPS" },
       { label: "Response Time", value: "2.4s → 0.3s" },
-      { label: "Cost Reduction", value: "60%" },
+      { label: "Pengurangan Biaya", value: "60%" },
     ],
   },
 ];

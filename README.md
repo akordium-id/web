@@ -1,20 +1,23 @@
 # Akordium Lab
 
-Website resmi Akordium Lab - studio pengembangan software yang spesialisasi pada migrasi PHP ke Go dan MySQL ke PostgreSQL.
+Website resmi Akordium Lab — studio yang membantu bisnis kecil-menengah Indonesia merapikan operasional lewat sistem digital yang langsung dipakai.
 
 ## Tentang Kami
 
-Kami membantu bisnis Indonesia transformasi infrastruktur digital mereka dengan:
-- Migrasi sistem legacy PHP (CodeIgniter 3, Laravel) ke Go
-- Migrasi database MySQL ke PostgreSQL + TimescaleDB
-- Arsitektur microservice yang efisien
-- Zero-downtime deployment
+Kami bantu bisnis yang sudah lelah dengan proses manual, spreadsheet tercecer, dan koordinasi bolak-balik — dengan membangun sistem yang menjaga revenue, inventory, dan workflow antar divisi tetap tertata dalam satu alur kerja.
+
+Tiga layanan kami:
+- **Company Profile** — pintu masuk digital profesional untuk UMKM.
+- **Dashboard & Sistem Internal** — pantau bisnis lewat data real-time.
+- **MIS Operasional** — sistem operasional terintegrasi penuh (custom).
+
+Kapabilitas teknis kami (Go + PostgreSQL) adalah pondasi yang membuat sistem ini stabil dan mudah dirawat dalam jangka panjang — bukan sekadar tren.
 
 ## Tech Stack
 
-- **Framework**: Astro 6 (static site)
+- **Framework**: Astro 7 (static site)
 - **Styling**: Tailwind CSS 4
-- **Deployment**: Static hosting (Netlify/Vercel)
+- **Deployment**: Static hosting (Coolify / Netlify / Vercel)
 - **Form**: Web3Forms
 
 ## Development
@@ -33,16 +36,16 @@ Kami membantu bisnis Indonesia transformasi infrastruktur digital mereka dengan:
 /
 ├── src/
 │   ├── components/   # Reusable UI components
-│   ├── data/         # Content data (services, portfolio, blog)
+│   ├── data/         # Content data (services, pricing, portfolio)
 │   ├── layouts/      # Page layouts
 │   └── pages/        # Route pages
 ```
 
 ## Portofolio
 
-- **MIS-APAR**: Migrasi CodeIgniter 3 → Go/PostgreSQL, 50% pengurangan biaya server
-- **Orin GPS**: Platform tracking 10k+ device dengan TimescaleDB
-- **Bank Mega**: Otomasi & migrasi, 4x throughput improvement
+- **MIS-APAR**: Sistem operasional keselamatan kebakaran (Go/PostgreSQL, response time 4.2s → 0.4s).
+- **Orin GPS**: Platform pelacakan operasional real-time untuk 10.000+ perangkat.
+- **Bank Mega**: Otomasi proses transaksi internal (throughput 8k → 32k TPS).
 
 ## Lisensi
 
