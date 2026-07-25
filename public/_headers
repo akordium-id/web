@@ -1,2 +1,10 @@
 /*
-  Link: </.well-known/agent-skills/index.json>; rel="service-doc"; type="application/json"
+  Content-Signal: ai-train=no, search=yes, ai-input=yes
+  Link: </sitemap-index.xml>; rel="sitemap"; type="application/xml"
+  Link: </.well-known/agent-skills/index.json>; rel="service-meta"; type="application/json"
+
+/.well-known/agent-skills/index.json
+  Content-Type: application/json
+
+/.well-known/agent-skills/akordium-profile.md
+  Content-Type: text/markdown; charset=utf-8

@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
-Content-Signal: ai-train=no, search=yes, ai-input=no
 
 Sitemap: https://akordium.id/sitemap-index.xml
+
+# AI content usage preferences (draft-romm-aipref-contentsignals)
+Content-Signal: ai-train=no, search=yes, ai-input=yes
