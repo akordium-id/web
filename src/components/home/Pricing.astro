@@ -31,13 +31,13 @@ const waLinks: Record<string, string> = {
           <div
             class={`relative rounded-2xl flex flex-col transition-all duration-300 ${
               isPopular
-                ? 'bg-stone-900 text-white border-2 border-primary-600 shadow-2xl shadow-primary-950/20 md:-translate-y-2.5 p-8'
-                : 'bg-white text-stone-900 border border-stone-200 hover:border-primary-300 hover:shadow-xl hover:shadow-stone-200/50 p-8'
+                ? 'bg-stone-900 text-white border-2 border-accent-500 shadow-2xl shadow-primary-950/30 md:-translate-y-2.5 p-8'
+                : 'bg-white text-stone-900 border border-stone-200 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/40 p-8'
             }`}
           >
             <!-- Highlight Badge -->
             {isPopular && (
-              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-primary-600 text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-md">
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent-600 text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-md">
                 Paling Diminati
               </div>
             )}
@@ -48,7 +48,7 @@ const waLinks: Record<string, string> = {
                   {tier.nameId}
                 </h3>
                 {tier.badgeId && !isPopular && (
-                  <span class="inline-block px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-primary-50 text-primary-700">
+                  <span class="inline-block px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-primary-50 text-primary-900 border border-primary-100">
                     {tier.badgeId}
                   </span>
                 )}
@@ -81,7 +81,7 @@ const waLinks: Record<string, string> = {
                     : isPopular ? 'text-stone-500 line-through' : 'text-stone-400 line-through'
                 }`}>
                   {feat.included ? (
-                    <svg class={`w-4 h-4 shrink-0 mt-0.5 ${isPopular ? 'text-primary-400' : 'text-primary-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class={`w-4 h-4 shrink-0 mt-0.5 ${isPopular ? 'text-accent-400' : 'text-accent-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                     </svg>
                   ) : (
@@ -102,8 +102,8 @@ const waLinks: Record<string, string> = {
                 rel="noopener noreferrer"
                 class={`w-full flex items-center justify-center gap-2 py-3 px-4 rounded-xl font-bold text-sm transition-all ${
                   isPopular
-                    ? 'bg-primary-600 text-white hover:bg-primary-500 shadow-lg shadow-primary-900/50 active:scale-[0.98]'
-                    : 'bg-stone-900 text-white hover:bg-primary-700 active:scale-[0.98]'
+                    ? 'bg-accent-600 text-white hover:bg-accent-500 shadow-lg shadow-accent-600/30 active:scale-[0.98]'
+                    : 'bg-stone-900 text-white hover:bg-primary-900 active:scale-[0.98]'
                 }`}
               >
                 <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">

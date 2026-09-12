@@ -20,7 +20,7 @@ const company = [
 const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsultasi mengenai kebutuhan sistem/website untuk bisnis kami.");
 ---
 
-<footer class="bg-[#12080d] text-stone-300 border-t border-white/5">
+<footer class="bg-[#0a142e] text-stone-300 border-t border-white/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
       
@@ -88,7 +88,7 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
           {services.map(s => (
             <li>
               <a href={s.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
-                <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-primary-400 transition-colors"></span>
+                <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
                 {s.label}
               </a>
             </li>
@@ -103,7 +103,7 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
           {company.map(c => (
             <li>
               <a href={c.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
-                <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-primary-400 transition-colors"></span>
+                <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
                 {c.label}
               </a>
             </li>
@@ -122,7 +122,7 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
             <span>Respons via WhatsApp &lt;24 jam pada hari kerja.</span>
           </div>
           <div class="flex items-start gap-2.5 text-xs text-stone-300">
-            <svg class="w-4 h-4 text-primary-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-4 h-4 text-accent-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
@@ -132,7 +132,7 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
             href={`https://wa.me/628159988995?text=${waMessage}`}
             target="_blank"
             rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-primary-700 hover:bg-primary-600 text-white text-xs font-semibold rounded-lg transition-all shadow-sm active:scale-[0.98]"
+            class="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-accent-600 hover:bg-accent-500 text-white text-xs font-semibold rounded-lg transition-all shadow-sm active:scale-[0.98]"
           >
             <span>Chat via WhatsApp</span>
             <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

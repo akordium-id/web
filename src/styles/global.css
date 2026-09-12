@@ -7,17 +7,31 @@
   /* Layout dimensions */
   --nav-height: 72px;
 
-  /* Warm maroon/plum brand palette */
-  --color-primary-50: #faf5f7;
-  --color-primary-100: #f4e6ed;
-  --color-primary-200: #e8c5d8;
-  --color-primary-300: #d68bb8;
-  --color-primary-400: #b74f85;
-  --color-primary-500: #9f1853;
-  --color-primary-600: #831843;
-  --color-primary-700: #6b1438;
-  --color-primary-800: #54102d;
-  --color-primary-900: #3d0c21;
+  /* Akordium Navy brand palette */
+  --color-primary-50: #f0f4fd;
+  --color-primary-100: #e1ebfa;
+  --color-primary-200: #c7daf7;
+  --color-primary-300: #9ebff2;
+  --color-primary-400: #6092e6;
+  --color-primary-500: #3b74d6;
+  --color-primary-600: #2254b3;
+  --color-primary-700: #173d8a;
+  --color-primary-800: #142d65;
+  --color-primary-900: #122450;
+  --color-primary-950: #0a142e;
+
+  /* Akordium Vibrant Orange accent palette */
+  --color-accent-50: #fff7ed;
+  --color-accent-100: #ffedd5;
+  --color-accent-200: #fed7aa;
+  --color-accent-300: #fdba74;
+  --color-accent-400: #fb923c;
+  --color-accent-500: #f97316;
+  --color-accent-600: #f67c1a;
+  --color-accent-700: #ea580c;
+  --color-accent-800: #c2410c;
+  --color-accent-900: #7c2d12;
+  --color-accent-950: #431407;
 }
 
 /* Font pair switcher: `modern` (default) and `editorial` */
@@ -46,15 +60,15 @@ html {
 }
 
 .eyebrow {
-  @apply font-sans text-sm sm:text-base font-semibold uppercase tracking-wider text-primary-600;
+  @apply font-sans text-sm sm:text-base font-semibold uppercase tracking-wider text-accent-700;
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-primary-600 text-white font-semibold hover:bg-primary-700 transition-colors duration-200 shadow-sm hover:shadow-md;
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg bg-accent-600 text-white font-semibold hover:bg-accent-700 transition-all duration-200 shadow-sm hover:shadow-md hover:shadow-accent-500/20 active:scale-[0.98];
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-stone-300 text-stone-700 font-semibold hover:border-primary-600 hover:text-primary-600 transition-all duration-200;
+  @apply inline-flex items-center justify-center px-6 py-3 rounded-lg border-2 border-stone-300 text-stone-700 font-semibold hover:border-primary-900 hover:text-primary-900 transition-all duration-200;
 }
 
 .surface-card {
@@ -108,14 +122,14 @@ html {
 }
 
 .prose a {
-  color: #831843;
+  color: #173d8a;
   text-decoration: underline;
   text-underline-offset: 3px;
   font-weight: 500;
 }
 
 .prose a:hover {
-  color: #6b1438;
+  color: #ea580c;
 }
 
 .prose strong {
@@ -124,8 +138,8 @@ html {
 }
 
 .prose blockquote {
-  border-left: 4px solid #831843;
-  background: #faf5f7;
+  border-left: 4px solid #f67c1a;
+  background: #f0f4fd;
   padding: 1rem 1.25rem;
   margin: 1.5rem 0;
   font-style: italic;

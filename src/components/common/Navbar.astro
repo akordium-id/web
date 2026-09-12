@@ -28,8 +28,8 @@ const currentPath = Astro.url.pathname;
                 href={link.href}
                 class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
                   currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-                    ? 'text-primary-600 bg-primary-50'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    ? 'text-primary-900 bg-primary-50 font-semibold'
+                    : 'text-slate-600 hover:text-primary-900 hover:bg-slate-100'
                 }`}
               >
                 {link.label}
@@ -40,7 +40,7 @@ const currentPath = Astro.url.pathname;
 
         <!-- CTA -->
         <div class="hidden lg:flex items-center">
-          <a href="/contact" class="px-5 py-2 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 active:scale-95 transition-all shadow-sm hover:shadow-md">
+          <a href="/contact" class="px-5 py-2.5 bg-accent-600 text-white text-sm font-semibold rounded-lg hover:bg-accent-700 active:scale-95 transition-all shadow-sm hover:shadow-md hover:shadow-accent-500/20">
             Hubungi Kami
           </a>
         </div>
@@ -66,15 +66,15 @@ const currentPath = Astro.url.pathname;
           href={link.href}
           class={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
             currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-              ? 'text-primary-600 bg-primary-50'
-              : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+              ? 'text-primary-900 bg-primary-50 font-semibold'
+              : 'text-slate-600 hover:text-primary-900 hover:bg-slate-50'
           }`}
         >
           {link.label}
         </a>
       ))}
       <div class="pt-3 border-t border-slate-100 mt-3">
-        <a href="/contact" class="block w-full text-center px-5 py-2.5 bg-primary-600 text-white text-sm font-semibold rounded-lg hover:bg-primary-700 transition-colors">
+        <a href="/contact" class="block w-full text-center px-5 py-2.5 bg-accent-600 text-white text-sm font-semibold rounded-lg hover:bg-accent-700 transition-colors">
           Hubungi Kami
         </a>
       </div>
