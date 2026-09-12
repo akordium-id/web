@@ -1,4 +1,6 @@
 ---
+import Logo from "./Logo.astro";
+
 const navLinks = [
   { href: "/", label: "Beranda" },
   { href: "/services", label: "Layanan" },
@@ -15,13 +17,7 @@ const currentPath = Astro.url.pathname;
       <nav class="flex items-center justify-between h-16">
         <!-- Logo -->
         <a href="/" class="flex items-center gap-1.5 group py-1" aria-label="Akordium Lab">
-          <img
-            src="/akordium-logo.svg"
-            alt="Akordium"
-            class="h-6 sm:h-7 w-auto object-contain transition-transform group-hover:scale-[1.02]"
-            width="146"
-            height="26"
-          />
+          <Logo variant="navy" class="h-6 sm:h-7 w-auto transition-transform group-hover:scale-[1.02]" showLab={true} />
         </a>
 
         <!-- Desktop Nav -->
