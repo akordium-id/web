@@ -1,0 +1,705 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const pageTitle = "Kalkulator Urgensi Website UMKM | Akordium Lab";
+const pageDescription = "Hitung seberapa mendesak bisnis UMKM Anda membutuhkan website sendiri. Dapatkan analisis risiko ketergantungan marketplace, efisiensi waktu admin, dan rekomendasi solusi digital yang tepat.";
+
+const industries = [
+  "Kuliner & F&B",
+  "Fashion, Pakaian & Aksesori",
+  "Retail & Toko Online",
+  "Jasa Profesional, Konsultan & Agensi",
+  "Manufaktur, Kerajinan & Bengkel",
+  "Kecantikan, Skincare & Kesehatan",
+  "Properti, Konstruksi & Interior",
+  "Pendidikan & Kursus",
+  "Lainnya"
+];
+
+const dimensions = [
+  {
+    id: "salesChannel",
+    title: "1. Ketergantungan Saluran Penjualan Utama",
+    description: "Dari mana sebagian besar pesanan atau transaksi bisnis Anda saat ini berasal?",
+    options: [
+      {
+        value: 1,
+        title: "Saluran Mandiri / Terintegrasi",
+        detail: "Sudah memiliki website atau sistem pesanan mandiri yang stabil dan mendatangkan omzet rutin."
+      },
+      {
+        value: 2,
+        title: "Dominan Toko Offline / Fisik",
+        detail: "Transaksi fisik tatap muka adalah tulang punggung. Media sosial & chat hanya sarana informasi."
+      },
+      {
+        value: 3,
+        title: "Dominan Chat WhatsApp / DM Medsos",
+        detail: "Hampir seluruh order diproses manual lewat percakapan WhatsApp, Instagram, atau TikTok DM."
+      },
+      {
+        value: 4,
+        title: "100% Bergantung pada Marketplace",
+        detail: "Shopee/Tokopedia/TikTok Shop adalah satu-satunya kanal, dengan beban fee admin & promosi yang kian meningkat."
+      }
+    ]
+  },
+  {
+    id: "operationalFriction",
+    title: "2. Beban Waktu Operasional & Respon Admin",
+    description: "Seberapa banyak waktu dan tenaga tersedot untuk melayani pertanyaan berulang dari calon pelanggan?",
+    options: [
+      {
+        value: 1,
+        title: "Sangat Ringan & Terotomasi",
+        detail: "Jarang ada pertanyaan berulang; calon pembeli sudah paham spesifikasi produk dan proses checkout."
+      },
+      {
+        value: 2,
+        title: "Terkendali & Wajar",
+        detail: "Admin sesekali mengirim daftar harga/katalog PDF, namun beban kerja masih sangat longgar."
+      },
+      {
+        value: 3,
+        title: "Cukup Menguras Waktu",
+        detail: "Admin berkali-kali mengirim foto produk, spesifikasi, dan cek ongkos kirim manual setiap hari."
+      },
+      {
+        value: 4,
+        title: "Kewalahan & Sering Slow Response",
+        detail: "Admin kebanjiran chat menanyakan hal yang sama (harga, stok, lokasi), hingga calon pembeli kabur karena lama dibalas."
+      }
+    ]
+  },
+  {
+    id: "credibilityDemand",
+    title: "3. Tuntutan Kredibilitas & Kepercayaan Calon Klien",
+    description: "Apakah bisnis Anda sering menghadapi keraguan calon pembeli atau membutuhkan legalitas/portofolio resmi?",
+    options: [
+      {
+        value: 1,
+        title: "Transaksi Spontan / Impulsif",
+        detail: "Pelanggan langsung membayar tanpa menanyakan profil perusahaan, izin usaha, atau bukti kredibilitas formal."
+      },
+      {
+        value: 2,
+        title: "Cukup Review Sosmed / Google Maps",
+        detail: "Calon pembeli sudah yakin setelah melihat feed Instagram atau ulasan bintang di Google Maps."
+      },
+      {
+        value: 3,
+        title: "Sering Diminta Bukti Resmi",
+        detail: "Calon klien sering bertanya: \"Ada website resminya?\" atau meminta company profile dan katalog resmi."
+      },
+      {
+        value: 4,
+        title: "Pernah Kehilangan Klien Potensial / B2B",
+        detail: "Pernah gagal closing deal besar atau tender B2B karena dinilai kurang bonafide tanpa website berdomain resmi."
+      }
+    ]
+  },
+  {
+    id: "searchIntent",
+    title: "4. Potensi Pencarian di Google (Search Intent)",
+    description: "Apakah produk atau jasa yang Anda tawarkan sering dicari orang melalui Google Search?",
+    options: [
+      {
+        value: 1,
+        title: "Tidak Dicari di Google",
+        detail: "Produk murni penemuan lewat iklan visual/FYP media sosial, orang jarang mencarinya secara sadar di Google."
+      },
+      {
+        value: 2,
+        title: "Pencarian Dominan di Marketplace",
+        detail: "Calon pembeli lebih lazim mengetik kata kunci langsung di kolom pencarian Shopee atau Tokopedia."
+      },
+      {
+        value: 3,
+        title: "Memiliki Kata Kunci Lokal / Spesifik",
+        detail: "Layanan memiliki pencarian lokal (misal: \"katering pernikahan surabaya\", \"distributor pipa pvc\")."
+      },
+      {
+        value: 4,
+        title: "Kompetitor Menguasai Google Search",
+        detail: "Kompetitor sejenis sudah nangkring di halaman 1 Google, merebut prospek yang berniat beli tinggi tiap hari."
+      }
+    ]
+  },
+  {
+    id: "platformRisk",
+    title: "5. Kerentanan Risiko Platform Pihak Ketiga",
+    description: "Seberapa rentan kelangsungan bisnis Anda terhadap perubahan aturan, algoritma, atau fee pihak ketiga?",
+    options: [
+      {
+        value: 1,
+        title: "Mandiri & Memiliki Database Pelanggan",
+        detail: "Memiliki kontak pelanggan langsung yang rutin repeat order tanpa bergantung algoritma."
+      },
+      {
+        value: 2,
+        title: "Sedikit Terdampak Namun Aman",
+        detail: "Perubahan jangkauan sosmed sesekali terasa, tetapi tidak sampai melumpuhkan omzet bulanan."
+      },
+      {
+        value: 3,
+        title: "Sangat Rentan Perubahan Algoritma",
+        detail: "Omzet langsung terjun bebas jika live streaming sepi atau postingan sosmed tidak masuk algoritma rekomendasi."
+      },
+      {
+        value: 4,
+        title: "Pernah Suspend / Fee Menggerus Margin",
+        detail: "Pernah mengalami akun dibatasi/suspend, atau kenaikan biaya komisi platform sudah memakan habis laba bersih."
+      }
+    ]
+  }
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+  <!-- Hero Section -->
+  <section class="relative py-16 lg:py-24 bg-slate-950 text-white overflow-hidden">
+    <div class="absolute inset-0 pointer-events-none">
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(131,24,67,0.22),transparent)]"></div>
+      <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 28px 28px;"></div>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-500/10 border border-primary-500/25 text-primary-300 text-xs font-semibold uppercase tracking-wider mb-6">
+        <span class="w-2 h-2 rounded-full bg-primary-400 animate-pulse"></span>
+        Digital Assessment • Riset UMKM
+      </div>
+
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-5">
+        Kalkulator Urgensi Website<br />
+        <span class="text-primary-400">untuk Bisnis & UMKM</span>
+      </h1>
+
+      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+        Tidak semua bisnis butuh website sekarang juga. Alat evaluasi ini mengukur seberapa mendesak bisnis Anda memerlukan website mandiri berdasarkan 5 indikator operasional nyata.
+      </p>
+
+      <!-- Key Benefits Badges -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-3xl mx-auto text-left">
+        <div class="bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center gap-3 backdrop-blur-sm">
+          <div class="w-9 h-9 rounded-lg bg-primary-500/20 text-primary-300 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-slate-400">Waktu Pengisian</p>
+            <p class="text-sm font-semibold text-white">± 2 Menit Selesai</p>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center gap-3 backdrop-blur-sm">
+          <div class="w-9 h-9 rounded-lg bg-primary-500/20 text-primary-300 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-slate-400">Keluaran Analisis</p>
+            <p class="text-sm font-semibold text-white">Skor & Diagnosa Instan</p>
+          </div>
+        </div>
+
+        <div class="bg-white/5 border border-white/10 rounded-xl p-3.5 flex items-center gap-3 backdrop-blur-sm">
+          <div class="w-9 h-9 rounded-lg bg-primary-500/20 text-primary-300 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+            </svg>
+          </div>
+          <div>
+            <p class="text-xs text-slate-400">Solusi Realistis</p>
+            <p class="text-sm font-semibold text-white">Rekomendasi Tanpa Oversell</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Assessment Form Section -->
+  <section class="py-14 sm:py-20 bg-stone-50">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <form id="urgency-assessment-form" class="space-y-10">
+
+        <!-- Bagian 1: Profil Usaha -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/80 shadow-sm">
+          <div class="flex items-center gap-3 pb-5 mb-6 border-b border-stone-100">
+            <div class="w-9 h-9 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center font-bold text-sm">
+              1
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-stone-900">Profil Bisnis Anda</h2>
+              <p class="text-xs sm:text-sm text-stone-500">Data ini digunakan untuk personalisasi rekomendasi dan komparasi riset.</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="picName" class="block text-sm font-semibold text-stone-800 mb-1.5">
+                Nama Lengkap / Panggilan <span class="text-rose-600">*</span>
+              </label>
+              <input
+                type="text"
+                id="picName"
+                name="picName"
+                required
+                placeholder="Contoh: Budi Prasetyo"
+                class="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+              />
+            </div>
+
+            <div>
+              <label for="businessName" class="block text-sm font-semibold text-stone-800 mb-1.5">
+                Nama Usaha / Brand <span class="text-rose-600">*</span>
+              </label>
+              <input
+                type="text"
+                id="businessName"
+                name="businessName"
+                required
+                placeholder="Contoh: Kopi Nusantara / CV Makmur Jaya"
+                class="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+              />
+            </div>
+
+            <div>
+              <label for="industry" class="block text-sm font-semibold text-stone-800 mb-1.5">
+                Kategori Industri / Bidang Usaha <span class="text-rose-600">*</span>
+              </label>
+              <select
+                id="industry"
+                name="industry"
+                required
+                class="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-800 text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+              >
+                <option value="" disabled selected>Pilih bidang usaha...</option>
+                {industries.map((ind) => (
+                  <option value={ind}>{ind}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label for="phone" class="block text-sm font-semibold text-stone-800 mb-1.5">
+                Nomor WhatsApp <span class="text-rose-600">*</span>
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                required
+                placeholder="Contoh: 081234567890"
+                class="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all"
+              />
+              <span class="text-[11px] text-stone-400 mt-1 block">Untuk menerima salinan hasil ringkasan & konsultasi lanjutan bila diperlukan.</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bagian 2: Kuesioner Evaluasi 5 Dimensi -->
+        <div class="space-y-8">
+          <div class="flex items-center gap-3">
+            <div class="w-9 h-9 rounded-xl bg-primary-100 text-primary-700 flex items-center justify-center font-bold text-sm">
+              2
+            </div>
+            <div>
+              <h2 class="text-xl font-bold text-stone-900">Evaluasi Kondisi Operasional</h2>
+              <p class="text-xs sm:text-sm text-stone-500">Pilih opsi yang paling akurat menggambarkan kondisi operasional Anda saat ini.</p>
+            </div>
+          </div>
+
+          {dimensions.map((dim) => (
+            <div class="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/80 shadow-sm question-group" data-dimension={dim.id}>
+              <div class="mb-5">
+                <h3 class="text-lg font-bold text-stone-900 mb-1">{dim.title}</h3>
+                <p class="text-sm text-stone-500 leading-relaxed">{dim.description}</p>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
+                {dim.options.map((opt) => (
+                  <label class="group relative flex flex-col p-4 rounded-xl border-2 border-stone-200 hover:border-primary-300 hover:bg-primary-50/20 cursor-pointer transition-all has-[:checked]:border-primary-600 has-[:checked]:bg-primary-50/40 has-[:checked]:shadow-sm">
+                    <div class="flex items-start justify-between gap-3 mb-2">
+                      <span class="font-semibold text-sm text-stone-900 group-hover:text-primary-800 transition-colors">
+                        {opt.title}
+                      </span>
+                      <input
+                        type="radio"
+                        name={dim.id}
+                        value={opt.value}
+                        required
+                        class="w-4 h-4 text-primary-600 border-stone-300 focus:ring-primary-500 mt-0.5 shrink-0"
+                      />
+                    </div>
+                    <span class="text-xs text-stone-500 leading-relaxed group-hover:text-stone-600 transition-colors">
+                      {opt.detail}
+                    </span>
+                  </label>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Bagian 3: Catatan Tambahan (Opsional) -->
+        <div class="bg-white rounded-2xl p-6 sm:p-8 border border-stone-200/80 shadow-sm">
+          <label for="notes" class="block text-sm font-semibold text-stone-800 mb-1.5">
+            Kendala atau Ekspektasi Khusus <span class="text-xs font-normal text-stone-400">(Opsional)</span>
+          </label>
+          <textarea
+            id="notes"
+            name="notes"
+            rows="3"
+            placeholder="Misalnya: 'Saat ini fee Shopee sudah 8%, ingin punya web katalog sendiri yang terhubung ke kurir lokal...'"
+            class="w-full px-4 py-3 rounded-xl border border-stone-200 text-stone-900 placeholder-stone-400 text-sm focus:outline-none focus:ring-2 focus:ring-primary-600 focus:border-transparent transition-all resize-none"
+          ></textarea>
+        </div>
+
+        <!-- Tombol Submit & Feedback -->
+        <div class="text-center pt-2">
+          <div id="form-error-alert" class="hidden max-w-md mx-auto mb-4 p-3.5 bg-rose-50 border border-rose-200 rounded-xl text-rose-700 text-sm font-medium text-left">
+            Harap lengkapi semua profil dan pilih jawaban untuk kelima pertanyaan sebelum melanjutkan.
+          </div>
+
+          <button
+            type="submit"
+            id="btn-calculate"
+            class="w-full sm:w-auto min-w-[280px] px-8 py-4 bg-primary-700 hover:bg-primary-800 active:scale-95 text-white font-bold rounded-xl shadow-lg shadow-primary-900/20 transition-all text-base inline-flex items-center justify-center gap-3 cursor-pointer"
+          >
+            <span id="btn-text">Hitung Skor Urgensi Sekarang</span>
+            <svg id="btn-spinner" class="hidden animate-spin w-5 h-5 text-white" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+            </svg>
+            <svg id="btn-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+            </svg>
+          </button>
+
+          <p class="text-xs text-stone-400 mt-3 max-w-md mx-auto">
+            Privasi Terjamin: Data jawaban disimpan secara anonim/aman sebagai bahan riset independen Akordium Lab mengenai kesiapan digital UMKM Indonesia.
+          </p>
+        </div>
+      </form>
+
+      <!-- Panel Hasil Analisis (Hidden initially) -->
+      <div id="result-container" class="hidden mt-14 scroll-mt-24">
+        <div class="bg-white rounded-3xl border border-stone-200/90 shadow-xl overflow-hidden">
+          
+          <!-- Result Header -->
+          <div class="p-6 sm:p-10 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-950 text-white relative">
+            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+              <span class="px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-stone-200">
+                Hasil Diagnosis Digital Bisnis
+              </span>
+              <span id="result-timestamp" class="text-xs text-stone-400">
+                Waktu Asesmen: Baru saja
+              </span>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+              <!-- Score Gauge & Meter -->
+              <div class="lg:col-span-5 text-center lg:text-left">
+                <p class="text-sm font-medium text-stone-300 mb-1">Tingkat Urgensi Kebutuhan Website</p>
+                <div class="flex items-baseline justify-center lg:justify-start gap-2 mb-3">
+                  <span id="score-number" class="text-6xl sm:text-7xl font-extrabold tracking-tight text-white">
+                    0%
+                  </span>
+                  <span class="text-stone-400 text-sm font-medium">/ 100%</span>
+                </div>
+
+                <!-- Urgency Level Badge -->
+                <div class="inline-block mb-4">
+                  <span id="urgency-badge" class="px-4 py-1.5 rounded-full text-sm font-bold bg-amber-500 text-slate-950">
+                    Urgensi Sedang
+                  </span>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="w-full bg-white/15 h-3 rounded-full overflow-hidden">
+                  <div id="score-progress" class="h-full bg-amber-400 transition-all duration-1000 ease-out rounded-full" style="width: 0%"></div>
+                </div>
+              </div>
+
+              <!-- Executive Summary -->
+              <div class="lg:col-span-7 bg-white/5 border border-white/10 rounded-2xl p-5 sm:p-6 backdrop-blur-sm">
+                <p class="text-xs font-bold uppercase tracking-wider text-primary-300 mb-2">Kesimpulan Singkat Untuk <span id="summary-business-name" class="text-white">Bisnis Anda</span>:</p>
+                <p id="summary-text" class="text-sm sm:text-base text-stone-200 leading-relaxed">
+                  Memproses analisis...
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Diagnostic Deep Dive -->
+          <div class="p-6 sm:p-10 space-y-8">
+            <div>
+              <h3 class="text-lg font-bold text-stone-900 mb-3 flex items-center gap-2">
+                <svg class="w-5 h-5 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+                </svg>
+                Analisis Risiko & Efisiensi Operasional
+              </h3>
+              <div id="diagnostic-cards" class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <!-- Injected via JS -->
+              </div>
+            </div>
+
+            <!-- Recommendation Box -->
+            <div id="recommendation-box" class="p-6 rounded-2xl border transition-all">
+              <!-- Injected via JS -->
+            </div>
+
+            <!-- Call to Action Actions -->
+            <div class="pt-4 border-t border-stone-200 flex flex-col sm:flex-row items-center justify-between gap-4">
+              <div>
+                <p class="text-sm font-bold text-stone-900">Ingin mendiskusikan hasil analisis ini?</p>
+                <p class="text-xs text-stone-500">Konsultasikan kebutuhan sistem Anda bersama tim engineer Akordium Lab secara gratis.</p>
+              </div>
+
+              <div class="flex flex-col sm:flex-row items-center gap-3 w-full sm:w-auto">
+                <button
+                  type="button"
+                  id="btn-recalculate"
+                  class="w-full sm:w-auto px-4 py-2.5 rounded-xl border border-stone-300 text-stone-700 hover:bg-stone-100 text-xs font-semibold transition-colors"
+                >
+                  Ubah Jawaban
+                </button>
+
+                <a
+                  id="btn-whatsapp-cta"
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 bg-[#25D366] hover:bg-[#20ba59] text-white font-bold rounded-xl text-sm shadow-md shadow-emerald-600/20 transition-all active:scale-95"
+                >
+                  <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                  </svg>
+                  Konsultasikan via WhatsApp
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import { calculateUrgency, type DimensionScores } from '../../lib/assessment';
+
+  const form = document.getElementById('urgency-assessment-form') as HTMLFormElement | null;
+  const resultContainer = document.getElementById('result-container');
+  const errorAlert = document.getElementById('form-error-alert');
+  const btnCalculate = document.getElementById('btn-calculate');
+  const btnText = document.getElementById('btn-text');
+  const btnSpinner = document.getElementById('btn-spinner');
+  const btnIcon = document.getElementById('btn-icon');
+  const btnRecalculate = document.getElementById('btn-recalculate');
+
+  if (form && resultContainer && btnCalculate) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (errorAlert) errorAlert.classList.add('hidden');
+
+      const formData = new FormData(form);
+
+      const picName = (formData.get('picName') as string || '').trim();
+      const businessName = (formData.get('businessName') as string || '').trim();
+      const industry = (formData.get('industry') as string || '').trim();
+      const phone = (formData.get('phone') as string || '').trim();
+      const notes = (formData.get('notes') as string || '').trim();
+
+      const qSales = parseInt(formData.get('salesChannel') as string, 10);
+      const qFriction = parseInt(formData.get('operationalFriction') as string, 10);
+      const qCredibility = parseInt(formData.get('credibilityDemand') as string, 10);
+      const qSearch = parseInt(formData.get('searchIntent') as string, 10);
+      const qRisk = parseInt(formData.get('platformRisk') as string, 10);
+
+      // Validate all required radio questions are answered
+      if (!picName || !businessName || !industry || !phone || isNaN(qSales) || isNaN(qFriction) || isNaN(qCredibility) || isNaN(qSearch) || isNaN(qRisk)) {
+        if (errorAlert) {
+          errorAlert.classList.remove('hidden');
+          errorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+        return;
+      }
+
+      const answers: DimensionScores = {
+        salesChannel: qSales,
+        operationalFriction: qFriction,
+        credibilityDemand: qCredibility,
+        searchIntent: qSearch,
+        platformRisk: qRisk,
+      };
+
+      const result = calculateUrgency(businessName, answers);
+      const {
+        totalScore,
+        urgencyPercentage,
+        urgencyLevel,
+        urgencyBadgeClass,
+        progressBarClass,
+        summaryText,
+        recType,
+        recDesc,
+        recList,
+      } = result;
+
+      // Update UI Elements
+      const scoreNumberEl = document.getElementById('score-number');
+      const urgencyBadgeEl = document.getElementById('urgency-badge');
+      const scoreProgressEl = document.getElementById('score-progress');
+      const summaryBusinessEl = document.getElementById('summary-business-name');
+      const summaryTextEl = document.getElementById('summary-text');
+      const diagnosticCardsEl = document.getElementById('diagnostic-cards');
+      const recommendationBoxEl = document.getElementById('recommendation-box');
+      const whatsappCtaEl = document.getElementById('btn-whatsapp-cta') as HTMLAnchorElement | null;
+
+      if (scoreNumberEl) scoreNumberEl.textContent = `${urgencyPercentage}%`;
+      if (urgencyBadgeEl) {
+        urgencyBadgeEl.textContent = urgencyLevel;
+        urgencyBadgeEl.className = `px-4 py-1.5 rounded-full text-xs sm:text-sm font-bold shadow-sm ${urgencyBadgeClass}`;
+      }
+      if (scoreProgressEl) {
+        scoreProgressEl.className = `h-full transition-all duration-1000 ease-out rounded-full ${progressBarClass}`;
+        scoreProgressEl.style.width = `${urgencyPercentage}%`;
+      }
+      if (summaryBusinessEl) summaryBusinessEl.textContent = businessName;
+      if (summaryTextEl) summaryTextEl.textContent = summaryText;
+
+      // Diagnostic Cards
+      if (diagnosticCardsEl) {
+        const getCardLabel = (val: number) => {
+          if (val >= 3) return { text: 'Tantangan Signifikan', color: 'text-rose-600 bg-rose-50 border-rose-200' };
+          if (val === 2) return { text: 'Cukup Terkendali', color: 'text-amber-700 bg-amber-50 border-amber-200' };
+          return { text: 'Aman / Optimal', color: 'text-emerald-700 bg-emerald-50 border-emerald-200' };
+        };
+
+        const dim1 = getCardLabel(qSales);
+        const dim2 = getCardLabel(qFriction);
+        const dim5 = getCardLabel(qRisk);
+
+        diagnosticCardsEl.innerHTML = `
+          <div class="p-4 rounded-xl border border-stone-200 bg-stone-50/70">
+            <span class="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-bold border mb-2 ${dim1.color}">
+              ${dim1.text}
+            </span>
+            <p class="text-xs font-semibold text-stone-900 mb-1">Kemandirian Kanal</p>
+            <p class="text-xs text-stone-500">Skor ketergantungan saluran penjualan: ${qSales}/4.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-stone-200 bg-stone-50/70">
+            <span class="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-bold border mb-2 ${dim2.color}">
+              ${dim2.text}
+            </span>
+            <p class="text-xs font-semibold text-stone-900 mb-1">Efisiensi Respon Admin</p>
+            <p class="text-xs text-stone-500">Beban pertanyaan berulang: ${qFriction}/4.</p>
+          </div>
+          <div class="p-4 rounded-xl border border-stone-200 bg-stone-50/70">
+            <span class="inline-block px-2.5 py-0.5 rounded-md text-[11px] font-bold border mb-2 ${dim5.color}">
+              ${dim5.text}
+            </span>
+            <p class="text-xs font-semibold text-stone-900 mb-1">Ketahanan Risiko Platform</p>
+            <p class="text-xs text-stone-500">Kerentanan akun & potongan fee: ${qRisk}/4.</p>
+          </div>
+        `;
+      }
+
+      // Recommendation Box
+      if (recommendationBoxEl) {
+        recommendationBoxEl.className = 'p-6 rounded-2xl border border-primary-100 bg-primary-50/30';
+        recommendationBoxEl.innerHTML = `
+          <div class="flex items-start gap-3 mb-4">
+            <div class="w-8 h-8 rounded-lg bg-primary-600 text-white flex items-center justify-center shrink-0 mt-0.5">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="text-xs font-bold uppercase tracking-wider text-primary-700">Rekomendasi Solusi Digital</span>
+              <h4 class="text-lg font-bold text-stone-900 mt-0.5">${recType}</h4>
+              <p class="text-xs sm:text-sm text-stone-600 mt-1">${recDesc}</p>
+            </div>
+          </div>
+          <ul class="space-y-2 mt-4 pt-4 border-t border-primary-100">
+            ${recList.map(item => `
+              <li class="flex items-start gap-2 text-xs sm:text-sm text-stone-700">
+                <svg class="w-4 h-4 text-primary-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+                </svg>
+                <span>${item}</span>
+              </li>
+            `).join('')}
+          </ul>
+        `;
+      }
+
+      // WhatsApp CTA link with prefilled text
+      if (whatsappCtaEl) {
+        const waMessage = `Halo Akordium Lab, saya ${picName} dari *${businessName}* (${industry}). Saya baru saja mengisi Kalkulator Urgensi Website di web Akordium dan mendapatkan skor urgensi *${urgencyPercentage}%* (${urgencyLevel}). Saya ingin berdiskusi mengenai rekomendasi solusi website yang tepat untuk usaha kami.`;
+        whatsappCtaEl.href = `https://wa.me/628159988995?text=${encodeURIComponent(waMessage)}`;
+      }
+
+      // Show Result Container
+      resultContainer.classList.remove('hidden');
+      resultContainer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+      // Async background submit to backend API (/api/submit-assessment)
+      const payload = {
+        picName,
+        businessName,
+        industry,
+        phone,
+        notes,
+        answers,
+        totalScore,
+        urgencyPercentage,
+        urgencyLevel,
+        timestamp: new Date().toISOString(),
+      };
+
+      try {
+        if (btnSpinner && btnIcon && btnText) {
+          btnSpinner.classList.remove('hidden');
+          btnIcon.classList.add('hidden');
+          btnText.textContent = 'Menyimpan Hasil...';
+        }
+
+        const res = await fetch('/api/submit-assessment', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(payload),
+        });
+
+        if (!res.ok) {
+          console.warn('Submit assessment warning: backend responded with non-200 status', res.status);
+        }
+      } catch (err) {
+        console.warn('Failed to send assessment to backend:', err);
+      } finally {
+        if (btnSpinner && btnIcon && btnText) {
+          btnSpinner.classList.add('hidden');
+          btnIcon.classList.remove('hidden');
+          btnText.textContent = 'Hitung Skor Urgensi Sekarang';
+        }
+      }
+    });
+  }
+
+  // Recalculate button handler
+  if (btnRecalculate && form) {
+    btnRecalculate.addEventListener('click', () => {
+      form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+</script>
