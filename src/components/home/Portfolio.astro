@@ -6,68 +6,150 @@ import { portfolioItems } from '../../data/portfolio';
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-16">
-      <span class="inline-block px-3 py-1 bg-primary-50 text-primary-800 text-xs font-semibold rounded-full uppercase tracking-wider mb-4">Portofolio</span>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mb-4">
-        Project yang Telah Kami Selesaikan
+      <p class="eyebrow text-xs mb-3">Portofolio & Studi Kasus</p>
+      <h2 class="font-sans text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-stone-900 leading-tight mb-4">
+        Sistem Nyata yang Terbukti Bekerja
       </h2>
-      <p class="text-lg text-slate-500 max-w-2xl mx-auto">
-        Studi kasus nyata dari migrasi sistem legacy ke arsitektur modern yang skalabel.
+      <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
+        Bukan template konsep. Ini adalah sistem operasional dan migrasi arsitektur nyata yang kami bangun untuk menyelesaikan masalah di lapangan.
       </p>
     </div>
 
     <!-- Projects grid -->
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {portfolioItems.map((item) => (
-        <div class="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:border-primary-200 hover:shadow-xl transition-all duration-300">
-          <!-- Image -->
-          <div class="relative overflow-hidden aspect-[16/9]">
-            <img
-              src={item.image}
-              alt={item.titleId}
-              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-              loading="lazy"
-            />
+        <div class="group bg-white rounded-2xl overflow-hidden border border-stone-200 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/30 transition-all duration-300 flex flex-col">
+          <!-- Authentic UI Mockup Frame -->
+          <div class="relative bg-stone-900 text-white p-4 h-52 flex flex-col justify-between overflow-hidden border-b border-stone-200">
+            <!-- Browser top bar -->
+            <div class="flex items-center justify-between text-xs text-stone-400 border-b border-stone-800 pb-2.5">
+              <div class="flex items-center gap-1.5">
+                <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
+                <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
+                <span class="ml-2 font-mono text-[10px] text-stone-400">{item.id}.akordium.id</span>
+              </div>
+              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 text-stone-300">production</span>
+            </div>
+
+            <!-- Custom Mockup Content per Project -->
+            {item.id === 'mis-apar' && (
+              <div class="my-auto space-y-2">
+                <div class="flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-stone-200">Inspeksi Tabung APAR</span>
+                  <span class="text-emerald-400 font-semibold text-[10px]">100% Audit-Ready</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-left">
+                  <div class="bg-stone-800/80 p-2 rounded-lg border border-stone-700/60">
+                    <p class="text-[9px] text-stone-400 uppercase font-mono">Status Tekanan</p>
+                    <p class="text-xs font-bold text-emerald-400 mt-0.5">Optimal (Normal)</p>
+                  </div>
+                  <div class="bg-stone-800/80 p-2 rounded-lg border border-stone-700/60">
+                    <p class="text-[9px] text-stone-400 uppercase font-mono">Jadwal Uji</p>
+                    <p class="text-xs font-bold text-stone-200 mt-0.5">Otomatis Notifikasi</p>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[10px] text-stone-400 pt-1">
+                  <span>QR Barcode: Verified</span>
+                  <span class="font-mono text-primary-300">Go + PostgreSQL</span>
+                </div>
+              </div>
+            )}
+
+            {item.id === 'orin-gps' && (
+              <div class="my-auto space-y-2">
+                <div class="flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-stone-200">Telemetri Armada Aktif</span>
+                  <span class="flex items-center gap-1 text-emerald-400 text-[10px] font-semibold">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    10.420 Online
+                  </span>
+                </div>
+                <div class="bg-stone-800/80 p-2.5 rounded-lg border border-stone-700/60 space-y-1.5">
+                  <div class="flex justify-between text-[10px]">
+                    <span class="text-stone-300">Latensi Transmisi</span>
+                    <span class="text-emerald-400 font-mono font-bold">&lt;100ms (4G)</span>
+                  </div>
+                  <div class="w-full bg-stone-700 h-1.5 rounded-full overflow-hidden">
+                    <div class="bg-emerald-500 h-full rounded-full w-[94%]"></div>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[10px] text-stone-400">
+                  <span>3TB Data / Bulan</span>
+                  <span class="font-mono text-primary-300">TimescaleDB</span>
+                </div>
+              </div>
+            )}
+
+            {item.id === 'bank-mega' && (
+              <div class="my-auto space-y-2">
+                <div class="flex items-center justify-between text-[11px]">
+                  <span class="font-bold text-stone-200">Automasi Transaksi Internal</span>
+                  <span class="text-primary-300 font-mono text-[10px]">32k TPS Peak</span>
+                </div>
+                <div class="grid grid-cols-2 gap-2 text-left">
+                  <div class="bg-stone-800/80 p-2 rounded-lg border border-stone-700/60">
+                    <p class="text-[9px] text-stone-400 uppercase font-mono">Response Time</p>
+                    <p class="text-xs font-bold text-emerald-400 mt-0.5">2.4s → 0.3s</p>
+                  </div>
+                  <div class="bg-stone-800/80 p-2 rounded-lg border border-stone-700/60">
+                    <p class="text-[9px] text-stone-400 uppercase font-mono">Efisiensi Biaya</p>
+                    <p class="text-xs font-bold text-stone-200 mt-0.5">Hemat 60%</p>
+                  </div>
+                </div>
+                <div class="flex items-center justify-between text-[10px] text-stone-400 pt-1">
+                  <span>0% Failure Rate</span>
+                  <span class="font-mono text-primary-300">Enterprise High-Load</span>
+                </div>
+              </div>
+            )}
+
+            <!-- Footer indicator -->
+            <div class="flex items-center justify-between text-[10px] text-stone-500 font-mono">
+              <span>Status: Live Production</span>
+              <span class="text-emerald-500">● 99.9% Up</span>
+            </div>
           </div>
 
           <!-- Content -->
-          <div class="p-6">
-            <h3 class="font-bold text-slate-900 text-lg mb-2 group-hover:text-primary-700 transition-colors">
+          <div class="p-6 flex-1 flex flex-col">
+            <h3 class="font-sans font-bold text-stone-900 text-lg mb-2 group-hover:text-primary-700 transition-colors">
               {item.titleId}
             </h3>
-            <p class="text-slate-500 text-sm leading-relaxed mb-4">
+            <p class="text-stone-600 text-sm leading-relaxed mb-5">
               {item.descriptionId}
             </p>
 
             <!-- Tech Stack -->
-            <div class="flex flex-wrap gap-2 mb-4">
+            <div class="flex flex-wrap gap-1.5 mb-5">
               {item.techStack.map((tech) => (
-                <span class="px-2 py-1 bg-slate-100 text-slate-600 text-xs font-medium rounded-md">
+                <span class="px-2.5 py-0.5 bg-stone-100 text-stone-700 text-xs font-medium rounded-md">
                   {tech}
                 </span>
               ))}
             </div>
 
-            <!-- Metrics -->
-            <div class="grid grid-cols-3 gap-2 pt-4 border-t border-slate-100">
+            <!-- Key Metrics -->
+            <div class="grid grid-cols-3 gap-2 pt-4 pb-2 border-t border-stone-100 mt-auto">
               {item.metrics.slice(0, 3).map((metric) => (
                 <div class="text-center">
-                  <div class="font-bold text-primary-700 text-sm">{metric.value}</div>
-                  <div class="text-slate-400 text-xs">{metric.label}</div>
+                  <div class="font-sans font-extrabold text-primary-700 text-sm tracking-tight">{metric.value}</div>
+                  <div class="text-stone-500 text-[11px] leading-tight mt-0.5">{metric.label}</div>
                 </div>
               ))}
             </div>
 
             <!-- Links -->
-            <div class="flex gap-3 mt-4">
+            <div class="flex gap-4 pt-4 border-t border-stone-100 mt-4 text-xs font-semibold">
               {item.liveUrl && (
                 <a
                   href={item.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+                  class="inline-flex items-center gap-1.5 text-primary-700 hover:text-primary-800 transition-colors"
                 >
-                  Live Demo
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  Kunjungi Sistem
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
@@ -75,10 +157,10 @@ import { portfolioItems } from '../../data/portfolio';
               {item.caseStudyUrl && (
                 <a
                   href={item.caseStudyUrl}
-                  class="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 hover:text-slate-900 transition-colors"
+                  class="inline-flex items-center gap-1.5 text-stone-600 hover:text-stone-900 transition-colors"
                 >
-                  Lihat Studi Kasus
-                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  Baca Studi Kasus
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                   </svg>
                 </a>

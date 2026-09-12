@@ -41,90 +41,120 @@
           </a>
         </div>
 
+        <!-- Trust Signals Pill -->
+        <div class="mt-8 flex flex-wrap items-center gap-y-2.5 gap-x-6 text-xs text-stone-600 font-medium">
+          <span class="inline-flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+            </svg>
+            Respon dalam &lt; 24 jam
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-primary-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+            7+ Instansi Aktif
+          </span>
+          <span class="inline-flex items-center gap-1.5">
+            <svg class="w-4 h-4 text-amber-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            Konsultasi Gratis Tanpa Komitmen
+          </span>
+        </div>
+
       </div>
 
       <!-- Right: UI Mockup Cards on light background -->
-      <div class="relative flex items-center justify-center min-h-125 sm:h-120 lg:h-135">
+      <div class="relative flex items-center justify-center min-h-[460px] sm:min-h-[500px]">
 
-        <!-- Shadow base plate -->
-        <div class="absolute inset-8 bg-white rounded-3xl shadow-2xl border border-stone-100"></div>
-
-        <!-- Main card: Sales dashboard -->
-        <div class="surface-card absolute top-4 right-4 w-[calc(100%-2rem)] max-w-[320px] sm:w-[320px] p-6">
-          <div class="flex items-center justify-between mb-5">
-            <p class="text-xs font-bold text-stone-500 uppercase tracking-wider">Ringkasan Penjualan</p>
-            <span class="inline-flex items-center gap-1 text-xs text-emerald-700 bg-emerald-50 border border-emerald-100 px-2.5 py-1 rounded-full">
+        <!-- Shadow base plate with browser-like frame -->
+        <div class="w-full max-w-[480px] bg-white rounded-2xl shadow-2xl border border-stone-200/80 overflow-hidden">
+          <!-- Window Header -->
+          <div class="flex items-center justify-between px-4 py-3 bg-stone-100/70 border-b border-stone-200 text-xs text-stone-500">
+            <div class="flex items-center gap-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-stone-300"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-stone-300"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-stone-300"></span>
+              <span class="ml-2 font-mono text-[11px] text-stone-500">ops.akordium.id</span>
+            </div>
+            <span class="inline-flex items-center gap-1 text-[11px] font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/60 px-2.5 py-0.5 rounded-full">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Live
+              Live Sync
             </span>
           </div>
-          <div class="grid grid-cols-2 gap-4 mb-6">
-            <div class="bg-primary-50 rounded-xl p-4">
-              <p class="text-[11px] text-primary-600 font-semibold">Bulan Ini</p>
-              <p class="text-2xl font-bold text-stone-900 mt-2">Rp 128jt</p>
-              <p class="text-xs text-emerald-600 mt-1 font-semibold">↑ 12.4%</p>
-            </div>
-            <div class="bg-stone-50 rounded-xl p-4">
-              <p class="text-[11px] text-stone-600 font-semibold">Transaksi</p>
-              <p class="text-2xl font-bold text-stone-900 mt-2">384</p>
-              <p class="text-xs text-emerald-600 mt-1 font-semibold">↑ 8.1%</p>
-            </div>
-          </div>
-          <!-- Bar chart -->
-          <div class="flex items-end gap-1 h-16">
-            {[30, 55, 40, 70, 50, 85, 65, 80, 55, 90, 70, 100].map((h, i) => (
-              <div class={`flex-1 rounded-sm ${i === 11 ? 'bg-primary-600' : 'bg-primary-200'}`} style={`height: ${h}%`}></div>
-            ))}
-          </div>
-          <div class="flex justify-between mt-2">
-            {['Jan','Feb','Mar','Apr','Mei','Jun','Jul','Agu','Sep','Okt','Nov','Des'].map((m) => (
-              <span class="text-[8px] text-stone-400 flex-1 text-center font-medium">{m[0]}</span>
-            ))}
-          </div>
-        </div>
 
-        <!-- Floating card: Inventory status -->
-        <div class="surface-card absolute top-55 sm:top-37.5 lg:top-55 left-4 w-57.5 p-5">
-          <div class="flex items-center gap-3 mb-4">
-            <div class="w-9 h-9 bg-primary-100 rounded-lg flex items-center justify-center">
-              <svg class="w-4 h-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-              </svg>
+          <!-- Window Body -->
+          <div class="p-5 space-y-4">
+            <!-- Stat counters -->
+            <div class="grid grid-cols-3 gap-2.5">
+              <div class="bg-stone-50 border border-stone-100 rounded-xl p-3">
+                <p class="text-[10px] uppercase font-bold text-stone-400">Order Bulan Ini</p>
+                <p class="text-lg font-bold text-stone-900 mt-1">384</p>
+                <p class="text-[10px] text-emerald-600 font-semibold mt-0.5">↑ 14.2%</p>
+              </div>
+              <div class="bg-primary-50/70 border border-primary-100 rounded-xl p-3">
+                <p class="text-[10px] uppercase font-bold text-primary-700">Akurasi Stok</p>
+                <p class="text-lg font-bold text-primary-900 mt-1">99.8%</p>
+                <p class="text-[10px] text-primary-700 font-medium mt-0.5">0 selisih fisik</p>
+              </div>
+              <div class="bg-stone-50 border border-stone-100 rounded-xl p-3">
+                <p class="text-[10px] uppercase font-bold text-stone-400">Latensi Sistem</p>
+                <p class="text-lg font-bold text-stone-900 mt-1">0.4s</p>
+                <p class="text-[10px] text-emerald-600 font-semibold mt-0.5">Go + Postgres</p>
+              </div>
             </div>
-            <div>
-              <p class="text-xs font-bold text-stone-700">Stok Inventory</p>
-              <p class="text-[11px] text-stone-400">Diperbarui 2m lalu</p>
-            </div>
-          </div>
-          <div class="space-y-2.5">
-            {[
-              { label: "Produk A", pct: 82, color: "bg-primary-500" },
-              { label: "Produk B", pct: 47, color: "bg-emerald-500" },
-              { label: "Produk C", pct: 93, color: "bg-amber-500" },
-            ].map((item) => (
-              <div>
-                <div class="flex justify-between mb-1.5">
-                  <span class="text-[11px] text-stone-600 font-medium">{item.label}</span>
-                  <span class="text-[11px] font-bold text-stone-700">{item.pct}%</span>
+
+            <!-- Operations Activity Log -->
+            <div class="border border-stone-100 rounded-xl p-3.5 bg-white space-y-2.5">
+              <div class="flex items-center justify-between text-[11px]">
+                <span class="font-bold text-stone-800">Alur Kerja Real-Time</span>
+                <span class="text-stone-400 font-mono text-[10px]">auto-sync</span>
+              </div>
+              <div class="space-y-2">
+                <div class="flex items-center justify-between text-xs p-2 rounded-lg bg-stone-50/80">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 shrink-0"></span>
+                    <div>
+                      <p class="font-medium text-stone-800 text-[11px]">Inspeksi Aset Gudang B</p>
+                      <p class="text-[10px] text-stone-400">Barcode verified · no delay</p>
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-semibold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded">Selesai</span>
                 </div>
-                <div class="h-2 bg-stone-100 rounded-full overflow-hidden">
-                  <div class={`h-full ${item.color} rounded-full`} style={`width: ${item.pct}%`}></div>
+                <div class="flex items-center justify-between text-xs p-2 rounded-lg bg-stone-50/80">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-primary-600 shrink-0"></span>
+                    <div>
+                      <p class="font-medium text-stone-800 text-[11px]">Surat Jalan & Invoice #2841</p>
+                      <p class="text-[10px] text-stone-400">Sinkron ke divisi keuangan</p>
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-semibold text-primary-700 bg-primary-50 px-2 py-0.5 rounded">Terkirim</span>
+                </div>
+                <div class="flex items-center justify-between text-xs p-2 rounded-lg bg-stone-50/80">
+                  <div class="flex items-center gap-2.5">
+                    <span class="w-2 h-2 rounded-full bg-amber-500 shrink-0"></span>
+                    <div>
+                      <p class="font-medium text-stone-800 text-[11px]">10.420 GPS Telemetri Unit</p>
+                      <p class="text-[10px] text-stone-400">Throughput stabil tanpa bottleneck</p>
+                    </div>
+                  </div>
+                  <span class="text-[10px] font-semibold text-amber-800 bg-amber-50 px-2 py-0.5 rounded">99.9% Up</span>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </div>
 
-        <!-- Notification badge -->
-        <div class="surface-card absolute bottom-10 right-8 w-52.5 p-4 flex items-center gap-3">
-          <div class="w-9 h-9 bg-emerald-100 rounded-lg flex items-center justify-center shrink-0">
-            <svg class="w-4 h-4 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-            </svg>
+        <!-- Floating micro-card: quick metric -->
+        <div class="hidden sm:flex surface-card absolute -bottom-4 -left-6 p-3.5 items-center gap-3 shadow-xl border border-stone-200">
+          <div class="w-9 h-9 rounded-xl bg-primary-100 flex items-center justify-center text-primary-700 shrink-0 font-bold text-sm">
+            4×
           </div>
           <div>
-            <p class="text-xs font-bold text-stone-800">Invoice dikirim</p>
-            <p class="text-[11px] text-stone-500">PT. Maju Bersama · barusan</p>
+            <p class="text-xs font-bold text-stone-900">Efisiensi Koordinasi</p>
+            <p class="text-[11px] text-stone-500">Tanpa spreadsheet berceceran</p>
           </div>
         </div>
 
