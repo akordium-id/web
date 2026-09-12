@@ -14,13 +14,15 @@ const currentPath = Astro.url.pathname;
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="flex items-center justify-between h-16">
         <!-- Logo -->
-        <a href="/" class="flex items-center gap-2.5 group">
-          <div class="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center group-hover:bg-primary-700 transition-colors">
-            <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" />
-            </svg>
-          </div>
-          <span class="font-bold text-lg text-slate-900 tracking-tight">Akordium <span class="text-primary-600">Lab</span></span>
+        <a href="/" class="flex items-center gap-1.5 group py-1" aria-label="Akordium Lab">
+          <img
+            src="/akordium-logo.svg"
+            alt="Akordium"
+            class="h-6 sm:h-7 w-auto object-contain transition-transform group-hover:scale-[1.02]"
+            width="146"
+            height="26"
+          />
+          <span class="font-sans font-bold text-base sm:text-lg text-primary-600 tracking-tight ml-0.5">Lab</span>
         </a>
 
         <!-- Desktop Nav -->
