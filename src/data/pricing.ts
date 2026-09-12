@@ -33,8 +33,8 @@ export const pricingTiers: PricingTier[] = [
     badge: "Ramah UMKM",
     badgeId: "Ramah UMKM",
     featured: true,
-    ctaText: "Mulai Sekarang",
-    ctaTextId: "Mulai Sekarang",
+    ctaText: "Konsultasi Sekarang",
+    ctaTextId: "Konsultasi Sekarang",
     features: [
       { text: "Landing page 1 halaman profesional", textId: "Landing page 1 halaman profesional", included: true },
       { text: "Desain responsif (mobile-friendly)", textId: "Desain responsif (mobile-friendly)", included: true },
