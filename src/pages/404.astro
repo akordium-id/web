@@ -3,22 +3,30 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Halaman Tidak Ditemukan | Akordium Lab" description="Halaman yang Anda cari tidak ditemukan.">
-  <section class="py-40 bg-white">
-    <div class="max-w-2xl mx-auto px-4 text-center">
-      <h1 class="text-6xl sm:text-7xl font-extrabold text-primary-900 mb-4">404</h1>
-      <h2 class="text-2xl sm:text-3xl font-bold text-slate-900 mb-4">Halaman tidak ditemukan</h2>
-      <p class="text-slate-500 mb-8">
-        Maaf, halaman yang Anda kunjungi tidak tersedia atau telah dipindahkan.
+  <section class="relative overflow-hidden bg-linear-to-br from-white via-primary-50/50 to-accent-50/30 py-32 lg:py-40">
+    <!-- Ambient glows -->
+    <div class="absolute -top-40 -right-40 w-120 h-120 rounded-full bg-primary-100/60 blur-3xl pointer-events-none"></div>
+    <div class="absolute -bottom-40 -left-40 w-120 h-120 rounded-full bg-accent-100/40 blur-3xl pointer-events-none"></div>
+    <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: radial-gradient(circle, #000 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+    <div class="relative max-w-2xl mx-auto px-4 text-center">
+      <span class="inline-block px-3.5 py-1 bg-accent-50 border border-accent-200/60 text-accent-700 text-xs font-semibold rounded-full uppercase tracking-wider mb-5">
+        Error 404
+      </span>
+      <h1 class="text-7xl sm:text-8xl font-black text-primary-900 tracking-tight mb-4">404</h1>
+      <h2 class="text-2xl sm:text-3xl font-bold text-stone-900 mb-4">Halaman tidak ditemukan</h2>
+      <p class="text-stone-600 mb-8 leading-relaxed max-w-md mx-auto">
+        Maaf, tautan yang Anda tuju mungkin salah ketik, telah dipindahkan, atau tidak lagi tersedia.
       </p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
-        <a href="/" class="inline-flex items-center gap-2 px-6 py-3 bg-accent-600 text-white font-semibold rounded-xl hover:bg-accent-700 active:scale-95 transition-all shadow-md shadow-accent-500/20">
+      <div class="flex flex-col sm:flex-row gap-3.5 justify-center">
+        <a href="/" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-accent-600 text-white font-bold rounded-xl hover:bg-accent-500 active:scale-95 transition-all shadow-md shadow-accent-600/20 text-sm">
           Kembali ke Beranda
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m0 0l-7 7-7-7M19 14v-4a1 1 0 00-1-1h-3" />
           </svg>
         </a>
-        <a href="/contact" class="inline-flex items-center gap-2 px-6 py-3 border-2 border-slate-300 text-slate-700 font-semibold rounded-xl hover:border-primary-900 hover:text-primary-900 transition-all">
-          Hubungi Kami
+        <a href="/contact" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-white border border-stone-300 text-stone-700 font-semibold rounded-xl hover:border-primary-900 hover:text-primary-900 transition-all text-sm">
+          Hubungi Tim Kami
           <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>

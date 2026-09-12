@@ -157,10 +157,12 @@ const dimensions = [
 
 <Layout title={pageTitle} description={pageDescription}>
   <!-- Hero Section -->
-  <section class="relative py-16 lg:py-24 bg-slate-950 text-white overflow-hidden">
+  <section class="relative py-16 lg:py-24 bg-[#0a142e] text-white overflow-hidden">
     <div class="absolute inset-0 pointer-events-none">
-      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(131,24,67,0.22),transparent)]"></div>
-      <div class="absolute inset-0 opacity-[0.03]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 28px 28px;"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(246,124,26,0.12),transparent)]"></div>
+      <div class="absolute top-1/4 -left-20 w-80 h-80 rounded-full bg-primary-600/20 blur-3xl"></div>
+      <div class="absolute bottom-0 -right-20 w-80 h-80 rounded-full bg-accent-600/15 blur-3xl"></div>
+      <div class="absolute inset-0 opacity-[0.025]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 28px 28px;"></div>
     </div>
 
     <div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -174,7 +176,7 @@ const dimensions = [
         <span class="text-accent-400">untuk Bisnis & UMKM</span>
       </h1>
 
-      <p class="text-base sm:text-lg text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+      <p class="text-base sm:text-lg text-stone-300 max-w-2xl mx-auto leading-relaxed mb-8">
         Tidak semua bisnis butuh website sekarang juga. Alat evaluasi ini mengukur seberapa mendesak bisnis Anda memerlukan website mandiri berdasarkan 5 indikator operasional nyata.
       </p>
 
@@ -389,8 +391,12 @@ const dimensions = [
         <div class="bg-white rounded-3xl border border-stone-200/90 shadow-xl overflow-hidden">
           
           <!-- Result Header -->
-          <div class="p-6 sm:p-10 bg-gradient-to-br from-slate-900 via-stone-900 to-slate-950 text-white relative">
-            <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div class="p-6 sm:p-10 bg-[#0a142e] text-white relative overflow-hidden">
+            <div class="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-primary-600/20 blur-3xl pointer-events-none"></div>
+            <div class="absolute -bottom-12 -left-12 w-64 h-64 rounded-full bg-accent-600/15 blur-3xl pointer-events-none"></div>
+            <div class="absolute inset-0 opacity-[0.025] pointer-events-none" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+            <div class="relative flex flex-wrap items-center justify-between gap-4 mb-6">
               <span class="px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-white/10 text-stone-200">
                 Hasil Diagnosis Digital Bisnis
               </span>
@@ -399,7 +405,7 @@ const dimensions = [
               </span>
             </div>
 
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               <!-- Score Gauge & Meter -->
               <div class="lg:col-span-5 text-center lg:text-left">
                 <p class="text-sm font-medium text-stone-300 mb-1">Tingkat Urgensi Kebutuhan Website</p>
