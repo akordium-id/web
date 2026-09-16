@@ -4,7 +4,7 @@ import '../../styles/global.css';
 
 const title = 'Faiq Najib Al-Aziz | Akordium Lab';
 const description =
-  'Faiq Najib Al-Aziz — Founder & Technology Partner at Akordium Lab. Web & Application, Digital Transformation, IT Consulting & Training.';
+  'Faiq Najib Al-Aziz — Founder & Technology Partner at Akordium Lab. Mitra seng peduli karo sampeyan. Web & Application, Digital Transformation, IT Consulting & Training.';
 const canonical = 'https://akordium.id/card/faiq';
 const ogImage = 'https://akordium.id/og-image.png';
 
@@ -77,16 +77,14 @@ const jsonLd = {
 
     <style>
       :root {
-        --color-card-navy: #122550;
-        --color-card-navy-deep: #0a1329;
-        --color-card-navy-surface: #101e40;
-        --color-card-navy-track: #1c366e;
-        --color-card-orange: #f67c19;
-        --color-card-orange-hover: #ea6b08;
-        --color-paper-bg: #f8f8f5;
-        --color-paper-text-dark: #122550;
-        --color-paper-text-muted: #526079;
-        --color-paper-border: #e2e6ed;
+        --ak-navy: #122550;
+        --ak-navy-dark: #0a1329;
+        --ak-navy-track: #1b336a;
+        --ak-orange: #f67c19;
+        --ak-paper: #f6f6f4;
+        --ak-paper-border: #dcdfd5;
+        --ak-paper-text-dark: #122550;
+        --ak-paper-text-slate: #52627a;
       }
 
       * {
@@ -97,15 +95,15 @@ const jsonLd = {
       body {
         margin: 0;
         padding: 0;
-        background-color: var(--color-card-navy-deep);
+        background-color: var(--ak-navy-dark);
         color: #e8edf5;
         font-family: 'Manrope', 'Inter', system-ui, sans-serif;
         -webkit-font-smoothing: antialiased;
         min-height: 100dvh;
       }
 
-      /* Ambient background lighting */
-      .ambient-glow {
+      /* Subtle ambient background glow */
+      .ambient-canvas {
         position: fixed;
         inset: 0;
         pointer-events: none;
@@ -113,19 +111,19 @@ const jsonLd = {
         overflow: hidden;
       }
 
-      .ambient-glow::before {
+      .ambient-canvas::before {
         content: '';
         position: absolute;
-        top: -15%;
+        top: -10%;
         left: 50%;
         transform: translateX(-50%);
-        width: 650px;
-        height: 650px;
-        background: radial-gradient(circle, rgba(246, 124, 25, 0.12) 0%, rgba(18, 37, 80, 0.25) 45%, transparent 70%);
-        filter: blur(60px);
+        width: 700px;
+        height: 700px;
+        background: radial-gradient(circle, rgba(246, 124, 25, 0.08) 0%, rgba(18, 37, 80, 0.3) 50%, transparent 70%);
+        filter: blur(80px);
       }
 
-      /* Layout shell */
+      /* Main container */
       .page-shell {
         position: relative;
         z-index: 1;
@@ -133,7 +131,7 @@ const jsonLd = {
         display: flex;
         flex-direction: column;
         align-items: center;
-        padding: 24px 16px 48px;
+        padding: 24px 16px 56px;
       }
 
       .card-wrap {
@@ -144,20 +142,20 @@ const jsonLd = {
         gap: 20px;
       }
 
-      /* Brand Header Top Bar */
+      /* Top Bar */
       .brand-top-bar {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 12px 18px;
-        background: rgba(18, 37, 80, 0.65);
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
+        padding: 10px 16px;
+        background: rgba(18, 37, 80, 0.6);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
         border: 1px solid rgba(255, 255, 255, 0.08);
-        border-radius: 16px;
+        border-radius: 14px;
       }
 
-      .badge-connected-card {
+      .badge-connected {
         display: inline-flex;
         align-items: center;
         gap: 6px;
@@ -173,16 +171,81 @@ const jsonLd = {
         padding: 4px 10px;
       }
 
-      .badge-pulse-dot {
+      .pulse-dot {
         width: 6px;
         height: 6px;
         border-radius: 50%;
-        background-color: var(--color-card-orange);
-        box-shadow: 0 0 8px var(--color-card-orange);
+        background-color: var(--ak-orange);
+        box-shadow: 0 0 8px var(--ak-orange);
+      }
+
+      /* View Mode Switcher Pills */
+      .view-controls {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 8px;
+        padding: 0 2px;
+      }
+
+      .view-toggle-group {
+        display: inline-flex;
+        background: rgba(18, 37, 80, 0.75);
+        padding: 4px;
+        border-radius: 12px;
+        border: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .view-tab-btn {
+        background: transparent;
+        border: none;
+        color: rgba(255, 255, 255, 0.6);
+        font-family: 'Sora', system-ui, sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 6px 14px;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+      }
+
+      .view-tab-btn.is-active {
+        background: var(--ak-navy);
+        color: #ffffff;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+      }
+
+      .flip-hint {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        font-size: 0.75rem;
+        color: rgba(255, 255, 255, 0.5);
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        padding: 6px 8px;
+        transition: color 0.2s;
+      }
+
+      .flip-hint:hover {
+        color: var(--ak-orange);
+      }
+
+      .flip-hint svg {
+        transition: transform 0.4s ease;
+      }
+
+      .flip-hint:hover svg {
+        transform: rotate(180deg);
       }
 
       /* ------------------------------------------------------------- */
-      /* 3D Realistic Card Stage */
+      /* Physical Business Card 3D Stage (90x54mm Ratio)               */
       /* ------------------------------------------------------------- */
       .card-stage {
         position: relative;
@@ -209,337 +272,209 @@ const jsonLd = {
         inset: 0;
         width: 100%;
         height: 100%;
-        border-radius: 20px;
+        border-radius: clamp(14px, 3.2cqw, 20px);
         backface-visibility: hidden;
         -webkit-backface-visibility: hidden;
         overflow: hidden;
         box-shadow:
-          0 12px 36px -4px rgba(0, 0, 0, 0.45),
-          0 4px 16px -2px rgba(0, 0, 0, 0.25),
+          0 18px 40px -8px rgba(0, 0, 0, 0.55),
+          0 6px 18px -4px rgba(0, 0, 0, 0.3),
           inset 0 1px 0 rgba(255, 255, 255, 0.15);
       }
 
-      /* Subtle paper / matte finish */
-      .card-face::after {
-        content: '';
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        border-radius: inherit;
-        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
-      }
-
-      /* Front Face (Navy) */
+      /* ------------------------------------------------------------- */
+      /* FRONT CARD (Deep Navy + Spot UV Circuit Pattern + QR)         */
+      /* ------------------------------------------------------------- */
       .card-face-front {
-        background-color: var(--color-card-navy);
+        background-color: var(--ak-navy);
         color: #ffffff;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        padding: 6% 7%;
       }
 
-      .card-front-pattern {
+      /* SVG canvas covers the entire card */
+      .card-front-svg {
         position: absolute;
         inset: 0;
         width: 100%;
         height: 100%;
-        pointer-events: none;
-        z-index: 1;
+        display: block;
       }
 
-      .front-content {
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-        height: 100%;
-      }
-
-      .front-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-      }
-
-      .front-bottom {
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-      }
-
-      .front-tagline {
-        font-family: 'Manrope', system-ui, sans-serif;
-        font-size: clamp(0.7rem, 2.7cqw, 0.95rem);
-        font-weight: 500;
-        color: rgba(255, 255, 255, 0.85);
-        line-height: 1.35;
-        margin: 0;
-        max-width: 55%;
-      }
-
-      .front-accent-line {
-        width: clamp(28px, 8cqw, 36px);
-        height: clamp(3px, 0.9cqw, 4px);
-        border-radius: 2px;
-        background-color: var(--color-card-orange);
-      }
-
-      /* Embedded QR Module on Front */
-      .front-qr-module {
+      /* Embedded QR Module overlay */
+      .qr-overlay-box {
         position: absolute;
-        right: 6%;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 3;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 5px;
-      }
-
-      .front-qr-card {
+        /* Positioned precisely inside the pattern coordinate */
+        left: 55.5%;
+        top: 22.2%;
+        width: 25.5%;
+        height: 42.5%;
         background: #ffffff;
-        padding: clamp(6px, 1.6cqw, 10px);
-        border-radius: clamp(10px, 2.5cqw, 15px);
+        border-radius: clamp(8px, 2.2cqw, 15px);
         box-shadow:
           0 8px 24px rgba(0, 0, 0, 0.35),
           0 2px 6px rgba(0, 0, 0, 0.2);
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 5%;
+        z-index: 5;
       }
 
-      .front-qr-card canvas {
+      .qr-overlay-box canvas {
         display: block;
-        width: clamp(75px, 21cqw, 108px) !important;
-        height: clamp(75px, 21cqw, 108px) !important;
+        width: 100% !important;
+        height: 100% !important;
         border-radius: 4px;
       }
 
-      .front-qr-hint {
-        font-family: 'Sora', system-ui, sans-serif;
-        font-size: clamp(8px, 1.8cqw, 9.5px);
-        font-weight: 700;
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-        color: rgba(255, 255, 255, 0.6);
-        text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
-      }
-
-      /* Back Face (Warm Light Paper) */
+      /* ------------------------------------------------------------- */
+      /* BACK CARD (Off-White Matte Paper + 2-Column Exact Layout)     */
+      /* ------------------------------------------------------------- */
       .card-face-back {
         transform: rotateY(180deg);
-        background-color: var(--color-paper-bg);
-        color: var(--color-paper-text-dark);
-        padding: 5.5% 6.5%;
-        display: flex;
-        flex-direction: row;
-        gap: 5%;
-        align-items: stretch;
+        background-color: var(--ak-paper);
+        color: var(--ak-paper-text-dark);
+        border: 1px solid var(--ak-paper-border);
       }
 
-      /* Subtle paper grain finish */
+      /* Subtle paper grain texture */
       .card-face-back::before {
         content: '';
         position: absolute;
         inset: 0;
         pointer-events: none;
-        background-image: radial-gradient(rgba(0, 0, 0, 0.02) 1px, transparent 0);
-        background-size: 8px 8px;
-        opacity: 0.6;
+        background-image: radial-gradient(rgba(0, 0, 0, 0.03) 1px, transparent 0);
+        background-size: 6px 6px;
+        opacity: 0.8;
       }
 
-      .back-col {
+      .back-layout {
         position: relative;
         z-index: 2;
-        flex: 1;
+        width: 100%;
+        height: 100%;
+        padding: 6% 7%;
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: stretch;
+      }
+
+      /* Left Column: Name, Role, 3 Pillars */
+      .back-col-left {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-      }
-
-      .back-col-left {
-        padding-right: 2%;
-      }
-
-      .back-col-divider {
-        width: 1px;
-        background: var(--color-paper-border);
-        height: 100%;
-        margin: 0;
-      }
-
-      .back-col-right {
-        padding-left: 2%;
+        padding-right: 6%;
       }
 
       .back-name {
         font-family: 'Sora', system-ui, sans-serif;
-        font-size: clamp(0.92rem, 3.8cqw, 1.25rem);
+        font-size: clamp(0.95rem, 3.8cqw, 1.32rem);
         font-weight: 700;
-        color: var(--color-paper-text-dark);
-        margin: 0 0 2px;
+        color: var(--ak-paper-text-dark);
+        margin: 0 0 3px;
         line-height: 1.15;
         letter-spacing: -0.02em;
       }
 
       .back-role {
         font-family: 'Manrope', system-ui, sans-serif;
-        font-size: clamp(0.65rem, 2.3cqw, 0.82rem);
-        font-weight: 600;
-        color: var(--color-paper-text-muted);
-        margin: 0 0 10px;
+        font-size: clamp(0.65rem, 2.2cqw, 0.82rem);
+        font-weight: 500;
+        color: var(--ak-paper-text-slate);
+        margin: 0;
         line-height: 1.3;
       }
 
       .back-pillars {
         display: flex;
         flex-direction: column;
-        gap: clamp(4px, 1.2cqw, 8px);
+        gap: clamp(4px, 1.3cqw, 8px);
+        margin-top: clamp(6px, 1.8cqw, 14px);
       }
 
       .back-pillar-item {
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: clamp(5px, 1.5cqw, 8px);
         font-family: 'Manrope', system-ui, sans-serif;
-        font-size: clamp(0.62rem, 2.1cqw, 0.76rem);
+        font-size: clamp(0.6rem, 2.1cqw, 0.78rem);
         font-weight: 600;
-        color: #293448;
+        color: #2b384e;
       }
 
-      .back-pillar-item svg {
-        width: clamp(12px, 2.8cqw, 15px);
-        height: clamp(12px, 2.8cqw, 15px);
-        color: var(--color-card-navy);
+      .back-pillar-icon {
+        width: clamp(14px, 3cqw, 18px);
+        height: clamp(14px, 3cqw, 18px);
+        color: var(--ak-paper-text-dark);
         flex-shrink: 0;
       }
 
-      .back-contact-list {
+      /* Divider line */
+      .back-divider {
+        width: 1px;
+        background-color: var(--ak-paper-border);
+        height: 86%;
+        align-self: center;
+      }
+
+      /* Right Column: Contact info & Logo */
+      .back-col-right {
         display: flex;
         flex-direction: column;
-        gap: clamp(5px, 1.5cqw, 9px);
+        justify-content: space-between;
+        padding-left: 6%;
+      }
+
+      .back-contacts {
+        display: flex;
+        flex-direction: column;
+        gap: clamp(5px, 1.6cqw, 10px);
         margin-top: 2px;
       }
 
-      .back-contact-item {
+      .back-contact-link {
         display: flex;
         align-items: center;
-        gap: 7px;
+        gap: clamp(6px, 1.6cqw, 9px);
         font-family: 'Manrope', system-ui, sans-serif;
-        font-size: clamp(0.62rem, 2.2cqw, 0.78rem);
+        font-size: clamp(0.62rem, 2.2cqw, 0.8rem);
         font-weight: 600;
         color: #334155;
         text-decoration: none;
       }
 
-      .back-contact-item:hover {
-        color: var(--color-card-orange);
+      .back-contact-link:hover {
+        color: var(--ak-orange);
       }
 
       .back-contact-icon {
-        width: clamp(14px, 3.2cqw, 18px);
-        height: clamp(14px, 3.2cqw, 18px);
-        border-radius: 4px;
-        background: rgba(246, 124, 25, 0.12);
-        color: var(--color-card-orange);
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: clamp(13px, 2.8cqw, 17px);
+        height: clamp(13px, 2.8cqw, 17px);
+        color: var(--ak-orange);
         flex-shrink: 0;
       }
 
-      .back-contact-icon svg {
-        width: 65%;
-        height: 65%;
-      }
-
-      .back-logo-wrap {
+      /* Back Logo Signature (with orange strip on top) */
+      .back-logo-signature {
         display: flex;
         flex-direction: column;
-        align-items: flex-start;
+        align-items: flex-end;
         margin-top: auto;
       }
 
       .back-logo-accent {
-        width: 18px;
-        height: 2.5px;
+        width: clamp(20px, 5cqw, 28px);
+        height: clamp(2.5px, 0.7cqw, 3.5px);
         border-radius: 2px;
-        background-color: var(--color-card-orange);
+        background-color: var(--ak-orange);
         margin-bottom: 4px;
       }
 
-      /* Flip controller pills */
-      .card-flip-controller {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 8px;
-        padding: 0 4px;
-      }
-
-      .flip-toggle-group {
-        display: inline-flex;
-        background: rgba(18, 37, 80, 0.65);
-        padding: 4px;
-        border-radius: 12px;
-        border: 1px solid rgba(255, 255, 255, 0.08);
-      }
-
-      .flip-tab-btn {
-        background: transparent;
-        border: none;
-        color: rgba(255, 255, 255, 0.6);
-        font-family: 'Sora', system-ui, sans-serif;
-        font-size: 0.78rem;
-        font-weight: 600;
-        padding: 6px 14px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: all 0.2s ease;
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-      }
-
-      .flip-tab-btn.is-active {
-        background: var(--color-card-navy);
-        color: #ffffff;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
-        border: 1px solid rgba(255, 255, 255, 0.12);
-      }
-
-      .flip-hint-pill {
-        display: inline-flex;
-        align-items: center;
-        gap: 6px;
-        font-size: 0.74rem;
-        color: rgba(255, 255, 255, 0.5);
-        background: transparent;
-        border: none;
-        cursor: pointer;
-        padding: 6px 8px;
-      }
-
-      .flip-hint-pill:hover {
-        color: var(--color-card-orange);
-      }
-
-      .flip-hint-pill svg {
-        transition: transform 0.4s ease;
-      }
-
-      .flip-hint-pill:hover svg {
-        transform: rotate(180deg);
-      }
-
       /* ------------------------------------------------------------- */
-      /* Content Containers */
+      /* Surface Panels & Action Hub                                   */
       /* ------------------------------------------------------------- */
       .surface-panel {
-        background-color: var(--color-card-navy-surface);
+        background-color: #101e40;
         border: 1px solid rgba(255, 255, 255, 0.08);
         border-radius: 18px;
         padding: 24px;
@@ -555,7 +490,6 @@ const jsonLd = {
         margin: 0 0 16px;
       }
 
-      /* Primary Actions Hub */
       .actions-grid {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -589,13 +523,13 @@ const jsonLd = {
       }
 
       .action-btn:focus-visible {
-        outline: 2px solid var(--color-card-orange);
+        outline: 2px solid var(--ak-orange);
         outline-offset: 3px;
       }
 
       .btn-save-contact {
         background-color: #ffffff;
-        color: var(--color-card-navy);
+        color: var(--ak-navy);
         box-shadow: 0 4px 16px rgba(255, 255, 255, 0.15);
       }
 
@@ -628,7 +562,7 @@ const jsonLd = {
 
       .btn-website-action {
         background: rgba(246, 124, 25, 0.12);
-        color: var(--color-card-orange);
+        color: var(--ak-orange);
         border: 1px solid rgba(246, 124, 25, 0.25);
       }
 
@@ -668,7 +602,7 @@ const jsonLd = {
       }
 
       .info-value:hover {
-        color: var(--color-card-orange);
+        color: var(--ak-orange);
       }
 
       .copy-btn {
@@ -732,7 +666,7 @@ const jsonLd = {
       .service-icon svg {
         width: 18px;
         height: 18px;
-        color: var(--color-card-orange);
+        color: var(--ak-orange);
       }
 
       .service-title {
@@ -797,7 +731,7 @@ const jsonLd = {
       .explore-link-icon svg {
         width: 16px;
         height: 16px;
-        color: var(--color-card-orange);
+        color: var(--ak-orange);
       }
 
       .explore-link-text {
@@ -846,7 +780,7 @@ const jsonLd = {
         margin-top: 8px;
       }
 
-      /* Accessibility & Reduced Motion */
+      /* Reduced motion */
       @media (prefers-reduced-motion: reduce) {
         .card-flipper {
           transition: transform 0.01ms !important;
@@ -856,16 +790,12 @@ const jsonLd = {
         .copy-btn {
           transition: none !important;
         }
-        .action-btn:hover,
-        .explore-link:hover {
-          transform: none !important;
-        }
       }
     </style>
   </head>
 
   <body>
-    <div class="ambient-glow" aria-hidden="true"></div>
+    <div class="ambient-canvas" aria-hidden="true"></div>
 
     <main id="main-content" class="page-shell">
       <div class="card-wrap">
@@ -875,181 +805,18 @@ const jsonLd = {
           <a href="https://akordium.id" aria-label="Kunjungi website Akordium Lab">
             <Logo variant="white" class="h-6 w-auto" showLab={true} />
           </a>
-          <span class="badge-connected-card">
-            <span class="badge-pulse-dot" aria-hidden="true"></span>
+          <span class="badge-connected">
+            <span class="pulse-dot" aria-hidden="true"></span>
             Connected Card
           </span>
         </header>
 
-        <!-- ===== 2. Interactive 3D Business Card ===== -->
-        <section class="card-stage" aria-label="Kartu Nama Interaktif Akordium Lab">
-          <div
-            id="business-card-flipper"
-            class="card-flipper"
-            tabindex="0"
-            role="button"
-            aria-pressed="false"
-            aria-label="Kartu Nama Akordium Lab. Tekan enter atau spasi untuk membalik kartu."
-          >
-            <!-- --------------------------------------- -->
-            <!-- FRONT SIDE (Navy + Circuit Track + QR)  -->
-            <!-- --------------------------------------- -->
-            <div class="card-face card-face-front">
-              <!-- Geometric Track Circuit Pattern SVG -->
-              <svg
-                class="card-front-pattern"
-                viewBox="0 0 540 324"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                preserveAspectRatio="none"
-                aria-hidden="true"
-              >
-                <!-- Navy tone-on-tone thick tracks -->
-                <path d="M 280 0 L 280 120 Q 280 148 308 148 L 360 148" stroke="#1c366e" stroke-width="13" stroke-linecap="round" stroke-linejoin="round" />
-                <path d="M 330 0 L 330 80 Q 330 110 360 110 L 400 110" stroke="#162c5b" stroke-width="11" stroke-linecap="round" />
-                <path d="M 230 180 Q 230 220 270 220 L 380 220" stroke="#1c366e" stroke-width="12" stroke-linecap="round" />
-                <path d="M 320 220 L 320 324" stroke="#183163" stroke-width="12" stroke-linecap="round" />
-                <path d="M 450 240 L 450 324" stroke="#1c366e" stroke-width="12" stroke-linecap="round" />
-                <path d="M 500 180 Q 500 250 450 250" stroke="#162c5b" stroke-width="11" stroke-linecap="round" />
-
-                <!-- Orange Connection Tracks & Nodes -->
-                <!-- Orange curved track top right -->
-                <path d="M 410 0 L 410 40 Q 410 70 440 70 L 510 70" stroke="#f67c19" stroke-width="13" stroke-linecap="round" />
-                <!-- Orange vertical connector line ("koneksi") -->
-                <line x1="520" y1="110" x2="520" y2="190" stroke="#f67c19" stroke-width="12" stroke-linecap="round" />
-                <!-- Orange track bottom right -->
-                <path d="M 380 324 L 380 270 Q 380 245 405 245 L 490 245" stroke="#f67c19" stroke-width="12" stroke-linecap="round" />
-
-                <!-- Node 1: Orange donut ring (top right) -->
-                <circle cx="480" cy="70" r="21" stroke="#f67c19" stroke-width="11" fill="none" />
-                <!-- Node 2: Orange donut ring (bottom right) -->
-                <circle cx="440" cy="305" r="23" stroke="#f67c19" stroke-width="12" fill="none" />
-                <!-- Node 3: Orange donut ring (bottom middle) -->
-                <circle cx="230" cy="305" r="21" stroke="#f67c19" stroke-width="11" fill="none" />
-              </svg>
-
-              <!-- Front Content Overlay -->
-              <div class="front-content">
-                <!-- Top Left Logo -->
-                <div class="front-header">
-                  <Logo variant="white" class="h-6 sm:h-7 w-auto" showLab={false} />
-                </div>
-
-                <!-- Bottom Left Tagline + Accent -->
-                <div class="front-bottom">
-                  <p class="front-tagline">
-                    Mitra seng peduli<br />karo sampeyan.
-                  </p>
-                  <div class="front-accent-line" aria-hidden="true"></div>
-                </div>
-              </div>
-
-              <!-- QR Code Frame embedded cleanly in the pattern -->
-              <div class="front-qr-module">
-                <div class="front-qr-card" role="img" aria-label="QR Code kartu nama Faiq Najib Al-Aziz">
-                  <canvas id="card-qr-canvas" width="108" height="108"></canvas>
-                </div>
-                <span class="front-qr-hint">Scan Kontak</span>
-              </div>
-            </div>
-
-            <!-- --------------------------------------- -->
-            <!-- BACK SIDE (Paper White + Info 2-Col)    -->
-            <!-- --------------------------------------- -->
-            <div class="card-face card-face-back">
-              <!-- Left Column: Identity & Pillars -->
-              <div class="back-col back-col-left">
-                <div>
-                  <h1 class="back-name">Faiq Najib Al-Aziz</h1>
-                  <p class="back-role">Founder &amp; Technology Partner</p>
-                </div>
-
-                <div class="back-pillars" role="list" aria-label="Layanan utama">
-                  <div class="back-pillar-item" role="listitem">
-                    <!-- Web & App Icon -->
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <rect x="2" y="3" width="20" height="14" rx="2"></rect>
-                      <line x1="8" y1="21" x2="16" y2="21"></line>
-                      <line x1="12" y1="17" x2="12" y2="21"></line>
-                    </svg>
-                    <span>Web &amp; Application</span>
-                  </div>
-
-                  <div class="back-pillar-item" role="listitem">
-                    <!-- Digital Transformation Icon -->
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <circle cx="12" cy="12" r="3"></circle>
-                      <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
-                    </svg>
-                    <span>Digital Transformation</span>
-                  </div>
-
-                  <div class="back-pillar-item" role="listitem">
-                    <!-- IT Consulting & Training Icon -->
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <line x1="9" y1="18" x2="15" y2="18"></line>
-                      <line x1="10" y1="22" x2="14" y2="22"></line>
-                      <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
-                    </svg>
-                    <span>IT Consulting &amp; Training</span>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Thin Vertical Divider -->
-              <div class="back-col-divider" aria-hidden="true"></div>
-
-              <!-- Right Column: Contact & Brand Signature -->
-              <div class="back-col back-col-right">
-                <div class="back-contact-list">
-                  <a href="https://akordium.id" target="_blank" rel="noopener noreferrer" class="back-contact-item">
-                    <span class="back-contact-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
-                      </svg>
-                    </span>
-                    <span>akordium.id</span>
-                  </a>
-
-                  <a href="mailto:hello@akordium.id" class="back-contact-item">
-                    <span class="back-contact-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                      </svg>
-                    </span>
-                    <span>hello@akordium.id</span>
-                  </a>
-
-                  <div class="back-contact-item">
-                    <span class="back-contact-icon">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                      </svg>
-                    </span>
-                    <span>Surabaya, Indonesia</span>
-                  </div>
-                </div>
-
-                <!-- Bottom Right Logo with Orange Accent -->
-                <div class="back-logo-wrap">
-                  <div class="back-logo-accent" aria-hidden="true"></div>
-                  <Logo variant="navy" class="h-4 sm:h-5 w-auto" showLab={false} />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Flip Controller Toggle -->
-        <div class="card-flip-controller">
-          <div class="flip-toggle-group" role="tablist" aria-label="Pilih sisi kartu">
+        <!-- ===== 2. View Mode Controls ===== -->
+        <div class="view-controls">
+          <div class="view-toggle-group" role="tablist" aria-label="Pilih sisi kartu">
             <button
               id="tab-btn-front"
-              class="flip-tab-btn is-active"
+              class="view-tab-btn is-active"
               role="tab"
               aria-selected="true"
               type="button"
@@ -1058,7 +825,7 @@ const jsonLd = {
             </button>
             <button
               id="tab-btn-back"
-              class="flip-tab-btn"
+              class="view-tab-btn"
               role="tab"
               aria-selected="false"
               type="button"
@@ -1067,15 +834,262 @@ const jsonLd = {
             </button>
           </div>
 
-          <button id="btn-flip-hint" class="flip-hint-pill" type="button" aria-label="Putar kartu nama">
+          <button id="btn-flip-hint" class="flip-hint" type="button" aria-label="Putar kartu nama">
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
             </svg>
-            <span>Ketuk untuk membalik</span>
+            <span>Ketuk kartu untuk membalik</span>
           </button>
         </div>
 
-        <!-- ===== 3. Quick Action Hub ===== -->
+        <!-- ===== 3. Exact Physical Card Replica (3D Flip) ===== -->
+        <section class="card-stage" aria-label="Kartu Nama Fisik Akordium Lab">
+          <div
+            id="business-card-flipper"
+            class="card-flipper"
+            tabindex="0"
+            role="button"
+            aria-pressed="false"
+            aria-label="Kartu Nama Akordium Lab Faiq Najib Al-Aziz. Tekan untuk membalik antara Sisi Depan dan Sisi Belakang."
+          >
+            <!-- ============================================== -->
+            <!-- FRONT SIDE (Navy + Circuit Track + QR Pattern) -->
+            <!-- ============================================== -->
+            <div class="card-face card-face-front">
+              <!-- Full vector SVG replicating the exact physical front card layout -->
+              <svg
+                class="card-front-svg"
+                viewBox="0 0 540 324"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                preserveAspectRatio="none"
+                aria-hidden="true"
+              >
+                <!-- Base Navy background -->
+                <rect width="540" height="324" fill="#122550" />
+
+                <!-- -------------------------------------------- -->
+                <!-- SPOT UV TONE-ON-TONE CIRCUIT TRACKS (NAVY)   -->
+                <!-- -------------------------------------------- -->
+                <g stroke="#1b336a" stroke-width="14" stroke-linecap="round" stroke-linejoin="round">
+                  <!-- Top vertical tracks entering from top border -->
+                  <line x1="285" y1="0" x2="285" y2="45" />
+                  <path d="M 285 45 Q 285 62 302 62 L 310 62" />
+
+                  <!-- Track wrapping around top of QR box -->
+                  <path d="M 315 50 L 415 50 Q 435 50 435 35 L 435 0" />
+
+                  <!-- Vertical track on the far right edge -->
+                  <line x1="518" y1="0" x2="518" y2="324" />
+
+                  <!-- Curved track near QR left side -->
+                  <path d="M 285 110 L 285 160 Q 285 185 305 185 L 315 185" />
+
+                  <!-- Tracks beneath QR connecting lower nodes -->
+                  <path d="M 330 220 L 330 255" />
+                  <path d="M 355 255 L 420 255 Q 438 255 438 275 L 438 324" />
+                  <path d="M 445 220 L 445 235 Q 445 255 465 255 L 490 255" />
+
+                  <!-- Bottom track exiting -->
+                  <line x1="285" y1="260" x2="285" y2="324" />
+                  <line x1="380" y1="285" x2="380" y2="324" />
+                  <line x1="475" y1="265" x2="475" y2="324" />
+                </g>
+
+                <!-- Subtle embossed highlight for spot-UV feel -->
+                <g stroke="rgba(255, 255, 255, 0.09)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none">
+                  <path d="M 315 44 L 415 44" />
+                  <path d="M 280 110 L 280 160" />
+                  <path d="M 355 250 L 420 250" />
+                </g>
+
+                <!-- -------------------------------------------- -->
+                <!-- ORANGE ACCENT TRACKS & NODES                 -->
+                <!-- -------------------------------------------- -->
+                <!-- 1. Top-left curved connector arc (Lengkung) -->
+                <path
+                  d="M 245 0 L 245 35 Q 245 62 272 62 L 290 62"
+                  stroke="#f67c19"
+                  stroke-width="14"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+
+                <!-- 2. Right vertical connector line (Koneksi) -->
+                <line
+                  x1="475"
+                  y1="98"
+                  x2="475"
+                  y2="175"
+                  stroke="#f67c19"
+                  stroke-width="14"
+                  stroke-linecap="round"
+                />
+
+                <!-- 3. Node 1: Top-Right Donut Ring (Node) -->
+                <circle
+                  cx="475"
+                  cy="50"
+                  r="19"
+                  stroke="#f67c19"
+                  stroke-width="13"
+                  fill="none"
+                />
+
+                <!-- 4. Node 2: Bottom-Right Donut Ring (Node) -->
+                <circle
+                  cx="475"
+                  cy="225"
+                  r="19"
+                  stroke="#f67c19"
+                  stroke-width="13"
+                  fill="none"
+                />
+
+                <!-- 5. Node 3: Bottom-Left Donut Ring (Node) -->
+                <circle
+                  cx="330"
+                  cy="255"
+                  r="19"
+                  stroke="#f67c19"
+                  stroke-width="13"
+                  fill="none"
+                />
+
+                <!-- -------------------------------------------- -->
+                <!-- LEFT CONTENT: LOGO, TAGLINE, STRIP           -->
+                <!-- -------------------------------------------- -->
+                <!-- Logo akordium (official white + orange 'o') -->
+                <g transform="translate(44, 42)">
+                  <!-- a -->
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M 12.3 8.3 C 17.5 8.3 20.5 11.4 20.5 13.7 L 20.5 8.5 L 24.1 8.5 L 24.1 31.8 L 20.5 31.8 L 20.5 26.6 C 18.8 29.7 15.7 32 12.3 32 C 5.7 32 0.4 26.7 0.4 20.1 C 0.4 13.5 5.7 8.3 12.3 8.3 Z M 12.3 11.9 C 16.8 11.9 20.5 15.6 20.5 20.1 C 20.5 24.6 16.8 28.3 12.3 28.3 C 7.8 28.3 4.1 24.6 4.1 20.1 C 4.1 15.6 7.8 11.9 12.3 11.9 Z" fill="#ffffff" />
+                  <!-- k -->
+                  <path d="M 30.2 0 L 33.8 0 L 33.8 17.3 L 41.4 8.5 L 46.5 8.5 L 37.1 19.1 L 47.5 31.8 L 42.5 31.8 L 35.2 21.2 L 33.8 22.9 L 33.8 31.8 L 30.2 31.8 Z" fill="#ffffff" />
+                  <!-- o (Orange Donut) -->
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M 60.6 8.3 C 67.2 8.3 72.5 13.6 72.5 20.1 C 72.5 26.7 67.2 32 60.6 32 C 54 32 48.7 26.7 48.7 20.1 C 48.7 13.6 54 8.3 60.6 8.3 Z M 60.6 11.9 C 65.1 11.9 68.8 15.6 68.8 20.1 C 68.8 24.6 65.1 28.3 60.6 28.3 C 56.1 28.3 52.4 24.6 52.4 20.1 C 52.4 15.6 56.1 11.9 60.6 11.9 Z" fill="#f67c19" />
+                  <!-- r -->
+                  <path d="M 77 8.5 L 80.6 8.5 L 80.6 13.3 C 82.1 10 84.6 8.3 87.9 8.3 L 88.7 8.4 L 88.7 12.4 C 87.7 12.2 86.6 12.1 85.6 12.1 C 82.7 12.1 80.6 14.5 80.6 18.9 L 80.6 31.8 L 77 31.8 Z" fill="#ffffff" />
+                  <!-- d -->
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M 109.8 0 L 113.4 0 L 113.4 31.8 L 109.8 31.8 L 109.8 26.6 C 108.1 29.7 105 32 101.6 32 C 95 32 89.7 26.7 89.7 20.1 C 89.7 13.5 95 8.3 101.6 8.3 C 105 8.3 108.1 10.6 109.8 13.7 L 109.8 0 Z M 101.6 11.9 C 106.1 11.9 109.8 15.6 109.8 20.1 C 109.8 24.6 106.1 28.3 101.6 28.3 C 97.1 28.3 93.4 24.6 93.4 20.1 C 93.4 15.6 97.1 11.9 101.6 11.9 Z" fill="#ffffff" />
+                  <!-- i (Orange rectangle) -->
+                  <rect x="119.6" y="8.5" width="3.6" height="23.3" fill="#f67c19" />
+                  <!-- u -->
+                  <path d="M 129.5 8.5 L 133.1 8.5 L 133.1 21 C 133.1 25.6 135.7 28.4 139.2 28.4 C 142.7 28.4 145.3 25.6 145.3 21 L 145.3 8.5 L 148.9 8.5 L 148.9 31.8 L 145.3 31.8 L 145.3 26.8 C 143.6 30 140.7 32 137.6 32 C 131.8 32 129.5 27.6 129.5 21 Z" fill="#ffffff" />
+                  <!-- m -->
+                  <path d="M 154.2 8.5 L 157.8 8.5 L 157.8 13.1 C 159.3 10 162.1 8.3 165.4 8.3 C 168.7 8.3 171.2 10.2 172.5 13.4 C 174 10 177 8.3 180.6 8.3 C 185 8.3 186.9 11.4 186.9 16.8 L 186.9 31.8 L 183.3 31.8 L 183.3 17.9 C 183.3 13.9 182 12 179.2 12 C 176.1 12 172.8 14.5 172.8 19.1 L 172.8 31.8 L 169.2 31.8 L 169.2 17.9 C 169.2 13.9 167.9 12 165.1 12 C 162 12 157.8 14.5 157.8 19.1 L 157.8 31.8 L 154.2 31.8 Z" fill="#ffffff" />
+                </g>
+
+                <!-- Tagline text (2 lines) -->
+                <text x="44" y="234" fill="#ffffff" font-family="'Manrope', system-ui, sans-serif" font-size="15" font-weight="500" letter-spacing="-0.01em">
+                  Mitra seng peduli
+                </text>
+                <text x="44" y="254" fill="#ffffff" font-family="'Manrope', system-ui, sans-serif" font-size="15" font-weight="500" letter-spacing="-0.01em">
+                  karo sampeyan.
+                </text>
+
+                <!-- Orange Accent Line beneath tagline -->
+                <rect x="44" y="272" width="34" height="4" rx="2" fill="#f67c19" />
+              </svg>
+
+              <!-- QR Module (Embedded seamlessly inside pattern) -->
+              <div class="qr-overlay-box" role="img" aria-label="QR Code kartu nama Faiq Najib Al-Aziz">
+                <canvas id="card-qr-canvas" width="120" height="120"></canvas>
+              </div>
+            </div>
+
+            <!-- ============================================== -->
+            <!-- BACK SIDE (Exact Physical Off-White Paper Card)-->
+            <!-- ============================================== -->
+            <div class="card-face card-face-back">
+              <div class="back-layout">
+
+                <!-- Left Column: Identity & Pillars -->
+                <div class="back-col-left">
+                  <div>
+                    <h1 class="back-name">Faiq Najib Al-Aziz</h1>
+                    <p class="back-role">Founder &amp; Technology Partner</p>
+                  </div>
+
+                  <div class="back-pillars" role="list" aria-label="Pilar keahlian">
+                    <!-- Pilar 1: Web & Application -->
+                    <div class="back-pillar-item" role="listitem">
+                      <svg class="back-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+                        <line x1="8" y1="21" x2="16" y2="21"></line>
+                        <line x1="12" y1="17" x2="12" y2="21"></line>
+                      </svg>
+                      <span>Web &amp; Application</span>
+                    </div>
+
+                    <!-- Pilar 2: Digital Transformation -->
+                    <div class="back-pillar-item" role="listitem">
+                      <svg class="back-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="3"></circle>
+                        <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                      </svg>
+                      <span>Digital Transformation</span>
+                    </div>
+
+                    <!-- Pilar 3: IT Consulting & Training -->
+                    <div class="back-pillar-item" role="listitem">
+                      <svg class="back-pillar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <line x1="9" y1="18" x2="15" y2="18"></line>
+                        <line x1="10" y1="22" x2="14" y2="22"></line>
+                        <path d="M15.09 14c.18-.98.65-1.74 1.41-2.5A4.65 4.65 0 0 0 18 8 6 6 0 0 0 6 8c0 1 .23 2.23 1.5 3.5A4.61 4.61 0 0 1 8.91 14"></path>
+                      </svg>
+                      <span>IT Consulting &amp; Training</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Subtle Vertical Divider -->
+                <div class="back-divider" aria-hidden="true"></div>
+
+                <!-- Right Column: Contacts & Akordium Logo -->
+                <div class="back-col-right">
+                  <div class="back-contacts">
+                    <!-- Website -->
+                    <a href="https://akordium.id" target="_blank" rel="noopener noreferrer" class="back-contact-link">
+                      <svg class="back-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="2" y1="12" x2="22" y2="12"></line>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path>
+                      </svg>
+                      <span>akordium.id</span>
+                    </a>
+
+                    <!-- Email -->
+                    <a href="mailto:hello@akordium.id" class="back-contact-link">
+                      <svg class="back-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                        <polyline points="22,6 12,13 2,6"></polyline>
+                      </svg>
+                      <span>hello@akordium.id</span>
+                    </a>
+
+                    <!-- Location -->
+                    <div class="back-contact-link">
+                      <svg class="back-contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                        <circle cx="12" cy="10" r="3"></circle>
+                      </svg>
+                      <span>Surabaya, Indonesia</span>
+                    </div>
+                  </div>
+
+                  <!-- Bottom Right Signature: Orange accent bar + Logo -->
+                  <div class="back-logo-signature">
+                    <div class="back-logo-accent" aria-hidden="true"></div>
+                    <Logo variant="navy" class="h-4 sm:h-5 w-auto" showLab={false} />
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ===== 4. Quick Action Hub ===== -->
         <div class="surface-panel">
           <p class="panel-heading">Hubungi &amp; Simpan</p>
           <div class="actions-grid">
@@ -1175,7 +1189,7 @@ const jsonLd = {
           </div>
         </div>
 
-        <!-- ===== 4. Services Section ===== -->
+        <!-- ===== 5. Services Section ===== -->
         <div class="surface-panel">
           <p class="panel-heading">Layanan Akordium Lab</p>
           <div class="services-list" role="list">
@@ -1222,7 +1236,7 @@ const jsonLd = {
           </div>
         </div>
 
-        <!-- ===== 5. Explore Akordium ===== -->
+        <!-- ===== 6. Explore Akordium ===== -->
         <div class="surface-panel">
           <p class="panel-heading">Jelajahi Ekosistem</p>
           <nav class="explore-links" aria-label="Tautan Ekosistem Akordium">
@@ -1295,7 +1309,7 @@ const jsonLd = {
           </nav>
         </div>
 
-        <!-- ===== 6. Footer Signature ===== -->
+        <!-- ===== 7. Footer Signature ===== -->
         <footer class="card-footer" role="contentinfo">
           <div class="footer-brand">Akordium Lab</div>
           <div class="footer-tagline">Mitra seng peduli karo sampeyan.</div>
@@ -1339,7 +1353,6 @@ const jsonLd = {
       }
 
       flipper?.addEventListener('click', (e) => {
-        // Prevent flipping if user clicked directly on an anchor or interactive child
         const target = e.target as HTMLElement;
         if (target.closest('a') || target.closest('button')) return;
         toggleFlip();
@@ -1423,7 +1436,7 @@ const jsonLd = {
         const canvas = document.getElementById('card-qr-canvas');
         if (canvas) {
           await QRCode.toCanvas(canvas, 'https://akordium.id/card/faiq', {
-            width: 108,
+            width: 120,
             margin: 0,
             color: {
               dark: '#122550',
