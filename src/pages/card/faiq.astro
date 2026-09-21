@@ -302,7 +302,6 @@ const jsonLd = {
       /* Embedded QR Module overlay */
       .qr-overlay-box {
         position: absolute;
-        /* Positioned precisely inside the pattern coordinate */
         left: 55.5%;
         top: 22.2%;
         width: 25.5%;
@@ -981,15 +980,12 @@ const jsonLd = {
 
                 <!-- Tagline text (2 lines) -->
                 <text x="44" y="234" fill="#ffffff" font-family="'Manrope', system-ui, sans-serif" font-size="15" font-weight="500" letter-spacing="-0.01em">
-                  Mitra seng peduli
-                </text>
-                <text x="44" y="254" fill="#ffffff" font-family="'Manrope', system-ui, sans-serif" font-size="15" font-weight="500" letter-spacing="-0.01em">
-                  karo sampeyan.
+                  Your caring partner
                 </text>
 
                 <!-- Orange Accent Line beneath tagline -->
-                <rect x="44" y="272" width="34" height="4" rx="2" fill="#f67c19" />
-              </svg>
+                 <rect x="44" y="272" width="34" height="4" rx="2" fill="#f67c19" />
+               </svg>
 
               <!-- QR Module (Embedded seamlessly inside pattern) -->
               <div class="qr-overlay-box" role="img" aria-label="QR Code kartu nama Faiq Najib Al-Aziz">
@@ -1427,7 +1423,7 @@ const jsonLd = {
 
       attachCopyBtn('copy-phone');
       attachCopyBtn('copy-email');
-    </script>
+      </script>
 
     <!-- QR Code Script (Inline CDN ESM) -->
     <script type="module" is:inline>
@@ -1435,7 +1431,7 @@ const jsonLd = {
         const QRCode = (await import('https://cdn.jsdelivr.net/npm/qrcode@1.5.4/+esm')).default;
         const canvas = document.getElementById('card-qr-canvas');
         if (canvas) {
-          await QRCode.toCanvas(canvas, 'https://akordium.id/card/faiq', {
+          await QRCode.toCanvas(canvas, 'https://akordium.id/card/faiq/', {
             width: 120,
             margin: 0,
             color: {
