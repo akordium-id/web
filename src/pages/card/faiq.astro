@@ -286,6 +286,7 @@ const jsonLd = {
       /* FRONT CARD (Deep Navy + Spot UV Circuit Pattern + QR)         */
       /* ------------------------------------------------------------- */
       .card-face-front {
+        transform: rotateY(0deg);
         background-color: var(--ak-navy);
         color: #ffffff;
       }
@@ -316,6 +317,8 @@ const jsonLd = {
         justify-content: center;
         padding: 5%;
         z-index: 5;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
       }
 
       .qr-overlay-box canvas {
