@@ -1,0 +1,287 @@
+---
+import { modules } from '../../data/catalog';
+import WhatsAppIcon from '../common/WhatsAppIcon.astro';
+
+const defaultSelected = ['inventory', 'sales', 'invoice'];
+---
+
+<div class="bg-white rounded-3xl border border-stone-200 shadow-xl shadow-stone-200/50 p-6 sm:p-10 lg:p-12" id="system-configurator">
+  <!-- Top instructions -->
+  <div class="max-w-2xl mb-10">
+    <div class="inline-flex items-center gap-2 bg-primary-50 text-primary-900 border border-primary-200/60 rounded-full px-3.5 py-1 text-xs font-semibold mb-3">
+      <span class="w-2 h-2 rounded-full bg-accent-600 animate-pulse"></span>
+      Interactive System Estimator
+    </div>
+    <h3 class="font-sans text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
+      Simulasikan Sistem & Dapatkan Gambaran Biaya
+    </h3>
+    <p class="text-sm text-stone-600 mt-2 leading-relaxed">
+      Pilih modul bisnis dan kapasitas tim yang Anda perlukan. Dapatkan estimasi investasi awal secara transparan sebelum berkonsultasi langsung.
+    </p>
+  </div>
+
+  <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+    <!-- Left Column: Options Form (7 cols) -->
+    <div class="lg:col-span-7 space-y-8">
+      
+      <!-- Step 1: Business Scale -->
+      <div>
+        <label class="block text-xs font-bold text-stone-900 uppercase tracking-wider mb-3">
+          1. Skala Pengguna / Kapasitas Tim
+        </label>
+        <div class="grid grid-cols-3 gap-3">
+          <label class="cursor-pointer">
+            <input type="radio" name="scale" value="solo" class="peer sr-only" checked />
+            <div class="p-3.5 sm:p-4 rounded-xl border border-stone-200 text-center peer-checked:border-primary-600 peer-checked:bg-primary-50/50 peer-checked:text-primary-950 transition-all hover:bg-stone-50">
+              <span class="block text-sm font-bold text-stone-900">Solo / 1 User</span>
+              <span class="block text-[11px] text-stone-500 mt-0.5">Pemilik usaha langsung</span>
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="scale" value="small" class="peer sr-only" />
+            <div class="p-3.5 sm:p-4 rounded-xl border border-stone-200 text-center peer-checked:border-primary-600 peer-checked:bg-primary-50/50 peer-checked:text-primary-950 transition-all hover:bg-stone-50">
+              <span class="block text-sm font-bold text-stone-900">2 – 5 User</span>
+              <span class="block text-[11px] text-stone-500 mt-0.5">Admin gudang & kasir</span>
+            </div>
+          </label>
+          <label class="cursor-pointer">
+            <input type="radio" name="scale" value="medium" class="peer sr-only" />
+            <div class="p-3.5 sm:p-4 rounded-xl border border-stone-200 text-center peer-checked:border-primary-600 peer-checked:bg-primary-50/50 peer-checked:text-primary-950 transition-all hover:bg-stone-50">
+              <span class="block text-sm font-bold text-stone-900">6 – 20 User</span>
+              <span class="block text-[11px] text-stone-500 mt-0.5">Multi-divisi & cabang</span>
+            </div>
+          </label>
+        </div>
+      </div>
+
+      <!-- Step 2: Modules Selection -->
+      <div>
+        <div class="flex items-center justify-between mb-3">
+          <label class="block text-xs font-bold text-stone-900 uppercase tracking-wider">
+            2. Pilih Modul Kebutuhan Bisnis
+          </label>
+          <span class="text-xs text-stone-500 font-medium" id="selected-counter">3 modul terpilih</span>
+        </div>
+
+        <div class="space-y-2.5">
+          {modules.map((m) => {
+            const isChecked = defaultSelected.includes(m.id);
+            return (
+              <label class="flex items-start gap-3.5 p-3.5 rounded-xl border border-stone-200 hover:border-stone-300 bg-white hover:bg-stone-50/50 cursor-pointer transition-all has-[:checked]:border-primary-600 has-[:checked]:bg-primary-50/30">
+                <input
+                  type="checkbox"
+                  name="module"
+                  value={m.id}
+                  data-name={m.name}
+                  data-price={m.estimatedCost}
+                  checked={isChecked}
+                  class="mt-1 w-4 h-4 rounded text-primary-600 border-stone-300 focus:ring-primary-500"
+                />
+                <div class="flex-1 min-w-0">
+                  <div class="flex items-baseline justify-between gap-2">
+                    <span class="font-sans font-bold text-sm text-stone-900">{m.name}</span>
+                    <span class="text-xs font-semibold text-stone-700 shrink-0">+ {m.priceFormatted}</span>
+                  </div>
+                  <p class="text-xs text-stone-500 mt-0.5 line-clamp-1">{m.description}</p>
+                </div>
+              </label>
+            );
+          })}
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Right Column: Live Summary & Result (5 cols) -->
+    <div class="lg:col-span-5 sticky top-24">
+      <div class="bg-stone-900 text-white rounded-2xl p-6 sm:p-8 shadow-2xl shadow-primary-950/20 border border-stone-800">
+        <span class="text-[11px] font-bold text-accent-400 uppercase tracking-wider block mb-1">
+          Kalkulasi Estimasi Awal
+        </span>
+        <h4 class="font-sans font-bold text-xl text-white mb-6">
+          Paket Sistem Modular Anda
+        </h4>
+
+        <!-- Base info -->
+        <div class="space-y-3 pb-5 border-b border-stone-800 text-xs">
+          <div class="flex justify-between items-center text-stone-300">
+            <span>Pondasi Core App & Admin</span>
+            <span class="font-semibold text-white">Rp 2.500.000</span>
+          </div>
+          <div class="flex justify-between items-center text-stone-300">
+            <span>Tambahan Modul Terpilih</span>
+            <span class="font-semibold text-white" id="summary-modules-price">Rp 2.000.000</span>
+          </div>
+          <div class="flex justify-between items-center text-stone-300">
+            <span>Skala Pengguna</span>
+            <span class="font-semibold text-white" id="summary-scale-text">Solo (1 User)</span>
+          </div>
+        </div>
+
+        <!-- Selected Modules Tags -->
+        <div class="py-4 border-b border-stone-800">
+          <span class="text-[11px] font-semibold text-stone-400 block mb-2">Daftar Modul Terpasang:</span>
+          <div class="flex flex-wrap gap-1.5" id="summary-modules-list">
+            <!-- Dynamic tags -->
+          </div>
+        </div>
+
+        <!-- Total Price & Time Output -->
+        <div class="py-5">
+          <div class="mb-4">
+            <span class="text-xs text-stone-400 block mb-1">Perkiraan Nilai Investasi:</span>
+            <div class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-tight" id="summary-price-range">
+              Rp 4.500.000 – Rp 5.500.000
+            </div>
+            <p class="text-[11px] text-stone-400 mt-1">Pembayaran bertahap sesuai milestone pengerjaan.</p>
+          </div>
+
+          <div class="bg-stone-800/80 rounded-xl p-3 flex items-center justify-between text-xs text-stone-300">
+            <span>Estimasi Pengerjaan:</span>
+            <span class="font-bold text-white" id="summary-days">12 – 16 Hari Kerja</span>
+          </div>
+        </div>
+
+        <!-- WhatsApp CTA -->
+        <div class="space-y-3 pt-2">
+          <a
+            href="#"
+            id="configurator-wa-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl font-bold text-sm bg-accent-600 hover:bg-accent-500 text-white transition-all shadow-lg shadow-accent-600/30 active:scale-[0.98]"
+          >
+            <WhatsAppIcon class="w-5 h-5 text-white shrink-0" />
+            <span>Bahas Konfigurasi Ini</span>
+          </a>
+
+          <p class="text-[10px] text-stone-400 text-center leading-relaxed">
+            *Estimasi awal untuk panduan. Ruang lingkup detail dan harga final disepakati bersama setelah sesi diskusi alur kerja bisnis.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  function initConfigurator() {
+    const root = document.getElementById('system-configurator');
+    if (!root) return;
+
+    const basePrice = 2500000;
+    const baseDays = 8;
+
+    const moduleCheckboxes = root.querySelectorAll<HTMLInputElement>('input[name="module"]');
+    const scaleRadios = root.querySelectorAll<HTMLInputElement>('input[name="scale"]');
+    const counterEl = root.querySelector('#selected-counter');
+    const modulesPriceEl = root.querySelector('#summary-modules-price');
+    const scaleTextEl = root.querySelector('#summary-scale-text');
+    const modulesListEl = root.querySelector('#summary-modules-list');
+    const priceRangeEl = root.querySelector('#summary-price-range');
+    const daysEl = root.querySelector('#summary-days');
+    const waBtn = root.querySelector<HTMLAnchorElement>('#configurator-wa-btn');
+
+    function formatRp(num: number) {
+      return new Intl.NumberFormat('id-ID', {
+        style: 'currency',
+        currency: 'IDR',
+        minimumFractionDigits: 0,
+        maximumFractionDigits: 0,
+      }).format(num).replace('IDR', 'Rp');
+    }
+
+    function calculate() {
+      const selectedModules: { id: string; name: string; price: number }[] = [];
+      moduleCheckboxes.forEach((cb) => {
+        if (cb.checked) {
+          selectedModules.push({
+            id: cb.value,
+            name: cb.dataset.name || cb.value,
+            price: Number(cb.dataset.price) || 0,
+          });
+        }
+      });
+
+      let currentScale = 'solo';
+      let scaleLabel = 'Solo / 1 User';
+      let multiplier = 1.0;
+
+      scaleRadios.forEach((rb) => {
+        if (rb.checked) {
+          currentScale = rb.value;
+          if (currentScale === 'solo') {
+            scaleLabel = 'Solo (1 User)';
+            multiplier = 1.0;
+          } else if (currentScale === 'small') {
+            scaleLabel = '2 – 5 User (+10%)';
+            multiplier = 1.1;
+          } else {
+            scaleLabel = '6 – 20 User (+25%)';
+            multiplier = 1.25;
+          }
+        }
+      });
+
+      const modulesPrice = selectedModules.reduce((acc, m) => acc + m.price, 0);
+      const totalRaw = (basePrice + modulesPrice) * multiplier;
+      const totalMin = Math.round(totalRaw / 50000) * 50000;
+      const totalMax = Math.round((totalMin * 1.25) / 50000) * 50000;
+
+      const extraDays = selectedModules.length * 1.5;
+      const daysMin = Math.ceil(baseDays + extraDays);
+      const daysMax = Math.ceil(daysMin * 1.3);
+
+      // Update DOM
+      if (counterEl) {
+        counterEl.textContent = `${selectedModules.length} modul terpilih`;
+      }
+      if (modulesPriceEl) {
+        modulesPriceEl.textContent = formatRp(modulesPrice);
+      }
+      if (scaleTextEl) {
+        scaleTextEl.textContent = scaleLabel;
+      }
+      if (priceRangeEl) {
+        priceRangeEl.textContent = `${formatRp(totalMin)} – ${formatRp(totalMax)}`;
+      }
+      if (daysEl) {
+        daysEl.textContent = `${daysMin} – ${daysMax} Hari Kerja`;
+      }
+
+      if (modulesListEl) {
+        modulesListEl.innerHTML = '';
+        if (selectedModules.length === 0) {
+          modulesListEl.innerHTML = '<span class="text-xs text-stone-500 italic">Belum ada modul tambahan</span>';
+        } else {
+          selectedModules.forEach((m) => {
+            const badge = document.createElement('span');
+            badge.className = 'inline-block text-[11px] bg-stone-800 text-stone-200 rounded-md px-2 py-0.5 border border-stone-700';
+            badge.textContent = m.name;
+            modulesListEl.appendChild(badge);
+          });
+        }
+      }
+
+      // WhatsApp text generator
+      const moduleNames = selectedModules.map((m) => m.name).join(', ') || 'Hanya Base System';
+      const text = `Halo Akordium Lab, saya sudah mencoba simulasi sistem di website. Saya memilih modul: [${moduleNames}] untuk skala [${scaleLabel}]. Estimasi awal: ${formatRp(totalMin)} - ${formatRp(totalMax)}. Saya ingin berkonsultasi lebih lanjut mengenai workflow bisnis kami.`;
+
+      if (waBtn) {
+        waBtn.href = `https://wa.me/628159988995?text=${encodeURIComponent(text)}`;
+      }
+    }
+
+    moduleCheckboxes.forEach((cb) => cb.addEventListener('change', calculate));
+    scaleRadios.forEach((rb) => rb.addEventListener('change', calculate));
+
+    calculate();
+  }
+
+  // Support Astro view transitions / initial load
+  document.addEventListener('DOMContentLoaded', initConfigurator);
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initConfigurator();
+  }
+</script>

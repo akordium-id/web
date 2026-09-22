@@ -1,0 +1,290 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { products, type Product } from '../../data/catalog';
+import WhatsAppIcon from '../../components/common/WhatsAppIcon.astro';
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+
+const waMessage = encodeURIComponent(
+  `Halo Akordium Lab, saya tertarik untuk mendiskusikan lebih lanjut produk "${product.name}" (${product.priceFormatted}). Apakah kita bisa menjadwalkan konsultasi gratis?`
+);
+const waUrl = `https://wa.me/628159988995?text=${waMessage}`;
+---
+
+<Layout
+  title={`${product.name} — Spesifikasi & Biaya | Akordium Lab`}
+  description={product.shortDescription}
+>
+  <!-- Breadcrumb -->
+  <div class="bg-white border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5">
+      <nav class="flex items-center gap-2 text-xs text-stone-500 font-medium">
+        <a href="/" class="hover:text-stone-900 transition-colors">Beranda</a>
+        <span>/</span>
+        <a href="/catalog" class="hover:text-stone-900 transition-colors">Katalog</a>
+        <span>/</span>
+        <span class="text-stone-900 font-semibold">{product.name}</span>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <section class="py-12 lg:py-20 bg-stone-50 border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-12 gap-10 items-start">
+        
+        <!-- Left: Product Info (7 cols) -->
+        <div class="lg:col-span-7">
+          <div class="inline-flex items-center gap-2 bg-primary-100/70 text-primary-900 border border-primary-200/60 rounded-full px-3.5 py-1 text-xs font-semibold mb-4">
+            <span>{product.categoryLabel}</span>
+            {product.badge && (
+              <>
+                <span class="text-primary-300">•</span>
+                <span class="text-emerald-700 font-bold">{product.badge}</span>
+              </>
+            )}
+          </div>
+
+          <h1 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight leading-tight">
+            {product.name}
+          </h1>
+
+          <p class="text-base sm:text-lg text-stone-600 mt-4 leading-relaxed font-medium">
+            {product.tagline}
+          </p>
+
+          <p class="text-sm text-stone-600 mt-3 leading-relaxed">
+            {product.shortDescription}
+          </p>
+
+          <!-- Target Audience tags -->
+          <div class="mt-6 flex items-center gap-2 flex-wrap">
+            <span class="text-xs font-bold text-stone-500 uppercase tracking-wider">Direkomendasikan untuk:</span>
+            {product.targetAudience.map((aud) => (
+              <span class="text-xs bg-white border border-stone-200 px-3 py-1 rounded-full text-stone-700 font-medium">
+                {aud}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: Pricing Card (5 cols) -->
+        <div class="lg:col-span-5">
+          <div class="bg-white rounded-2xl border border-stone-200 p-6 sm:p-8 shadow-xl shadow-stone-200/50">
+            <span class="text-xs font-bold uppercase tracking-wider text-stone-500 block mb-1">
+              Investasi Pengerjaan
+            </span>
+            <div class="font-sans font-extrabold text-3xl sm:text-4xl text-stone-900 tracking-tight">
+              {product.priceFormatted}
+            </div>
+            {product.priceSubtext && (
+              <p class="text-xs text-stone-500 mt-1 font-medium">{product.priceSubtext}</p>
+            )}
+
+            <div class="py-5 my-5 border-y border-stone-100 space-y-3 text-xs sm:text-sm text-stone-700">
+              <div class="flex items-center justify-between">
+                <span class="text-stone-500">Estimasi Selesai:</span>
+                <span class="font-bold text-stone-900">{product.estimatedDuration}</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-stone-500">Hak Milik Kode:</span>
+                <span class="font-bold text-emerald-700">100% Milik Anda</span>
+              </div>
+              <div class="flex items-center justify-between">
+                <span class="text-stone-500">Skema Pembayaran:</span>
+                <span class="font-bold text-stone-900">Termin Sesuai Milestone</span>
+              </div>
+            </div>
+
+            <div class="space-y-3">
+              <a
+                href={waUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl font-bold text-sm bg-accent-600 hover:bg-accent-500 text-white transition-all shadow-lg shadow-accent-600/30 active:scale-[0.98]"
+              >
+                <WhatsAppIcon class="w-5 h-5 text-white" />
+                <span>Konsultasikan Kebutuhan Ini</span>
+              </a>
+
+              <a
+                href="/contact"
+                class="block text-center text-xs text-stone-500 hover:text-stone-900 py-1 transition-colors"
+              >
+                Atau kirim brief via formulir &rarr;
+              </a>
+            </div>
+
+            {product.maintenance && (
+              <div class="mt-4 pt-4 border-t border-stone-100 text-[11px] text-stone-500 leading-relaxed">
+                ℹ️ {product.maintenance.text}
+              </div>
+            )}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Problem & Solution Deep Dive -->
+  <section class="py-16 lg:py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12 items-start">
+        
+        <!-- The Problem -->
+        <div class="bg-rose-50/50 border border-rose-100 rounded-2xl p-8">
+          <div class="w-10 h-10 rounded-xl bg-rose-100 text-rose-700 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h2 class="font-sans font-bold text-xl text-stone-900 mb-3">Tantangan yang Sering Terjadi:</h2>
+          <ul class="space-y-3 text-sm text-stone-700">
+            {product.problem.map((prob) => (
+              <li class="flex items-start gap-2.5">
+                <span class="text-rose-500 font-bold shrink-0">✕</span>
+                <span>{prob}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- The Solution -->
+        <div class="bg-emerald-50/50 border border-emerald-100 rounded-2xl p-8">
+          <div class="w-10 h-10 rounded-xl bg-emerald-100 text-emerald-700 flex items-center justify-center mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <h2 class="font-sans font-bold text-xl text-stone-900 mb-3">Solusi yang Disediakan Akordium:</h2>
+          <p class="text-sm text-stone-700 leading-relaxed mb-4">
+            {product.solution}
+          </p>
+          <ul class="space-y-2 text-xs sm:text-sm text-stone-700">
+            {product.keyHighlights.map((hl) => (
+              <li class="flex items-start gap-2.5">
+                <span class="text-emerald-600 font-bold shrink-0">✓</span>
+                <span>{hl}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Detailed Features Matrix -->
+  <section class="py-16 lg:py-20 bg-stone-50 border-t border-stone-200">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center mb-12">
+        <h2 class="font-sans text-2xl sm:text-3xl font-extrabold text-stone-900">
+          Apa Saja yang Anda Dapatkan?
+        </h2>
+        <p class="text-stone-600 text-sm mt-2">
+          Rincian modul dan kapabilitas sistem yang sudah termasuk dalam paket ini.
+        </p>
+      </div>
+
+      <div class="bg-white rounded-2xl border border-stone-200 divide-y divide-stone-100 overflow-hidden shadow-xs">
+        {product.features.map((feat) => (
+          <div class="p-4 sm:p-5 flex items-start gap-4">
+            <div class="mt-0.5 shrink-0">
+              {feat.included ? (
+                <div class="w-6 h-6 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+                </div>
+              ) : (
+                <div class="w-6 h-6 rounded-full bg-stone-100 text-stone-400 flex items-center justify-center">
+                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </div>
+              )}
+            </div>
+            <div class="flex-1">
+              <h3 class={`font-sans font-bold text-sm ${feat.included ? 'text-stone-900' : 'text-stone-400 line-through'}`}>
+                {feat.title}
+              </h3>
+              {feat.description && (
+                <p class="text-xs text-stone-500 mt-1 leading-relaxed">
+                  {feat.description}
+                </p>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Add-ons Section if available -->
+      {product.addons && product.addons.length > 0 && (
+        <div class="mt-14">
+          <h3 class="font-sans font-bold text-xl text-stone-900 mb-4">
+            Modul & Layanan Tambahan (Opsional)
+          </h3>
+          <div class="grid sm:grid-cols-2 gap-4">
+            {product.addons.map((addon) => (
+              <div class="bg-white rounded-xl border border-stone-200 p-5 flex flex-col justify-between">
+                <div>
+                  <div class="flex items-baseline justify-between gap-2 mb-1.5">
+                    <span class="font-bold text-sm text-stone-900">{addon.name}</span>
+                    <span class="text-xs font-semibold text-accent-700">{addon.priceFormatted}</span>
+                  </div>
+                  <p class="text-xs text-stone-600 leading-relaxed">{addon.description}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+      <!-- FAQ Section if available -->
+      {product.faq && product.faq.length > 0 && (
+        <div class="mt-16">
+          <h3 class="font-sans font-bold text-xl text-stone-900 mb-6 text-center">
+            Pertanyaan Umum Mengenai Produk Ini
+          </h3>
+          <div class="space-y-4">
+            {product.faq.map((item) => (
+              <div class="bg-white rounded-xl border border-stone-200 p-5">
+                <h4 class="font-sans font-bold text-sm text-stone-900 mb-2">{item.question}</h4>
+                <p class="text-xs sm:text-sm text-stone-600 leading-relaxed">{item.answer}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      )}
+
+    </div>
+  </section>
+
+  <!-- Final CTA Bar -->
+  <section class="py-12 bg-white border-t border-stone-200 text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="font-sans text-2xl font-bold text-stone-900 mb-2">Ingin Memastikan Kesesuaian Sistem Ini?</h2>
+      <p class="text-xs sm:text-sm text-stone-600 mb-6">
+        Diskusikan langsung alur kerja bisnis Anda secara gratis tanpa komitmen apa pun.
+      </p>
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center gap-2 py-3.5 px-8 rounded-xl font-bold text-sm bg-accent-600 hover:bg-accent-500 text-white transition-all shadow-md shadow-accent-600/20"
+      >
+        <WhatsAppIcon class="w-5 h-5 text-white" />
+        <span>Jadwalkan Konsultasi via WhatsApp</span>
+      </a>
+    </div>
+  </section>
+
+</Layout>
