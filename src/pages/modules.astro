@@ -1,0 +1,94 @@
+---
+import Layout from '../layouts/Layout.astro';
+import ModuleCard from '../components/catalog/ModuleCard.astro';
+import { modules } from '../data/catalog';
+import WhatsAppIcon from '../components/common/WhatsAppIcon.astro';
+---
+
+<Layout
+  title="Katalog Modul Sistem Bisnis | Akordium Lab"
+  description="Daftar modul bisnis siap pasang dari Akordium Lab: Inventaris, Kasir, Invoice, CRM, Notifikasi WhatsApp, dan Laporan Keuangan."
+>
+  <!-- Hero -->
+  <section class="bg-linear-to-b from-primary-50/60 via-stone-50 to-white pt-16 pb-16 lg:pt-20 lg:pb-24 border-b border-stone-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <span class="inline-block text-xs font-bold uppercase tracking-wider text-accent-700 mb-2">
+        Building Blocks Sistem Digital
+      </span>
+      <h1 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight max-w-3xl mx-auto leading-tight">
+        Katalog Modul Fungsional yang Siap Disesuaikan
+      </h1>
+      <p class="mt-4 text-sm sm:text-base text-stone-600 max-w-2xl mx-auto leading-relaxed">
+        Setiap bisnis punya cara kerja yang khas. Di Akordium, Anda tidak dipaksa membayar paket besar sekaligus — cukup pasang modul yang menyelesaikan masalah mendesak Anda hari ini.
+      </p>
+
+      <div class="mt-8 flex justify-center gap-3">
+        <a href="/configurator" class="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm bg-primary-900 text-white hover:bg-primary-800 transition-colors shadow-sm">
+          Simulasikan Gabungan Modul &rarr;
+        </a>
+        <a href="/catalog" class="px-5 py-3 rounded-xl font-bold text-xs sm:text-sm bg-white text-stone-700 border border-stone-300 hover:bg-stone-50 transition-colors">
+          Lihat Produk Jadi
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modules List by Group -->
+  <section class="py-16 lg:py-24 bg-stone-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 items-stretch">
+        {modules.map((mod) => (
+          <ModuleCard module={mod} />
+        ))}
+      </div>
+
+      <!-- Value Props -->
+      <div class="mt-16 bg-white rounded-3xl border border-stone-200 p-8 sm:p-12">
+        <div class="max-w-3xl mx-auto text-center">
+          <h2 class="font-sans text-2xl sm:text-3xl font-bold text-stone-900 mb-4">
+            Bagaimana Modul Ini Bekerja Bersama?
+          </h2>
+          <p class="text-sm text-stone-600 leading-relaxed mb-8">
+            Semua modul dibangun di atas arsitektur data terpadu (single database). Artinya, modul Stok langsung terhubung dengan Penjualan, dan Penjualan langsung mencatat riwayat ke profil Pelanggan tanpa sinkronisasi manual.
+          </p>
+
+          <div class="grid sm:grid-cols-3 gap-6 text-left">
+            <div class="p-4 rounded-xl bg-stone-50 border border-stone-100">
+              <span class="text-primary-700 font-bold text-lg mb-1 block">1. Satu Database</span>
+              <p class="text-xs text-stone-600">Tidak ada duplikasi data atau file Excel terpisah-pisah antar meja staf.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-stone-50 border border-stone-100">
+              <span class="text-primary-700 font-bold text-lg mb-1 block">2. Siap Dikembangkan</span>
+              <p class="text-xs text-stone-600">Mulai dari 2 modul hari ini, tambah modul lain bulan depan saat cabang bertambah.</p>
+            </div>
+            <div class="p-4 rounded-xl bg-stone-50 border border-stone-100">
+              <span class="text-primary-700 font-bold text-lg mb-1 block">3. Tanpa Vendor Lock-in</span>
+              <p class="text-xs text-stone-600">Aplikasi milik Anda seutuhnya, diinstal ke server pribadi bisnis Anda.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-16 bg-stone-900 text-white text-center">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="font-sans text-2xl sm:text-3xl font-bold mb-3">Butuh Modul Khusus yang Belum Tercantum?</h2>
+      <p class="text-stone-400 text-sm mb-8">
+        Kami berpengalaman merancang integrasi API pihak ketiga, mesin kasir barcode khusus, GPS tracker kendaraan, hingga otomatisasi workflow perusahaan.
+      </p>
+      <a
+        href="https://wa.me/628159988995?text=Halo%20Akordium%20Lab,%20saya%20ingin%20tanya%20apakah%20ada%20solusi%20untuk%20modul%20khusus%20alur%20kerja%20kami."
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 py-3.5 px-8 rounded-xl font-bold text-sm bg-accent-600 hover:bg-accent-500 text-white transition-all shadow-lg"
+      >
+        <WhatsAppIcon class="w-5 h-5 text-white" />
+        <span>Konsultasikan Kebutuhan Khusus</span>
+      </a>
+    </div>
+  </section>
+</Layout>
