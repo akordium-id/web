@@ -10,13 +10,19 @@ const services = [
 ];
 
 const company = [
-  { label: "Tentang Kami", href: "/about" },
-  { label: "Portofolio Proyek", href: "/#portfolio" },
-  { label: "Alur Kerja", href: "/#how-it-works" },
-  { label: "Kalkulator Urgensi Web", href: "/tools/urgensi-website" },
-  { label: "Blog & Insight", href: "/blog" },
-  { label: "Kontak", href: "/contact" },
+  { label: "Katalog Produk", href: "/catalog", kategori: "produk" },
+  { label: "Modul Sistem Bisnis", href: "/modules", kategori: "produk" },
+  { label: "Simulasi Konfigurator", href: "/configurator", kategori: "produk" },
+  { label: "Tentang Kami", href: "/about", kategori: "info" },
+  { label: "Portofolio Proyek", href: "/#portfolio", kategori: "info" },
+  { label: "Alur Kerja", href: "/#how-it-works", kategori: "info" },
+  { label: "Kalkulator Urgensi Web", href: "/tools/urgensi-website", kategori: "produk" },
+  { label: "Blog & Insight", href: "/blog", kategori: "info" },
+  { label: "Kontak", href: "/contact", kategori: "info" },
 ];
+
+const produkLayanan = company.filter(c => c.kategori === "produk");
+const perusahaanInformasi = company.filter(c => c.kategori === "info");
 
 const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsultasi mengenai kebutuhan sistem/website untuk bisnis kami.");
 ---
@@ -25,8 +31,8 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
       
-      <!-- Brand & Profile (5 cols) -->
-      <div class="lg:col-span-4">
+      <!-- Brand & Profile (3 cols) -->
+      <div class="lg:col-span-3">
         <a href="/" class="inline-flex items-center gap-2 mb-4 group" aria-label="Akordium Lab">
           <Logo variant="white" class="h-6 sm:h-7 w-auto transition-transform group-hover:scale-[1.02]" showLab={true} />
         </a>
@@ -80,8 +86,8 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
         </div>
       </div>
 
-      <!-- Services (3 cols) -->
-      <div class="lg:col-span-3">
+      <!-- Services (2 cols) -->
+      <div class="lg:col-span-2">
         <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Layanan</h3>
         <ul class="space-y-2.5">
           {services.map(s => (
@@ -95,15 +101,30 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
         </ul>
       </div>
 
-      <!-- Company & Resource (2 cols) -->
+      <!-- Produk & Layanan (2 cols) -->
       <div class="lg:col-span-2">
-        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Navigasi</h3>
+        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Produk & Layanan</h3>
         <ul class="space-y-2.5">
-          {company.map(c => (
+          {produkLayanan.map(p => (
             <li>
-              <a href={c.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
+              <a href={p.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
                 <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
-                {c.label}
+                {p.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Perusahaan & Informasi (2 cols) -->
+      <div class="lg:col-span-2">
+        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Perusahaan & Informasi</h3>
+        <ul class="space-y-2.5">
+          {perusahaanInformasi.map(i => (
+            <li>
+              <a href={i.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
+                <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
+                {i.label}
               </a>
             </li>
           ))}
