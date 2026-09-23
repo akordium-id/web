@@ -2,45 +2,45 @@
 import Logo from "./Logo.astro";
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 
-const productsAndSolutions = [
-  { label: "Katalog Produk & Paket", href: "/catalog" },
-  { label: "Inventory Starter", href: "/catalog/inventory-starter" },
+const solutions = [
+  { label: "Katalog & Pilihan Paket", href: "/catalog" },
+  { label: "Inventory Starter (Rp 1,75jt)", href: "/catalog/inventory-starter" },
   { label: "Modular Business System", href: "/catalog/business-system-base" },
   { label: "Company Profile Starter", href: "/catalog/company-profile" },
   { label: "Modul Sistem Bisnis", href: "/modules" },
   { label: "Simulasi Konfigurator", href: "/configurator" },
-  { label: "Kalkulator Urgensi Web", href: "/tools/urgensi-website" },
 ];
 
-const companyAndInfo = [
+const navigation = [
   { label: "Tentang Kami", href: "/about" },
   { label: "Portofolio Proyek", href: "/#portfolio" },
-  { label: "Alur Kerja", href: "/#how-it-works" },
+  { label: "Alur Kerja 4 Langkah", href: "/#how-it-works" },
   { label: "Blog & Insight", href: "/blog" },
-  { label: "Kontak", href: "/contact" },
+  { label: "Kalkulator Urgensi Web", href: "/tools/urgensi-website" },
+  { label: "Kontak Resmi", href: "/contact" },
 ];
 
 const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsultasi mengenai kebutuhan sistem/website untuk bisnis kami.");
 ---
 
-<footer class="bg-[#0a142e] text-stone-300 border-t border-white/10">
+<footer class="bg-[#081026] text-stone-300 border-t border-white/10">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14 sm:py-16">
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-10 items-start">
       
-      <!-- Brand & Profile (3 cols) -->
-      <div class="lg:col-span-3">
+      <!-- Brand & Profile (4 cols) -->
+      <div class="lg:col-span-4">
         <a href="/" class="inline-flex items-center gap-2 mb-4 group" aria-label="Akordium Lab">
           <Logo variant="white" class="h-6 sm:h-7 w-auto transition-transform group-hover:scale-[1.02]" showLab={true} />
         </a>
         
-        <p class="text-stone-400 text-sm leading-relaxed mb-5 max-w-sm">
-          Software studio & mitra rekayasa perangkat lunak di Surabaya. Kami merancang web internal, dashboard operasional, dan sistem terstruktur yang siap scale bersama bisnis Anda.
+        <p class="text-stone-400 text-sm leading-relaxed mb-6 max-w-sm">
+          Software studio & mitra rekayasa perangkat lunak di Surabaya. Kami merancang website, sistem operasional, dan dashboard terstruktur yang siap scale bersama bisnis Anda.
         </p>
 
         <!-- Tech Stack Badges -->
         <div class="mb-6">
-          <span class="text-[11px] font-semibold text-stone-500 uppercase tracking-wider block mb-2">Core Tech Stack</span>
-          <div class="flex flex-wrap gap-1.5">
+          <span class="text-[11px] font-semibold text-stone-500 uppercase tracking-wider block mb-2.5">Teknologi Fondasi</span>
+          <div class="flex flex-wrap gap-2">
             <span class="px-2.5 py-1 bg-white/5 text-xs font-medium text-stone-300 rounded-md border border-white/10">Go</span>
             <span class="px-2.5 py-1 bg-white/5 text-xs font-medium text-stone-300 rounded-md border border-white/10">PostgreSQL</span>
             <span class="px-2.5 py-1 bg-white/5 text-xs font-medium text-stone-300 rounded-md border border-white/10">Laravel</span>
@@ -48,7 +48,7 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
           </div>
         </div>
 
-        <!-- Social & Contact Icons -->
+        <!-- Social Icons -->
         <div class="flex items-center gap-2.5">
           <a
             href="https://instagram.com/akordium.id"
@@ -82,14 +82,13 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
         </div>
       </div>
 
-      <!-- Produk & Solusi (4 cols) -->
-      <div class="lg:col-span-4">
+      <!-- Produk & Solusi (3 cols) -->
+      <div class="lg:col-span-3">
         <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Produk & Solusi</h3>
-        <ul class="space-y-2.5">
-          {productsAndSolutions.map(p => (
+        <ul class="space-y-3">
+          {solutions.map(p => (
             <li>
-              <a href={p.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
-                <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
+              <a href={p.href} class="text-sm text-stone-400 hover:text-white transition-colors block py-0.5">
                 {p.label}
               </a>
             </li>
@@ -100,11 +99,10 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
       <!-- Perusahaan (2 cols) -->
       <div class="lg:col-span-2">
         <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Perusahaan</h3>
-        <ul class="space-y-2.5">
-          {companyAndInfo.map(i => (
+        <ul class="space-y-3">
+          {navigation.map(i => (
             <li>
-              <a href={i.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
-                <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
+              <a href={i.href} class="text-sm text-stone-400 hover:text-white transition-colors block py-0.5">
                 {i.label}
               </a>
             </li>
@@ -112,41 +110,53 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
         </ul>
       </div>
 
-      <!-- Office & Direct Consultation (3 cols) -->
+      <!-- Hubungi / Lokasi (3 cols) -->
       <div class="lg:col-span-3">
-        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Konsultasi Cepat</h3>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 space-y-3">
-          <div class="flex items-start gap-2.5 text-xs text-stone-300">
-            <svg class="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-            <span>Respons via WhatsApp &lt;24 jam pada hari kerja.</span>
+        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Hubungi Kami</h3>
+        
+        <div class="space-y-4 text-xs text-stone-400">
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-emerald-400 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+              </svg>
+            </span>
+            <div class="leading-relaxed">
+              <span class="text-stone-300 font-medium block">Respon WhatsApp</span>
+              <span>&lt;24 jam pada hari kerja</span>
+            </div>
           </div>
-          <div class="flex items-start gap-2.5 text-xs text-stone-300">
-            <svg class="w-4 h-4 text-accent-400 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            <span>Surabaya, Jawa Timur, Indonesia.</span>
+
+          <div class="flex items-start gap-3">
+            <span class="w-7 h-7 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center shrink-0 text-accent-400 mt-0.5">
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+              </svg>
+            </span>
+            <div class="leading-relaxed">
+              <span class="text-stone-300 font-medium block">Studio & Workshop</span>
+              <span>Surabaya, Jawa Timur, Indonesia</span>
+            </div>
           </div>
-          <a
-            href={`https://wa.me/628159988995?text=${waMessage}`}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="flex items-center justify-center gap-2 w-full px-4 py-2.5 bg-accent-600 hover:bg-accent-500 text-white text-xs font-semibold rounded-lg transition-all shadow-sm active:scale-[0.98]"
-          >
-            <span>Chat via WhatsApp</span>
-            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+
+          <div class="pt-2">
+            <a
+              href={`https://wa.me/628159988995?text=${waMessage}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center gap-2 text-xs font-semibold text-accent-400 hover:text-accent-300 transition-colors"
+            >
+              <span>Mulai Diskusi via WhatsApp &rarr;</span>
+            </a>
+          </div>
         </div>
       </div>
 
     </div>
 
     <!-- Bottom Bar -->
-    <div class="mt-12 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
+    <div class="mt-14 pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs">
       <div class="flex flex-col sm:flex-row items-center gap-2 sm:gap-4 text-stone-500 text-center sm:text-left">
         <p>© {new Date().getFullYear()} Akordium Lab. Seluruh hak cipta dilindungi.</p>
         <span class="hidden sm:inline text-stone-700">&bull;</span>
