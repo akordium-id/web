@@ -1,25 +1,42 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/home/Hero.astro';
-import ClientLogos from '../components/home/ClientLogos.astro';
-import AboutBrief from '../components/home/AboutBrief.astro';
-import Services from '../components/home/Services.astro';
-import FitFor from '../components/home/FitFor.astro';
-import HowItWorks from '../components/home/HowItWorks.astro';
+import NeedsSelector from '../components/home/NeedsSelector.astro';
 import Pricing from '../components/home/Pricing.astro';
+import HowItWorks from '../components/home/HowItWorks.astro';
+import FitFor from '../components/home/FitFor.astro';
+import AboutBrief from '../components/home/AboutBrief.astro';
 import Portfolio from '../components/home/Portfolio.astro';
+import ClientLogos from '../components/home/ClientLogos.astro';
 import CTA from '../components/home/CTA.astro';
 ---
 
 <Layout>
+  <!-- 1. Hero: Solusi yang tumbuh bersama bisnis -->
   <Hero />
-  <ClientLogos />
-  <Services />
-  <Portfolio />
-  <AboutBrief />
-  <HowItWorks />
-  <FitFor />
+
+  <!-- 2. Gateway: Mulai dari titik kebutuhan operasional Anda -->
+  <NeedsSelector />
+
+  <!-- 3. Pilihan Investasi & Produk Terstruktur (Ready -> Modular -> Custom) -->
   <Pricing />
+
+  <!-- 4. 4 Langkah Alur Kerja Terbuka -->
+  <HowItWorks />
+
+  <!-- 5. Kesesuaian Sektor Industri & Workflow -->
+  <FitFor />
+
+  <!-- 6. Pendekatan & Filosofi Anti Beli Kucing Dalam Karung -->
+  <AboutBrief />
+
+  <!-- 7. Bukti Kapasitas Rekayasa Serius (Portfolio & Sistem Nyata) -->
+  <Portfolio />
+
+  <!-- 8. Kredibilitas Klien & Rekam Jejak Lapangan -->
+  <ClientLogos />
+
+  <!-- 9. Penutup & Ajakan Aksi Kontekstual -->
   <CTA />
 </Layout>
 

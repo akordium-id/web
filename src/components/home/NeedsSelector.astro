@@ -1,0 +1,130 @@
+---
+const needs = [
+  {
+    icon: "🌐",
+    title: "Saya butuh website resmi",
+    desc: "Membangun profil bisnis kredibel yang cepat diakses pelanggan.",
+    badge: "Mulai Rp 500rb",
+    href: "/catalog/company-profile",
+    actionText: "Lihat Paket Website",
+  },
+  {
+    icon: "📦",
+    title: "Saya ingin mengatur stok",
+    desc: "Kontrol keluar-masuk barang, cegah selisih opname tanpa spreadsheet.",
+    badge: "Mulai Rp 1,75jt",
+    href: "/catalog/inventory-starter",
+    actionText: "Lihat Inventory Starter",
+  },
+  {
+    icon: "💰",
+    title: "Saya ingin kelola penjualan & nota",
+    desc: "Catat order deal, buat invoice PDF otomatis, pantau piutang tempo.",
+    badge: "Modul Siap Pasang",
+    href: "/modules",
+    actionText: "Eksplor Modul Sales",
+  },
+  {
+    icon: "👥",
+    title: "Saya ingin database pelanggan",
+    desc: "Buku kontak pelanggan rapi, riwayat repeat order, dan membership.",
+    badge: "Modul CRM",
+    href: "/modules",
+    actionText: "Lihat Modul CRM",
+  },
+  {
+    icon: "📅",
+    title: "Saya butuh jadwal booking",
+    desc: "Antrean reservasi rapi tanpa bentrok jadwal untuk klinik, studio, & salon.",
+    badge: "Solusi Industri",
+    href: "/catalog#solution-packs",
+    actionText: "Lihat Paket Booking",
+  },
+  {
+    icon: "📊",
+    title: "Saya butuh laporan bisnis otomatis",
+    desc: "Pantau omset harian & performa stok langsung dari dasbor web.",
+    badge: "Real-Time",
+    href: "/modules",
+    actionText: "Lihat Dasbor Laporan",
+  },
+  {
+    icon: "⚙️",
+    title: "Saya butuh sistem kustom khusus",
+    desc: "Rekayasa alur unik multi-cabang, integrasi API, atau armada IoT.",
+    badge: "Custom Quote",
+    href: "/catalog/custom-engineering",
+    actionText: "Diskusikan Sistem Khusus",
+  },
+  {
+    icon: "🤔",
+    title: "Saya belum tahu butuh apa",
+    desc: "Coba simulator kalkulator kami atau ceritakan alur kerja Anda sekarang.",
+    badge: "Simulasi Gratis",
+    href: "/configurator",
+    actionText: "Coba Simulasi Mandiri",
+  },
+];
+---
+
+<section id="needs-gateway" class="py-16 lg:py-24 bg-white border-b border-stone-200">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-2xl mx-auto mb-12 lg:mb-16">
+      <div class="inline-flex items-center gap-2 bg-stone-100 text-stone-700 rounded-full px-3.5 py-1 text-xs font-semibold mb-3 border border-stone-200">
+        <span>Mulai dari Titik Kebutuhan Anda</span>
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight">
+        Apa yang Sedang Menghambat Bisnis Anda?
+      </h2>
+      <p class="text-stone-600 text-sm sm:text-base mt-3 leading-relaxed">
+        Pilih masalah operasional yang paling mendesak untuk diselesaikan. Anda tidak perlu langsung membeli sistem raksasa.
+      </p>
+    </div>
+
+    <!-- Needs Grid -->
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+      {needs.map((item) => (
+        <a
+          href={item.href}
+          class="group bg-stone-50/70 hover:bg-white rounded-2xl border border-stone-200 hover:border-primary-400 p-6 flex flex-col justify-between transition-all duration-200 hover:shadow-lg hover:shadow-stone-200/50 hover:-translate-y-1"
+        >
+          <div>
+            <div class="flex items-center justify-between gap-2 mb-4">
+              <span class="text-2xl sm:text-3xl p-2 rounded-xl bg-white border border-stone-200/80 shadow-2xs group-hover:scale-110 transition-transform">
+                {item.icon}
+              </span>
+              <span class="text-[11px] font-bold text-primary-800 bg-primary-50 border border-primary-100 px-2 py-0.5 rounded-md">
+                {item.badge}
+              </span>
+            </div>
+
+            <h3 class="font-sans font-bold text-base sm:text-lg text-stone-900 group-hover:text-primary-900 transition-colors mb-2 leading-snug">
+              {item.title}
+            </h3>
+
+            <p class="text-xs text-stone-600 leading-relaxed">
+              {item.desc}
+            </p>
+          </div>
+
+          <div class="mt-5 pt-3 border-t border-stone-200/60 flex items-center justify-between text-xs font-semibold text-primary-800 group-hover:text-accent-600 transition-colors">
+            <span>{item.actionText}</span>
+            <svg class="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <!-- Quick link to full catalog -->
+    <div class="mt-10 text-center">
+      <p class="text-xs text-stone-500">
+        Ingin melihat semua rincian fitur dan harga? <a href="/catalog" class="font-bold text-primary-900 underline hover:text-accent-600 ml-1">Buka Katalog Lengkap Akordium &rarr;</a>
+      </p>
+    </div>
+
+  </div>
+</section>
