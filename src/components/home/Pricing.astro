@@ -1,76 +1,133 @@
 ---
 import WhatsAppIcon from "../common/WhatsAppIcon.astro";
-import { pricingTiers } from '../../data/pricing';
 
-const waLinks: Record<string, string> = {
-  'company-profile': 'https://wa.me/628159988995?text=Halo%20Akordium%20Lab,%20saya%20tertarik%20dengan%20paket%20Company%20Profile%20(Rp%20500rb)',
-  'dashboard': 'https://wa.me/628159988995?text=Halo%20Akordium%20Lab,%20saya%20ingin%20konsultasi%20paket%20Dashboard%20%26%20Sistem%20Internal',
-  'mis': 'https://wa.me/628159988995?text=Halo%20Akordium%20Lab,%20saya%20ingin%20diskusi%20kebutuhan%20MIS%20Operasional%20Custom',
-};
+const pricingTiers = [
+  {
+    id: "ready-products",
+    badge: "Mulai Cepat",
+    popular: false,
+    name: "Ready Products",
+    subtitle: "Website profil & starter system siap pakai",
+    price: "Mulai Rp 500.000",
+    priceSubtext: "Fixed scope — selesai dalam 3–7 hari kerja",
+    description: "Titik masuk digital praktis untuk UMKM dan bisnis rintisan. Ruang lingkup fitur jelas tanpa biaya tak terduga.",
+    features: [
+      { text: "Website Company Profile responsif (Rp 500.000)", included: true },
+      { text: "High-Converting Sales Landing Page", included: true },
+      { text: "Inventory Starter siap pakai (Rp 1.750.000)", included: true },
+      { text: "Direct WhatsApp CTA & setup Google Maps", included: true },
+      { text: "Garansi teknis paska serah terima", included: true },
+      { text: "Custom arsitektur multi-cabang", included: false },
+    ],
+    ctaText: "Lihat Katalog Produk",
+    ctaHref: "/catalog",
+    isExternal: false,
+  },
+  {
+    id: "modular-systems",
+    badge: "Paling Diminati",
+    popular: true,
+    name: "Configurable Systems",
+    subtitle: "Sistem operasional modular sesuai workflow",
+    price: "Base Rp 2.500.000",
+    priceSubtext: "+ modul pilihan (Rp 500rb – 750rb)",
+    description: "Sistem internal terpadu: pasang modul persediaan, kasir, invoice, atau booking yang Anda butuhkan tanpa bayar lisensi bulanan.",
+    features: [
+      { text: "Core App Engine & Multi-User Permission", included: true },
+      { text: "Pilihan Modul: Stok, Kasir, Invoice, CRM, Laporan", included: true },
+      { text: "Otomatisasi notifikasi chat WhatsApp", included: true },
+      { text: "Dashboard ringkasan metrik omset harian", included: true },
+      { text: "100% kode & database milik Anda (Full Handover)", included: true },
+      { text: "Dapat ditambah modul kapan saja bisnis berkembang", included: true },
+    ],
+    ctaText: "Simulasikan Sistem",
+    ctaHref: "/configurator",
+    isExternal: false,
+  },
+  {
+    id: "custom-engineering",
+    badge: "Solusi Khusus",
+    popular: false,
+    name: "Custom Engineering",
+    subtitle: "Untuk alur bisnis kompleks & multi-cabang",
+    price: "Custom Quote",
+    priceSubtext: "Estimasi transparan setelah pemetaan alur",
+    description: "Solusi rekayasa perangkat lunak skala enterprise: integrasi API kompleks, IoT/hardware, migrasi legacy, dan performa tinggi.",
+    features: [
+      { text: "Analisis & pemetaan workflow menyeluruh", included: true },
+      { text: "Backend berkecepatan tinggi (Go / PostgreSQL / Laravel)", included: true },
+      { text: "Integrasi hardware, sensor IoT, atau payment gateway", included: true },
+      { text: "Arsitektur multi-cabang / high concurrency", included: true },
+      { text: "Migrasi database dari sistem lama", included: true },
+      { text: "Dokumentasi teknis & pendampingan tim internal", included: true },
+    ],
+    ctaText: "Diskusikan Kebutuhan",
+    ctaHref: "https://wa.me/628159988995?text=Halo%20Akordium%20Lab,%20saya%20ingin%20berkonsultasi%20mengenai%20kebutuhan%20Custom%20Software%20Engineering.",
+    isExternal: true,
+  },
+];
 ---
 
-<section id="pricing" class="py-20 lg:py-28 bg-white">
+<section id="pricing" class="py-20 lg:py-28 bg-white border-t border-stone-200">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <!-- Header -->
     <div class="text-center mb-16">
-      <p class="eyebrow text-xs mb-3">Pilihan Paket & Investasi</p>
+      <p class="eyebrow text-xs mb-3">Model Investasi & Produk</p>
       <h2 class="font-sans text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-stone-900 leading-tight mb-4">
-        Transparan, Sesuai Kebutuhan & Skala Bisnis
+        Solusi Nyata, Biaya Terbuka & Terukur
       </h2>
       <p class="text-stone-600 text-base max-w-2xl mx-auto leading-relaxed">
-        Pilih paket yang paling tepat untuk fase bisnis Anda saat ini. Dari kehadiran digital awal hingga sistem operasional custom tanpa biaya tersembunyi.
+        Hilangkan kekhawatiran biaya mengambang. Pilih jalur yang paling sesuai dengan fase bisnis Anda saat ini: dari produk siap pakai, sistem modular, hingga kustomisasi penuh.
       </p>
     </div>
 
     <!-- 3-Column Comparative Grid -->
     <div class="grid md:grid-cols-3 gap-8 items-stretch pt-4">
       {pricingTiers.map((tier) => {
-        const isPopular = tier.id === 'dashboard';
-        const waHref = waLinks[tier.id] || 'https://wa.me/628159988995';
-
         return (
           <div
             class={`relative rounded-2xl flex flex-col transition-all duration-300 ${
-              isPopular
+              tier.popular
                 ? 'bg-stone-900 text-white border-2 border-accent-500 shadow-2xl shadow-primary-950/30 md:-translate-y-2.5 p-8'
                 : 'bg-white text-stone-900 border border-stone-200 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/40 p-8'
             }`}
           >
             <!-- Highlight Badge -->
-            {isPopular && (
+            {tier.popular && (
               <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-accent-600 text-white text-[11px] font-bold uppercase tracking-wider px-4 py-1 rounded-full shadow-md">
-                Paling Diminati
+                {tier.badge}
               </div>
             )}
 
             <div class="mb-6">
               <div class="flex items-center justify-between gap-2 mb-2">
-                <h3 class={`font-sans font-bold text-xl ${isPopular ? 'text-white' : 'text-stone-900'}`}>
-                  {tier.nameId}
+                <h3 class={`font-sans font-bold text-xl ${tier.popular ? 'text-white' : 'text-stone-900'}`}>
+                  {tier.name}
                 </h3>
-                {tier.badgeId && !isPopular && (
+                {tier.badge && !tier.popular && (
                   <span class="inline-block px-2.5 py-0.5 text-[11px] font-semibold rounded-full bg-primary-50 text-primary-900 border border-primary-100">
-                    {tier.badgeId}
+                    {tier.badge}
                   </span>
                 )}
               </div>
-              <p class={`text-xs leading-relaxed ${isPopular ? 'text-stone-300' : 'text-stone-500'}`}>
-                {tier.descriptionId}
+              <p class={`text-xs font-medium mb-2 ${tier.popular ? 'text-accent-400' : 'text-accent-700'}`}>
+                {tier.subtitle}
+              </p>
+              <p class={`text-xs leading-relaxed ${tier.popular ? 'text-stone-300' : 'text-stone-500'}`}>
+                {tier.description}
               </p>
             </div>
 
             <!-- Price -->
-            <div class={`pb-6 mb-6 border-b ${isPopular ? 'border-stone-800' : 'border-stone-100'}`}>
+            <div class={`pb-6 mb-6 border-b ${tier.popular ? 'border-stone-800' : 'border-stone-100'}`}>
               <div class="flex items-baseline gap-1">
-                <span class={`font-sans text-3xl sm:text-4xl font-extrabold tracking-tight ${isPopular ? 'text-white' : 'text-stone-900'}`}>
+                <span class={`font-sans text-2xl sm:text-3xl font-extrabold tracking-tight ${tier.popular ? 'text-white' : 'text-stone-900'}`}>
                   {tier.price}
                 </span>
-                {tier.period && (
-                  <span class={`text-xs ${isPopular ? 'text-stone-400' : 'text-stone-500'}`}>
-                    {tier.period}
-                  </span>
-                )}
               </div>
+              <p class={`text-[11px] mt-1 ${tier.popular ? 'text-stone-400' : 'text-stone-500'}`}>
+                {tier.priceSubtext}
+              </p>
             </div>
 
             <!-- Features -->
@@ -78,11 +135,11 @@ const waLinks: Record<string, string> = {
               {tier.features.map((feat) => (
                 <li class={`flex items-start gap-3 text-xs sm:text-sm ${
                   feat.included
-                    ? isPopular ? 'text-stone-200' : 'text-stone-700'
-                    : isPopular ? 'text-stone-500 line-through' : 'text-stone-400 line-through'
+                    ? tier.popular ? 'text-stone-200' : 'text-stone-700'
+                    : tier.popular ? 'text-stone-500 line-through' : 'text-stone-400 line-through'
                 }`}>
                   {feat.included ? (
-                    <svg class={`w-4 h-4 shrink-0 mt-0.5 ${isPopular ? 'text-accent-400' : 'text-accent-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg class={`w-4 h-4 shrink-0 mt-0.5 ${tier.popular ? 'text-accent-400' : 'text-accent-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
                     </svg>
                   ) : (
@@ -90,7 +147,7 @@ const waLinks: Record<string, string> = {
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
                   )}
-                  <span>{feat.textId}</span>
+                  <span>{feat.text}</span>
                 </li>
               ))}
             </ul>
@@ -98,27 +155,25 @@ const waLinks: Record<string, string> = {
             <!-- CTA Actions -->
             <div class="space-y-2.5 mt-auto pt-4">
               <a
-                href={waHref}
-                target="_blank"
-                rel="noopener noreferrer"
+                href={tier.ctaHref}
+                target={tier.isExternal ? "_blank" : undefined}
+                rel={tier.isExternal ? "noopener noreferrer" : undefined}
                 class={`w-full flex items-center justify-center gap-2.5 py-3.5 px-4 rounded-xl font-bold text-sm transition-all group ${
-                  isPopular
+                  tier.popular
                     ? 'bg-accent-600 text-white hover:bg-accent-500 shadow-lg shadow-accent-600/30 active:scale-[0.98]'
                     : 'bg-primary-900 text-white hover:bg-primary-800 active:scale-[0.98]'
                 }`}
               >
-                <WhatsAppIcon
-                  class={`w-5 h-5 shrink-0 transition-transform group-hover:scale-110 ${isPopular ? 'text-white' : 'text-[#25D366]'}`}
-                />
-                <span>{tier.ctaTextId}</span>
+                {tier.isExternal && <WhatsAppIcon class="w-4 h-4 text-emerald-400" />}
+                <span>{tier.ctaText}</span>
               </a>
               <a
-                href="/contact"
+                href="/catalog"
                 class={`block text-center text-xs transition-colors py-1 ${
-                  isPopular ? 'text-stone-400 hover:text-white' : 'text-stone-500 hover:text-stone-900'
+                  tier.popular ? 'text-stone-400 hover:text-white' : 'text-stone-500 hover:text-stone-900'
                 }`}
               >
-                Atau kirim detail via formulir &rarr;
+                Lihat rincian katalog &rarr;
               </a>
             </div>
           </div>
