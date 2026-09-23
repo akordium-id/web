@@ -2,27 +2,23 @@
 import Logo from "./Logo.astro";
 import WhatsAppIcon from "./WhatsAppIcon.astro";
 
-const services = [
+const productsAndSolutions = [
+  { label: "Katalog Produk & Paket", href: "/catalog" },
   { label: "Inventory Starter", href: "/catalog/inventory-starter" },
   { label: "Modular Business System", href: "/catalog/business-system-base" },
   { label: "Company Profile Starter", href: "/catalog/company-profile" },
-  { label: "Custom Software Engineering", href: "/catalog/custom-engineering" },
+  { label: "Modul Sistem Bisnis", href: "/modules" },
+  { label: "Simulasi Konfigurator", href: "/configurator" },
+  { label: "Kalkulator Urgensi Web", href: "/tools/urgensi-website" },
 ];
 
-const company = [
-  { label: "Katalog Produk", href: "/catalog", kategori: "produk" },
-  { label: "Modul Sistem Bisnis", href: "/modules", kategori: "produk" },
-  { label: "Simulasi Konfigurator", href: "/configurator", kategori: "produk" },
-  { label: "Tentang Kami", href: "/about", kategori: "info" },
-  { label: "Portofolio Proyek", href: "/#portfolio", kategori: "info" },
-  { label: "Alur Kerja", href: "/#how-it-works", kategori: "info" },
-  { label: "Kalkulator Urgensi Web", href: "/tools/urgensi-website", kategori: "produk" },
-  { label: "Blog & Insight", href: "/blog", kategori: "info" },
-  { label: "Kontak", href: "/contact", kategori: "info" },
+const companyAndInfo = [
+  { label: "Tentang Kami", href: "/about" },
+  { label: "Portofolio Proyek", href: "/#portfolio" },
+  { label: "Alur Kerja", href: "/#how-it-works" },
+  { label: "Blog & Insight", href: "/blog" },
+  { label: "Kontak", href: "/contact" },
 ];
-
-const produkLayanan = company.filter(c => c.kategori === "produk");
-const perusahaanInformasi = company.filter(c => c.kategori === "info");
 
 const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsultasi mengenai kebutuhan sistem/website untuk bisnis kami.");
 ---
@@ -86,26 +82,11 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
         </div>
       </div>
 
-      <!-- Services (2 cols) -->
-      <div class="lg:col-span-2">
-        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Layanan</h3>
+      <!-- Produk & Solusi (4 cols) -->
+      <div class="lg:col-span-4">
+        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Produk & Solusi</h3>
         <ul class="space-y-2.5">
-          {services.map(s => (
-            <li>
-              <a href={s.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
-                <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
-                {s.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-      </div>
-
-      <!-- Produk & Layanan (2 cols) -->
-      <div class="lg:col-span-2">
-        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Produk & Layanan</h3>
-        <ul class="space-y-2.5">
-          {produkLayanan.map(p => (
+          {productsAndSolutions.map(p => (
             <li>
               <a href={p.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
                 <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
@@ -116,11 +97,11 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
         </ul>
       </div>
 
-      <!-- Perusahaan & Informasi (2 cols) -->
+      <!-- Perusahaan (2 cols) -->
       <div class="lg:col-span-2">
-        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Perusahaan & Informasi</h3>
+        <h3 class="text-white font-semibold text-sm mb-4 tracking-tight">Perusahaan</h3>
         <ul class="space-y-2.5">
-          {perusahaanInformasi.map(i => (
+          {companyAndInfo.map(i => (
             <li>
               <a href={i.href} class="text-sm text-stone-400 hover:text-white transition-colors inline-flex items-center gap-1.5 group">
                 <span class="w-1 h-1 rounded-full bg-stone-600 group-hover:bg-accent-400 transition-colors"></span>
