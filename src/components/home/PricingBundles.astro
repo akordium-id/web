@@ -9,9 +9,9 @@ import { verticalBundles } from "../../data/ratecard";
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100 text-primary-950 text-xs font-semibold uppercase tracking-wider mb-4 border border-primary-200">
         Katalog Solusi Vertikal
       </div>
-      <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+      <h2 class="font-sans text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
         Paket Investasi Berbasis Hasil. <br class="hidden sm:inline" />
-        <span class="text-primary-900 font-serif italic font-normal">Transparan, Terukur, & 100% Hak Milik.</span>
+        <span class="text-primary-900 font-bold">Transparan, Terukur, & 100% Hak Milik.</span>
       </h2>
       <p class="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed">
         Bukan template generik. Setiap paket dirancang dari modul teruji Akordium dengan delivery cepat (1–7 hari) dan nol biaya langganan bulanan per-user.
@@ -43,13 +43,13 @@ import { verticalBundles } from "../../data/ratecard";
                 <span class="text-[11px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-md bg-stone-100 text-stone-700">
                   {bundle.badge}
                 </span>
-                <span class="text-xs text-stone-500 font-mono">
+                <span class="text-xs text-stone-600 font-medium">
                   {bundle.duration}
                 </span>
               </div>
 
               <!-- Name & Tagline -->
-              <h3 class="text-lg font-bold text-stone-900 leading-snug">
+              <h3 class="font-sans text-lg font-bold text-stone-900 leading-snug">
                 {bundle.name}
               </h3>
               <p class="mt-2 text-xs text-stone-600 leading-relaxed min-h-[3rem]">
@@ -61,7 +61,7 @@ import { verticalBundles } from "../../data/ratecard";
                 <div class="text-[11px] font-semibold text-stone-500 uppercase tracking-wider">
                   Investasi One-Off
                 </div>
-                <div class="mt-1 text-xl font-extrabold text-stone-950 font-mono tracking-tight">
+                <div class="mt-1 text-xl font-extrabold text-stone-950 font-sans tracking-tight">
                   {bundle.priceRange}
                 </div>
                 {bundle.maintenanceMonthly && (
@@ -109,7 +109,7 @@ import { verticalBundles } from "../../data/ratecard";
               >
                 Pilih Paket Ini &rarr;
               </a>
-              <p class="text-center text-[10px] text-stone-400 mt-2 font-mono">
+              <p class="text-center text-[11px] text-stone-500 mt-2.5 font-medium">
                 100% Hak Milik · Zero SaaS Tax
               </p>
             </div>
