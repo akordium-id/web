@@ -81,7 +81,7 @@ html {
 }
 
 .window-frame-dark {
-  @apply rounded-2xl border border-stone-800 bg-stone-950 shadow-2xl overflow-hidden text-stone-200 transition-all duration-300;
+  @apply rounded-2xl border border-primary-800/80 bg-primary-950 shadow-2xl overflow-hidden text-stone-200 transition-all duration-300;
 }
 
 .hairline-border {

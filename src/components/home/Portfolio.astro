@@ -7,7 +7,7 @@ import { portfolioItems } from '../../data/portfolio';
     
     <!-- Section Header -->
     <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-stone-600 bg-stone-100 border border-stone-200 mb-4 shadow-2xs">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold text-primary-900 bg-primary-50 border border-primary-200/80 mb-4 shadow-2xs">
         Production Systems & Dogfooding
       </div>
       <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight leading-tight">
@@ -21,46 +21,46 @@ import { portfolioItems } from '../../data/portfolio';
     <!-- Projects List: Appledore-Style Showcase Cards -->
     <div class="space-y-16 lg:space-y-20">
       {portfolioItems.map((item, idx) => (
-        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-stone-50/70 border border-stone-200/90 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-stone-300 transition-all duration-300">
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white border border-primary-100 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-primary-300 shadow-sm hover:shadow-xl hover:shadow-primary-100/40 transition-all duration-300">
           
-          <!-- Mockup Window (7 cols on lg, alternates order) -->
+          <!-- Mockup Window in Akordium Navy (7 cols on lg, alternates order) -->
           <div class={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
-            <div class="window-frame-dark">
+            <div class="window-frame-dark shadow-xl shadow-primary-950/20">
               <!-- Window Chrome Bar -->
-              <div class="flex items-center justify-between px-4 py-3 bg-stone-900 border-b border-stone-800">
+              <div class="flex items-center justify-between px-4 py-3 bg-primary-900 border-b border-primary-800">
                 <div class="flex items-center gap-2">
                   <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
                   <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
                   <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-                  <span class="ml-2 font-mono text-[11px] text-stone-400">{item.id}.akordium.id</span>
+                  <span class="ml-2 font-mono text-[11px] text-primary-200">{item.id}.akordium.id</span>
                 </div>
-                <span class="font-mono text-[10px] text-stone-400 bg-stone-800 px-2 py-0.5 rounded border border-stone-700/60">
+                <span class="font-mono text-[10px] text-primary-200 bg-primary-800/80 px-2 py-0.5 rounded border border-primary-700/60">
                   {item.badge}
                 </span>
               </div>
 
               <!-- Window Inner Content per System -->
-              <div class="p-5 sm:p-6 space-y-4 font-mono text-xs">
+              <div class="p-5 sm:p-6 space-y-4 font-mono text-xs bg-primary-950">
                 
                 {item.id === 'mis-apar' && (
                   <div class="space-y-3">
-                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-800">
-                      <span class="text-stone-300 font-bold">Field Inspection & Audit Engine</span>
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-primary-800">
+                      <span class="text-primary-100 font-bold">Field Inspection & Audit Engine</span>
                       <span class="text-emerald-400 font-semibold">100% Audit Ready</span>
                     </div>
                     <div class="grid grid-cols-2 gap-2.5">
-                      <div class="bg-stone-900/90 p-3 rounded-xl border border-stone-800">
-                        <div class="text-[10px] uppercase text-stone-400">Tekanan Tabung</div>
+                      <div class="bg-primary-900/90 p-3 rounded-xl border border-primary-800">
+                        <div class="text-[10px] uppercase text-primary-300">Tekanan Tabung</div>
                         <div class="text-sm font-bold text-emerald-400 mt-0.5">Optimal (Normal)</div>
-                        <div class="text-[10px] text-stone-500 mt-1">Inspeksi Barcode Terverifikasi</div>
+                        <div class="text-[10px] text-primary-400 mt-1">Barcode QR Terverifikasi</div>
                       </div>
-                      <div class="bg-stone-900/90 p-3 rounded-xl border border-stone-800">
-                        <div class="text-[10px] uppercase text-stone-400">Jadwal Uji Rutin</div>
-                        <div class="text-sm font-bold text-stone-200 mt-0.5">Auto-Schedule</div>
-                        <div class="text-[10px] text-stone-500 mt-1">Notifikasi WhatsApp terjadwal</div>
+                      <div class="bg-primary-900/90 p-3 rounded-xl border border-primary-800">
+                        <div class="text-[10px] uppercase text-primary-300">Jadwal Uji Rutin</div>
+                        <div class="text-sm font-bold text-primary-100 mt-0.5">Auto-Schedule</div>
+                        <div class="text-[10px] text-primary-400 mt-1">Notifikasi WhatsApp terjadwal</div>
                       </div>
                     </div>
-                    <div class="p-2.5 bg-black/60 rounded-lg border border-stone-800/80 text-[11px] flex items-center justify-between text-stone-400">
+                    <div class="p-2.5 bg-primary-900/60 rounded-lg border border-primary-800/80 text-[11px] flex items-center justify-between text-primary-200">
                       <span>Stack: Go + PostgreSQL + Tailwind</span>
                       <span class="text-emerald-400">0.4s response latency</span>
                     </div>
@@ -69,49 +69,49 @@ import { portfolioItems } from '../../data/portfolio';
 
                 {item.id === 'orin-gps' && (
                   <div class="space-y-3">
-                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-800">
-                      <span class="text-stone-300 font-bold">IoT Fleet Telemetry Stream</span>
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-primary-800">
+                      <span class="text-primary-100 font-bold">IoT Fleet Telemetry Stream</span>
                       <span class="flex items-center gap-1.5 text-emerald-400 font-semibold">
                         <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
                         10.420 Perangkat Online
                       </span>
                     </div>
-                    <div class="bg-stone-900/90 p-3.5 rounded-xl border border-stone-800 space-y-2">
+                    <div class="bg-primary-900/90 p-3.5 rounded-xl border border-primary-800 space-y-2">
                       <div class="flex justify-between text-xs">
-                        <span class="text-stone-400">Paket Masuk / Menit</span>
-                        <span class="text-stone-200 font-bold">72.400 packet/min</span>
+                        <span class="text-primary-300">Paket Masuk / Menit</span>
+                        <span class="text-primary-100 font-bold">72.400 packet/min</span>
                       </div>
-                      <div class="w-full bg-stone-800 h-2 rounded-full overflow-hidden">
+                      <div class="w-full bg-primary-800 h-2 rounded-full overflow-hidden">
                         <div class="bg-emerald-500 h-full rounded-full w-[96%]"></div>
                       </div>
-                      <div class="flex justify-between text-[10px] text-stone-400 pt-1">
+                      <div class="flex justify-between text-[10px] text-primary-300 pt-1">
                         <span>Buffer Health: 99.9%</span>
                         <span class="text-emerald-400 font-bold">Latency: &lt;100ms</span>
                       </div>
                     </div>
-                    <div class="p-2.5 bg-black/60 rounded-lg border border-stone-800/80 text-[11px] flex items-center justify-between text-stone-400">
+                    <div class="p-2.5 bg-primary-900/60 rounded-lg border border-primary-800/80 text-[11px] flex items-center justify-between text-primary-200">
                       <span>TimescaleDB Hypertables + Go Fiber</span>
-                      <span class="text-stone-300">3TB/Bulan compressed</span>
+                      <span class="text-primary-200">3TB/Bulan compressed</span>
                     </div>
                   </div>
                 )}
 
                 {item.id === 'katauser' && (
                   <div class="space-y-3">
-                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-800">
-                      <span class="text-stone-300 font-bold">Token-Gated Client Board</span>
-                      <span class="text-primary-300 font-semibold">Dogfooded at Akordium</span>
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-primary-800">
+                      <span class="text-primary-100 font-bold">Token-Gated Client Board</span>
+                      <span class="text-accent-400 font-semibold">Dogfooded at Akordium</span>
                     </div>
-                    <div class="bg-stone-900/90 p-3.5 rounded-xl border border-stone-800 space-y-2 text-left">
+                    <div class="bg-primary-900/90 p-3.5 rounded-xl border border-primary-800 space-y-2 text-left">
                       <div class="flex items-center justify-between text-xs">
-                        <span class="font-semibold text-stone-200">Revisi Desain & Feedback Milestone</span>
+                        <span class="font-semibold text-primary-100">Revisi Desain & Feedback Milestone</span>
                         <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Disetujui</span>
                       </div>
-                      <p class="text-[11px] text-stone-400 font-sans leading-relaxed">
+                      <p class="text-[11px] text-primary-200 font-sans leading-relaxed">
                         Klien non-teknis menitipkan catatan revisi dengan token aman langsung di antarmuka tanpa perlu registrasi akun berbelit.
                       </p>
                     </div>
-                    <div class="p-2.5 bg-black/60 rounded-lg border border-stone-800/80 text-[11px] flex items-center justify-between text-stone-400">
+                    <div class="p-2.5 bg-primary-900/60 rounded-lg border border-primary-800/80 text-[11px] flex items-center justify-between text-primary-200">
                       <span>Laravel 13 + Livewire + Flux UI Pro</span>
                       <span class="text-emerald-400">Zero WA friction</span>
                     </div>
@@ -137,16 +137,16 @@ import { portfolioItems } from '../../data/portfolio';
               {item.descriptionId}
             </p>
 
-            <!-- Highlight Callout -->
-            <div class="p-3.5 rounded-xl bg-white border border-stone-200/90 text-xs text-stone-700 leading-snug">
-              <span class="font-bold text-stone-900">Nilai Rekayasa:</span> {item.highlight}
+            <!-- Highlight Callout with Akordium Navy subtle accent -->
+            <div class="p-4 rounded-xl bg-primary-50/70 border border-primary-200/70 text-xs text-primary-950 leading-snug">
+              <span class="font-bold text-primary-900">Nilai Rekayasa:</span> {item.highlight}
             </div>
 
             <!-- Metrics Grid -->
             <div class="grid grid-cols-3 gap-3 pt-3 border-t border-stone-200/80">
               {item.metrics.slice(0, 3).map((metric) => (
                 <div>
-                  <div class="font-mono text-base sm:text-lg font-extrabold text-stone-900 tracking-tight">
+                  <div class="font-mono text-base sm:text-lg font-extrabold text-primary-950 tracking-tight">
                     {metric.value}
                   </div>
                   <div class="text-[11px] text-stone-500 font-medium leading-tight mt-0.5">
@@ -160,7 +160,7 @@ import { portfolioItems } from '../../data/portfolio';
             <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
               <div class="flex flex-wrap gap-1.5">
                 {item.techStack.map((tech) => (
-                  <span class="px-2 py-0.5 rounded bg-white border border-stone-200 text-[11px] font-mono text-stone-600">
+                  <span class="px-2.5 py-0.5 rounded bg-primary-50/60 border border-primary-200/70 text-[11px] font-mono text-primary-900 font-medium">
                     {tech}
                   </span>
                 ))}
@@ -171,7 +171,7 @@ import { portfolioItems } from '../../data/portfolio';
                   href={item.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1 text-xs font-bold text-stone-900 hover:text-accent-600 transition-colors"
+                  class="inline-flex items-center gap-1 text-xs font-bold text-primary-800 hover:text-accent-600 transition-colors"
                 >
                   <span>Buka Sistem</span>
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
