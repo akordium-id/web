@@ -1,0 +1,146 @@
+---
+import { verticalBundles } from "../../data/ratecard";
+---
+
+<section id="pricing" class="py-24 sm:py-32 bg-stone-50 border-t border-stone-200/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="max-w-3xl mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary-100 text-primary-950 text-xs font-semibold uppercase tracking-wider mb-4 border border-primary-200">
+        Katalog Solusi Vertikal
+      </div>
+      <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+        Paket Investasi Berbasis Hasil. <br class="hidden sm:inline" />
+        <span class="text-primary-900 font-serif italic font-normal">Transparan, Terukur, & 100% Hak Milik.</span>
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed">
+        Bukan template generik. Setiap paket dirancang dari modul teruji Akordium dengan delivery cepat (1–7 hari) dan nol biaya langganan bulanan per-user.
+      </p>
+    </div>
+
+    <!-- Bundles Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+      {verticalBundles.map((bundle) => {
+        const isPopular = bundle.popular;
+        return (
+          <div
+            class:list={[
+              "relative rounded-2xl flex flex-col justify-between transition-all duration-300",
+              isPopular
+                ? "bg-white border-2 border-accent-600 shadow-xl shadow-accent-600/10 p-7 lg:-translate-y-2"
+                : "bg-white border border-stone-200/90 hover:border-stone-300 shadow-xs p-6"
+            ]}
+          >
+            {isPopular && (
+              <div class="absolute -top-3.5 left-1/2 -translate-x-1/2 px-3.5 py-1 rounded-full bg-accent-600 text-white text-[11px] font-bold uppercase tracking-wider shadow-sm">
+                Paling Direkomendasikan
+              </div>
+            )}
+
+            <div>
+              <!-- Top info -->
+              <div class="flex items-center justify-between gap-2 mb-3">
+                <span class="text-[11px] font-bold tracking-wider uppercase px-2.5 py-0.5 rounded-md bg-stone-100 text-stone-700">
+                  {bundle.badge}
+                </span>
+                <span class="text-xs text-stone-500 font-mono">
+                  {bundle.duration}
+                </span>
+              </div>
+
+              <!-- Name & Tagline -->
+              <h3 class="text-lg font-bold text-stone-900 leading-snug">
+                {bundle.name}
+              </h3>
+              <p class="mt-2 text-xs text-stone-600 leading-relaxed min-h-[3rem]">
+                {bundle.tagline}
+              </p>
+
+              <!-- Price Box -->
+              <div class="mt-4 pt-4 border-t border-stone-100">
+                <div class="text-[11px] font-semibold text-stone-500 uppercase tracking-wider">
+                  Investasi One-Off
+                </div>
+                <div class="mt-1 text-xl font-extrabold text-stone-950 font-mono tracking-tight">
+                  {bundle.priceRange}
+                </div>
+                {bundle.maintenanceMonthly && (
+                  <div class="mt-1 text-[11px] text-stone-500">
+                    SLA & Maintenance: <span class="font-medium text-stone-700">{bundle.maintenanceMonthly}</span>
+                  </div>
+                )}
+              </div>
+
+              <!-- Target Audience -->
+              <div class="mt-4 p-2.5 rounded-lg bg-stone-50 border border-stone-200/60 text-[11px] text-stone-600">
+                <span class="font-bold text-stone-800">Cocok untuk:</span> {bundle.target}
+              </div>
+
+              <!-- Included Features -->
+              <div class="mt-6">
+                <div class="text-[11px] font-bold uppercase tracking-wider text-stone-500 mb-3">
+                  Cakupan Implementasi:
+                </div>
+                <ul class="space-y-2.5 text-xs text-stone-700">
+                  {bundle.features.map((feat) => (
+                    <li class="flex items-start gap-2.5">
+                      <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                      </svg>
+                      <span class="leading-relaxed">{feat}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="mt-8 pt-6 border-t border-stone-100">
+              <a
+                href={`https://wa.me/6281234567890?text=${encodeURIComponent(`Halo Akordium Lab, saya tertarik untuk konsultasi implementasi ${bundle.name}. Mohon info jadwal review kebutuhan.`)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                class:list={[
+                  "w-full py-2.5 px-4 rounded-xl text-xs font-bold flex items-center justify-center gap-1.5 transition-all text-center",
+                  isPopular
+                    ? "bg-accent-600 hover:bg-accent-700 text-white shadow-sm hover:shadow-md hover:shadow-accent-500/20"
+                    : "bg-primary-950 hover:bg-primary-900 text-white hover:text-white"
+                ]}
+              >
+                Pilih Paket Ini &rarr;
+              </a>
+              <p class="text-center text-[10px] text-stone-400 mt-2 font-mono">
+                100% Hak Milik · Zero SaaS Tax
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Strategy Footer Note -->
+    <div class="mt-12 p-6 rounded-2xl bg-white border border-stone-200/80 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      <div class="flex items-start sm:items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-primary-50 text-primary-900 border border-primary-200 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <h4 class="text-sm font-bold text-stone-900">
+            Butuh kombinasi modul spesifik atau fitur custom di luar paket?
+          </h4>
+          <p class="text-xs text-stone-600 mt-0.5">
+            Sistem Akordium berbasis modular. Anda dapat memilih modul individual secara à la carte di bawah ini.
+          </p>
+        </div>
+      </div>
+      <a
+        href="#modules"
+        class="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold shrink-0 transition-colors"
+      >
+        Lihat Katalog Modul &darr;
+      </a>
+    </div>
+  </div>
+</section>

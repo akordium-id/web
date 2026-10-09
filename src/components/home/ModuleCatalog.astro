@@ -1,0 +1,102 @@
+---
+import { alaCarteModules } from "../../data/ratecard";
+---
+
+<section id="modules" class="py-24 sm:py-32 bg-white border-t border-stone-200/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-stone-100 text-stone-800 text-xs font-semibold uppercase tracking-wider mb-4 border border-stone-200">
+          Modular Building Blocks
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+          Katalog Modul À La Carte. <br class="hidden sm:inline" />
+          <span class="text-primary-900 font-serif italic font-normal">Pasang yang Dibutuhkan, Bayar yang Dipakai.</span>
+        </h2>
+        <p class="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed">
+          Arsitektur modular siap pakai yang terisolasi dan mudah dikustomisasi. Kombinasikan modul operasional sesuai model bisnis unik perusahaan Anda.
+        </p>
+      </div>
+
+      <!-- TCO Advantage Pill -->
+      <div class="p-4 rounded-xl bg-primary-50 border border-primary-200/80 text-xs text-primary-950 max-w-sm">
+        <div class="font-bold flex items-center gap-1.5 text-primary-900 mb-1">
+          <svg class="w-4 h-4 text-accent-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+          Keuntungan TCO Kepemilikan Mandiri
+        </div>
+        <p class="text-stone-700 leading-relaxed text-[11px]">
+          SaaS enterprise membebani <span class="font-bold">Rp 15jt–30jt/tahun</span> untuk 10–20 akun. Sistem Akordium diinvestasikan sekali dan berjalan mandiri selamanya di cloud/server Anda.
+        </p>
+      </div>
+    </div>
+
+    <!-- Modules Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {alaCarteModules.map((mod) => (
+        <div class="p-6 rounded-2xl bg-white border border-stone-200/90 hover:border-primary-900/30 hover:shadow-lg hover:shadow-primary-950/5 transition-all flex flex-col justify-between group">
+          <div>
+            <!-- Top badge & category -->
+            <div class="flex items-center justify-between gap-2 mb-3">
+              <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-stone-100 text-stone-700 group-hover:bg-primary-50 group-hover:text-primary-900 transition-colors">
+                {mod.categoryLabel}
+              </span>
+              <span class="text-[11px] font-mono font-bold text-stone-900">
+                {mod.priceRange}
+              </span>
+            </div>
+
+            <!-- Module Name -->
+            <h3 class="text-base font-bold text-stone-900 group-hover:text-primary-950 transition-colors">
+              {mod.name}
+            </h3>
+
+            <!-- Description -->
+            <p class="mt-2.5 text-xs text-stone-600 leading-relaxed">
+              {mod.description}
+            </p>
+          </div>
+
+          <!-- Key Feature Highlight -->
+          <div class="mt-5 pt-4 border-t border-stone-100 flex items-center gap-2 text-[11px] text-stone-500">
+            <svg class="w-3.5 h-3.5 text-accent-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span class="font-medium text-stone-700 truncate">{mod.keyFeature}</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom Action & Configurator Link -->
+    <div class="mt-14 p-8 rounded-2xl bg-primary-950 text-white flex flex-col sm:flex-row items-center justify-between gap-6 shadow-xl shadow-primary-950/10">
+      <div class="space-y-1 text-center sm:text-left">
+        <h4 class="text-lg font-bold text-white tracking-tight">
+          Ingin simulasi perkiraan total biaya proyek Anda?
+        </h4>
+        <p class="text-xs text-stone-300 max-w-xl">
+          Gunakan kalkulator konfigurator interaktif kami untuk memilih modul yang sesuai dan dapatkan estimasi instan.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap items-center justify-center gap-3 shrink-0">
+        <a
+          href="/configurator"
+          class="px-5 py-2.5 rounded-xl bg-accent-600 hover:bg-accent-700 text-white text-xs font-bold transition-all shadow-sm"
+        >
+          Buka Kalkulator Biaya &rarr;
+        </a>
+        <a
+          href="https://wa.me/6281234567890?text=Halo%20Akordium%20Lab%2C%20saya%20ingin%20konsultasi%20kombinasi%20modul%20custom%20untuk%20operasional%20bisnis."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-bold border border-white/20 transition-all"
+        >
+          Konsultasi WhatsApp
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
