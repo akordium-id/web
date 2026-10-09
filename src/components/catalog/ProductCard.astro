@@ -50,7 +50,7 @@ const waUrl = `https://wa.me/628159988995?text=${waMessage}`;
     <div class="py-4 my-2 border-y border-stone-100">
       <div class="flex items-baseline gap-1.5 flex-wrap">
         <span class="font-sans text-2xl sm:text-3xl font-extrabold text-stone-900 tracking-tight">
-          {product.priceFormatted}
+          {product.priceCompact || product.priceFormatted}
         </span>
       </div>
       {product.priceSubtext && (

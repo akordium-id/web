@@ -14,7 +14,7 @@ const { module } = Astro.props;
       {module.categoryLabel}
     </span>
     <span class="font-sans font-bold text-sm text-stone-900 bg-stone-100 px-2.5 py-1 rounded-md">
-      + {module.priceFormatted}
+      + {module.priceCompact || module.priceFormatted}
     </span>
   </div>
 

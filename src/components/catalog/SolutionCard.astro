@@ -64,7 +64,7 @@ const waUrl = `https://wa.me/628159988995?text=${waMessage}`;
     <div class="flex items-baseline justify-between gap-2 mb-4">
       <div>
         <span class="text-[10px] text-stone-500 block uppercase font-bold tracking-wider">Perkiraan Investasi</span>
-        <span class="font-sans font-extrabold text-lg sm:text-xl text-stone-900">{solution.estimatedPriceRange}</span>
+        <span class="font-sans font-extrabold text-lg sm:text-xl text-stone-900">{solution.priceCompact || solution.estimatedPriceRange}</span>
       </div>
       <div class="text-right">
         <span class="text-[10px] text-stone-500 block uppercase font-bold tracking-wider">Waktu Selesai</span>

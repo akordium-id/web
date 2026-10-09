@@ -106,11 +106,11 @@ const defaultSelected = ['inventory', 'sales', 'invoice'];
         <div class="space-y-3 pb-5 border-b border-stone-800 text-xs">
           <div class="flex justify-between items-center text-stone-300">
             <span>Pondasi Core App & Admin</span>
-            <span class="font-semibold text-white">Rp 5.500.000</span>
+            <span class="font-semibold text-white">Rp 5,5jt</span>
           </div>
           <div class="flex justify-between items-center text-stone-300">
             <span>Tambahan Modul Terpilih</span>
-            <span class="font-semibold text-white" id="summary-modules-price">Rp 9.500.000</span>
+            <span class="font-semibold text-white" id="summary-modules-price">Rp 9,5jt</span>
           </div>
           <div class="flex justify-between items-center text-stone-300">
             <span>Skala Pengguna</span>
@@ -131,7 +131,7 @@ const defaultSelected = ['inventory', 'sales', 'invoice'];
           <div class="mb-4">
             <span class="text-xs text-stone-400 block mb-1">Perkiraan Nilai Investasi:</span>
             <div class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-tight" id="summary-price-range">
-              Rp 15.000.000 – Rp 18.800.000
+              Rp 15jt – 18,8jt
             </div>
             <p class="text-[11px] text-stone-400 mt-1">Pembayaran bertahap sesuai milestone pengerjaan.</p>
           </div>
@@ -184,6 +184,11 @@ const defaultSelected = ['inventory', 'sales', 'invoice'];
     const waBtn = root.querySelector<HTMLAnchorElement>('#configurator-wa-btn');
 
     function formatRp(num: number) {
+      if (num >= 1000000) {
+        const inJt = num / 1000000;
+        const formatted = Number.isInteger(inJt) ? inJt.toString() : inJt.toFixed(1).replace('.', ',');
+        return `Rp ${formatted}jt`;
+      }
       return new Intl.NumberFormat('id-ID', {
         style: 'currency',
         currency: 'IDR',
@@ -226,12 +231,12 @@ const defaultSelected = ['inventory', 'sales', 'invoice'];
 
       const modulesPrice = selectedModules.reduce((acc, m) => acc + m.price, 0);
       const totalRaw = (basePrice + modulesPrice) * multiplier;
-      const totalMin = Math.round(totalRaw / 50000) * 50000;
-      const totalMax = Math.round((totalMin * 1.25) / 50000) * 50000;
+      const totalMin = Math.round(totalRaw / 100000) * 100000;
+      const totalMax = Math.round((totalMin * 1.25) / 100000) * 100000;
 
-      const extraDays = selectedModules.length * 1.5;
+      const extraDays = selectedModules.length * 0.75;
       const daysMin = Math.ceil(baseDays + extraDays);
-      const daysMax = Math.ceil(daysMin * 1.3);
+      const daysMax = Math.ceil(daysMin * 1.4);
 
       // Update DOM
       if (counterEl) {
@@ -244,7 +249,7 @@ const defaultSelected = ['inventory', 'sales', 'invoice'];
         scaleTextEl.textContent = scaleLabel;
       }
       if (priceRangeEl) {
-        priceRangeEl.textContent = `${formatRp(totalMin)} – ${formatRp(totalMax)}`;
+        priceRangeEl.textContent = `${formatRp(totalMin)} – ${formatRp(totalMax).replace('Rp ', '')}`;
       }
       if (daysEl) {
         daysEl.textContent = `${daysMin} – ${daysMax} Hari Kerja`;

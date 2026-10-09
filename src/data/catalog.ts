@@ -33,6 +33,7 @@ export interface Product {
   pricingModel: 'fixed' | 'range' | 'modular' | 'custom';
   startingPrice?: number;
   priceFormatted: string;
+  priceCompact?: string;
   priceSubtext?: string;
   estimatedDuration: string;
   maintenance?: {
@@ -53,6 +54,7 @@ export interface ModuleItem {
   businessImpact: string;
   estimatedCost: number;
   priceFormatted: string;
+  priceCompact?: string;
   features: string[];
   recommendedFor?: string[];
 }
@@ -65,6 +67,7 @@ export interface SolutionPack {
   painPoints: string[];
   recommendedModules: string[]; // module ids
   estimatedPriceRange: string;
+  priceCompact?: string;
   estimatedDuration: string;
 }
 
@@ -111,6 +114,7 @@ export const products: Product[] = [
     pricingModel: 'fixed',
     startingPrice: 5500000,
     priceFormatted: 'Rp 5.500.000',
+    priceCompact: 'Rp 5,5jt',
     priceSubtext: 'Paket Starter terintegrasi / 1x investasi',
     estimatedDuration: '1–2 hari kerja',
     maintenance: {
@@ -123,7 +127,7 @@ export const products: Product[] = [
     ],
     faq: [
       {
-        question: 'Apakah harga Rp 5.500.000 sudah termasuk serah terima penuh?',
+        question: 'Apakah harga Rp 5,5jt sudah termasuk serah terima penuh?',
         answer: 'Ya. Seluruh kode sumber, database, dan konfigurasi server diserahterimakan 100% menjadi aset milik bisnis Anda tanpa biaya lisensi per user.',
       },
       {
@@ -160,6 +164,7 @@ export const products: Product[] = [
     pricingModel: 'fixed',
     startingPrice: 6500000,
     priceFormatted: 'Rp 6.500.000',
+    priceCompact: 'Rp 6,5jt',
     priceSubtext: 'per penawaran / campaign terintegrasi',
     estimatedDuration: '2–3 hari kerja',
     addons: [
@@ -207,6 +212,7 @@ export const products: Product[] = [
     pricingModel: 'range',
     startingPrice: 12500000,
     priceFormatted: 'Rp 12.500.000 – Rp 18.500.000',
+    priceCompact: 'Rp 12,5jt – 18,5jt',
     priceSubtext: 'Paket Vertical Pro (1x investasi / deploy mandiri)',
     estimatedDuration: '3–5 hari kerja',
     maintenance: {
@@ -243,8 +249,8 @@ export const products: Product[] = [
     solution: 'Mulai dari paket base berbiaya terjangkau, lalu sambungkan modul-modul bisnis teruji (Pelanggan, Order, Invoice, Laporan) sesuai workflow unik Anda.',
     targetAudience: ['Bisnis Berkembang (5–30 staf)', 'Jasa Operasional & Agensi', 'Pabrikasi / Workshop Khusus'],
     keyHighlights: [
-      'Base fondasi mulai Rp 5.500.000 (sudah termasuk core engine + dasbor utama)',
-      'Modul tambahan transparan: mulai Rp 1.500.000 – Rp 3.500.000 per modul',
+      'Base fondasi mulai Rp 5,5jt (sudah termasuk core engine + dasbor utama)',
+      'Modul tambahan transparan: mulai Rp 1,5jt – 3,5jt per modul',
       'Kepemilikan penuh 100% kode & database di server Anda',
       'Tidak ada biaya lisensi per user bulanan'
     ],
@@ -258,6 +264,7 @@ export const products: Product[] = [
     pricingModel: 'modular',
     startingPrice: 5500000,
     priceFormatted: 'Base Rp 5.500.000',
+    priceCompact: 'Base Rp 5,5jt',
     priceSubtext: '+ modul pilihan (mulai Rp 1,5M - 3,5M)',
     estimatedDuration: '3–7 hari kerja',
     addons: [
@@ -319,6 +326,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Tim tidak lagi lupa follow up prospek dan tahu riwayat belanja pelanggan setia.',
     estimatedCost: 1500000,
     priceFormatted: 'Rp 1.500.000',
+    priceCompact: 'Rp 1,5jt',
     features: ['Database kontak & tag kategori', 'Riwayat order & total belanja', 'Catatan follow up / keluhan', 'Ekspor kontak']
   },
   {
@@ -330,6 +338,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Mencegah kehilangan barang, memotong selisih opname fisik, dan menghentikan kehabisan stok mendadak.',
     estimatedCost: 3500000,
     priceFormatted: 'Rp 3.500.000',
+    priceCompact: 'Rp 3,5jt',
     features: ['Master SKU & varian', 'Buku besar mutasi masuk/keluar', 'Peringatan stok menipis otomatis', 'Laporan nilai aset gudang realtime']
   },
   {
@@ -341,6 +350,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Order tidak tercecer di chat WhatsApp, omset harian tercatat presisi tanpa manipulasi manual.',
     estimatedCost: 2500000,
     priceFormatted: 'Rp 2.500.000',
+    priceCompact: 'Rp 2,5jt',
     features: ['Form input order cepat', 'Status order Kanban visual', 'Otomatis potong stok saat order deal', 'Perhitungan diskon & komisi staf']
   },
   {
@@ -352,6 +362,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Mempercepat perputaran kas (cash flow) dan mempermudah penagihan ke klien korporat tanpa selisih sen.',
     estimatedCost: 3500000,
     priceFormatted: 'Rp 3.500.000',
+    priceCompact: 'Rp 3,5jt',
     features: ['Generate invoice PDF resmi siap kirim WA', 'Pelacakan status pembayaran (Lunas / Tempo)', 'Pembayaran bertahap (Down Payment / Termin)', 'Penomoran atomik anti-race condition']
   },
   {
@@ -363,6 +374,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Menghilangkan tabrakan jadwal antrean dan memastikan staf bekerja optimal sesuai kapasitas ruangan.',
     estimatedCost: 4500000,
     priceFormatted: 'Rp 4.500.000',
+    priceCompact: 'Rp 4,5jt',
     features: ['Kalender slot reservasi interaktif', 'Swimlane kalender alokasi staf / teknisi', 'Status kedatangan pelanggan', 'Integrasi konfirmasi WA otomatis']
   },
   {
@@ -374,6 +386,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Pemilik bisnis bisa mengambil keputusan berbasis data nyata dalam hitungan detik dan bebas kecurangan.',
     estimatedCost: 2000000,
     priceFormatted: 'Rp 2.000.000',
+    priceCompact: 'Rp 2jt',
     features: ['Grafik trend omset harian/bulanan', 'Daftar produk & layanan paling laris', 'Audit log aktivitas user per transaksi', 'Filter tanggal fleksibel & ekspor Excel']
   },
   {
@@ -385,6 +398,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Meningkatkan repeat order dan retensi loyalitas pelanggan secara konsisten.',
     estimatedCost: 2000000,
     priceFormatted: 'Rp 2.000.000',
+    priceCompact: 'Rp 2jt',
     features: ['Level membership & kupon diskon', 'Pencatatan perolehan dan penukaran poin', 'Kartu member digital']
   },
   {
@@ -396,6 +410,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Meningkatkan kepuasan pembeli tanpa tim Anda harus mengetik chat konfirmasi satu per satu.',
     estimatedCost: 2500000,
     priceFormatted: 'Rp 2.500.000',
+    priceCompact: 'Rp 2,5jt',
     features: ['Template pesan dinamis dengan nama pelanggan', 'Notifikasi status order real-time', 'Kirim nota/invoice PDF via webhook WA resmi']
   },
   {
@@ -407,6 +422,7 @@ export const modules: ModuleItem[] = [
     businessImpact: 'Menjaga keamanan operasional internal dan mencegah staf mengakses data rahasia pemilik.',
     estimatedCost: 2000000,
     priceFormatted: 'Rp 2.000.000',
+    priceCompact: 'Rp 2jt',
     features: ['Setting hak akses per menu (Owner, Manager, Staff)', 'Alur persetujuan manager sebelum aksi final', 'Log waktu & identitas pelaku perubahan data']
   }
 ];
@@ -420,6 +436,7 @@ export const solutionPacks: SolutionPack[] = [
     painPoints: ['Stok fisik sering selisih', 'Nota penjualan manual sering hilang', 'Rekap omset harian butuh waktu lama'],
     recommendedModules: ['inventory', 'sales', 'invoice', 'customer', 'reporting'],
     estimatedPriceRange: 'Rp 12.500.000 – Rp 18.500.000',
+    priceCompact: 'Rp 12,5jt – 18,5jt',
     estimatedDuration: '3–5 hari kerja'
   },
   {
@@ -430,6 +447,7 @@ export const solutionPacks: SolutionPack[] = [
     painPoints: ['Riwayat servis pelanggan lupa dicatat', 'Stok sparepart mahal rawan hilang', 'Staf bingung pembagian antrean servis'],
     recommendedModules: ['customer', 'inventory', 'sales', 'invoice', 'reporting'],
     estimatedPriceRange: 'Rp 22.000.000 – Rp 35.000.000',
+    priceCompact: 'Rp 22jt – 35jt',
     estimatedDuration: '5–7 hari kerja'
   },
   {
@@ -440,6 +458,7 @@ export const solutionPacks: SolutionPack[] = [
     painPoints: ['Jadwal booking sering bentrok', 'Sulit hitung komisi pengerjaan terapis', 'Pelanggan lupa jadwal reservasi'],
     recommendedModules: ['booking', 'customer', 'membership', 'sales', 'wa-notification'],
     estimatedPriceRange: 'Rp 14.500.000 – Rp 18.500.000',
+    priceCompact: 'Rp 14,5jt – 18,5jt',
     estimatedDuration: '3–5 hari kerja'
   },
   {
@@ -450,6 +469,7 @@ export const solutionPacks: SolutionPack[] = [
     painPoints: ['Penagihan termin invoice sering terlambat', 'Data kontak klien dan riwayat brief tercecer', 'Sulit mengukur profit per proyek'],
     recommendedModules: ['customer', 'invoice', 'reporting', 'role-approval'],
     estimatedPriceRange: 'Rp 5.500.000 – Rp 8.500.000',
+    priceCompact: 'Rp 5,5jt – 8,5jt',
     estimatedDuration: '1–2 hari kerja'
   }
 ];

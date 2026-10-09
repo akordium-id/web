@@ -86,7 +86,7 @@ const waUrl = `https://wa.me/628159988995?text=${waMessage}`;
               Investasi Pengerjaan
             </span>
             <div class="font-sans font-extrabold text-3xl sm:text-4xl text-stone-900 tracking-tight">
-              {product.priceFormatted}
+              {product.priceCompact || product.priceFormatted}
             </div>
             {product.priceSubtext && (
               <p class="text-xs text-stone-500 mt-1 font-medium">{product.priceSubtext}</p>
