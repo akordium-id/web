@@ -9,10 +9,10 @@ interface Props {
 }
 
 const {
-  eyebrow = "Mari Berkolaborasi",
-  title = "Punya Sistem yang Perlu Dibangun atau Dimodernisasi?",
-  description = "Ceritakan tantangan arsitektur, volume data, atau produk perangkat lunak yang ingin Anda wujudkan. Kami siap membantu membedah solusi teknis dan estimasi yang realistis.",
-  whatsappText = "Halo Faiq, saya ingin berdiskusi mengenai kebutuhan engineering di Akordium Lab",
+  eyebrow = "Mulai dari Masalah Utama",
+  title = "Ada Alur Bisnis yang Ingin Dibereskan?",
+  description = "Ceritakan kendala operasional yang paling memakan waktu tim Anda. Diskusi awal 100% gratis dan santai tanpa komitmen.",
+  whatsappText = "Halo Faiq, saya ingin konsultasi mengenai alur operasional bisnis kami",
 } = Astro.props;
 
 const waUrl = `https://wa.me/628159988995?text=${encodeURIComponent(whatsappText)}`;
@@ -47,13 +47,13 @@ const waUrl = `https://wa.me/628159988995?text=${encodeURIComponent(whatsappText
         class="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-accent-600 hover:bg-accent-700 text-white font-bold rounded-xl active:scale-95 transition-all text-sm w-full sm:w-auto shadow-xl shadow-accent-600/25"
       >
         <WhatsAppIcon class="w-5 h-5 fill-white shrink-0" />
-        <span>Konsultasi Teknis via WhatsApp</span>
+        <span>Konsultasi via WhatsApp</span>
       </a>
       <a
         href="/contact"
         class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary-900/90 hover:bg-primary-800 text-primary-100 font-semibold rounded-xl active:scale-95 transition-all text-sm w-full sm:w-auto border border-primary-800"
       >
-        <span>Kirim Brief Proyek / NDA</span>
+        <span>Kirim Pesan Detail</span>
         <svg class="w-4 h-4 text-primary-300" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
