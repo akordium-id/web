@@ -1,25 +1,33 @@
 ---
 import Logo from "./Logo.astro";
 
-const navLinks = [
-  { href: "/", label: "Beranda" },
-  { href: "/catalog", label: "Katalog & Layanan" },
-  { href: "/modules", label: "Modul Sistem" },
-  { href: "/about", label: "Tentang" },
-  { href: "/blog", label: "Blog" },
-];
 const currentPath = Astro.url.pathname;
+const isHome = currentPath === "/";
+
+const navLinks = [
+  { href: isHome ? "#services" : "/#services", label: "Layanan" },
+  { href: isHome ? "#works" : "/#works", label: "Portofolio" },
+  { href: isHome ? "#principles" : "/#principles", label: "Prinsip Rekayasa" },
+  { href: isHome ? "#about" : "/#about", label: "Profil Founder" },
+  { href: "/blog", label: "Catatan Teknis" },
+];
 ---
 
 <header id="main-header" class="fixed top-0 left-0 right-0 z-50">
   <!-- Main nav -->
-  <div data-main-nav class="bg-white/90 backdrop-blur-xl border-b border-slate-200/60 shadow-sm transition-all duration-300">
+  <div data-main-nav class="bg-white/90 backdrop-blur-xl border-b border-stone-200/80 shadow-2xs transition-all duration-300">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <nav class="flex items-center justify-between h-16">
-        <!-- Logo -->
-        <a href="/" class="flex items-center gap-1.5 group py-1" aria-label="Akordium Lab">
-          <Logo variant="navy" class="h-6 sm:h-7 w-auto transition-transform group-hover:scale-[1.02]" showLab={true} />
-        </a>
+        <!-- Logo + Availability Status -->
+        <div class="flex items-center gap-3">
+          <a href="/" class="flex items-center gap-1.5 group py-1" aria-label="Akordium Lab">
+            <Logo variant="navy" class="h-6 sm:h-7 w-auto transition-transform group-hover:scale-[1.02]" showLab={true} />
+          </a>
+          <span class="hidden md:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium text-emerald-800 bg-emerald-50 border border-emerald-200/80">
+            <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+            Available for Q4
+          </span>
+        </div>
 
         <!-- Desktop Nav -->
         <ul class="hidden lg:flex items-center gap-1">
@@ -27,11 +35,7 @@ const currentPath = Astro.url.pathname;
             <li>
               <a
                 href={link.href}
-                class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
-                  currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-                    ? 'text-primary-900 bg-primary-50 font-semibold'
-                    : 'text-slate-600 hover:text-primary-900 hover:bg-slate-100'
-                }`}
+                class="px-3.5 py-2 rounded-lg text-xs font-semibold text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors"
               >
                 {link.label}
               </a>
@@ -39,15 +43,18 @@ const currentPath = Astro.url.pathname;
           ))}
         </ul>
 
-        <!-- CTA -->
-        <div class="hidden lg:flex items-center">
-          <a href="/contact" class="px-5 py-2.5 bg-accent-600 text-white text-sm font-semibold rounded-lg hover:bg-accent-700 active:scale-95 transition-all shadow-sm hover:shadow-md hover:shadow-accent-500/20">
-            Hubungi Kami
+        <!-- CTA Action -->
+        <div class="hidden lg:flex items-center gap-3">
+          <a
+            href={isHome ? "#contact" : "/contact"}
+            class="px-4 py-2 bg-stone-900 text-white text-xs font-bold rounded-lg hover:bg-stone-800 active:scale-95 transition-all shadow-sm"
+          >
+            Diskusi Proyek &rarr;
           </a>
         </div>
 
         <!-- Mobile Hamburger -->
-        <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors" aria-label="Toggle menu" aria-expanded="false">
+        <button id="menu-toggle" class="lg:hidden p-2 rounded-lg text-stone-600 hover:text-stone-900 hover:bg-stone-100 transition-colors" aria-label="Toggle menu" aria-expanded="false">
           <svg id="icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
           </svg>
@@ -60,23 +67,28 @@ const currentPath = Astro.url.pathname;
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white shadow-lg">
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-stone-200 bg-white shadow-xl">
     <div class="max-w-7xl mx-auto px-4 py-4 space-y-1">
+      <div class="px-3 py-1 mb-2">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-medium text-emerald-800 bg-emerald-50 border border-emerald-200">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+          Available for Q4 Projects
+        </span>
+      </div>
       {navLinks.map((link) => (
         <a
           href={link.href}
-          class={`block px-4 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-            currentPath === link.href || (link.href !== '/' && currentPath.startsWith(link.href))
-              ? 'text-primary-900 bg-primary-50 font-semibold'
-              : 'text-slate-600 hover:text-primary-900 hover:bg-slate-50'
-          }`}
+          class="block px-3 py-2 rounded-lg text-sm font-semibold text-stone-700 hover:text-stone-900 hover:bg-stone-50 transition-colors"
         >
           {link.label}
         </a>
       ))}
-      <div class="pt-3 border-t border-slate-100 mt-3">
-        <a href="/contact" class="block w-full text-center px-5 py-2.5 bg-accent-600 text-white text-sm font-semibold rounded-lg hover:bg-accent-700 transition-colors">
-          Hubungi Kami
+      <div class="pt-3 border-t border-stone-100 mt-3">
+        <a
+          href={isHome ? "#contact" : "/contact"}
+          class="block w-full text-center px-4 py-2.5 bg-stone-900 text-white text-xs font-bold rounded-lg hover:bg-stone-800 transition-colors"
+        >
+          Diskusi Proyek &rarr;
         </a>
       </div>
     </div>
@@ -106,16 +118,27 @@ const currentPath = Astro.url.pathname;
     toggle?.setAttribute('aria-expanded', String(!isOpen));
   });
 
-  // Add premium scroll state with elevated surface separation
+  // Smooth scroll handler for mobile menu clicks
+  const mobileLinks = menu?.querySelectorAll('a');
+  mobileLinks?.forEach((a) => {
+    a.addEventListener('click', () => {
+      menu?.classList.add('hidden');
+      iconOpen?.classList.remove('hidden');
+      iconClose?.classList.add('hidden');
+      toggle?.setAttribute('aria-expanded', 'false');
+    });
+  });
+
+  // Elevated scroll state
   const mainNav = document.querySelector('[data-main-nav]') as HTMLElement;
   window.addEventListener('scroll', () => {
     if (mainNav) {
       if (window.scrollY > 10) {
-        mainNav.classList.remove('bg-white/90', 'backdrop-blur-xl', 'border-slate-200/60', 'shadow-sm');
-        mainNav.classList.add('bg-white', 'backdrop-blur-2xl', 'border-slate-300/80', 'shadow-lg', 'shadow-slate-200/50');
+        mainNav.classList.remove('bg-white/90', 'border-stone-200/80', 'shadow-2xs');
+        mainNav.classList.add('bg-white', 'border-stone-300', 'shadow-sm');
       } else {
-        mainNav.classList.remove('bg-white', 'backdrop-blur-2xl', 'border-slate-300/80', 'shadow-lg', 'shadow-slate-200/50');
-        mainNav.classList.add('bg-white/90', 'backdrop-blur-xl', 'border-slate-200/60', 'shadow-sm');
+        mainNav.classList.remove('bg-white', 'border-stone-300', 'shadow-sm');
+        mainNav.classList.add('bg-white/90', 'border-stone-200/80', 'shadow-2xs');
       }
     }
   });
@@ -123,4 +146,3 @@ const currentPath = Astro.url.pathname;
   syncMainPadding();
   window.addEventListener('resize', syncMainPadding);
 </script>
-
