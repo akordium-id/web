@@ -2,6 +2,7 @@ export interface PortfolioItem {
   id: string;
   title: string;
   titleId: string;
+  badge: string;
   description: string;
   descriptionId: string;
   image: string;
@@ -9,54 +10,66 @@ export interface PortfolioItem {
   metrics: { label: string; value: string }[];
   liveUrl?: string;
   caseStudyUrl?: string;
+  highlight: string;
 }
 
-// Case nyata engagement Akordium Lab. Framing: manfaat operasional dulu,
-// teknologi (Go/PostgreSQL) sebagai bukti kapabilitas, bukan headline.
+// Case nyata engagement & in-house product Akordium Lab.
 export const portfolioItems: PortfolioItem[] = [
   {
     id: "mis-apar",
     title: "MIS-APAR: Fire Safety Operations System",
     titleId: "MIS-APAR: Sistem Operasional Keselamatan Kebakaran",
-    description: "Unifies APAR inspections, stock, and maintenance scheduling into one workflow — so no extinguisher goes expired and no inspection gets missed. (Rebuilt from a legacy system to Go/PostgreSQL.)",
-    descriptionId: "Menyatukan inspeksi APAR, stok, dan jadwal perawatan dalam satu alur kerja — agar tidak ada alat kedaluwarsa atau inspeksi yang terlewat. (Dibangun ulang dari sistem lama ke Go/PostgreSQL.)",
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&auto=format&fit=crop&q=80",
+    badge: "Field Operations & Audit",
+    description:
+      "Unifies APAR inspections, physical barcode audits, and maintenance scheduling into one unified workflow with zero missed inspections.",
+    descriptionId:
+      "Menyatukan inspeksi APAR, pencatatan barcode audit fisik, dan jadwal perawatan berkala dalam satu alur kerja terpusat agar tidak ada tabung kedaluwarsa.",
+    image: "/images/portfolio/mis-apar.png",
     techStack: ["Go", "PostgreSQL", "Docker", "Tailwind CSS"],
     metrics: [
       { label: "Pengurangan Biaya Server", value: "50%" },
       { label: "Response Time", value: "4.2s → 0.4s" },
-      { label: "Throughput", value: "200 → 1200 req/min" },
+      { label: "Kepatuhan Audit", value: "100%" },
     ],
+    highlight: "Migrasi sistem warisan ke arsitektur Go/PostgreSQL yang cepat & handal di lapangan.",
     caseStudyUrl: "/blog/maximizing-roi-with-it",
   },
   {
     id: "orin-gps",
-    title: "Orin GPS: Real-time Operations Tracking",
-    titleId: "Orin GPS: Pelacakan Operasional Real-time",
-    description: "Real-time fleet and asset tracking for 10,000+ devices, with consistent location data and low latency for field operations.",
-    descriptionId: "Pelacakan armada dan aset real-time untuk 10.000+ perangkat, dengan data lokasi yang konsisten dan latensi rendah untuk operasional lapangan.",
-    image: "https://images.unsplash.com/photo-1544197150-b99a580bb7a8?w=800&auto=format&fit=crop&q=80",
-    techStack: ["Go", "PostgreSQL + TimescaleDB", "Redis", "WebSocket", "Docker"],
+    title: "Orin GPS: Real-time Telemetry & Asset Tracking",
+    titleId: "Orin GPS: Pelacakan Armada & Telemetri Skala Besar",
+    badge: "High-Concurrency IoT",
+    description:
+      "Real-time fleet and asset telemetry for 10,000+ active devices, streaming continuous location data with low latency for industrial operations.",
+    descriptionId:
+      "Platform telemetri armada real-time untuk 10.000+ perangkat aktif, menangani streaming data lokasi tanpa henti dengan latensi minimal untuk operasi logistik.",
+    image: "/images/portfolio/orin-gps.png",
+    techStack: ["Go", "PostgreSQL + TimescaleDB", "Redis", "WebSocket"],
     metrics: [
-      { label: "Perangkat Dipantau", value: "10k+" },
-      { label: "Volume Data", value: "3TB/bulan" },
-      { label: "Uptime", value: "99.9%" },
-      { label: "Latency", value: "<100ms (4G)" },
+      { label: "Perangkat Terpantau", value: "10k+" },
+      { label: "Volume Data / Bulan", value: "3TB" },
+      { label: "Target Uptime", value: "99.9%" },
+      { label: "Latensi Jaringan", value: "<100ms" },
     ],
+    highlight: "Arsitektur telemetri Go + TimescaleDB untuk kompresi data time-series masif.",
     liveUrl: "https://gps.orin.id",
   },
   {
-    id: "bank-mega",
-    title: "Bank Mega: Transaction Process Automation",
-    titleId: "Bank Mega: Otomasi Proses Transaksi",
-    description: "Automation and integration of internal transaction processes that cut processing time and eliminated repetitive manual work.",
-    descriptionId: "Otomasi dan integrasi proses transaksi internal yang memangkas waktu pemrosesan dan menghilangkan pekerjaan manual berulang.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
-    techStack: ["Go", "PostgreSQL", "UiPath", "AWS"],
+    id: "katauser",
+    title: "Katauser: Client Portal & Feedback System",
+    titleId: "Katauser: Client Feedback & Review Management",
+    badge: "In-House Dogfooding SaaS",
+    description:
+      "Token-gated client portal for tracking revision feedback and project milestones without messy WhatsApp threads or lost emails.",
+    descriptionId:
+      "Portal klien berbasis token aman untuk menampung revisi desain & status milestone proyek secara terstruktur, menggantikan screenshot yang tercecer di chat.",
+    image: "/images/portfolio/katauser.png",
+    techStack: ["Laravel", "Livewire", "Flux UI Pro", "PostgreSQL"],
     metrics: [
-      { label: "Throughput", value: "8k → 32k TPS" },
-      { label: "Response Time", value: "2.4s → 0.3s" },
-      { label: "Pengurangan Biaya", value: "60%" },
+      { label: "Efisiensi Siklus Revisi", value: "3×" },
+      { label: "Zero Account Setup", value: "Token-Gated" },
+      { label: "Status Handover", value: "Real-time" },
     ],
+    highlight: "Produk in-house Akordium Lab yang digunakan langsung (dogfooding) di setiap proyek klien.",
   },
 ];
