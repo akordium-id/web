@@ -9,75 +9,65 @@ interface Props {
 }
 
 const {
-  eyebrow = "Mulai dari satu titik",
-  title = "Punya proses bisnis yang terasa makin berat & berulang?",
-  description = "Mari rapikan dari alur yang paling kritikal dulu. Konsultasi pertama 100% gratis, tanpa komitmen.",
-  whatsappText = "Halo Akordium Lab, saya ingin konsultasi kebutuhan sistem",
+  eyebrow = "Mari Berkolaborasi",
+  title = "Punya Sistem yang Perlu Dibangun atau Dimodernisasi?",
+  description = "Ceritakan tantangan arsitektur, volume data, atau produk perangkat lunak yang ingin Anda wujudkan. Kami siap membantu membedah solusi teknis dan estimasi yang realistis.",
+  whatsappText = "Halo Faiq, saya ingin berdiskusi mengenai kebutuhan engineering di Akordium Lab",
 } = Astro.props;
 
 const waUrl = `https://wa.me/628159988995?text=${encodeURIComponent(whatsappText)}`;
 ---
 
-<section class="py-24 relative overflow-hidden bg-[#0a142e]">
-  <!-- Background decoration -->
-  <div class="absolute inset-0 pointer-events-none overflow-hidden">
-    <div class="absolute -top-24 -right-24 w-96 h-96 rounded-full bg-primary-600/25 blur-3xl"></div>
-    <div class="absolute -bottom-24 -left-24 w-96 h-96 rounded-full bg-accent-600/20 blur-3xl"></div>
-    <!-- Subtle dot grid -->
-    <div class="absolute inset-0 opacity-[0.04]" style="background-image: radial-gradient(circle, #fff 1px, transparent 1px); background-size: 24px 24px;"></div>
-  </div>
+<section id="contact" class="py-24 relative bg-stone-950 text-white overflow-hidden">
+  <!-- Subtle technical grid background -->
+  <div class="absolute inset-0 bg-[linear-gradient(to_right,#262626_1px,transparent_1px),linear-gradient(to_bottom,#262626_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_50%,#000_70%,transparent_100%)] opacity-30 pointer-events-none"></div>
 
   <div class="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-    <p class="text-xs font-semibold text-accent-400 uppercase tracking-widest mb-4">{eyebrow}</p>
+    
+    <!-- Badge -->
+    <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-stone-300 bg-stone-900 border border-stone-800 mb-6">
+      <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+      {eyebrow}
+    </div>
 
-    <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight">
+    <!-- Title & Description -->
+    <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
       {title}
     </h2>
-    <p class="text-stone-300 text-base sm:text-lg mb-10 max-w-xl mx-auto leading-relaxed">
+    <p class="text-stone-400 text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
       {description}
     </p>
 
+    <!-- Structured Action Buttons -->
     <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
       <a
         href={waUrl}
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center gap-2.5 px-8 py-4 bg-accent-600 hover:bg-accent-500 text-white font-bold rounded-xl active:scale-95 transition-all shadow-xl shadow-accent-600/20 text-sm w-full sm:w-auto"
+        class="inline-flex items-center justify-center gap-2.5 px-7 py-4 bg-white text-stone-950 hover:bg-stone-100 font-bold rounded-xl active:scale-95 transition-all text-sm w-full sm:w-auto shadow-lg"
       >
-        <WhatsAppIcon class="w-5 h-5 fill-white shrink-0" />
-        Konsultasi via WhatsApp
+        <WhatsAppIcon class="w-5 h-5 fill-emerald-600 shrink-0" />
+        <span>Konsultasi Teknis via WhatsApp</span>
       </a>
       <a
         href="/contact"
-        class="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-semibold rounded-xl active:scale-95 transition-all text-sm w-full sm:w-auto border border-white/15"
+        class="inline-flex items-center justify-center gap-2 px-7 py-4 bg-stone-900 hover:bg-stone-800 text-stone-200 font-semibold rounded-xl active:scale-95 transition-all text-sm w-full sm:w-auto border border-stone-800"
       >
-        Kirim Formulir Kontak
-        <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        <span>Kirim Brief Proyek / NDA</span>
+        <svg class="w-4 h-4 text-stone-400" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
       </a>
     </div>
 
-    <!-- Trust signals -->
-    <div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-stone-300 text-xs sm:text-sm">
-      <span class="flex items-center gap-2">
-        <svg class="w-4 h-4 text-emerald-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-        </svg>
-        Tanpa biaya awal
-      </span>
-      <span class="flex items-center gap-2">
-        <svg class="w-4 h-4 text-emerald-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-        </svg>
-        Respon dalam &lt; 24 jam
-      </span>
-      <span class="flex items-center gap-2">
-        <svg class="w-4 h-4 text-emerald-400" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-        </svg>
-        7+ instansi aktif
-      </span>
+    <!-- Direct Email & Trust Notes -->
+    <div class="mt-12 pt-8 border-t border-stone-900 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-xs text-stone-400 font-mono">
+      <span>Email: <a href="mailto:kontak@akordium.id" class="text-stone-200 underline hover:text-white">kontak@akordium.id</a></span>
+      <span>•</span>
+      <span>Respon dalam &lt; 24 jam</span>
+      <span>•</span>
+      <span>Diskusi langsung dengan Engineer</span>
     </div>
+
   </div>
 </section>

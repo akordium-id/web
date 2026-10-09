@@ -1,42 +1,36 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/home/Hero.astro';
-import NeedsSelector from '../components/home/NeedsSelector.astro';
-import Pricing from '../components/home/Pricing.astro';
-import HowItWorks from '../components/home/HowItWorks.astro';
-import FitFor from '../components/home/FitFor.astro';
-import AboutBrief from '../components/home/AboutBrief.astro';
+import ProofStrip from '../components/home/ProofStrip.astro';
+import Services from '../components/home/Services.astro';
 import Portfolio from '../components/home/Portfolio.astro';
-import ClientLogos from '../components/home/ClientLogos.astro';
+import Principles from '../components/home/Principles.astro';
+import Founder from '../components/home/Founder.astro';
 import CTA from '../components/home/CTA.astro';
 ---
 
-<Layout>
-  <!-- 1. Hero: Solusi yang tumbuh bersama bisnis -->
+<Layout
+  title="Akordium Lab — Boutique Software Lab & Product Studio"
+  description="Kami merekayasa sistem web & backend berkinerja tinggi untuk bisnis yang menuntut keandalan. Dari arsitektur terdistribusi hingga sistem operasional presisi berbasis Go, PostgreSQL, dan Clean Architecture."
+>
+  <!-- 1. Hero: Positioning tegas studio & Software Showcase Window -->
   <Hero />
 
-  <!-- 2. Gateway: Mulai dari titik kebutuhan operasional Anda -->
-  <NeedsSelector />
+  <!-- 2. Proof of Reliability: Metrik throughput, uptime, dan kapasitas teruji -->
+  <ProofStrip />
 
-  <!-- 3. Pilihan Investasi & Produk Terstruktur (Ready -> Modular -> Custom) -->
-  <Pricing />
+  <!-- 3. Core Practices: 3 Layanan rekayasa terfokus tanpa paket receh -->
+  <Services />
 
-  <!-- 4. 4 Langkah Alur Kerja Terbuka -->
-  <HowItWorks />
-
-  <!-- 5. Kesesuaian Sektor Industri & Workflow -->
-  <FitFor />
-
-  <!-- 6. Pendekatan & Filosofi Anti Beli Kucing Dalam Karung -->
-  <AboutBrief />
-
-  <!-- 7. Bukti Kapasitas Rekayasa Serius (Portfolio & Sistem Nyata) -->
+  <!-- 4. Selected Works & Dogfooding: Showcase jendela lebar MIS-APAR, Orin GPS, Katauser -->
   <Portfolio />
 
-  <!-- 8. Kredibilitas Klien & Rekam Jejak Lapangan -->
-  <ClientLogos />
+  <!-- 5. Engineering Principles: Standar rekayasa, no lock-in, dan kepemilikan kode -->
+  <Principles />
 
-  <!-- 9. Penutup & Ajakan Aksi Kontekstual -->
+  <!-- 6. Founder & Studio Profile: Kredibilitas di balik Akordium Lab -->
+  <Founder />
+
+  <!-- 7. High-Intent Ingestion: Call to action konsultasi terstruktur -->
   <CTA />
 </Layout>
-
