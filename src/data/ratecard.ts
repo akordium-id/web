@@ -21,6 +21,7 @@ export interface AlaCarteModule {
   category: "core" | "operations" | "financial" | "automation" | "growth";
   categoryLabel: string;
   priceRange: string;
+  priceCompact: string;
   description: string;
   keyFeature: string;
 }
@@ -150,6 +151,7 @@ export const alaCarteModules: AlaCarteModule[] = [
     category: "core",
     categoryLabel: "Fondasi",
     priceRange: "Included Baseline",
+    priceCompact: "Baseline (Included)",
     description: "Auth Fortify (2FA, Passkey), Spatie RBAC, DB Settings ter-cache, Audit Trail, Media Vault.",
     keyFeature: "Zero setup fee di semua paket",
   },
@@ -159,6 +161,7 @@ export const alaCarteModules: AlaCarteModule[] = [
     category: "financial",
     categoryLabel: "Finansial",
     priceRange: "Rp 3.500.000 – Rp 5.000.000",
+    priceCompact: "Rp 3,5jt – 5jt",
     description: "Kalkulasi presisi bcmath, penomoran INV atomik, invoice PDF resmi, split pembayaran termin.",
     keyFeature: "Pencegahan race condition transaksi",
   },
@@ -168,6 +171,7 @@ export const alaCarteModules: AlaCarteModule[] = [
     category: "operations",
     categoryLabel: "Operasional",
     priceRange: "Rp 3.500.000 – Rp 5.000.000",
+    priceCompact: "Rp 3,5jt – 5jt",
     description: "Buku besar stok append-only (FIFO/LIFO), tracking mutasi bertanda, safety stock alert otomatis.",
     keyFeature: "0 selisih opname fisik vs data",
   },
@@ -177,6 +181,7 @@ export const alaCarteModules: AlaCarteModule[] = [
     category: "operations",
     categoryLabel: "Operasional",
     priceRange: "Rp 4.500.000 – Rp 6.500.000",
+    priceCompact: "Rp 4,5jt – 6,5jt",
     description: "Penjadwalan reservasi, resource swimlane calendar, anti-bentrok interval intersection.",
     keyFeature: "Anti-double booking kalender staf",
   },
@@ -186,6 +191,7 @@ export const alaCarteModules: AlaCarteModule[] = [
     category: "operations",
     categoryLabel: "Operasional",
     priceRange: "Rp 5.000.000 – Rp 7.500.000",
+    priceCompact: "Rp 5jt – 7,5jt",
     description: "Surat Perintah Kerja, Kanban Stall mekanik/teknisi, multi-category checklist inspeksi fisik.",
     keyFeature: "Tracking status servis realtime",
   },
@@ -195,6 +201,7 @@ export const alaCarteModules: AlaCarteModule[] = [
     category: "automation",
     categoryLabel: "Otomasi",
     priceRange: "Rp 2.500.000 – Rp 4.000.000",
+    priceCompact: "Rp 2,5jt – 4jt",
     description: "Driver Fonnte / Starsender / Webhook, notifikasi otomatis status pesanan, faktur, dan reservasi.",
     keyFeature: "Kirim PDF nota otomatis ke chat",
   },
@@ -204,6 +211,7 @@ export const alaCarteModules: AlaCarteModule[] = [
     category: "financial",
     categoryLabel: "Finansial",
     priceRange: "Rp 3.500.000 – Rp 5.000.000",
+    priceCompact: "Rp 3,5jt – 5jt",
     description: "Master vendor/supplier, PO-numbering atomik, auto-restock ke inventori saat barang diterima gudang.",
     keyFeature: "Sinkronisasi otomatis hutang dagang",
   },
@@ -213,6 +221,7 @@ export const alaCarteModules: AlaCarteModule[] = [
     category: "growth",
     categoryLabel: "AI & Inovasi",
     priceRange: "Rp 6.000.000 – Rp 12.000.000",
+    priceCompact: "Rp 6jt – 12jt",
     description: "Endpoint Model Context Protocol (MCP) JSON-RPC untuk tanya-jawab data bisnis dari Claude Desktop / Cursor.",
     keyFeature: "Analitik data bisnis via AI chat",
   },

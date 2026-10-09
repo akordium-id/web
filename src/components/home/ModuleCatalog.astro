@@ -33,18 +33,18 @@ import { alaCarteModules } from "../../data/ratecard";
       </div>
     </div>
 
-    <!-- Modules Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Modules Grid: Compact & Modern -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
       {alaCarteModules.map((mod) => (
-        <div class="p-6 rounded-2xl bg-white border border-stone-200/90 hover:border-primary-900/30 hover:shadow-lg hover:shadow-primary-950/5 transition-all flex flex-col justify-between group">
+        <div class="p-5 rounded-2xl bg-white border border-stone-200/90 hover:border-primary-900/30 hover:shadow-lg hover:shadow-primary-950/5 transition-all flex flex-col justify-between group">
           <div>
-            <!-- Top badge & category -->
+            <!-- Top badge & Compact Price -->
             <div class="flex items-center justify-between gap-2 mb-3">
               <span class="text-[10px] font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-stone-100 text-stone-700 group-hover:bg-primary-50 group-hover:text-primary-900 transition-colors">
                 {mod.categoryLabel}
               </span>
-              <span class="text-xs font-sans font-bold text-stone-900">
-                {mod.priceRange}
+              <span class="text-xs font-sans font-extrabold text-stone-900 tracking-tight">
+                {mod.priceCompact}
               </span>
             </div>
 
@@ -54,17 +54,17 @@ import { alaCarteModules } from "../../data/ratecard";
             </h3>
 
             <!-- Description -->
-            <p class="mt-2.5 text-xs text-stone-600 leading-relaxed">
+            <p class="mt-2 text-xs text-stone-600 leading-relaxed min-h-[2.75rem]">
               {mod.description}
             </p>
           </div>
 
           <!-- Key Feature Highlight -->
-          <div class="mt-5 pt-4 border-t border-stone-100 flex items-center gap-2 text-[11px] text-stone-500">
+          <div class="mt-4 pt-3.5 border-t border-stone-100 flex items-center gap-2 text-[11px] text-stone-600">
             <svg class="w-3.5 h-3.5 text-accent-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
-            <span class="font-medium text-stone-700 truncate">{mod.keyFeature}</span>
+            <span class="font-medium truncate">{mod.keyFeature}</span>
           </div>
         </div>
       ))}
