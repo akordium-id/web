@@ -2,173 +2,190 @@
 import { portfolioItems } from '../../data/portfolio';
 ---
 
-<section id="portfolio" class="py-20 lg:py-28 bg-white">
+<section id="works" class="py-20 lg:py-28 bg-white border-b border-stone-200/80">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <p class="eyebrow text-xs mb-3">Kapasitas Rekayasa & Sistem Khusus</p>
-      <h2 class="font-sans text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-stone-900 leading-tight mb-4">
-        Terbukti Siap Menangani Kebutuhan Skala Besar
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16 lg:mb-20">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-stone-600 bg-stone-100 border border-stone-200 mb-4 shadow-2xs">
+        Production Systems & Dogfooding
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight leading-tight">
+        Bukti Rekayasa pada Sistem Nyata
       </h2>
-      <p class="text-base sm:text-lg text-stone-600 max-w-2xl mx-auto leading-relaxed">
-        Dari UMKM hingga infrastruktur dengan ribuan perangkat. Selain produk terstandarisasi, kami memiliki fondasi rekayasa perangkat lunak yang tangguh untuk kebutuhan yang menuntut keandalan tinggi.
+      <p class="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed">
+        Kami menguji standar engineering kami pada sistem dengan beban riil: dari infrastruktur telemetri 10.000+ perangkat hingga produk perangkat lunak yang kami gunakan sendiri setiap hari.
       </p>
     </div>
 
-    <!-- Projects grid -->
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {portfolioItems.map((item) => (
-        <div class="group bg-white rounded-2xl overflow-hidden border border-stone-200 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/30 transition-all duration-300 flex flex-col">
-          <!-- Authentic UI Mockup Frame -->
-          <div class="relative bg-stone-900 text-white p-4 h-52 flex flex-col justify-between overflow-hidden border-b border-stone-200">
-            <!-- Browser top bar -->
-            <div class="flex items-center justify-between text-xs text-stone-400 border-b border-stone-800 pb-2.5">
-              <div class="flex items-center gap-1.5">
-                <span class="w-2 h-2 rounded-full bg-rose-500/80"></span>
-                <span class="w-2 h-2 rounded-full bg-amber-500/80"></span>
-                <span class="w-2 h-2 rounded-full bg-emerald-500/80"></span>
-                <span class="ml-2 font-mono text-[10px] text-stone-400">{item.id}.akordium.id</span>
+    <!-- Projects List: Appledore-Style Showcase Cards -->
+    <div class="space-y-16 lg:space-y-20">
+      {portfolioItems.map((item, idx) => (
+        <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-stone-50/70 border border-stone-200/90 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-stone-300 transition-all duration-300">
+          
+          <!-- Mockup Window (7 cols on lg, alternates order) -->
+          <div class={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
+            <div class="window-frame-dark">
+              <!-- Window Chrome Bar -->
+              <div class="flex items-center justify-between px-4 py-3 bg-stone-900 border-b border-stone-800">
+                <div class="flex items-center gap-2">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                  <span class="ml-2 font-mono text-[11px] text-stone-400">{item.id}.akordium.id</span>
+                </div>
+                <span class="font-mono text-[10px] text-stone-400 bg-stone-800 px-2 py-0.5 rounded border border-stone-700/60">
+                  {item.badge}
+                </span>
               </div>
-              <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-stone-800 text-stone-300">production</span>
-            </div>
 
-            <!-- Custom Mockup Content per Project -->
-            {item.id === 'mis-apar' && (
-              <div class="my-auto space-y-2">
-                <div class="flex items-center justify-between text-[11px]">
-                  <span class="font-bold text-stone-200">Inspeksi Tabung APAR</span>
-                  <span class="text-emerald-400 font-semibold text-[10px]">100% Audit-Ready</span>
-                </div>
-                <div class="grid grid-cols-2 gap-2 text-left">
-                  <div class="bg-stone-800/80 p-2 rounded-lg border border-stone-700/60">
-                    <p class="text-[9px] text-stone-400 uppercase font-mono">Status Tekanan</p>
-                    <p class="text-xs font-bold text-emerald-400 mt-0.5">Optimal (Normal)</p>
+              <!-- Window Inner Content per System -->
+              <div class="p-5 sm:p-6 space-y-4 font-mono text-xs">
+                
+                {item.id === 'mis-apar' && (
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-800">
+                      <span class="text-stone-300 font-bold">Field Inspection & Audit Engine</span>
+                      <span class="text-emerald-400 font-semibold">100% Audit Ready</span>
+                    </div>
+                    <div class="grid grid-cols-2 gap-2.5">
+                      <div class="bg-stone-900/90 p-3 rounded-xl border border-stone-800">
+                        <div class="text-[10px] uppercase text-stone-400">Tekanan Tabung</div>
+                        <div class="text-sm font-bold text-emerald-400 mt-0.5">Optimal (Normal)</div>
+                        <div class="text-[10px] text-stone-500 mt-1">Inspeksi Barcode Terverifikasi</div>
+                      </div>
+                      <div class="bg-stone-900/90 p-3 rounded-xl border border-stone-800">
+                        <div class="text-[10px] uppercase text-stone-400">Jadwal Uji Rutin</div>
+                        <div class="text-sm font-bold text-stone-200 mt-0.5">Auto-Schedule</div>
+                        <div class="text-[10px] text-stone-500 mt-1">Notifikasi WhatsApp terjadwal</div>
+                      </div>
+                    </div>
+                    <div class="p-2.5 bg-black/60 rounded-lg border border-stone-800/80 text-[11px] flex items-center justify-between text-stone-400">
+                      <span>Stack: Go + PostgreSQL + Tailwind</span>
+                      <span class="text-emerald-400">0.4s response latency</span>
+                    </div>
                   </div>
-                  <div class="bg-stone-800/80 p-2 rounded-lg border border-stone-700/60">
-                    <p class="text-[9px] text-stone-400 uppercase font-mono">Jadwal Uji</p>
-                    <p class="text-xs font-bold text-stone-200 mt-0.5">Otomatis Notifikasi</p>
+                )}
+
+                {item.id === 'orin-gps' && (
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-800">
+                      <span class="text-stone-300 font-bold">IoT Fleet Telemetry Stream</span>
+                      <span class="flex items-center gap-1.5 text-emerald-400 font-semibold">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                        10.420 Perangkat Online
+                      </span>
+                    </div>
+                    <div class="bg-stone-900/90 p-3.5 rounded-xl border border-stone-800 space-y-2">
+                      <div class="flex justify-between text-xs">
+                        <span class="text-stone-400">Paket Masuk / Menit</span>
+                        <span class="text-stone-200 font-bold">72.400 packet/min</span>
+                      </div>
+                      <div class="w-full bg-stone-800 h-2 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full rounded-full w-[96%]"></div>
+                      </div>
+                      <div class="flex justify-between text-[10px] text-stone-400 pt-1">
+                        <span>Buffer Health: 99.9%</span>
+                        <span class="text-emerald-400 font-bold">Latency: &lt;100ms</span>
+                      </div>
+                    </div>
+                    <div class="p-2.5 bg-black/60 rounded-lg border border-stone-800/80 text-[11px] flex items-center justify-between text-stone-400">
+                      <span>TimescaleDB Hypertables + Go Fiber</span>
+                      <span class="text-stone-300">3TB/Bulan compressed</span>
+                    </div>
                   </div>
-                </div>
-                <div class="flex items-center justify-between text-[10px] text-stone-400 pt-1">
-                  <span>QR Barcode: Verified</span>
-                  <span class="font-mono text-primary-300">Go + PostgreSQL</span>
-                </div>
+                )}
+
+                {item.id === 'katauser' && (
+                  <div class="space-y-3">
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-800">
+                      <span class="text-stone-300 font-bold">Token-Gated Client Board</span>
+                      <span class="text-primary-300 font-semibold">Dogfooded at Akordium</span>
+                    </div>
+                    <div class="bg-stone-900/90 p-3.5 rounded-xl border border-stone-800 space-y-2 text-left">
+                      <div class="flex items-center justify-between text-xs">
+                        <span class="font-semibold text-stone-200">Revisi Desain & Feedback Milestone</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Disetujui</span>
+                      </div>
+                      <p class="text-[11px] text-stone-400 font-sans leading-relaxed">
+                        Klien non-teknis menitipkan catatan revisi dengan token aman langsung di antarmuka tanpa perlu registrasi akun berbelit.
+                      </p>
+                    </div>
+                    <div class="p-2.5 bg-black/60 rounded-lg border border-stone-800/80 text-[11px] flex items-center justify-between text-stone-400">
+                      <span>Laravel 13 + Livewire + Flux UI Pro</span>
+                      <span class="text-emerald-400">Zero WA friction</span>
+                    </div>
+                  </div>
+                )}
+
               </div>
-            )}
-
-            {item.id === 'orin-gps' && (
-              <div class="my-auto space-y-2">
-                <div class="flex items-center justify-between text-[11px]">
-                  <span class="font-bold text-stone-200">Telemetri Armada Aktif</span>
-                  <span class="flex items-center gap-1 text-emerald-400 text-[10px] font-semibold">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    10.420 Online
-                  </span>
-                </div>
-                <div class="bg-stone-800/80 p-2.5 rounded-lg border border-stone-700/60 space-y-1.5">
-                  <div class="flex justify-between text-[10px]">
-                    <span class="text-stone-300">Latensi Transmisi</span>
-                    <span class="text-emerald-400 font-mono font-bold">&lt;100ms (4G)</span>
-                  </div>
-                  <div class="w-full bg-stone-700 h-1.5 rounded-full overflow-hidden">
-                    <div class="bg-emerald-500 h-full rounded-full w-[94%]"></div>
-                  </div>
-                </div>
-                <div class="flex items-center justify-between text-[10px] text-stone-400">
-                  <span>3TB Data / Bulan</span>
-                  <span class="font-mono text-primary-300">TimescaleDB</span>
-                </div>
-              </div>
-            )}
-
-            {item.id === 'bank-mega' && (
-              <div class="my-auto space-y-2">
-                <div class="flex items-center justify-between text-[11px]">
-                  <span class="font-bold text-stone-200">Automasi Transaksi Internal</span>
-                  <span class="text-primary-300 font-mono text-[10px]">32k TPS Peak</span>
-                </div>
-                <div class="grid grid-cols-2 gap-2 text-left">
-                  <div class="bg-stone-800/80 p-2 rounded-lg border border-stone-700/60">
-                    <p class="text-[9px] text-stone-400 uppercase font-mono">Response Time</p>
-                    <p class="text-xs font-bold text-emerald-400 mt-0.5">2.4s → 0.3s</p>
-                  </div>
-                  <div class="bg-stone-800/80 p-2 rounded-lg border border-stone-700/60">
-                    <p class="text-[9px] text-stone-400 uppercase font-mono">Efisiensi Biaya</p>
-                    <p class="text-xs font-bold text-stone-200 mt-0.5">Hemat 60%</p>
-                  </div>
-                </div>
-                <div class="flex items-center justify-between text-[10px] text-stone-400 pt-1">
-                  <span>0% Failure Rate</span>
-                  <span class="font-mono text-primary-300">Enterprise High-Load</span>
-                </div>
-              </div>
-            )}
-
-            <!-- Footer indicator -->
-            <div class="flex items-center justify-between text-[10px] text-stone-500 font-mono">
-              <span>Status: Live Production</span>
-              <span class="text-emerald-500">● 99.9% Up</span>
             </div>
           </div>
 
-          <!-- Content -->
-          <div class="p-6 flex-1 flex flex-col">
-            <h3 class="font-sans font-bold text-stone-900 text-lg mb-2 group-hover:text-primary-700 transition-colors">
-              {item.titleId}
-            </h3>
-            <p class="text-stone-600 text-sm leading-relaxed mb-5">
+          <!-- Description & Narrative (5 cols on lg) -->
+          <div class={`lg:col-span-5 space-y-5 ${idx % 2 === 1 ? 'lg:order-1' : ''}`}>
+            <div>
+              <span class="text-xs font-mono font-bold text-accent-700 uppercase tracking-wider">
+                {item.badge}
+              </span>
+              <h3 class="font-sans text-2xl sm:text-3xl font-bold text-stone-900 tracking-tight mt-1">
+                {item.titleId}
+              </h3>
+            </div>
+
+            <p class="text-stone-600 text-sm sm:text-base leading-relaxed">
               {item.descriptionId}
             </p>
 
-            <!-- Tech Stack -->
-            <div class="flex flex-wrap gap-1.5 mb-5">
-              {item.techStack.map((tech) => (
-                <span class="px-2.5 py-0.5 bg-stone-100 text-stone-700 text-xs font-medium rounded-md">
-                  {tech}
-                </span>
-              ))}
+            <!-- Highlight Callout -->
+            <div class="p-3.5 rounded-xl bg-white border border-stone-200/90 text-xs text-stone-700 leading-snug">
+              <span class="font-bold text-stone-900">Nilai Rekayasa:</span> {item.highlight}
             </div>
 
-            <!-- Key Metrics -->
-            <div class="grid grid-cols-3 gap-2 pt-4 pb-2 border-t border-stone-100 mt-auto">
+            <!-- Metrics Grid -->
+            <div class="grid grid-cols-3 gap-3 pt-3 border-t border-stone-200/80">
               {item.metrics.slice(0, 3).map((metric) => (
-                <div class="text-center">
-                  <div class="font-sans font-extrabold text-primary-700 text-sm tracking-tight">{metric.value}</div>
-                  <div class="text-stone-500 text-[11px] leading-tight mt-0.5">{metric.label}</div>
+                <div>
+                  <div class="font-mono text-base sm:text-lg font-extrabold text-stone-900 tracking-tight">
+                    {metric.value}
+                  </div>
+                  <div class="text-[11px] text-stone-500 font-medium leading-tight mt-0.5">
+                    {metric.label}
+                  </div>
                 </div>
               ))}
             </div>
 
-            <!-- Links -->
-            <div class="flex gap-4 pt-4 border-t border-stone-100 mt-4 text-xs font-semibold">
+            <!-- Tech Stack & Links -->
+            <div class="pt-2 flex flex-wrap items-center justify-between gap-4">
+              <div class="flex flex-wrap gap-1.5">
+                {item.techStack.map((tech) => (
+                  <span class="px-2 py-0.5 rounded bg-white border border-stone-200 text-[11px] font-mono text-stone-600">
+                    {tech}
+                  </span>
+                ))}
+              </div>
+
               {item.liveUrl && (
                 <a
                   href={item.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="inline-flex items-center gap-1.5 text-primary-700 hover:text-primary-800 transition-colors"
+                  class="inline-flex items-center gap-1 text-xs font-bold text-stone-900 hover:text-accent-600 transition-colors"
                 >
-                  Kunjungi Sistem
+                  <span>Buka Sistem</span>
                   <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
               )}
-              {item.caseStudyUrl && (
-                <a
-                  href={item.caseStudyUrl}
-                  class="inline-flex items-center gap-1.5 text-stone-600 hover:text-stone-900 transition-colors"
-                >
-                  Baca Studi Kasus
-                  <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                  </svg>
-                </a>
-              )}
             </div>
+
           </div>
+
         </div>
       ))}
     </div>
+
   </div>
 </section>
