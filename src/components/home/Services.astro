@@ -1,109 +1,90 @@
 ---
-import { services } from '../../data/services';
+import { corePractices } from '../../data/services';
 
 const icons: Record<string, string> = {
-  globe: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"/></svg>`,
-  chart: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>`,
-  cog: `<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`,
-};
-
-const iconColors: Record<string, { bg: string; icon: string }> = {
-  globe: { bg: 'bg-primary-50', icon: 'text-primary-700' },
-  chart: { bg: 'bg-primary-100/60', icon: 'text-primary-800' },
-  cog: { bg: 'bg-primary-50', icon: 'text-primary-700' },
-};
-
-// Outcome-first content mapping (business impact → implementation)
-const outcomeContent: Record<string, { description?: string; bullets: string[] }> = {
-  'company-profile': {
-    bullets: [
-      'Kredibilitas bisnis meningkat di mata calon klien',
-      'Pesan dan layanan bisnis tersampaikan dengan jelas',
-      'Kehadiran digital yang meyakinkan untuk first impression',
-      'Desain responsif profesional & siap jadi pondasi sistem lanjutan',
-    ],
-  },
-  'dashboard-web': {
-    bullets: [
-      'Keputusan lebih cepat dengan data real-time yang jelas',
-      'Produktivitas tim naik tanpa bolak-balik spreadsheet',
-      'Proses kerja internal lebih tertata dan transparan',
-      'Dashboard dan web admin yang mudah dipakai setiap hari',
-    ],
-  },
-  'mis-operasional': {
-    description:
-      'Operasional lebih lancar dengan sistem yang menjaga revenue, inventory, dan workflow tetap terkendali dalam satu alur kerja.',
-    bullets: [
-      'Revenue tracking lebih akurat, order tidak terlewat',
-      'Inventory dan aset terpantau, maintenance tepat waktu',
-      'Workflow antarbagian lancar tanpa delay dokumen',
-      'Sistem terintegrasi yang praktis untuk operasional harian',
-    ],
-  },
+  layers: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>`,
+  cpu: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m16-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>`,
+  workflow: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM9 14v2a2 2 0 002 2h2m0 0v-2a2 2 0 012-2h2m-4 4v2a1 1 0 01-1 1h-4a1 1 0 01-1-1v-2" /></svg>`,
 };
 ---
 
-<section id="services" class="py-20 lg:py-28 bg-stone-50">
+<section id="services" class="py-20 lg:py-28 bg-stone-50 border-b border-stone-200/80">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <!-- Header -->
-    <div class="text-center mb-16">
-      <p class="eyebrow text-xs mb-3">Layanan Kami</p>
-      <h2 class="font-sans text-3xl sm:text-4xl lg:text-[44px] font-extrabold text-stone-900 leading-tight mb-5">
-        Solusi bisnis yang<br />
-        <span class="text-accent-600">terukur & berkelanjutan</span>
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-medium text-stone-600 bg-white border border-stone-200 mb-4 shadow-2xs">
+        Core Engineering Disciplines
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight leading-tight">
+        Tiga Pilar Praktik Rekayasa Kami
       </h2>
-      <p class="text-stone-600 max-w-xl mx-auto leading-relaxed">
-        Kami percaya sistem yang baik bukan sekadar bisa berjalan, tapi harus berdampak langsung pada efisiensi tim dan perkembangan pendapatan (revenue) Anda.
+      <p class="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed">
+        Kami tidak menjual website instan sekali pakai. Setiap sistem kami bangun dengan disiplin arsitektur produksi yang siap berevolusi seiring skala transaksi dan pengguna Anda.
       </p>
     </div>
 
-    <!-- Cards | Premium modular outcome-focused -->
-    <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
-      {services.map((service) => {
-        const outcome = outcomeContent[service.id];
+    <!-- 3 Core Practices Grid -->
+    <div class="grid md:grid-cols-3 gap-8">
+      {corePractices.map((practice) => (
+        <div class="bg-white rounded-2xl border border-stone-200/90 p-7 sm:p-8 flex flex-col justify-between hover:border-stone-400 hover:shadow-lg transition-all duration-200">
+          <div>
+            <!-- Card Header: Icon + Badge -->
+            <div class="flex items-center justify-between gap-3 mb-6">
+              <div class="w-12 h-12 rounded-xl bg-stone-100 border border-stone-200/80 text-stone-800 flex items-center justify-center shrink-0" set:html={icons[practice.icon]} />
+              <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded bg-stone-100 text-stone-700 border border-stone-200">
+                {practice.badge}
+              </span>
+            </div>
 
-        return (
-        <div class="group relative bg-white rounded-2xl border border-stone-200 p-8 hover:border-primary-300 hover:shadow-xl hover:shadow-primary-100/40 hover:-translate-y-1 transition-all duration-300 flex flex-col">
-          <!-- Icon -->
-          <div class={`w-14 h-14 ${iconColors[service.icon]?.bg ?? 'bg-primary-50'} rounded-2xl flex items-center justify-center mb-6`}>
-            <div class={`w-7 h-7 ${iconColors[service.icon]?.icon ?? 'text-primary-900'}`} aria-hidden="true" set:html={icons[service.icon]} />
+            <!-- Title & Tagline -->
+            <h3 class="font-sans text-xl font-bold text-stone-900 tracking-tight mb-2">
+              {practice.title}
+            </h3>
+            <p class="text-xs font-semibold text-accent-700 mb-3 font-mono">
+              {practice.tagline}
+            </p>
+            <p class="text-xs sm:text-sm text-stone-600 leading-relaxed mb-6">
+              {practice.description}
+            </p>
+
+            <!-- Deliverables List -->
+            <div class="space-y-2.5 pt-4 border-t border-stone-100">
+              <div class="text-[11px] font-mono uppercase tracking-wider text-stone-400 font-bold">Deliverables</div>
+              {practice.deliverables.map((item) => (
+                <div class="flex items-start gap-2 text-xs text-stone-700">
+                  <svg class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
           </div>
-          <!-- Content -->
-          <h3 class="font-sans text-xl font-bold text-stone-900 mb-3">{service.title}</h3>
-          <p class="text-stone-600 text-sm leading-relaxed mb-6">{outcome?.description ?? service.description}</p>
-          <!-- Outcomes -->
-          <ul class="space-y-2.5 mb-8 flex-1">
-            {(outcome?.bullets ?? service.features).map(feat => (
-              <li class="flex items-start gap-2.5 text-sm text-stone-600">
-                <svg class="w-4 h-4 text-accent-600 shrink-0 mt-0.5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                </svg>
-                {feat}
-              </li>
-            ))}
-          </ul>
-          <a
-            href="/catalog"
-            class="inline-flex items-center gap-1.5 text-sm font-semibold text-primary-900 hover:text-accent-600 group/link mt-auto pt-2"
-          >
-            Lihat di Katalog
-            <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </a>
+
+          <!-- Card Footer: Tech Stack Tags -->
+          <div class="pt-6 mt-6 border-t border-stone-100">
+            <div class="flex flex-wrap gap-1.5">
+              {practice.techStack.map((tech) => (
+                <span class="px-2 py-0.5 rounded bg-stone-50 border border-stone-200/80 text-[10px] font-mono text-stone-600 font-medium">
+                  {tech}
+                </span>
+              ))}
+            </div>
+          </div>
         </div>
-        );
-      })}
+      ))}
     </div>
 
+    <!-- Bottom Bridge -->
     <div class="mt-12 text-center">
-      <a href="/contact" class="inline-flex items-center gap-2 px-7 py-3.5 bg-stone-900 text-white font-semibold rounded-xl hover:bg-primary-900 transition-colors shadow-sm">
-        Diskusikan kebutuhan Anda
-        <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </a>
+      <p class="text-xs sm:text-sm text-stone-500">
+        Punya tantangan arsitektur di luar tiga pilar di atas? 
+        <a href="#contact" class="font-semibold text-stone-900 underline hover:text-accent-600 ml-1">
+          Diskusikan sistem khusus bersama kami &rarr;
+        </a>
+      </p>
     </div>
+
   </div>
 </section>
