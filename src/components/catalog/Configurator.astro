@@ -106,11 +106,11 @@ const defaultSelected = ['inventory', 'sales', 'invoice'];
         <div class="space-y-3 pb-5 border-b border-stone-800 text-xs">
           <div class="flex justify-between items-center text-stone-300">
             <span>Pondasi Core App & Admin</span>
-            <span class="font-semibold text-white">Rp 2.500.000</span>
+            <span class="font-semibold text-white">Rp 5.500.000</span>
           </div>
           <div class="flex justify-between items-center text-stone-300">
             <span>Tambahan Modul Terpilih</span>
-            <span class="font-semibold text-white" id="summary-modules-price">Rp 2.000.000</span>
+            <span class="font-semibold text-white" id="summary-modules-price">Rp 9.500.000</span>
           </div>
           <div class="flex justify-between items-center text-stone-300">
             <span>Skala Pengguna</span>
@@ -131,14 +131,14 @@ const defaultSelected = ['inventory', 'sales', 'invoice'];
           <div class="mb-4">
             <span class="text-xs text-stone-400 block mb-1">Perkiraan Nilai Investasi:</span>
             <div class="font-sans font-extrabold text-2xl sm:text-3xl text-white tracking-tight" id="summary-price-range">
-              Rp 4.500.000 – Rp 5.500.000
+              Rp 15.000.000 – Rp 18.800.000
             </div>
             <p class="text-[11px] text-stone-400 mt-1">Pembayaran bertahap sesuai milestone pengerjaan.</p>
           </div>
 
           <div class="bg-stone-800/80 rounded-xl p-3 flex items-center justify-between text-xs text-stone-300">
             <span>Estimasi Pengerjaan:</span>
-            <span class="font-bold text-white" id="summary-days">12 – 16 Hari Kerja</span>
+            <span class="font-bold text-white" id="summary-days">4 – 6 Hari Kerja</span>
           </div>
         </div>
 
@@ -170,8 +170,8 @@ const defaultSelected = ['inventory', 'sales', 'invoice'];
     const root = document.getElementById('system-configurator');
     if (!root) return;
 
-    const basePrice = 2500000;
-    const baseDays = 8;
+    const basePrice = 5500000;
+    const baseDays = 2;
 
     const moduleCheckboxes = root.querySelectorAll<HTMLInputElement>('input[name="module"]');
     const scaleRadios = root.querySelectorAll<HTMLInputElement>('input[name="scale"]');

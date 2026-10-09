@@ -109,26 +109,26 @@ export const products: Product[] = [
       { title: 'Dashboard Admin Mandiri', description: 'Belum termasuk panel edit mandiri (cocok untuk profil statis).', included: false },
     ],
     pricingModel: 'fixed',
-    startingPrice: 500000,
-    priceFormatted: 'Rp 500.000',
-    priceSubtext: 'pembayaran satu kali / proyek',
-    estimatedDuration: '3 hari kerja',
+    startingPrice: 5500000,
+    priceFormatted: 'Rp 5.500.000',
+    priceSubtext: 'Paket Starter terintegrasi / 1x investasi',
+    estimatedDuration: '1–2 hari kerja',
     maintenance: {
       available: true,
-      text: 'Opsional: update konten berkala & maintenance mulai Rp 100.000/bulan.',
+      text: 'Opsional: SLA maintenance & update konten mulai Rp 450.000/bulan.',
     },
     addons: [
-      { id: 'multipage', name: 'Halaman Tambahan (Multi-page)', price: 250000, priceFormatted: 'Rp 250.000/hal', description: 'Penambahan halaman khusus seperti Artikel, Tim, atau Legalitas.' },
-      { id: 'seo-advance', name: 'Setup Google Search Console & Analytics', price: 200000, priceFormatted: 'Rp 200.000', description: 'Pendaftaran sitemap dan tracking pengunjung riil.' },
+      { id: 'multipage', name: 'Halaman Tambahan (Multi-page)', price: 750000, priceFormatted: 'Rp 750.000/hal', description: 'Penambahan halaman khusus seperti Artikel, Tim, atau Legalitas.' },
+      { id: 'seo-advance', name: 'Setup Google Search Console & Analytics', price: 500000, priceFormatted: 'Rp 500.000', description: 'Pendaftaran sitemap dan tracking pengunjung riil.' },
     ],
     faq: [
       {
-        question: 'Apakah harga Rp 500.000 sudah termasuk domain dan hosting?',
-        answer: 'Belum. Domain (.com/.id) dan hosting cloud super cepat biasanya berkisar antara Rp 150.000 - Rp 300.000/tahun. Kami bantu pandu pembeliannya agar aset sepenuhnya atas nama Anda.',
+        question: 'Apakah harga Rp 5.500.000 sudah termasuk serah terima penuh?',
+        answer: 'Ya. Seluruh kode sumber, database, dan konfigurasi server diserahterimakan 100% menjadi aset milik bisnis Anda tanpa biaya lisensi per user.',
       },
       {
         question: 'Berapa lama proses pengerjaannya?',
-        answer: 'Rata-rata 3 hari kerja setelah materi (teks profil, foto produk/layanan, kontak) kami terima.',
+        answer: 'Rata-rata 1–2 hari kerja setelah materi (identitas bisnis, foto produk/layanan, kontak) kami terima.',
       },
     ],
   },
@@ -158,12 +158,12 @@ export const products: Product[] = [
       { title: 'Garansi Performa Skor Lighthouse 90+', included: true },
     ],
     pricingModel: 'fixed',
-    startingPrice: 1250000,
-    priceFormatted: 'Rp 1.250.000',
-    priceSubtext: 'per penawaran / campaign',
-    estimatedDuration: '4–6 hari kerja',
+    startingPrice: 6500000,
+    priceFormatted: 'Rp 6.500.000',
+    priceSubtext: 'per penawaran / campaign terintegrasi',
+    estimatedDuration: '2–3 hari kerja',
     addons: [
-      { id: 'ab-variant', name: 'Varian Landing Page A/B Testing', price: 500000, priceFormatted: 'Rp 500.000', description: '1 varian headline dan copy alternatif untuk menguji respon audiens.' }
+      { id: 'ab-variant', name: 'Varian Landing Page A/B Testing', price: 1500000, priceFormatted: 'Rp 1.500.000', description: '1 varian headline dan copy alternatif untuk menguji respon audiens.' }
     ],
     faq: [
       {
@@ -204,18 +204,18 @@ export const products: Product[] = [
       { title: 'Ekspor Excel & PDF', description: 'Unduh laporan mutasi untuk kebutuhan pembukuan.', included: true },
       { title: 'Integrasi Mesin Kasir POS Kasir', description: 'Dapat ditambahkan sebagai modul Sales Kasir di tahap berikutnya.', included: false }
     ],
-    pricingModel: 'fixed',
-    startingPrice: 1750000,
-    priceFormatted: 'Rp 1.750.000',
-    priceSubtext: 'sistem dasar siap pakai / deploy ke server Anda',
-    estimatedDuration: '7–10 hari kerja',
+    pricingModel: 'range',
+    startingPrice: 12500000,
+    priceFormatted: 'Rp 12.500.000 – Rp 18.500.000',
+    priceSubtext: 'Paket Vertical Pro (1x investasi / deploy mandiri)',
+    estimatedDuration: '3–5 hari kerja',
     maintenance: {
       available: true,
-      text: 'Garansi bug 30 hari + opsi maintenance hosting & backup mulai Rp 250.000/bulan.',
+      text: 'Garansi bug 30 hari + opsi SLA maintenance hosting & backup mulai Rp 650.000/bulan.',
     },
     addons: [
-      { id: 'barcode-scan', name: 'Modul Barcode / QR Scanner Handphone', price: 500000, priceFormatted: 'Rp 500.000', description: 'Scan barcode barang masuk/keluar langsung lewat kamera smartphone tanpa beli alat scanner terpisah.' },
-      { id: 'supplier-mgmt', name: 'Manajemen Data Supplier & Purchase Order', price: 600000, priceFormatted: 'Rp 600.000', description: 'Catat kontak supplier, hutang barang, dan surat pesanan resmi.' }
+      { id: 'barcode-scan', name: 'Modul Barcode / QR Scanner Handphone', price: 1500000, priceFormatted: 'Rp 1.500.000', description: 'Scan barcode barang masuk/keluar langsung lewat kamera smartphone tanpa beli alat scanner terpisah.' },
+      { id: 'supplier-mgmt', name: 'Manajemen Data Supplier & Purchase Order', price: 3500000, priceFormatted: 'Rp 3.500.000', description: 'Catat kontak supplier, hutang barang, dan surat pesanan resmi (PO).' }
     ],
     faq: [
       {
@@ -243,8 +243,8 @@ export const products: Product[] = [
     solution: 'Mulai dari paket base berbiaya terjangkau, lalu sambungkan modul-modul bisnis teruji (Pelanggan, Order, Invoice, Laporan) sesuai workflow unik Anda.',
     targetAudience: ['Bisnis Berkembang (5–30 staf)', 'Jasa Operasional & Agensi', 'Pabrikasi / Workshop Khusus'],
     keyHighlights: [
-      'Base investasi mulai Rp 2.500.000 (sudah termasuk core engine + dasbor utama)',
-      'Modul tambahan transparan: mulai Rp 500.000 – Rp 750.000 per modul',
+      'Base fondasi mulai Rp 5.500.000 (sudah termasuk core engine + dasbor utama)',
+      'Modul tambahan transparan: mulai Rp 1.500.000 – Rp 3.500.000 per modul',
       'Kepemilikan penuh 100% kode & database di server Anda',
       'Tidak ada biaya lisensi per user bulanan'
     ],
@@ -256,12 +256,12 @@ export const products: Product[] = [
       { title: 'Full Handover Server Anda', description: 'Deploy ke VPS pribadi / Coolify Anda.', included: true },
     ],
     pricingModel: 'modular',
-    startingPrice: 2500000,
-    priceFormatted: 'Base Rp 2.500.000',
-    priceSubtext: '+ modul pilihan (Rp 500rb - 750rb)',
-    estimatedDuration: '10–18 hari kerja',
+    startingPrice: 5500000,
+    priceFormatted: 'Base Rp 5.500.000',
+    priceSubtext: '+ modul pilihan (mulai Rp 1,5M - 3,5M)',
+    estimatedDuration: '3–7 hari kerja',
     addons: [
-      { id: 'wa-gateway', name: 'Integrasi WhatsApp Notifikasi Otomatis', price: 750000, priceFormatted: 'Rp 750.000', description: 'Kirim notifikasi otomatis ke WA customer saat invoice terbit atau status order berubah.' }
+      { id: 'wa-gateway', name: 'Integrasi WhatsApp Notifikasi Otomatis', price: 2500000, priceFormatted: 'Rp 2.500.000', description: 'Kirim notifikasi otomatis ke WA customer saat invoice terbit atau status order berubah.' }
     ],
     faq: [
       {
@@ -317,160 +317,160 @@ export const modules: ModuleItem[] = [
     categoryLabel: 'Pelanggan',
     description: 'Buku kontak digital pelanggan, catatan preferensi, riwayat transaksi, dan riwayat interaksi dalam satu tempat.',
     businessImpact: 'Tim tidak lagi lupa follow up prospek dan tahu riwayat belanja pelanggan setia.',
-    estimatedCost: 500000,
-    priceFormatted: 'Rp 500.000',
+    estimatedCost: 1500000,
+    priceFormatted: 'Rp 1.500.000',
     features: ['Database kontak & tag kategori', 'Riwayat order & total belanja', 'Catatan follow up / keluhan', 'Ekspor kontak']
   },
   {
     id: 'inventory',
-    name: 'Manajemen Inventaris & Stok',
+    name: 'Manajemen Inventaris & Stok (Ledger)',
     category: 'inventory',
     categoryLabel: 'Inventaris',
-    description: 'Katalog barang, mutasi stok masuk/keluar, stock opname berkala, dan peringatan batas stok aman.',
+    description: 'Buku besar persediaan append-only (FIFO/LIFO), tracking mutasi bertanda, dan safety stock alert otomatis.',
     businessImpact: 'Mencegah kehilangan barang, memotong selisih opname fisik, dan menghentikan kehabisan stok mendadak.',
-    estimatedCost: 750000,
-    priceFormatted: 'Rp 750.000',
-    features: ['Master SKU & varian', 'Catatan barang masuk/keluar', 'Peringatan stok menipis otomatis', 'Laporan nilai aset gudang']
+    estimatedCost: 3500000,
+    priceFormatted: 'Rp 3.500.000',
+    features: ['Master SKU & varian', 'Buku besar mutasi masuk/keluar', 'Peringatan stok menipis otomatis', 'Laporan nilai aset gudang realtime']
   },
   {
     id: 'sales',
-    name: 'Pesanan & Kasir (Sales Order)',
+    name: 'Pesanan & Alur Kanban (Sales Order)',
     category: 'sales',
     categoryLabel: 'Penjualan',
-    description: 'Pencatatan order penjualan, alur approval diskon, status pengerjaan pesanan, hingga pencatatan pelunasan.',
+    description: 'Pencatatan order penjualan, alur Kanban status pengerjaan, alokasi staf pelaksana, hingga pencatatan pelunasan.',
     businessImpact: 'Order tidak tercecer di chat WhatsApp, omset harian tercatat presisi tanpa manipulasi manual.',
-    estimatedCost: 750000,
-    priceFormatted: 'Rp 750.000',
-    features: ['Form input order cepat', 'Status order (Draft, Diproses, Selesai)', 'Otomatis potong stok saat order deal', 'Perhitungan diskon & pajak']
+    estimatedCost: 2500000,
+    priceFormatted: 'Rp 2.500.000',
+    features: ['Form input order cepat', 'Status order Kanban visual', 'Otomatis potong stok saat order deal', 'Perhitungan diskon & komisi staf']
   },
   {
     id: 'invoice',
-    name: 'Invoice & Surat Tagihan',
+    name: 'Invoices & Payments (bcmath)',
     category: 'sales',
-    categoryLabel: 'Penjualan',
-    description: 'Penerbitan faktur tagihan resmi PDF otomatis, pelacakan piutang jatuh tempo, dan pencatatan pembayaran termin.',
-    businessImpact: 'Mempercepat perputaran kas (cash flow) dan mempermudah penagihan ke klien korporat.',
-    estimatedCost: 500000,
-    priceFormatted: 'Rp 500.000',
-    features: ['Generate invoice PDF siap cetak / kirim WA', 'Pelacakan status pembayaran (Lunas / Tempo)', 'Pembayaran bertahap (Down Payment / Termin)', 'Notifikasi tagihan jatuh tempo']
+    categoryLabel: 'Finansial',
+    description: 'Penerbitan faktur tagihan resmi PDF atomik, pelacakan piutang jatuh tempo, dan pencatatan pembayaran multi-termin.',
+    businessImpact: 'Mempercepat perputaran kas (cash flow) dan mempermudah penagihan ke klien korporat tanpa selisih sen.',
+    estimatedCost: 3500000,
+    priceFormatted: 'Rp 3.500.000',
+    features: ['Generate invoice PDF resmi siap kirim WA', 'Pelacakan status pembayaran (Lunas / Tempo)', 'Pembayaran bertahap (Down Payment / Termin)', 'Penomoran atomik anti-race condition']
   },
   {
     id: 'booking',
-    name: 'Jadwal & Reservasi Layanan',
+    name: 'Booking & Reservasi Layanan',
     category: 'sales',
     categoryLabel: 'Operasional',
-    description: 'Pencatatan reservasi waktu, alokasi staf teknisi/terapis, dan pencegahan double-booking.',
-    businessImpact: 'Menghilangkan tabrakan jadwal antrean dan memastikan staf bekerja optimal sesuai kapasitas.',
-    estimatedCost: 750000,
-    priceFormatted: 'Rp 750.000',
-    features: ['Kalender slot reservasi interaktif', 'Alokasi staf pelaksana per booking', 'Status kedatangan pelanggan', 'Integrasi konfirmasi WA']
+    description: 'Pencatatan reservasi waktu, resource swimlane calendar, dan pencegahan double-booking interval intersection.',
+    businessImpact: 'Menghilangkan tabrakan jadwal antrean dan memastikan staf bekerja optimal sesuai kapasitas ruangan.',
+    estimatedCost: 4500000,
+    priceFormatted: 'Rp 4.500.000',
+    features: ['Kalender slot reservasi interaktif', 'Swimlane kalender alokasi staf / teknisi', 'Status kedatangan pelanggan', 'Integrasi konfirmasi WA otomatis']
   },
   {
     id: 'reporting',
-    name: 'Dasbor Analisis & Ekspor Data',
+    name: 'Dasbor Analisis & Audit Trail',
     category: 'reporting',
     categoryLabel: 'Laporan',
-    description: 'Visualisasi grafik performa pendapatan, produk terlaris, rekap bulanan, dan ekspor data fleksibel ke Excel/CSV.',
-    businessImpact: 'Pemilik bisnis bisa mengambil keputusan berbasis data nyata dalam hitungan detik, bukan kira-kira.',
-    estimatedCost: 500000,
-    priceFormatted: 'Rp 500.000',
-    features: ['Grafik trend omset harian/bulanan', 'Daftar produk & layanan paling laris', 'Laporan siap unduh (Excel, CSV, PDF)', 'Filter tanggal fleksibel']
+    description: 'Visualisasi grafik performa pendapatan, produk terlaris, rekap bulanan, dan log aktivitas anti-fraud untuk setiap mutasi.',
+    businessImpact: 'Pemilik bisnis bisa mengambil keputusan berbasis data nyata dalam hitungan detik dan bebas kecurangan.',
+    estimatedCost: 2000000,
+    priceFormatted: 'Rp 2.000.000',
+    features: ['Grafik trend omset harian/bulanan', 'Daftar produk & layanan paling laris', 'Audit log aktivitas user per transaksi', 'Filter tanggal fleksibel & ekspor Excel']
   },
   {
     id: 'membership',
     name: 'Membership & Poin Loyalitas',
     category: 'customer',
     categoryLabel: 'Pelanggan',
-    description: 'Sistem tingkatan keanggotaan (Silver/Gold), akumulasi poin belanja, dan diskon khusus member.',
+    description: 'Sistem tingkatan keanggotaan (Silver/Gold), akumulasi poin belanja, dan diskon kupon berkala.',
     businessImpact: 'Meningkatkan repeat order dan retensi loyalitas pelanggan secara konsisten.',
-    estimatedCost: 750000,
-    priceFormatted: 'Rp 750.000',
+    estimatedCost: 2000000,
+    priceFormatted: 'Rp 2.000.000',
     features: ['Level membership & kupon diskon', 'Pencatatan perolehan dan penukaran poin', 'Kartu member digital']
   },
   {
     id: 'wa-notification',
-    name: 'Notifikasi Otomatis WhatsApp',
+    name: 'Notifikasi Otomatis WhatsApp Gateway',
     category: 'communication',
-    categoryLabel: 'Komunikasi',
-    description: 'Kirim notifikasi otomatis ke nomor WhatsApp pelanggan saat pesanan diproses, dikirim, atau tagihan diterbitkan.',
-    businessImpact: 'Meningkatkan kepercayaan pembeli tanpa tim Anda harus mengetik chat konfirmasi satu per satu.',
-    estimatedCost: 750000,
-    priceFormatted: 'Rp 750.000',
-    features: ['Template pesan dinamis dengan nama pelanggan', 'Notifikasi status order real-time', 'Kirim nota/invoice via link WA resmi']
+    categoryLabel: 'Otomasi',
+    description: 'Kirim notifikasi otomatis ke nomor WhatsApp pelanggan saat pesanan diproses, nota PDF terbit, atau jadwal tiba.',
+    businessImpact: 'Meningkatkan kepuasan pembeli tanpa tim Anda harus mengetik chat konfirmasi satu per satu.',
+    estimatedCost: 2500000,
+    priceFormatted: 'Rp 2.500.000',
+    features: ['Template pesan dinamis dengan nama pelanggan', 'Notifikasi status order real-time', 'Kirim nota/invoice PDF via webhook WA resmi']
   },
   {
     id: 'role-approval',
     name: 'Multi-Role & Log Persetujuan',
     category: 'admin',
     categoryLabel: 'Administrasi',
-    description: 'Pembatasan hak akses staf, alur approval persetujuan pengeluaran dana, dan rekam jejak anti-fraud.',
+    description: 'Pembatasan hak akses staf Spatie RBAC, alur approval manager pengeluaran dana, dan rekam jejak sistem.',
     businessImpact: 'Menjaga keamanan operasional internal dan mencegah staf mengakses data rahasia pemilik.',
-    estimatedCost: 500000,
-    priceFormatted: 'Rp 500.000',
-    features: ['Setting hak akses per menu', 'Alur persetujuan manager sebelum aksi final', 'Log waktu & identitas pelaku perubahan data']
+    estimatedCost: 2000000,
+    priceFormatted: 'Rp 2.000.000',
+    features: ['Setting hak akses per menu (Owner, Manager, Staff)', 'Alur persetujuan manager sebelum aksi final', 'Log waktu & identitas pelaku perubahan data']
   }
 ];
 
 export const solutionPacks: SolutionPack[] = [
   {
     id: 'toko-retail',
-    title: 'Paket Operasional Toko & Distributor',
+    title: 'Paket Operasional Toko & Distributor (Paket B)',
     sector: 'Retail, Grosir, & Distributor',
     description: 'Solusi terintegrasi untuk mengendalikan rantai penjualan dan keluar-masuk barang toko secara efisien.',
     painPoints: ['Stok fisik sering selisih', 'Nota penjualan manual sering hilang', 'Rekap omset harian butuh waktu lama'],
     recommendedModules: ['inventory', 'sales', 'invoice', 'customer', 'reporting'],
-    estimatedPriceRange: 'Rp 3.500.000 – Rp 4.500.000',
-    estimatedDuration: '10–14 hari kerja'
+    estimatedPriceRange: 'Rp 12.500.000 – Rp 18.500.000',
+    estimatedDuration: '3–5 hari kerja'
   },
   {
     id: 'bengkel-service',
-    title: 'Paket Manajemen Bengkel & Servis',
+    title: 'Paket Workshop & Heavy Field Service (Paket C)',
     sector: 'Bengkel Otomotif, Servis Elektronik, Field Tech',
-    description: 'Pantau riwayat servis kendaraan/alat pelanggan, stok onderdil/sparepart, dan kinerja teknisi dalam satu layar.',
-    painPoints: ['Riwayat servis pelanggan lupa dicatat', 'Stok onderdil mahal rawan hilang', 'Staf bingung pembagian antrean servis'],
+    description: 'Surat Perintah Kerja (SPK), stok sparepart onderdil, dan tracking penugasan teknisi dalam satu layar.',
+    painPoints: ['Riwayat servis pelanggan lupa dicatat', 'Stok sparepart mahal rawan hilang', 'Staf bingung pembagian antrean servis'],
     recommendedModules: ['customer', 'inventory', 'sales', 'invoice', 'reporting'],
-    estimatedPriceRange: 'Rp 3.500.000 – Rp 4.500.000',
-    estimatedDuration: '10–14 hari kerja'
+    estimatedPriceRange: 'Rp 22.000.000 – Rp 35.000.000',
+    estimatedDuration: '5–7 hari kerja'
   },
   {
     id: 'salon-beauty',
-    title: 'Paket Reservasi Studio & Klinik Kecantikan',
+    title: 'Paket Reservasi Studio & Klinik Kecantikan (Paket B)',
     sector: 'Salon, Barbershop, Spa, Klinik Estetika',
     description: 'Atur jadwal reservasi pelanggan tanpa tabrakan jadwal, kelola komisi terapis, dan rawat loyalitas member setia.',
     painPoints: ['Jadwal booking sering bentrok', 'Sulit hitung komisi pengerjaan terapis', 'Pelanggan lupa jadwal reservasi'],
     recommendedModules: ['booking', 'customer', 'membership', 'sales', 'wa-notification'],
-    estimatedPriceRange: 'Rp 3.800.000 – Rp 4.800.000',
-    estimatedDuration: '12–16 hari kerja'
+    estimatedPriceRange: 'Rp 14.500.000 – Rp 18.500.000',
+    estimatedDuration: '3–5 hari kerja'
   },
   {
     id: 'agency-project',
-    title: 'Paket Jasa Profesional & Agensi',
-    sector: 'Konsultan, Digital Agency, Kontraktor',
-    description: 'Sentralisasi data klien, pelacakan progress milestone proyek, serta manajemen faktur penagihan bertahap.',
+    title: 'Paket UMKM Starter & Jasa Profesional (Paket A)',
+    sector: 'Konsultan, Digital Agency, Kontraktor, Supplier',
+    description: 'Sentralisasi data klien, landing page berkecepatan tinggi, serta manajemen faktur penagihan bertahap resmi.',
     painPoints: ['Penagihan termin invoice sering terlambat', 'Data kontak klien dan riwayat brief tercecer', 'Sulit mengukur profit per proyek'],
     recommendedModules: ['customer', 'invoice', 'reporting', 'role-approval'],
-    estimatedPriceRange: 'Rp 3.200.000 – Rp 4.200.000',
-    estimatedDuration: '10–14 hari kerja'
+    estimatedPriceRange: 'Rp 5.500.000 – Rp 8.500.000',
+    estimatedDuration: '1–2 hari kerja'
   }
 ];
 
 export const calculateEstimatedSystem = (selectedModuleIds: string[], businessScale: 'solo' | 'small' | 'medium') => {
-  const basePrice = 2500000;
-  const baseDays = 8;
+  const basePrice = 5500000;
+  const baseDays = 2;
 
   const selectedModules = modules.filter(m => selectedModuleIds.includes(m.id));
   const modulesPrice = selectedModules.reduce((sum, m) => sum + m.estimatedCost, 0);
-  const extraDays = selectedModules.length * 1.5;
+  const extraDays = selectedModules.length * 0.75;
 
   let multiplier = 1.0;
-  if (businessScale === 'small') multiplier = 1.1; // 2-5 user setup & training
-  if (businessScale === 'medium') multiplier = 1.25; // 6-20 user setup, roles & high concurrency
+  if (businessScale === 'small') multiplier = 1.15; // 2-5 user setup & training
+  if (businessScale === 'medium') multiplier = 1.35; // 6-20 user setup, roles & high concurrency
 
-  const totalMin = Math.round((basePrice + modulesPrice) * multiplier / 50000) * 50000;
-  const totalMax = Math.round(totalMin * 1.25 / 50000) * 50000;
+  const totalMin = Math.round((basePrice + modulesPrice) * multiplier / 100000) * 100000;
+  const totalMax = Math.round(totalMin * 1.25 / 100000) * 100000;
 
   const daysMin = Math.ceil((baseDays + extraDays));
-  const daysMax = Math.ceil(daysMin * 1.3);
+  const daysMax = Math.ceil(daysMin * 1.4);
 
   return {
     totalMin,
