@@ -75,6 +75,19 @@ html {
   @apply bg-white border border-stone-200 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-200;
 }
 
+/* Window Chrome Utilities for Appledore-style mockups */
+.window-frame {
+  @apply rounded-2xl border border-stone-200/90 bg-white shadow-xl overflow-hidden transition-all duration-300;
+}
+
+.window-frame-dark {
+  @apply rounded-2xl border border-stone-800 bg-stone-950 shadow-2xl overflow-hidden text-stone-200 transition-all duration-300;
+}
+
+.hairline-border {
+  @apply border border-stone-200/80;
+}
+
 /* Subtle section transition helper */
 .section-divider {
   height: 1px;
