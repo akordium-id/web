@@ -7,6 +7,8 @@ const solutions = [
   { label: "Inventory Starter (Rp 12,5jt)", href: "/catalog/inventory-starter" },
   { label: "Modular Business System", href: "/catalog/business-system-base" },
   { label: "Company Profile Starter", href: "/catalog/company-profile" },
+  { label: "Akordium Tools UMKM (Gratis)", href: "https://tools.akordium.id", external: true },
+  { label: "Kalkulator Estimasi Biaya", href: "https://tools.akordium.id/alat/kalkulator", external: true },
   { label: "Modul Sistem Bisnis", href: "/modules" },
   { label: "Simulasi Konfigurator", href: "/configurator" },
 ];
@@ -88,7 +90,11 @@ const waMessage = encodeURIComponent("Halo tim Akordium Lab, saya ingin berkonsu
         <ul class="space-y-3">
           {solutions.map(p => (
             <li>
-              <a href={p.href} class="text-sm text-stone-400 hover:text-white transition-colors block py-0.5">
+              <a
+                href={p.href}
+                {...(p.external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
+                class="text-sm text-stone-400 hover:text-white transition-colors block py-0.5"
+              >
                 {p.label}
               </a>
             </li>
