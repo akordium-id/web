@@ -1,7 +1,9 @@
 ---
+import { Icon } from 'astro-icon/components';
+
 const needs = [
   {
-    icon: "🌐",
+    icon: "lucide:globe",
     title: "Saya butuh website resmi",
     desc: "Membangun profil bisnis kredibel yang cepat diakses pelanggan.",
     badge: "Mulai Rp 500rb",
@@ -9,7 +11,7 @@ const needs = [
     actionText: "Lihat Paket Website",
   },
   {
-    icon: "📦",
+    icon: "lucide:package",
     title: "Saya ingin mengatur stok",
     desc: "Kontrol keluar-masuk barang, cegah selisih opname tanpa spreadsheet.",
     badge: "Mulai Rp 1,75jt",
@@ -17,7 +19,7 @@ const needs = [
     actionText: "Lihat Inventory Starter",
   },
   {
-    icon: "💰",
+    icon: "lucide:receipt",
     title: "Saya ingin kelola penjualan & nota",
     desc: "Catat order deal, buat invoice PDF otomatis, pantau piutang tempo.",
     badge: "Modul Siap Pasang",
@@ -25,7 +27,7 @@ const needs = [
     actionText: "Eksplor Modul Sales",
   },
   {
-    icon: "👥",
+    icon: "lucide:users",
     title: "Saya ingin database pelanggan",
     desc: "Buku kontak pelanggan rapi, riwayat repeat order, dan membership.",
     badge: "Modul CRM",
@@ -33,7 +35,7 @@ const needs = [
     actionText: "Lihat Modul CRM",
   },
   {
-    icon: "📅",
+    icon: "lucide:calendar",
     title: "Saya butuh jadwal booking",
     desc: "Antrean reservasi rapi tanpa bentrok jadwal untuk klinik, studio, & salon.",
     badge: "Solusi Industri",
@@ -41,7 +43,7 @@ const needs = [
     actionText: "Lihat Paket Booking",
   },
   {
-    icon: "📊",
+    icon: "lucide:bar-chart-3",
     title: "Saya butuh laporan bisnis otomatis",
     desc: "Pantau omset harian & performa stok langsung dari dasbor web.",
     badge: "Real-Time",
@@ -49,7 +51,7 @@ const needs = [
     actionText: "Lihat Dasbor Laporan",
   },
   {
-    icon: "⚙️",
+    icon: "lucide:settings",
     title: "Saya butuh sistem kustom khusus",
     desc: "Rekayasa alur unik multi-cabang, integrasi API, atau armada IoT.",
     badge: "Custom Quote",
@@ -57,7 +59,7 @@ const needs = [
     actionText: "Diskusikan Sistem Khusus",
   },
   {
-    icon: "🤔",
+    icon: "lucide:help-circle",
     title: "Saya belum tahu butuh apa",
     desc: "Ikuti asesmen kesiapan digital & AI 3 menit untuk diagnosa gap operasional bisnis Anda.",
     badge: "Diagnosa Gratis",
@@ -94,8 +96,8 @@ const needs = [
         >
           <div>
             <div class="flex items-center justify-between gap-2 mb-4">
-              <span class="text-2xl sm:text-3xl p-2 rounded-xl bg-white border border-stone-200/80 shadow-2xs group-hover:scale-110 transition-transform">
-                {item.icon}
+              <span class="w-11 h-11 flex items-center justify-center rounded-xl bg-white border border-stone-200/80 shadow-2xs group-hover:scale-110 group-hover:border-primary-300 group-hover:text-primary-800 text-stone-700 transition-all">
+                <Icon name={item.icon} class="w-6 h-6" />
               </span>
               <span class="text-[11px] font-bold text-primary-800 bg-primary-50 border border-primary-100 px-2 py-0.5 rounded-md">
                 {item.badge}
