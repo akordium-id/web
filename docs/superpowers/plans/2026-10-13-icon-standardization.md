@@ -35,9 +35,9 @@
 - Consumes: `@iconify-json/lucide`, `astro-icon/components`
 - Produces: Komponen `<Icon name="lucide:..." />` siap diimport di seluruh template Astro
 
-- [ ] **Step 1: Pastikan dependency `astro-icon` dan `@iconify-json/lucide` terdaftar di package.json dan workspace bersih**
-- [ ] **Step 2: Jalankan `pnpm build` untuk memvalidasi engine Astro mengenali astro-icon**
-- [ ] **Step 3: Commit perubahan dependency**
+- [x] **Step 1: Pastikan dependency `astro-icon` dan `@iconify-json/lucide` terdaftar di package.json dan workspace bersih**
+- [x] **Step 2: Jalankan `pnpm build` untuk memvalidasi engine Astro mengenali astro-icon**
+- [x] **Step 3: Commit perubahan dependency**
 
 ```bash
 git add package.json pnpm-workspace.yaml pnpm-lock.yaml
@@ -55,7 +55,7 @@ git commit -m "chore: add astro-icon and @iconify-json/lucide dependencies"
 - Consumes: `import { Icon } from 'astro-icon/components';`
 - Produces: Rendering visual SVG konsisten untuk 8 kartu kebutuhan pelanggan
 
-- [ ] **Step 1: Update data `needs` dengan nama icon Lucide:**
+- [x] **Step 1: Update data `needs` dengan nama icon Lucide:**
   - `🌐` -> `"lucide:globe"`
   - `📦` -> `"lucide:package"`
   - `💰` -> `"lucide:receipt"`
@@ -64,9 +64,9 @@ git commit -m "chore: add astro-icon and @iconify-json/lucide dependencies"
   - `📊` -> `"lucide:bar-chart-3"`
   - `⚙️` -> `"lucide:settings"`
   - `🤔` -> `"lucide:help-circle"`
-- [ ] **Step 2: Ganti elemen `<span>{item.icon}</span>` dengan `<Icon name={item.icon} class="w-6 h-6 text-primary-900" />`**
-- [ ] **Step 3: Jalankan `pnpm build` untuk memastikan icon SVG berhasil di-generate**
-- [ ] **Step 4: Commit perubahan**
+- [x] **Step 2: Ganti elemen `<span>{item.icon}</span>` dengan `<Icon name={item.icon} class="w-6 h-6 text-primary-900" />`**
+- [x] **Step 3: Jalankan `pnpm build` untuk memastikan icon SVG berhasil di-generate**
+- [x] **Step 4: Commit perubahan**
 
 ```bash
 git add src/components/home/NeedsSelector.astro
@@ -86,11 +86,11 @@ git commit -m "refactor(home): replace emojis in NeedsSelector with lucide icons
 - Consumes: `import { Icon } from 'astro-icon/components';`
 - Produces: Tab switcher sisi kartu nama yang elegan tanpa emoji `🎴` dan `👤`
 
-- [ ] **Step 1: Ganti emoji `🎴 Sisi Depan` dengan `<Icon name="lucide:credit-card" class="w-4 h-4 inline-block mr-1.5" /> Sisi Depan`**
-- [ ] **Step 2: Ganti emoji `👤 Sisi Belakang` dengan `<Icon name="lucide:user" class="w-4 h-4 inline-block mr-1.5" /> Sisi Belakang`**
-- [ ] **Step 3: Terapkan perubahan identik di ketiga file kartu nama (`faiq.astro`, `shinta.astro`, `nam-nam.astro`)**
-- [ ] **Step 4: Jalankan `pnpm build` dan `pnpm test`**
-- [ ] **Step 5: Commit perubahan**
+- [x] **Step 1: Ganti emoji `🎴 Sisi Depan` dengan `<Icon name="lucide:credit-card" class="w-4 h-4 inline-block mr-1.5" /> Sisi Depan`**
+- [x] **Step 2: Ganti emoji `👤 Sisi Belakang` dengan `<Icon name="lucide:user" class="w-4 h-4 inline-block mr-1.5" /> Sisi Belakang`**
+- [x] **Step 3: Terapkan perubahan identik di ketiga file kartu nama (`faiq.astro`, `shinta.astro`, `nam-nam.astro`)**
+- [x] **Step 4: Jalankan `pnpm build` dan `pnpm test`**
+- [x] **Step 5: Commit perubahan**
 
 ```bash
 git add src/pages/card/
@@ -108,11 +108,11 @@ git commit -m "refactor(card): replace emoji tabs with lucide icons in digital c
 - Consumes: `import { Icon } from 'astro-icon/components';`
 - Produces: List tantangan (`lucide:x`) dan highlight solusi (`lucide:check`) dengan SVG seragam
 
-- [ ] **Step 1: Import `Icon` dari `astro-icon/components` di `src/pages/catalog/[slug].astro`**
-- [ ] **Step 2: Ganti `<span class="text-rose-500 font-bold shrink-0">✕</span>` dengan `<Icon name="lucide:x" class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />`**
-- [ ] **Step 3: Ganti `<span class="text-emerald-600 font-bold shrink-0">✓</span>` dengan `<Icon name="lucide:check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />`**
-- [ ] **Step 4: Jalankan build dan test penuh**
-- [ ] **Step 5: Commit perubahan**
+- [x] **Step 1: Import `Icon` dari `astro-icon/components` di `src/pages/catalog/[slug].astro`**
+- [x] **Step 2: Ganti `<span class="text-rose-500 font-bold shrink-0">✕</span>` dengan `<Icon name="lucide:x" class="w-4 h-4 text-rose-500 shrink-0 mt-0.5" />`**
+- [x] **Step 3: Ganti `<span class="text-emerald-600 font-bold shrink-0">✓</span>` dengan `<Icon name="lucide:check" class="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />`**
+- [x] **Step 4: Jalankan build dan test penuh**
+- [x] **Step 5: Commit perubahan**
 
 ```bash
 git add src/pages/catalog/[slug].astro
