@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Logo from '../../components/common/Logo.astro';
 import '../../styles/global.css';
 
@@ -819,21 +820,21 @@ const jsonLd = {
           <div class="view-toggle-group" role="tablist" aria-label="Pilih sisi kartu">
             <button
               id="tab-btn-front"
-              class="view-tab-btn is-active"
+              class="view-tab-btn is-active inline-flex items-center justify-center gap-1.5"
               role="tab"
               aria-selected="true"
               type="button"
             >
-              <span>🎴</span> Sisi Depan
+              <Icon name="lucide:credit-card" class="w-4 h-4" /> Sisi Depan
             </button>
             <button
               id="tab-btn-back"
-              class="view-tab-btn"
+              class="view-tab-btn inline-flex items-center justify-center gap-1.5"
               role="tab"
               aria-selected="false"
               type="button"
             >
-              <span>👤</span> Sisi Belakang
+              <Icon name="lucide:user" class="w-4 h-4" /> Sisi Belakang
             </button>
           </div>
 
