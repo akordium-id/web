@@ -2,6 +2,7 @@
 import Layout from '../../layouts/Layout.astro';
 import { products, type Product } from '../../data/catalog';
 import WhatsAppIcon from '../../components/common/WhatsAppIcon.astro';
+import { Icon } from 'astro-icon/components';
 
 export function getStaticPaths() {
   return products.map((product) => ({
@@ -154,7 +155,7 @@ const waUrl = `https://wa.me/628159988995?text=${waMessage}`;
           <ul class="space-y-3 text-sm text-stone-700">
             {product.problem.map((prob) => (
               <li class="flex items-start gap-2.5">
-                <span class="text-rose-500 font-bold shrink-0">✕</span>
+                <Icon name="lucide:x" class="w-4 h-4 text-rose-500 font-bold shrink-0 mt-0.5" />
                 <span>{prob}</span>
               </li>
             ))}
@@ -175,7 +176,7 @@ const waUrl = `https://wa.me/628159988995?text=${waMessage}`;
           <ul class="space-y-2 text-xs sm:text-sm text-stone-700">
             {product.keyHighlights.map((hl) => (
               <li class="flex items-start gap-2.5">
-                <span class="text-emerald-600 font-bold shrink-0">✓</span>
+                <Icon name="lucide:check" class="w-4 h-4 text-emerald-600 font-bold shrink-0 mt-0.5" />
                 <span>{hl}</span>
               </li>
             ))}
