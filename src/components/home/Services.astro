@@ -1,11 +1,6 @@
 ---
+import { Icon } from 'astro-icon/components';
 import { corePractices } from '../../data/services';
-
-const icons: Record<string, string> = {
-  layers: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" /></svg>`,
-  cpu: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M9 3v2m6-2v2M9 19v2m6-2v2M3 9h2m-2 6h2m16-6h2m-2 6h2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" /></svg>`,
-  workflow: `<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.75" d="M4 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM14 5a1 1 0 011-1h4a1 1 0 011 1v4a1 1 0 01-1 1h-4a1 1 0 01-1-1V5zM9 14v2a2 2 0 002 2h2m0 0v-2a2 2 0 012-2h2m-4 4v2a1 1 0 01-1 1h-4a1 1 0 01-1-1v-2" /></svg>`,
-};
 ---
 
 <section id="services" class="py-20 lg:py-28 bg-primary-50/20 border-b border-stone-200/80">
@@ -31,7 +26,9 @@ const icons: Record<string, string> = {
           <div>
             <!-- Card Header: Icon + Badge -->
             <div class="flex items-center justify-between gap-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-primary-50 border border-primary-200/80 text-primary-700 flex items-center justify-center shrink-0" set:html={icons[practice.icon]} />
+              <div class="w-12 h-12 rounded-xl bg-primary-50 border border-primary-200/80 text-primary-700 flex items-center justify-center shrink-0">
+                <Icon name={practice.icon} class="w-6 h-6" />
+              </div>
               <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded bg-primary-50 text-primary-900 border border-primary-200/80">
                 {practice.badge}
               </span>

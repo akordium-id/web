@@ -14,7 +14,7 @@ export interface CorePractice {
   description: string;
   deliverables: string[];
   techStack: string[];
-  icon: "layers" | "cpu" | "workflow";
+  icon: string;
 }
 
 export const corePractices: CorePractice[] = [
@@ -32,7 +32,7 @@ export const corePractices: CorePractice[] = [
       "100% kode & database milik Anda (tanpa sewa lisensi)",
     ],
     techStack: ["Livewire", "Laravel", "PostgreSQL", "Docker"],
-    icon: "layers",
+    icon: "lucide:layout-dashboard",
   },
   {
     id: "system-modernization",
@@ -48,7 +48,7 @@ export const corePractices: CorePractice[] = [
       "Serah terima cepat dalam 3–7 hari kerja",
     ],
     techStack: ["Astro", "Tailwind CSS", "Cloudflare"],
-    icon: "workflow",
+    icon: "lucide:monitor-smartphone",
   },
   {
     id: "dedicated-tools",
@@ -64,7 +64,7 @@ export const corePractices: CorePractice[] = [
       "Dokumentasi teknis & pendampingan tim internal",
     ],
     techStack: ["Go", "PostgreSQL", "TimescaleDB", "Redis"],
-    icon: "cpu",
+    icon: "lucide:cpu",
   },
 ];
 
