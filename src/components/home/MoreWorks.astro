@@ -1,0 +1,156 @@
+---
+import { showcaseShots } from '../../data/showcase';
+
+const rowTop = showcaseShots.slice(0, 4);
+const rowBottom = showcaseShots.slice(4);
+---
+
+<section id="more-works" class="py-20 lg:py-24 bg-warm-bg border-b border-stone-200/80 overflow-hidden">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+    <!-- Section Header -->
+    <div class="max-w-3xl mx-auto text-center mb-14">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full text-xs font-mono font-semibold text-accent-700 bg-accent-50 border border-accent-200/80 mb-4 shadow-2xs">
+        Galeri Screenshot Nyata
+      </div>
+      <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-stone-900 tracking-tight leading-tight">
+        Antarmuka yang Sudah <br class="hidden sm:inline" />Kami Kirim
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-stone-600 leading-relaxed">
+        Bukan mockup — tangkapan layar asli dari sistem yang berjalan di produksi: proyek klien, karya mandiri, dan perkakas yang kami pakai sendiri setiap hari.
+      </p>
+    </div>
+
+    <!-- Marquee Row 1: scroll left -->
+    <div class="marquee-row group/marquee mb-6 lg:mb-8">
+      <div class="marquee-track">
+        {[...rowTop, ...rowTop].map((shot) => (
+          <figure class="marquee-card">
+            <div class="rounded-2xl border border-stone-200/90 bg-white shadow-lg shadow-stone-200/40 overflow-hidden">
+              <div class="flex items-center gap-1.5 px-3.5 py-2 bg-stone-100/90 border-b border-stone-200/80">
+                <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span class="ml-1.5 font-mono text-[10px] text-stone-500 font-medium truncate">{shot.id}</span>
+              </div>
+              <img
+                src={shot.image}
+                alt={shot.labelId}
+                width="1366"
+                height="613"
+                loading="lazy"
+                decoding="async"
+                class="w-full aspect-[1366/613] object-cover object-top"
+              />
+            </div>
+            <figcaption class="mt-2.5 flex items-center gap-2">
+              <span class="text-xs font-sans font-bold text-stone-800 truncate">{shot.label}</span>
+              <span class="shrink-0 px-1.5 py-0.5 rounded text-[9px] font-mono font-semibold uppercase tracking-wider
+                {shot.category === 'Klien' ? 'text-primary-800 bg-primary-50 border border-primary-200/70' :
+                 shot.category === 'Karya Mandiri' ? 'text-accent-700 bg-accent-50 border border-accent-200/70' :
+                 'text-emerald-700 bg-emerald-50 border border-emerald-200/70'}">
+                {shot.category}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+
+    <!-- Marquee Row 2: scroll right -->
+    <div class="marquee-row group/marquee">
+      <div class="marquee-track marquee-track-reverse">
+        {[...rowBottom, ...rowBottom].map((shot) => (
+          <figure class="marquee-card">
+            <div class="rounded-2xl border border-stone-200/90 bg-white shadow-lg shadow-stone-200/40 overflow-hidden">
+              <div class="flex items-center gap-1.5 px-3.5 py-2 bg-stone-100/90 border-b border-stone-200/80">
+                <span class="w-2 h-2 rounded-full bg-rose-400"></span>
+                <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+                <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+                <span class="ml-1.5 font-mono text-[10px] text-stone-500 font-medium truncate">{shot.id}</span>
+              </div>
+              <img
+                src={shot.image}
+                alt={shot.labelId}
+                width="1366"
+                height="613"
+                loading="lazy"
+                decoding="async"
+                class="w-full aspect-[1366/613] object-cover object-top"
+              />
+            </div>
+            <figcaption class="mt-2.5 flex items-center gap-2">
+              <span class="text-xs font-sans font-bold text-stone-800 truncate">{shot.label}</span>
+              <span class="shrink-0 px-1.5 py-0.5 rounded text-[9px] font-mono font-semibold uppercase tracking-wider
+                {shot.category === 'Klien' ? 'text-primary-800 bg-primary-50 border border-primary-200/70' :
+                 shot.category === 'Karya Mandiri' ? 'text-accent-700 bg-accent-50 border border-accent-200/70' :
+                 'text-emerald-700 bg-emerald-50 border border-emerald-200/70'}">
+                {shot.category}
+              </span>
+            </figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .marquee-row {
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+    mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 1.5rem;
+    width: max-content;
+    animation: marquee-left 45s linear infinite;
+  }
+
+  .marquee-track-reverse {
+    animation-name: marquee-right;
+    animation-duration: 55s;
+  }
+
+  .marquee-row:hover .marquee-track {
+    animation-play-state: paused;
+  }
+
+  .marquee-card {
+    width: 20rem;
+    flex-shrink: 0;
+    transition: transform 300ms ease;
+  }
+
+  .marquee-card:hover {
+    transform: translateY(-4px);
+  }
+
+  @keyframes marquee-left {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  @keyframes marquee-right {
+    from { transform: translateX(-50%); }
+    to { transform: translateX(0); }
+  }
+
+  @media (min-width: 1024px) {
+    .marquee-card {
+      width: 24rem;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track {
+      animation: none;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+    }
+  }
+</style>

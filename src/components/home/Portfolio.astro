@@ -40,7 +40,25 @@ import { portfolioItems } from '../../data/portfolio';
                 </span>
               </div>
 
-              <!-- Window Inner Content per System in Warm Light Mode -->
+              <!-- Window Inner Content: real screenshot when available, HTML mockup as fallback -->
+              {item.image ? (
+                <a
+                  href={item.liveUrl ?? '#works'}
+                  target={item.liveUrl ? '_blank' : undefined}
+                  rel={item.liveUrl ? 'noopener noreferrer' : undefined}
+                  class="block group/img"
+                >
+                  <img
+                    src={item.image}
+                    alt={`Screenshot ${item.titleId}`}
+                    width="1366"
+                    height="613"
+                    loading="lazy"
+                    decoding="async"
+                    class="w-full aspect-[1366/613] object-cover object-top transition-transform duration-500 group-hover/img:scale-[1.02]"
+                  />
+                </a>
+              ) : (
               <div class="p-5 sm:p-6 space-y-4 font-mono text-xs bg-[#fafaf8] text-stone-800">
                 
                 {item.id === 'mis-apar' && (
@@ -120,6 +138,7 @@ import { portfolioItems } from '../../data/portfolio';
                 )}
 
               </div>
+              )}
             </div>
           </div>
 
