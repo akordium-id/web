@@ -24,97 +24,97 @@ import { portfolioItems } from '../../data/portfolio';
       {portfolioItems.map((item, idx) => (
         <div class="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center bg-white border border-primary-100 rounded-3xl p-6 sm:p-8 lg:p-10 hover:border-primary-300 shadow-sm hover:shadow-xl hover:shadow-primary-100/40 transition-all duration-300">
           
-          <!-- Mockup Window in Akordium Navy (7 cols on lg, alternates order) -->
+          <!-- Mockup Window in Warm Light Mode (7 cols on lg, alternates order) -->
           <div class={`lg:col-span-7 ${idx % 2 === 1 ? 'lg:order-2' : ''}`}>
-            <div class="window-frame-dark shadow-xl shadow-primary-950/20">
+            <div class="rounded-2xl border border-stone-200/90 bg-white shadow-xl shadow-stone-200/50 overflow-hidden text-stone-800 transition-all duration-300">
               <!-- Window Chrome Bar -->
-              <div class="flex items-center justify-between px-4 py-3 bg-primary-900 border-b border-primary-800">
+              <div class="flex items-center justify-between px-4 py-3 bg-stone-100/90 border-b border-stone-200/80">
                 <div class="flex items-center gap-2">
-                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-                  <span class="ml-2 font-mono text-[11px] text-primary-200">{item.id}.akordium.id</span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
+                  <span class="ml-2 font-mono text-[11px] text-stone-600 font-medium">{item.id}.akordium.id</span>
                 </div>
-                <span class="font-mono text-[10px] text-primary-200 bg-primary-800/80 px-2 py-0.5 rounded border border-primary-700/60">
+                <span class="font-mono text-[10px] text-stone-700 bg-white px-2 py-0.5 rounded border border-stone-200 shadow-2xs">
                   {item.badge}
                 </span>
               </div>
 
-              <!-- Window Inner Content per System -->
-              <div class="p-5 sm:p-6 space-y-4 font-mono text-xs bg-primary-950">
+              <!-- Window Inner Content per System in Warm Light Mode -->
+              <div class="p-5 sm:p-6 space-y-4 font-mono text-xs bg-[#fafaf8] text-stone-800">
                 
                 {item.id === 'mis-apar' && (
                   <div class="space-y-3">
-                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-primary-800">
-                      <span class="text-primary-100 font-bold">Field Inspection & Audit Engine</span>
-                      <span class="text-emerald-400 font-semibold">100% Audit Ready</span>
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-200">
+                      <span class="text-stone-900 font-bold">Field Inspection & Audit Engine</span>
+                      <span class="text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80">100% Audit Ready</span>
                     </div>
                     <div class="grid grid-cols-2 gap-2.5">
-                      <div class="bg-primary-900/90 p-3 rounded-xl border border-primary-800">
-                        <div class="text-[10px] uppercase text-primary-300">Tekanan Tabung</div>
-                        <div class="text-sm font-bold text-emerald-400 mt-0.5">Optimal (Normal)</div>
-                        <div class="text-[10px] text-primary-400 mt-1">Barcode QR Terverifikasi</div>
+                      <div class="bg-white p-3 rounded-xl border border-stone-200/80 shadow-2xs">
+                        <div class="text-[10px] uppercase font-semibold text-stone-500">Tekanan Tabung</div>
+                        <div class="text-sm font-bold text-emerald-600 mt-0.5">Optimal (Normal)</div>
+                        <div class="text-[10px] text-stone-500 mt-1">Barcode QR Terverifikasi</div>
                       </div>
-                      <div class="bg-primary-900/90 p-3 rounded-xl border border-primary-800">
-                        <div class="text-[10px] uppercase text-primary-300">Jadwal Uji Rutin</div>
-                        <div class="text-sm font-bold text-primary-100 mt-0.5">Auto-Schedule</div>
-                        <div class="text-[10px] text-primary-400 mt-1">Notifikasi WhatsApp terjadwal</div>
+                      <div class="bg-white p-3 rounded-xl border border-stone-200/80 shadow-2xs">
+                        <div class="text-[10px] uppercase font-semibold text-stone-500">Jadwal Uji Rutin</div>
+                        <div class="text-sm font-bold text-stone-900 mt-0.5">Auto-Schedule</div>
+                        <div class="text-[10px] text-stone-500 mt-1">Notifikasi WhatsApp terjadwal</div>
                       </div>
                     </div>
-                    <div class="p-2.5 bg-primary-900/60 rounded-lg border border-primary-800/80 text-[11px] flex items-center justify-between text-primary-200">
+                    <div class="p-2.5 bg-stone-100/90 rounded-lg border border-stone-200/80 text-[11px] flex items-center justify-between text-stone-600">
                       <span>Stack: Go + PostgreSQL + Tailwind</span>
-                      <span class="text-emerald-400">0.4s response latency</span>
+                      <span class="text-emerald-700 font-semibold">0.4s response latency</span>
                     </div>
                   </div>
                 )}
 
                 {item.id === 'orin-gps' && (
                   <div class="space-y-3">
-                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-primary-800">
-                      <span class="text-primary-100 font-bold">IoT Fleet Telemetry Stream</span>
-                      <span class="flex items-center gap-1.5 text-emerald-400 font-semibold">
-                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-200">
+                      <span class="text-stone-900 font-bold">IoT Fleet Telemetry Stream</span>
+                      <span class="flex items-center gap-1.5 text-emerald-700 font-semibold bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200/80">
+                        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
                         10.420 Perangkat Online
                       </span>
                     </div>
-                    <div class="bg-primary-900/90 p-3.5 rounded-xl border border-primary-800 space-y-2">
+                    <div class="bg-white p-3.5 rounded-xl border border-stone-200/80 shadow-2xs space-y-2">
                       <div class="flex justify-between text-xs">
-                        <span class="text-primary-300">Paket Masuk / Menit</span>
-                        <span class="text-primary-100 font-bold">72.400 packet/min</span>
+                        <span class="text-stone-500 font-medium">Paket Masuk / Menit</span>
+                        <span class="text-stone-900 font-bold">72.400 packet/min</span>
                       </div>
-                      <div class="w-full bg-primary-800 h-2 rounded-full overflow-hidden">
+                      <div class="w-full bg-stone-100 border border-stone-200 h-2.5 rounded-full overflow-hidden">
                         <div class="bg-emerald-500 h-full rounded-full w-[96%]"></div>
                       </div>
-                      <div class="flex justify-between text-[10px] text-primary-300 pt-1">
+                      <div class="flex justify-between text-[10px] text-stone-500 pt-1">
                         <span>Buffer Health: 99.9%</span>
-                        <span class="text-emerald-400 font-bold">Latency: &lt;100ms</span>
+                        <span class="text-emerald-700 font-bold">Latency: &lt;100ms</span>
                       </div>
                     </div>
-                    <div class="p-2.5 bg-primary-900/60 rounded-lg border border-primary-800/80 text-[11px] flex items-center justify-between text-primary-200">
+                    <div class="p-2.5 bg-stone-100/90 rounded-lg border border-stone-200/80 text-[11px] flex items-center justify-between text-stone-600">
                       <span>TimescaleDB Hypertables + Go Fiber</span>
-                      <span class="text-primary-200">3TB/Bulan compressed</span>
+                      <span class="text-stone-600 font-medium">3TB/Bulan compressed</span>
                     </div>
                   </div>
                 )}
 
                 {item.id === 'katauser' && (
                   <div class="space-y-3">
-                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-primary-800">
-                      <span class="text-primary-100 font-bold">Token-Gated Client Board</span>
-                      <span class="text-accent-400 font-semibold">Dogfooded at Akordium</span>
+                    <div class="flex items-center justify-between text-[11px] pb-2 border-b border-stone-200">
+                      <span class="text-stone-900 font-bold">Token-Gated Client Board</span>
+                      <span class="text-accent-700 font-semibold bg-accent-50 px-2 py-0.5 rounded border border-accent-200/80">Dogfooded at Akordium</span>
                     </div>
-                    <div class="bg-primary-900/90 p-3.5 rounded-xl border border-primary-800 space-y-2 text-left">
+                    <div class="bg-white p-3.5 rounded-xl border border-stone-200/80 shadow-2xs space-y-2 text-left">
                       <div class="flex items-center justify-between text-xs">
-                        <span class="font-semibold text-primary-100">Revisi Desain & Feedback Milestone</span>
-                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800">Disetujui</span>
+                        <span class="font-semibold text-stone-900">Revisi Desain & Feedback Milestone</span>
+                        <span class="text-[10px] px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200 font-bold">Disetujui</span>
                       </div>
-                      <p class="text-[11px] text-primary-200 font-sans leading-relaxed">
+                      <p class="text-[11px] text-stone-600 font-sans leading-relaxed">
                         Klien non-teknis menitipkan catatan revisi dengan token aman langsung di antarmuka tanpa perlu registrasi akun berbelit.
                       </p>
                     </div>
-                    <div class="p-2.5 bg-primary-900/60 rounded-lg border border-primary-800/80 text-[11px] flex items-center justify-between text-primary-200">
+                    <div class="p-2.5 bg-stone-100/90 rounded-lg border border-stone-200/80 text-[11px] flex items-center justify-between text-stone-600">
                       <span>Laravel 13 + Livewire + Flux UI Pro</span>
-                      <span class="text-emerald-400">Zero WA friction</span>
+                      <span class="text-emerald-700 font-semibold">Zero WA friction</span>
                     </div>
                   </div>
                 )}
