@@ -1,15 +1,15 @@
 ---
 const problems = [
   {
-    icon: "📋",
+    icon: `<svg class="w-4 h-4 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01" /></svg>`,
     text: "Stok barang dicatat manual di Excel — selalu ada selisih di akhir bulan.",
   },
   {
-    icon: "📱",
+    icon: `<svg class="w-4 h-4 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>`,
     text: "Nota dan invoice tersebar di grup WhatsApp, sulit dilacak siapa yang belum bayar.",
   },
   {
-    icon: "📊",
+    icon: `<svg class="w-4 h-4 text-accent-700" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>`,
     text: "Laporan omset harus direkap manual setiap malam — memakan waktu berjam-jam.",
   },
 ];
@@ -33,11 +33,11 @@ const problems = [
           Banyak pemilik bisnis yang sudah capek dengan cara kerja seperti ini, tapi belum tahu mulai dari mana. Kami bantu dari titik itu.
         </p>
         
-        <div class="space-y-4">
+        <div class="space-y-3.5">
           {problems.map((p) => (
-            <div class="flex items-start gap-3 p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs">
-              <span class="text-xl shrink-0 mt-0.5">{p.icon}</span>
-              <p class="text-sm text-stone-700 leading-relaxed">{p.text}</p>
+            <div class="flex items-start gap-3.5 p-4 rounded-xl bg-white border border-stone-200/80 shadow-2xs">
+              <div class="w-8 h-8 rounded-lg bg-accent-50 border border-accent-200/80 flex items-center justify-center shrink-0 mt-0.5" set:html={p.icon}></div>
+              <p class="text-sm text-stone-700 leading-relaxed font-medium">{p.text}</p>
             </div>
           ))}
         </div>
