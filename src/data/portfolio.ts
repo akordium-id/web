@@ -6,6 +6,7 @@ export interface PortfolioItem {
   description: string;
   descriptionId: string;
   image: string;
+  contextPhoto?: string;
   techStack: string[];
   metrics: { label: string; value: string }[];
   liveUrl?: string;
@@ -25,6 +26,7 @@ export const portfolioItems: PortfolioItem[] = [
     descriptionId:
       "Menyatukan inspeksi APAR, pencatatan barcode audit fisik, dan jadwal perawatan berkala dalam satu alur kerja terpusat agar tidak ada tabung kedaluwarsa.",
     image: "/images/portfolio/mis-apar.png",
+    contextPhoto: "/images/portfolio-apar.jpg",
     techStack: ["Go", "PostgreSQL", "Docker", "Tailwind CSS"],
     metrics: [
       { label: "Pengurangan Biaya Server", value: "50%" },
