@@ -1,0 +1,70 @@
+---
+const problems = [
+  {
+    icon: "📋",
+    text: "Stok barang dicatat manual di Excel — selalu ada selisih di akhir bulan.",
+  },
+  {
+    icon: "📱",
+    text: "Nota dan invoice tersebar di grup WhatsApp, sulit dilacak siapa yang belum bayar.",
+  },
+  {
+    icon: "📊",
+    text: "Laporan omset harus direkap manual setiap malam — memakan waktu berjam-jam.",
+  },
+];
+---
+
+<section class="py-16 lg:py-20 bg-[#fafaf8] border-b border-stone-200/80">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+      
+      <!-- Kiri: narasi masalah -->
+      <div class="space-y-6">
+        <div>
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-mono font-semibold text-stone-600 bg-stone-100 border border-stone-200 mb-4">
+            Masalah yang Sering Kami Dengar
+          </div>
+          <h2 class="font-sans text-3xl sm:text-4xl font-extrabold text-stone-900 tracking-tight leading-tight">
+            Stok salah, nota hilang,<br />laporan minta manual&mdash;setiap hari.
+          </h2>
+        </div>
+        <p class="text-stone-600 text-base leading-relaxed">
+          Banyak pemilik bisnis yang sudah capek dengan cara kerja seperti ini, tapi belum tahu mulai dari mana. Kami bantu dari titik itu.
+        </p>
+        
+        <div class="space-y-4">
+          {problems.map((p) => (
+            <div class="flex items-start gap-3 p-4 rounded-xl bg-white border border-stone-200/80 shadow-xs">
+              <span class="text-xl shrink-0 mt-0.5">{p.icon}</span>
+              <p class="text-sm text-stone-700 leading-relaxed">{p.text}</p>
+            </div>
+          ))}
+        </div>
+
+        <a href="#services" class="inline-flex items-center gap-2 text-sm font-semibold text-primary-900 hover:text-accent-600 transition-colors">
+          Lihat apa yang bisa kami bantu &rarr;
+        </a>
+      </div>
+
+      <!-- Kanan: foto konteks -->
+      <div class="relative">
+        <div class="rounded-2xl overflow-hidden shadow-lg border border-stone-200/80">
+          <img
+            src="/images/problem-ops.jpg"
+            alt="Pemilik bisnis yang kewalahan dengan operasional manual"
+            class="w-full h-80 lg:h-96 object-cover"
+            loading="lazy"
+            width="600" height="400"
+          />
+        </div>
+        <!-- floating badge -->
+        <div class="absolute -bottom-4 left-6 bg-white border border-stone-200 rounded-xl px-4 py-3 shadow-md">
+          <div class="text-xs font-mono text-stone-500">Sebelum pakai sistem</div>
+          <div class="text-sm font-bold text-stone-900 mt-0.5">Rekap stok 2–3 jam/hari</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
