@@ -32,6 +32,12 @@
   --color-accent-800: #c2410c;
   --color-accent-900: #7c2d12;
   --color-accent-950: #431407;
+
+  /* Custom font mono - IBM Plex Mono (engineering identity) */
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'Cascadia Code', monospace;
+
+  /* Warm background token */
+  --color-warm-bg: #fafaf8;
 }
 
 /* Font pair switcher: `modern` (default) and `editorial` */
