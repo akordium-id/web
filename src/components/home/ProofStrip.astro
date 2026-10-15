@@ -6,26 +6,21 @@ const metrics = [
     subtext: "Streaming telemetri armada real-time",
   },
   {
-    value: "99.9%",
-    label: "Target Uptime",
-    subtext: "Infrastruktur kritis tanpa downtime",
-  },
-  {
     value: "< 100ms",
     label: "Endpoint Latency",
     subtext: "Arsitektur Go & query teroptimasi",
   },
   {
-    value: "100%",
-    label: "Code Ownership",
-    subtext: "Hak cipta penuh & repo milik Anda",
+    value: "3+",
+    label: "Bisnis Aktif Dikelola",
+    subtext: "Sistem operasional live di klien Surabaya",
   },
 ];
 ---
 
 <section class="bg-primary-50/30 border-b border-primary-100/80 py-10 lg:py-12">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-primary-100/80">
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 lg:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-primary-100/80">
       {metrics.map((metric, idx) => (
         <div class={`flex flex-col justify-center ${idx !== 0 ? 'pt-4 sm:pt-0 sm:pl-6 lg:pl-8' : ''}`}>
           <div class="font-mono text-2xl sm:text-3xl lg:text-4xl font-extrabold text-primary-950 tracking-tight">
