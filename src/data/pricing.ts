@@ -59,6 +59,7 @@ export interface VerticalBundle {
   maintenanceMonthly?: string;
   slaCompact?: string;
   popular?: boolean;
+  contextStory?: string;
   modulesIncluded: string[];
   features: string[];
 }
@@ -171,6 +172,7 @@ export const verticalBundles: VerticalBundle[] = [
     maintenanceMonthly: "Rp 450.000 / bln (opsional)",
     slaCompact: "SLA opsional Rp 450rb/bln",
     popular: false,
+    contextStory: "Cocok untuk laundry 1–2 cabang yang masih pakai WhatsApp untuk catat orderan.",
     modulesIncluded: ["Catalog & Products", "CRM / Customers", "Invoices & Payments", "WhatsApp Gateway", "Discounts & Vouchers"],
     features: [
       "Landing Page Publik SEO berkecepatan tinggi",
@@ -196,6 +198,7 @@ export const verticalBundles: VerticalBundle[] = [
     maintenanceMonthly: "Rp 650.000 – Rp 950.000 / bln",
     slaCompact: "SLA & ops Rp 650rb – 950rb/bln",
     popular: true,
+    contextStory: "Cocok untuk toko kelontong atau bengkel yang stoknya sering selisih tiap bulan.",
     modulesIncluded: ["Semua Fitet Paket A", "Order Kanban / Booking Swimlane", "Inventory Ledger (FIFO/LIFO)", "Staff Commissions", "Multi-User Roles"],
     features: [
       "Seluruh cakupan Paket A Starter",
@@ -221,6 +224,7 @@ export const verticalBundles: VerticalBundle[] = [
     maintenanceMonthly: "Rp 1.250.000 – Rp 1.750.000 / bln",
     slaCompact: "SLA dedikasi Rp 1,25jt – 1,75jt/bln",
     popular: false,
+    contextStory: "Cocok untuk bengkel servis atau distributor yang butuh kontrol stok spare part ketat.",
     modulesIncluded: ["Core Engine", "Work Orders (SPK & Stall Kanban)", "Purchasing (PO Supplier)", "Inventory Onderdil", "Delivery Dispatch", "Audit Trail"],
     features: [
       "Surat Perintah Kerja (SPK) & Stall Kanban teknisi",
