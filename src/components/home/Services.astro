@@ -24,10 +24,21 @@ import { corePractices } from '../../data/services';
       {corePractices.map((practice) => (
         <div class="bg-white rounded-2xl border border-stone-200/90 p-7 sm:p-8 flex flex-col justify-between hover:border-primary-400 hover:shadow-xl hover:shadow-primary-100/50 transition-all duration-200">
           <div>
-            <!-- Card Header: Icon + Badge -->
+            <!-- Card Header: Icon/Photo + Badge -->
             <div class="flex items-center justify-between gap-3 mb-6">
-              <div class="w-12 h-12 rounded-xl bg-primary-50 border border-primary-200/80 text-primary-700 flex items-center justify-center shrink-0">
-                <Icon name={practice.icon} class="w-6 h-6" />
+              <div class="w-12 h-12 rounded-xl overflow-hidden shrink-0 border border-stone-200">
+                {practice.id === 'product-engineering' ? (
+                  <img 
+                    src="/images/service-inventory.jpg" 
+                    alt="" 
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-full h-full bg-primary-50 border border-primary-200/80 text-primary-700 flex items-center justify-center">
+                    <Icon name={practice.icon} class="w-6 h-6" />
+                  </div>
+                )}
               </div>
               <span class="text-[11px] font-mono font-semibold px-2.5 py-1 rounded bg-primary-50 text-primary-900 border border-primary-200/80">
                 {practice.badge}

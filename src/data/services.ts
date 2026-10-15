@@ -21,8 +21,8 @@ export const corePractices: CorePractice[] = [
   {
     id: "product-engineering",
     title: "Sistem Operasional & Modul Bisnis",
-    badge: "Operational App",
-    tagline: "Kontrol stok, kasir, nota, dan antrean pelanggan.",
+    badge: "Toko, Laundry, Bengkel",
+    tagline: "Ganti spreadsheet dengan sistem yang langsung dipakai tim.",
     description:
       "Gantikan spreadsheet berceceran dengan sistem internal terpadu yang mudah dipakai seluruh tim dari laptop maupun ponsel.",
     deliverables: [
@@ -37,8 +37,8 @@ export const corePractices: CorePractice[] = [
   {
     id: "system-modernization",
     title: "Website & Profil Bisnis Resmi",
-    badge: "Web & Brand",
-    tagline: "Tampil kredibel di mata pelanggan dan mitra bisnis.",
+    badge: "Website Bisnis",
+    tagline: "Profil bisnis yang rapi & mudah ditemukan di Google.",
     description:
       "Pintu masuk digital cepat saji untuk bisnis yang ingin tampil profesional, mudah ditemukan di Google, dan langsung terhubung ke WhatsApp.",
     deliverables: [
@@ -53,8 +53,8 @@ export const corePractices: CorePractice[] = [
   {
     id: "dedicated-tools",
     title: "Custom Engineering & Sistem Khusus",
-    badge: "Custom Scale",
-    tagline: "Integrasi API, armada IoT, & alur bisnis kompleks.",
+    badge: "IoT & Enterprise",
+    tagline: "Untuk kebutuhan skala besar: armada, sensor, & integrasi hardware.",
     description:
       "Solusi rekayasa perangkat lunak untuk kebutuhan skala besar: penanganan jutaan data harian, sinkronisasi antar cabang, dan integrasi hardware.",
     deliverables: [
