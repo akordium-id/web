@@ -148,59 +148,72 @@ const homepageBundles = verticalBundles.slice(0, 3);
       })}
     </div>
 
-    <!-- Flexible Budget / Phased Rollout Callout -->
-    <div class="mt-8 p-5 sm:p-6 rounded-2xl bg-stone-50 border border-stone-200/90 text-center max-w-3xl mx-auto shadow-2xs">
-      <div class="inline-flex items-center gap-2 px-3 py-0.5 rounded-full bg-accent-50 text-accent-700 text-[11px] font-bold font-mono uppercase tracking-wider mb-2 border border-accent-200/80">
-        Investasi Fleksibel & Bertahap
+    <!-- Flexible Budget / Phased Rollout Callout with Micro Pulse Effect -->
+    <div class="mt-10 p-6 sm:p-7 rounded-2xl bg-white border border-accent-200/90 text-center max-w-3xl mx-auto shadow-sm relative overflow-hidden">
+      <!-- Top subtle warm glow line -->
+      <div class="absolute top-0 left-0 right-0 h-1 bg-linear-to-r from-accent-400 via-accent-500 to-accent-600"></div>
+
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent-50 text-accent-700 text-xs font-bold font-mono tracking-wide mb-3 border border-accent-200 shadow-2xs">
+        <span class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-accent-600"></span>
+        </span>
+        <span>Investasi Fleksibel &amp; Bisa Disesuaikan</span>
       </div>
-      <h4 class="text-sm sm:text-base font-bold text-stone-900">
-        Punya anggaran tertentu atau butuh alur yang lebih ringkas?
+      <h4 class="text-base sm:text-lg font-bold text-stone-900">
+        Punya anggaran tertentu atau ingin mulai dari fitur prioritas?
       </h4>
-      <p class="text-xs text-stone-600 mt-1.5 leading-relaxed max-w-2xl mx-auto">
-        Paket di atas adalah acuan implementasi standar. Kami sangat terbuka menyesuaikan cakupan fitur (scope) atau membagi implementasi secara bertahap (fase 1 prioritas inti) agar pas dengan kesiapan budget bisnis Anda.
+      <p class="text-xs sm:text-sm text-stone-600 mt-2 leading-relaxed max-w-2xl mx-auto">
+        Paket di atas adalah acuan implementasi standar. Kami sangat terbuka menyesuaikan cakupan modul (scope) atau membagi pengerjaan secara bertahap agar pas dengan anggaran dan kesiapan tim Anda.
       </p>
-      <div class="mt-3.5">
+      <div class="mt-4 pt-1">
         <a
           href="https://wa.me/628159988995?text=Halo%20Akordium%20Lab%2C%20saya%20tertarik%20dengan%20sistem%20operasional%20tetapi%20ingin%20konsultasi%20penyesuaian%20scope%20fitur%20dan%20budget."
           target="_blank"
           rel="noopener noreferrer"
-          class="inline-flex items-center gap-1.5 text-xs font-bold text-accent-700 hover:text-accent-800 transition-colors"
+          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-accent-600 hover:bg-accent-700 text-white text-xs font-bold transition-all shadow-md shadow-accent-600/20 active:scale-95"
         >
-          <span>Diskusikan penyesuaian alur & anggaran via WhatsApp &rarr;</span>
+          <span>Diskusikan Penyesuaian Anggaran via WhatsApp &rarr;</span>
         </a>
       </div>
     </div>
 
-    <!-- Catalog & Extended Options Callout -->
-    <div class="mt-8 p-6 sm:p-8 rounded-2xl bg-white border border-stone-200/80 flex flex-col lg:flex-row lg:items-center justify-between gap-6 shadow-xs">
-      <div class="flex items-start sm:items-center gap-4">
-        <div class="w-12 h-12 rounded-xl bg-primary-50 text-primary-900 border border-primary-200 flex items-center justify-center shrink-0">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-          </svg>
+    <!-- Catalog & Extended Options Callout: Restructured & Proportionate -->
+    <div class="mt-8 p-6 sm:p-8 rounded-2xl bg-white border border-stone-200/90 shadow-sm">
+      <div class="grid lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-8 flex items-start sm:items-center gap-4">
+          <div class="w-11 h-11 rounded-xl bg-primary-50 text-primary-900 border border-primary-200 flex items-center justify-center shrink-0">
+            <svg class="w-5 h-5 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="text-sm sm:text-base font-bold text-stone-900 leading-snug">
+              Butuh Paket D (Multi-Cabang), Paket E (ERP Custom), atau Integrasi AI MCP?
+            </h4>
+            <p class="text-xs text-stone-500 mt-1 leading-relaxed">
+              Buka katalog interaktif untuk simulasi rincian teknis seluruh tingkatan paket A–E dan opsi kustomisasi skala besar.
+            </p>
+          </div>
         </div>
-        <div>
-          <h4 class="text-base font-bold text-stone-900">
-            Mencari Paket D (Retail Multi-Cabang), Paket E (Enterprise ERP), atau Custom Engineering?
-          </h4>
-          <p class="text-xs sm:text-sm text-stone-600 mt-1 leading-relaxed">
-            Halaman katalog memuat rincian lengkap seluruh paket A, B, C, D, E, integrasi AI MCP, dan skema kustomisasi bisnis skala besar.
-          </p>
+
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col sm:items-center lg:items-end gap-2.5 shrink-0">
+          <a
+            href="/catalog"
+            class="w-full sm:w-auto lg:w-full inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-primary-950 hover:bg-primary-900 text-white text-xs font-bold transition-all shadow-sm text-center"
+          >
+            <span>Buka Katalog Lengkap</span>
+            <svg class="w-3.5 h-3.5 text-accent-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a
+            href="#modules"
+            class="text-center text-xs font-semibold text-stone-500 hover:text-primary-900 transition-colors py-1"
+          >
+            atau eksplor Modul À La Carte &darr;
+          </a>
         </div>
-      </div>
-      <div class="flex flex-wrap items-center gap-3 shrink-0">
-        <a
-          href="/catalog"
-          class="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-primary-950 hover:bg-primary-900 text-white text-xs font-bold transition-all shadow-sm"
-        >
-          Lihat Detail Semua Paket di Katalog &rarr;
-        </a>
-        <a
-          href="#modules"
-          class="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-stone-100 hover:bg-stone-200 text-stone-800 text-xs font-bold transition-colors"
-        >
-          Katalog Modul À La Carte &darr;
-        </a>
       </div>
     </div>
   </div>

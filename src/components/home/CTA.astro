@@ -32,7 +32,11 @@ const waUrl = `https://wa.me/628159988995?text=${encodeURIComponent(whatsappText
 
     <!-- Title & Description -->
     <h2 class="font-sans text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white mb-6 leading-tight tracking-tight">
-      {title}
+      {title === "Ada Alur Bisnis yang Ingin Dibereskan?" ? (
+        <>Ada Alur Bisnis <br class="hidden sm:inline" />yang Ingin Dibereskan?</>
+      ) : (
+        <span set:html={title} />
+      )}
     </h2>
     <p class="text-primary-200/80 text-base sm:text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
       {description}
