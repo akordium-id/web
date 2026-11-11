@@ -7,9 +7,9 @@ title_id: "Checklist Pilot Sistem Armada: Integrasi, Pemilik Proses, dan Kriteri
 category: "System Implementation"
 ---
 
-A fleet-system pilot can help a business assess whether a solution fits before expanding its use. But calling a project a “pilot” does not automatically make it small or safe. Without a defined scope, process owner, and evaluation criteria, a team can run a trial without knowing whether it should continue.
+A fleet-system pilot helps a business assess whether a solution fits before expanding its use. Define the scope, process owner, and evaluation criteria at the start so the team can judge the results.
 
-Use this checklist to plan a pilot discussion. Specific schedules, service levels, costs, and outcomes must be agreed by the people involved; this article does not set those figures or commitments.
+We suggest a pilot with one problem and one user group. Schedules, service levels, costs, and outcomes are agreed by the people involved; this checklist does not set those figures or commitments.
 
 ## 1. Choose one problem and set the pilot boundary
 
@@ -26,17 +26,17 @@ Answer:
 
 Each stage needs an accountable person. Identify the operational owner, decision-maker, data owner, and technical contact. Clarify who reviews results, who may change records, and how the team handles issues during the trial.
 
-Keep the workflow clear when staff change shifts or are unavailable. A new system should not make follow-up responsibility less clear.
+Keep the workflow clear when staff change shifts or are unavailable, so follow-up responsibility stays visible.
 
 ## 3. Inventory integrations and data
 
 List the systems and sources involved: trackers, spreadsheets, order systems, maps, or other applications. For each integration, document its access owner, data format and frequency, known quality limitations, and usage or retention restrictions.
 
-If GPS data is involved, verify support for the specific device model and integration. Do not assume every tracker uses the same protocol. Define what happens when data is delayed, duplicated, or unavailable, and who can investigate the source.
+If GPS data is involved, verify support for the specific device model and integration, because protocols differ between trackers. Define what happens when data is delayed, duplicated, or unavailable, and who can investigate the source.
 
 ## 4. Clarify security and access
 
-Define what data is needed and who needs to see it. Agree on role-based access, account provisioning and removal, and a process for reporting issues. Decide how personal or operational data will be handled during the trial. Do not put live data into a test environment without suitable approval and safeguards.
+Define what data is needed and who needs to see it. Agree on role-based access, account provisioning and removal, and a process for reporting issues. Decide how personal or operational data will be handled during the trial. Put live data into a test environment only with suitable approval and safeguards.
 
 ## 5. Set acceptance criteria before starting
 
@@ -50,7 +50,7 @@ For each criterion, define:
 - measurement limits or exceptions;
 - who will approve the result.
 
-Do not choose a target after seeing the result. If a baseline is unavailable, record that limitation and use the initial phase to collect a useful baseline.
+Set targets before seeing the result. If a baseline is unavailable, record that limitation and use the initial phase to collect a useful baseline.
 
 ## 6. Agree on the decision after the pilot
 
@@ -60,7 +60,7 @@ Before starting, decide who will determine whether to:
 - change the workflow or scope and test again;
 - stop because the problem remains unresolved or the risk is unacceptable.
 
-Record the reasons for the decision, unresolved findings, dependencies, and operational costs that need review. The result of one pilot does not automatically apply to every unit or location.
+Record the reasons for the decision, unresolved findings, dependencies, and operational costs that need review. The result of one pilot applies to the units and locations that were tested.
 
 ## Checklist summary
 
@@ -71,6 +71,4 @@ Record the reasons for the decision, unresolved findings, dependencies, and oper
 - [ ] Acceptance criteria and measurement methods are set before testing.
 - [ ] The continue/change/stop decision has an owner and review date.
 
-If you are planning a fleet-system pilot, [talk with Akordium Lab about the scope and workflow](https://akordium.id/contact). An initial discussion can clarify assumptions and dependencies before implementation is defined.
-
-For engineering teams evaluating pipeline resilience, the [technical article about real-time GPS pipeline reliability](https://najib.id/en/writing/2026/realtime-pipeline-reliability/) will be a companion reference once published.
+To discuss pilot scope and process ownership, [send Akordium Lab a list of the systems and data involved](https://akordium.id/contact). From that list we can map assumptions and dependencies before implementation is defined.

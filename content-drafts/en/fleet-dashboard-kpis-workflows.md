@@ -7,9 +7,9 @@ title_id: "Dashboard Armada: KPI dan Workflow Apa yang Layak Dipantau?"
 category: "Dashboard & Internal Systems"
 ---
 
-Fleet dashboards often start with the question, “Which charts should we show?” A more useful question is, “Which decisions should become easier?” A polished chart cannot help much if its data is delayed, teams define the metric differently, or nobody follows up when a number changes.
+A polished chart is useful when its data is current enough, teams use the same metric definition, and someone follows up when a number changes.
 
-Use this guide to decide what is worth monitoring before choosing a layout or building a dashboard.
+For that reason, we suggest starting with one question: which decision becomes easier if this number is available?
 
 ## Start with a decision and workflow
 
@@ -23,7 +23,7 @@ For each decision, record:
 - what action follows from that information;
 - what happens if the information is late or incomplete.
 
-If no action changes after a metric is seen, consider leaving it out. A dashboard is not the end goal—it helps people understand a situation and choose what to do next.
+A metric that does not change an action is better left out.
 
 ## Define KPIs before designing charts
 
@@ -42,7 +42,7 @@ Avoid creating one dashboard for every role. Operators may need a list of tasks 
 
 Before building charts, check whether sources use consistent timestamps and status definitions, and how they handle duplicate or late records. Metrics calculated from incomplete data need context. If users cannot see when the data was last updated, they may mistake an old state for a current one.
 
-Location history, for example, has implications for storage, queries, and retention. For a technical perspective, read [the article about storing GPS data with PostgreSQL and TimescaleDB](https://najib.id/en/writing/2026/gps-data-postgresql-timescaledb/). Akordium also has [a separate article about GPS data growth](https://akordium.id/blog/why-gps-system-slows-down-as-fleet-grows/). This guide focuses on choosing dashboard decisions and workflows; it does not repeat that article's performance or migration claims.
+Location history, for example, affects storage, queries, and retention. For a system that slows as data grows, read [our article about GPS data growth](https://akordium.id/blog/why-gps-system-slows-down-as-fleet-grows/).
 
 ## Design the view around an action
 
@@ -54,10 +54,10 @@ Once the metrics and users are clear, choose components that support an action:
 - filters for specific units, periods, or areas;
 - indicators for data freshness and quality.
 
-Use colors and charts consistently. Do not use warning colors as decoration; make sure their meaning is clear and supported by text.
+Use colors and charts consistently, and add text that explains the meaning of each warning color.
 
 ## Pilot the dashboard within a limited scope
 
 Choose a specific user group and decision for an initial trial. Check whether the necessary data is available, whether metric definitions are understood, and whether the dashboard improves the workflow. Record unanswered questions and misleading views. Fix definitions and data sources before adding more charts.
 
-If you want to choose metrics for a fleet workflow, [talk with Akordium Lab about a dashboard or internal system](https://akordium.id/contact). Start with the decision you want to support, not a list of charts you want built.
+To choose metrics for a fleet workflow, [bring one operational decision to a discussion with Akordium Lab](https://akordium.id/contact). From that decision we can work out the metrics and views you need.

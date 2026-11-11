@@ -7,9 +7,9 @@ title_id: "Elemen Website Perusahaan Logistik untuk Menghasilkan Permintaan Pena
 category: "Website & Lead Generation"
 ---
 
-People visiting a logistics company's website often need quick answers: what services are available, which areas are covered, what kinds of shipments can be handled, and how to request a quote. If those answers are difficult to find, a prospective customer has to guess or start from scratch through another channel.
+Visitors to a logistics company's website need to find its services, coverage areas, shipment types, and quote-request process quickly. When that information is hard to find, prospective customers may have to guess or contact the business through another channel.
 
-A website cannot guarantee that someone will contact your business. A clear website can, however, help prospective customers assess whether your service fits and make the next step easier.
+We suggest building the website around the questions prospective customers ask most often, so they can assess whether a service fits and find the next step.
 
 ## Start with the customers and services you want to reach
 
@@ -22,13 +22,13 @@ Write down the answers to these questions:
 - Which service areas are actually available?
 - What information does your team need to prepare a quote?
 
-Use those answers to shape the site's navigation and copy. If the company provides several services, explain the differences in language customers understand instead of relying only on internal terminology.
+Use those answers to shape the site's navigation and copy. If the company provides several services, explain the differences in language customers understand.
 
 ## Show information that helps people judge the fit
 
-A service page should describe the scope of work concretely. For example, explain whether pickup, delivery, distribution, or coordination is included—but only when it is genuinely part of the service.
+A service page should describe the scope of work concretely. For example, explain whether pickup, delivery, distribution, or coordination is included, provided it is genuinely part of the service.
 
-An about page can explain the company's experience, how it works, and who handles communication. If you have proof that may be published—such as current certifications, operating areas, or testimonials with permission—present it accurately. Do not use client logos, volume figures, coverage claims, or testimonials without permission and a verifiable source.
+An about page can explain the company's experience, how it works, and who handles communication. If you have proof that may be published, such as current certifications, operating areas, or testimonials with permission, present it accurately. Use client logos, volume figures, coverage claims, and testimonials only with permission and a verifiable source.
 
 Photos of actual vehicles or facilities can provide context when they are approved for publication. Decorative imagery is not a substitute for service information.
 
@@ -42,15 +42,15 @@ A good form asks for enough information to start the conversation. For a logisti
 - shipment frequency or approximate timing;
 - other relevant notes.
 
-Do not ask for information that is not yet needed. Explain what happens after submission—for example, who reviews the request and how the customer can follow up. Provide an alternative contact method for people who cannot use the form.
+Ask for the information needed to start, then explain what happens after submission. Say who reviews the request and how the customer can follow up. Provide an alternative contact method.
 
-The inquiry process also depends on internal operations. Decide who receives a request, who follows up, and how its status is tracked. A form without an owner does not ensure that an opportunity is handled.
+The inquiry process also depends on internal operations. Decide who receives a request, who follows up, and how its status is tracked.
 
 ## Measure quality, not just clicks
 
 Before changing the site, record an observable baseline: which pages are visited, how many inquiries arrive through measurable channels, and how many fit the services offered. The available data may be incomplete; document its limitations.
 
-After a change, compare similar periods and conditions when possible. Check whether prospective customers understand the offer better, whether the information they provide is actionable, and whether the team follows up consistently. Do not claim that a particular change caused more sales unless the measurement supports that conclusion.
+After a change, compare similar periods and conditions when possible. Check whether prospective customers understand the offer better, whether the information they provide is actionable, and whether the team follows up consistently. Attribute a sales increase to a particular change only when the measurement supports it.
 
 ## Pre-launch checklist
 
@@ -61,6 +61,4 @@ After a change, compare similar periods and conditions when possible. Check whet
 - Contact details and data-use practices reflect the actual business.
 - A simple baseline is available for assessing inquiry quality after launch.
 
-A useful website gives prospective customers enough information to make a decision. It still depends on clear services, consistent follow-up, and realistic measurement.
-
-If you are improving your website or quote-request process, [talk with Akordium Lab about your business needs](https://akordium.id/contact). For technical context on how GPS devices communicate, see [the article about GPS tracker protocols](https://najib.id/en/writing/2026/memahami-gps-protocol/).
+To improve service information or the quote-request process, [send Akordium Lab your current service page and quote form](https://akordium.id/contact). From those pages we can see which information still leaves prospective customers' questions unanswered.
