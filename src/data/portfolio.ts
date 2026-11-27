@@ -56,7 +56,7 @@ export const portfolioItems: PortfolioItem[] = [
     ],
     highlight:
       "Arsitektur telemetri Go + TimescaleDB untuk kompresi data time-series masif.",
-    liveUrl: "https://gps.orin.id",
+    liveUrl: "https://app.orin.id",
   },
   {
     id: "katauser",
