@@ -45,7 +45,7 @@ export const corePractices: CorePractice[] = [
       "Website profil & katalog interaktif super cepat",
       "Optimasi SEO Google & tombol chat WhatsApp",
       "Terintegrasi form penawaran harga & email",
-      "Serah terima cepat dalam 3–7 hari kerja",
+      "Serah terima cepat dalam 4-7 hari kerja",
     ],
     techStack: ["Astro", "Tailwind CSS", "Cloudflare"],
     icon: "lucide:monitor-smartphone",

@@ -30,7 +30,7 @@ export const formatCompactRange = (min: number, max: number): string => {
   const maxJt = max / 1_000_000;
   const minStr = Number.isInteger(minJt) ? minJt.toString() : minJt.toFixed(1).replace('.', ',');
   const maxStr = Number.isInteger(maxJt) ? maxJt.toString() : maxJt.toFixed(1).replace('.', ',');
-  return `Rp ${minStr}jt – ${maxStr}jt`;
+  return `Rp ${minStr}jt - ${maxStr}jt`;
 };
 
 // -------------------------------------------------------------
@@ -38,7 +38,7 @@ export const formatCompactRange = (min: number, max: number): string => {
 // -------------------------------------------------------------
 
 export const BASE_SYSTEM_PRICE = 5_500_000;
-export const BASE_SYSTEM_DAYS = 2;
+export const BASE_SYSTEM_DAYS = 4;
 
 // -------------------------------------------------------------
 // 3. INTERFACES
@@ -166,13 +166,13 @@ export const verticalBundles: VerticalBundle[] = [
     targetCompact: "Supplier, katering, jasa profesional & agensi rintisan.",
     priceMin: 5_500_000,
     priceMax: 8_500_000,
-    priceRange: formatRupiah(5_500_000) + " – " + formatRupiah(8_500_000),
+    priceRange: formatRupiah(5_500_000) + " - " + formatRupiah(8_500_000),
     priceCompact: formatCompactRange(5_500_000, 8_500_000),
-    duration: "1 – 2 hari kerja",
+    duration: "4 - 7 hari kerja",
     maintenanceMonthly: "Rp 450.000 / bln (opsional)",
     slaCompact: "SLA opsional Rp 450rb/bln",
     popular: false,
-    contextStory: "Cocok untuk laundry 1–2 cabang yang masih pakai WhatsApp untuk catat orderan.",
+    contextStory: "Cocok untuk katering atau jasa profesional yang masih kirim invoice manual lewat chat.",
     modulesIncluded: ["Catalog & Products", "CRM / Customers", "Invoices & Payments", "WhatsApp Gateway", "Discounts & Vouchers"],
     features: [
       "Landing Page Publik SEO berkecepatan tinggi",
@@ -192,14 +192,14 @@ export const verticalBundles: VerticalBundle[] = [
     targetCompact: "Laundry, klinik estetika, salon, rental armada & bimbel.",
     priceMin: 12_500_000,
     priceMax: 18_500_000,
-    priceRange: formatRupiah(12_500_000) + " – " + formatRupiah(18_500_000),
+    priceRange: formatRupiah(12_500_000) + " - " + formatRupiah(18_500_000),
     priceCompact: formatCompactRange(12_500_000, 18_500_000),
-    duration: "3 – 5 hari kerja",
-    maintenanceMonthly: "Rp 650.000 – Rp 950.000 / bln",
-    slaCompact: "SLA & ops Rp 650rb – 950rb/bln",
+    duration: "7 - 14 hari kerja",
+    maintenanceMonthly: "Rp 650.000 - Rp 950.000 / bln",
+    slaCompact: "SLA & ops Rp 650rb - 950rb/bln",
     popular: true,
-    contextStory: "Cocok untuk toko kelontong atau bengkel yang stoknya sering selisih tiap bulan.",
-    modulesIncluded: ["Semua Fitet Paket A", "Order Kanban / Booking Swimlane", "Inventory Ledger (FIFO/LIFO)", "Staff Commissions", "Multi-User Roles"],
+    contextStory: "Cocok untuk laundry, klinik, atau salon yang jadwal & stok bahannya sering selisih.",
+    modulesIncluded: ["Semua Fitur Paket A", "Order Kanban / Booking Swimlane", "Inventory Ledger (FIFO/LIFO)", "Staff Commissions", "Multi-User Roles"],
     features: [
       "Seluruh cakupan Paket A Starter",
       "Workflow Vertikal (Kanban Laundry / Booking Swimlane / Course Roster)",
@@ -218,11 +218,11 @@ export const verticalBundles: VerticalBundle[] = [
     targetCompact: "Bengkel, service center, kontraktor interior & distributor.",
     priceMin: 22_000_000,
     priceMax: 35_000_000,
-    priceRange: formatRupiah(22_000_000) + " – " + formatRupiah(35_000_000),
+    priceRange: formatRupiah(22_000_000) + " - " + formatRupiah(35_000_000),
     priceCompact: formatCompactRange(22_000_000, 35_000_000),
-    duration: "5 – 7 hari kerja",
-    maintenanceMonthly: "Rp 1.250.000 – Rp 1.750.000 / bln",
-    slaCompact: "SLA dedikasi Rp 1,25jt – 1,75jt/bln",
+    duration: "14 - 21 hari kerja",
+    maintenanceMonthly: "Rp 1.250.000 - Rp 1.750.000 / bln",
+    slaCompact: "SLA dedikasi Rp 1,25jt - 1,75jt/bln",
     popular: false,
     contextStory: "Cocok untuk bengkel servis atau distributor yang butuh kontrol stok spare part ketat.",
     modulesIncluded: ["Core Engine", "Work Orders (SPK & Stall Kanban)", "Purchasing (PO Supplier)", "Inventory Onderdil", "Delivery Dispatch", "Audit Trail"],
@@ -244,11 +244,11 @@ export const verticalBundles: VerticalBundle[] = [
     targetCompact: "Retail multi-cabang, franchise F&B & toko grosir.",
     priceMin: 28_000_000,
     priceMax: 40_000_000,
-    priceRange: formatRupiah(28_000_000) + " – " + formatRupiah(40_000_000),
+    priceRange: formatRupiah(28_000_000) + " - " + formatRupiah(40_000_000),
     priceCompact: formatCompactRange(28_000_000, 40_000_000),
-    duration: "7 – 10 hari kerja",
-    maintenanceMonthly: "Rp 1.500.000 – Rp 2.250.000 / bln",
-    slaCompact: "SLA multi-cabang Rp 1,5jt – 2,25jt/bln",
+    duration: "21 - 28 hari kerja",
+    maintenanceMonthly: "Rp 1.500.000 - Rp 2.250.000 / bln",
+    slaCompact: "SLA multi-cabang Rp 1,5jt - 2,25jt/bln",
     popular: false,
     modulesIncluded: ["POS Multi-Cashier", "Branch Transfers", "Daily Cash Drawer", "Price Tiers", "Customer Loyalty Points"],
     features: [
@@ -271,9 +271,9 @@ export const verticalBundles: VerticalBundle[] = [
     priceMax: 75_000_000,
     priceRange: "Mulai " + formatRupiah(45_000_000),
     priceCompact: "Mulai " + formatCompactJt(45_000_000),
-    duration: "10 – 14 hari kerja",
-    maintenanceMonthly: "Rp 2.500.000 – Rp 4.000.000 / bln",
-    slaCompact: "SLA 2 jam dedicated Rp 2,5jt – 4jt/bln",
+    duration: "28 - 42 hari kerja",
+    maintenanceMonthly: "Rp 2.500.000 - Rp 4.000.000 / bln",
+    slaCompact: "SLA 2 jam dedicated Rp 2,5jt - 4jt/bln",
     popular: false,
     modulesIncluded: ["Seluruh Modul Aktif (14+ Modul)", "MCP Server Endpoint", "Multi-Branch Isolation", "Custom Integrations", "SLA Dedicated"],
     features: [
@@ -415,7 +415,7 @@ export const products: Product[] = [
       'Copywriting bisnis & penataan katalog produk/jasa ringkas',
       'Integrasi Google Maps & Direct WhatsApp Chat',
       'Optimasi SEO dasar untuk nama brand di Google',
-      'Selesai dan serah terima dalam 1–2 hari kerja'
+      'Selesai dan serah terima dalam 4-5 hari kerja'
     ],
     features: [
       { title: 'Desain Responsif & Modern', description: 'Tampilan bersih dan ramah dibuka di semua smartphone.', included: true },
@@ -426,11 +426,11 @@ export const products: Product[] = [
       { title: 'Dashboard Admin Mandiri', description: 'Belum termasuk panel edit mandiri (cocok untuk profil statis).', included: false },
     ],
     pricingModel: 'fixed',
-    startingPrice: 5_500_000,
-    priceFormatted: formatRupiah(5_500_000),
-    priceCompact: formatCompactJt(5_500_000),
-    priceSubtext: 'Paket Starter terintegrasi / 1x investasi',
-    estimatedDuration: '1–2 hari kerja',
+    startingPrice: 3_000_000,
+    priceFormatted: formatRupiah(3_000_000),
+    priceCompact: formatCompactJt(3_000_000),
+    priceSubtext: 'Website profil statis / 1x investasi',
+    estimatedDuration: '4-5 hari kerja',
     maintenance: {
       available: true,
       text: 'Opsional: SLA maintenance & update konten mulai Rp 450.000/bulan.',
@@ -441,12 +441,12 @@ export const products: Product[] = [
     ],
     faq: [
       {
-        question: 'Apakah harga Rp 5,5jt sudah termasuk serah terima penuh?',
+        question: 'Apakah harga Rp 3jt sudah termasuk serah terima penuh?',
         answer: 'Ya. Seluruh kode sumber, database, dan konfigurasi server diserahterimakan 100% menjadi aset milik bisnis Anda tanpa biaya lisensi per user.',
       },
       {
         question: 'Berapa lama proses pengerjaannya?',
-        answer: 'Rata-rata 1–2 hari kerja setelah materi (identitas bisnis, foto produk/layanan, kontak) kami terima.',
+        answer: 'Rata-rata 4-5 hari kerja setelah materi (identitas bisnis, foto produk/layanan, kontak) kami terima.',
       },
     ],
   },
@@ -476,11 +476,11 @@ export const products: Product[] = [
       { title: 'Garansi Performa Skor Lighthouse 90+', included: true },
     ],
     pricingModel: 'fixed',
-    startingPrice: 6_500_000,
-    priceFormatted: formatRupiah(6_500_000),
-    priceCompact: formatCompactJt(6_500_000),
+    startingPrice: 4_000_000,
+    priceFormatted: formatRupiah(4_000_000),
+    priceCompact: formatCompactJt(4_000_000),
     priceSubtext: 'per penawaran / campaign terintegrasi',
-    estimatedDuration: '2–3 hari kerja',
+    estimatedDuration: '4-7 hari kerja',
     addons: [
       { id: 'ab-variant', name: 'Varian Landing Page A/B Testing', price: 1500000, priceFormatted: 'Rp 1.500.000', description: '1 varian headline dan copy alternatif untuk menguji respon audiens.' }
     ],
@@ -528,7 +528,7 @@ export const products: Product[] = [
     priceFormatted: formatCompactRange(12_500_000, 18_500_000),
     priceCompact: formatCompactRange(12_500_000, 18_500_000),
     priceSubtext: 'Paket Vertical Pro (1x investasi / deploy mandiri)',
-    estimatedDuration: '3–5 hari kerja',
+    estimatedDuration: '7-14 hari kerja',
     maintenance: {
       available: true,
       text: 'Garansi bug 30 hari + opsi SLA maintenance hosting & backup mulai Rp 650.000/bulan.',
@@ -561,10 +561,10 @@ export const products: Product[] = [
       'Software custom dari nol terasa menakutkan biayanya dan sering molor berbulan-bulan.',
     ],
     solution: 'Mulai dari paket base berbiaya terjangkau, lalu sambungkan modul-modul bisnis teruji (Pelanggan, Order, Invoice, Laporan) sesuai workflow unik Anda.',
-    targetAudience: ['Bisnis Berkembang (5–30 staf)', 'Jasa Operasional & Agensi', 'Pabrikasi / Workshop Khusus'],
+    targetAudience: ['Bisnis Berkembang (5-30 staf)', 'Jasa Operasional & Agensi', 'Pabrikasi / Workshop Khusus'],
     keyHighlights: [
       'Base fondasi mulai Rp 5,5jt (sudah termasuk core engine + dasbor utama)',
-      'Modul tambahan transparan: mulai Rp 1,5jt – 3,5jt per modul',
+      'Modul tambahan transparan: mulai Rp 1,5jt - 3,5jt per modul',
       'Kepemilikan penuh 100% kode & database di server Anda',
       'Tidak ada biaya lisensi per user bulanan'
     ],
@@ -580,7 +580,7 @@ export const products: Product[] = [
     priceFormatted: 'Base ' + formatRupiah(BASE_SYSTEM_PRICE),
     priceCompact: 'Base ' + formatCompactJt(BASE_SYSTEM_PRICE),
     priceSubtext: '+ modul pilihan (mulai Rp 1,5M - 3,5M)',
-    estimatedDuration: '3–7 hari kerja',
+    estimatedDuration: '7-14 hari kerja',
     addons: [
       { id: 'wa-gateway', name: 'Integrasi WhatsApp Notifikasi Otomatis', price: 2500000, priceFormatted: 'Rp 2.500.000', description: 'Kirim notifikasi otomatis ke WA customer saat invoice terbit atau status order berubah.' }
     ],
@@ -621,7 +621,7 @@ export const products: Product[] = [
     priceFormatted: 'Custom Quote',
     priceCompact: 'Custom Quote',
     priceSubtext: 'sesuai ruang lingkup & tingkat kompleksitas',
-    estimatedDuration: '3–8 minggu kerja',
+    estimatedDuration: '3-8 minggu kerja',
     faq: [
       {
         question: 'Kenapa harga custom software tidak langsung dipatok angka pasti?',
@@ -760,9 +760,9 @@ export const solutionPacks: SolutionPack[] = [
     recommendedModules: ['inventory', 'sales', 'invoice', 'customer', 'reporting'],
     priceMin: 12_500_000,
     priceMax: 18_500_000,
-    estimatedPriceRange: formatRupiah(12_500_000) + ' – ' + formatRupiah(18_500_000),
+    estimatedPriceRange: formatRupiah(12_500_000) + ' - ' + formatRupiah(18_500_000),
     priceCompact: formatCompactRange(12_500_000, 18_500_000),
-    estimatedDuration: '3–5 hari kerja'
+    estimatedDuration: '7-14 hari kerja'
   },
   {
     id: 'bengkel-service',
@@ -773,9 +773,9 @@ export const solutionPacks: SolutionPack[] = [
     recommendedModules: ['customer', 'inventory', 'sales', 'invoice', 'reporting'],
     priceMin: 22_000_000,
     priceMax: 35_000_000,
-    estimatedPriceRange: formatRupiah(22_000_000) + ' – ' + formatRupiah(35_000_000),
+    estimatedPriceRange: formatRupiah(22_000_000) + ' - ' + formatRupiah(35_000_000),
     priceCompact: formatCompactRange(22_000_000, 35_000_000),
-    estimatedDuration: '5–7 hari kerja'
+    estimatedDuration: '14-21 hari kerja'
   },
   {
     id: 'salon-beauty',
@@ -786,9 +786,9 @@ export const solutionPacks: SolutionPack[] = [
     recommendedModules: ['booking', 'customer', 'membership', 'sales', 'wa-notification'],
     priceMin: 14_500_000,
     priceMax: 18_500_000,
-    estimatedPriceRange: formatRupiah(14_500_000) + ' – ' + formatRupiah(18_500_000),
+    estimatedPriceRange: formatRupiah(14_500_000) + ' - ' + formatRupiah(18_500_000),
     priceCompact: formatCompactRange(14_500_000, 18_500_000),
-    estimatedDuration: '3–5 hari kerja'
+    estimatedDuration: '7-14 hari kerja'
   },
   {
     id: 'agency-project',
@@ -799,9 +799,9 @@ export const solutionPacks: SolutionPack[] = [
     recommendedModules: ['customer', 'invoice', 'reporting', 'role-approval'],
     priceMin: 5_500_000,
     priceMax: 8_500_000,
-    estimatedPriceRange: formatRupiah(5_500_000) + ' – ' + formatRupiah(8_500_000),
+    estimatedPriceRange: formatRupiah(5_500_000) + ' - ' + formatRupiah(8_500_000),
     priceCompact: formatCompactRange(5_500_000, 8_500_000),
-    estimatedDuration: '1–2 hari kerja'
+    estimatedDuration: '4-7 hari kerja'
   }
 ];
 
@@ -815,7 +815,7 @@ export const calculateEstimatedSystem = (selectedModuleIds: string[], businessSc
 
   const selectedModules = modules.filter(m => selectedModuleIds.includes(m.id));
   const modulesPrice = selectedModules.reduce((sum, m) => sum + m.estimatedCost, 0);
-  const extraDays = selectedModules.length * 0.75;
+  const extraDays = selectedModules.length * 1.5;
 
   let multiplier = 1.0;
   if (businessScale === 'small') multiplier = 1.15;
